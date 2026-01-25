@@ -2487,6 +2487,232 @@ export const COMPOUND_WORDS = new Set<string>([
     'sys-admin', // (Tech)
     'system-wide',
 
+    // T (Modern & Tech Supplement)
+    't-bone', 't-junction', 't-shirt', // (Already in, but ensures coverage)
+    't-square',
+    'tab-index', // (Dev/Accessibility Critical)
+    'table-cloth', 'table-land', 'table-linen', 'table-mat', 'table-napkin', 'table-spoon', 'table-talk', 'table-tennis', 'table-top', 'table-ware',
+    'tag-cloud', // (UI/Web)
+    'tail-back', // (UK Traffic)
+    'tail-board', 'tail-coat', 'tail-end', 'tail-ender', 'tail-feather', 'tail-gate', 'tail-gater', 'tail-light', 'tail-piece', 'tail-pipe', 'tail-plane', 'tail-spin', 'tail-wind',
+    'take-away', // (UK Essential: "Getting a take-away")
+    'take-home', 'take-off', 'take-out', 'take-over', 'take-up',
+    'tale-bearer', 'tale-teller',
+    'talk-show',
+    'talking-head', 'talking-point', 'talking-to',
+    'tall-boy', 'tall-order', 'tall-story',
+    'tally-ho',
+    'tam-o-shanter',
+    'tank-engine', 'tank-top', 'tank-trap',
+    'tap-dance', 'tap-dancer', 'tap-dancing', 'tap-room', 'tap-root', 'tap-water',
+    'tape-deck', 'tape-measure', 'tape-player', 'tape-record', 'tape-recorder', 'tape-recording', 'tape-worm',
+    'target-audience', 'target-date', 'target-market', 'target-practice',
+    'tariff-barrier',
+    'tarmac-adam',
+    'tart-up',
+    'tartan-track',
+    'task-force', 'task-master',
+    'tax-avoidance', 'tax-band', 'tax-base', 'tax-break', 'tax-burden', 'tax-collector', 'tax-concession', 'tax-credit', 'tax-deductible', 'tax-disc', // (Retro UK Car)
+    'tax-dodger', 'tax-evasion', 'tax-exempt', 'tax-exemption', 'tax-free', 'tax-haven', 'tax-holiday', 'tax-man', 'tax-payer', 'tax-paying', 'tax-relief', 'tax-return', 'tax-shelter', 'tax-year',
+    'tea-bag', // (UK Essential)
+    'tea-break', 'tea-caddy', 'tea-cake', 'tea-chest', 'tea-cloth', 'tea-cosy', 'tea-cup', 'tea-dance', 'tea-garden', 'tea-gown', 'tea-house', 'tea-leaf', 'tea-leaves', 'tea-party', 'tea-plant', 'tea-planter', 'tea-pot', 'tea-room', 'tea-service', 'tea-set', 'tea-shop', 'tea-spoon', 'tea-strainer', 'tea-time', 'tea-towel', // (UK)
+    'tea-tray', 'tea-trolley', 'tea-urn',
+    'teach-in',
+    'teacher-training',
+    'team-building', // (Business)
+    'team-leader', 'team-mate', 'team-spirit', 'team-work',
+    'tear-away', 'tear-drop', 'tear-gas', 'tear-jerker', 'tear-off', 'tear-stained',
+    'tech-savvy', // (Modern)
+    'techno-babble', 'techno-phobe',
+    'teddy-bear', 'teddy-boy',
+    'tee-hee', 'tee-off', 'tee-shirt',
+    'teen-age', 'teen-ager', 'teeny-bopper', 'teeny-weeny',
+    'tele-ad', 'tele-banking', 'tele-camera', 'tele-cine', 'tele-communication', 'tele-conference', 'tele-conferencing', 'tele-cottage', 'tele-evangelist', 'tele-film', 'tele-marketing', 'tele-message', 'tele-novela', 'tele-photo', 'tele-printer', 'tele-prompter', 'tele-record', 'tele-sales', 'tele-text', 'tele-type', 'tele-visual', 'tele-working',
+    'tell-tale', 'telling-off',
+    'temper-tantrum',
+    'template-driven', // (Dev)
+    'ten-fold', 'ten-gallon', 'ten-pin',
+    'tender-hearted', 'tender-loin',
+    'tennis-ball', 'tennis-court', 'tennis-elbow', 'tennis-player', 'tennis-racket', 'tennis-shoe',
+    'tent-peg', 'tent-pole',
+    'term-time',
+    'terminal-building',
+    'terra-cotta', 'terra-firma',
+    'terror-stricken', 'terror-struck',
+    'test-ban', 'test-bed', 'test-case',
+    'test-drive', // (Tech/Dev: TDD often leads to "test-driving code")
+    'test-driver', 'test-flight', 'test-fly', 'test-match', // (Cricket)
+    'test-paper', 'test-pilot', 'test-run', 'test-tube',
+    'text-align', // (CSS/Dev)
+    'text-book', 'text-editor', 'text-file', 'text-message', 'text-only', 'text-processing', 'text-to-speech', // (Accessibility/Tech)
+    'texture-map', // (3D Design)
+    'thank-offering', 'thank-you',
+    'that-is', // (i.e.)
+    'thatch-roofed',
+    'theatre-goer',
+    'theme-park', 'theme-song', 'theme-tune',
+    'thermal-imaging',
+    'thick-head', 'thick-headed', 'thick-set', 'thick-skinned', 'thick-witted',
+    'thin-air',
+    'thin-client', // (Tech)
+    'thin-skinned',
+    'third-class', 'third-degree', 'third-party', // (Business/Dev Critical)
+    'third-person', 'third-rate', 'third-reading', 'third-world',
+    'thirty-something',
+    'thought-out', 'thought-process', 'thought-provoking', 'thought-reader', 'thought-reading', 'thought-transference',
+    'thread-bare', 'thread-safe', // (Dev Critical)
+    'three-cornered', 'three-d', 'three-deck', 'three-decker', 'three-dimensional', 'three-fold', 'three-lane', 'three-legged', 'three-line', 'three-part', 'three-phase', 'three-piece', 'three-ply', 'three-point', 'three-quarter', 'three-ring', 'three-score', 'three-sided', 'three-star', 'three-step', 'three-way', 'three-wheeler',
+    'throat-lozenge',
+    'through-put', // (Tech/Business)
+    'through-road', 'through-route', 'through-traffic', 'through-train',
+    'throw-away', 'throw-back', 'throw-in', 'throw-off', 'throw-out', 'throw-over',
+    'thumb-nail', // (Tech/Image)
+    'thumb-print', 'thumb-screw', 'thumb-tack',
+    'thumbs-down', 'thumbs-up',
+    'thunder-bolt', 'thunder-clap', 'thunder-cloud', 'thunder-flash', 'thunder-shower', 'thunder-storm', 'thunder-struck',
+    'ticket-collector', 'ticket-holder', 'ticket-machine', 'ticket-of-leave', 'ticket-office', 'ticket-tout',
+    'tickle-tackle',
+    'tidal-wave',
+    'tiddly-winks',
+    'tie-break', 'tie-breaker', 'tie-clip', 'tie-dye', 'tie-dyed', 'tie-in', 'tie-on', 'tie-pin', 'tie-up',
+    'tiger-lily', 'tiger-moth', 'tiger-skin',
+    'tight-fisted', 'tight-knit', 'tight-lipped', 'tight-rope', 'tight-wad',
+    'tile-hanging',
+    'till-roll', // (UK Retail)
+    'timber-framed', 'timber-line', 'timber-wolf', 'timber-yard',
+    'time-and-motion', 'time-ball', 'time-bomb', 'time-card', 'time-clock', 'time-code',
+    'time-consuming', // (Common)
+    'time-exposure', 'time-frame', 'time-honoured', 'time-keeper', 'time-keeping', 'time-lag', 'time-lapse', 'time-limit', 'time-lock', 'time-loop', 'time-machine', 'time-out', 'time-pass', 'time-piece', 'time-saving', 'time-scale', 'time-server', 'time-serving', 'time-share', 'time-sharing', 'time-sheet', 'time-shift', 'time-signal', 'time-signature', 'time-slot', 'time-span', 'time-stamp', // (Tech/DB)
+    'time-switch',
+    'time-table', // (UK Essential)
+    'time-warp', 'time-waster', 'time-wasting', 'time-worn', 'time-zone',
+    'tin-can', 'tin-foil', 'tin-god', 'tin-hat', 'tin-opener', 'tin-pan', 'tin-plate', 'tin-pot', 'tin-tack', 'tin-whistle',
+    'tip-off', 'tip-to-toe', 'tip-toe', 'tip-top', 'tip-up',
+    'tipping-point',
+    'tissue-paper',
+    'tit-bit', 'tit-for-tat',
+    'title-deed', 'title-fight', 'title-holder', 'title-page', 'title-role', 'title-track',
+    'to-and-fro', 'to-be',
+    'to-do', // (Productivity)
+    'to-ing', 'to-ing-and-fro-ing',
+    'toad-in-the-hole', // (UK Food)
+    'toast-master', 'toast-rack',
+    'toasting-fork',
+    'tobacco-pouch',
+    'toe-cap', 'toe-hold', 'toe-nail', 'toe-post', 'toe-rag',
+    'toffee-apple', 'toffee-nosed',
+    'toggle-switch',
+    'toilet-bag', 'toilet-paper', 'toilet-roll', 'toilet-seat', 'toilet-soap', 'toilet-training', 'toilet-water',
+    'token-strike',
+    'toll-bar', 'toll-booth', 'toll-bridge', 'toll-call', 'toll-free', 'toll-gate', 'toll-house', 'toll-keeper', 'toll-road',
+    'tom-cat', 'tom-fool', 'tom-foolery', 'tom-tit', 'tom-tom',
+    'tomato-juice', 'tomato-ketchup', 'tomato-paste', 'tomato-puree', 'tomato-sauce',
+    'tomb-stone',
+    'tone-arm', 'tone-deaf', 'tone-dialling', 'tone-down', 'tone-poem', 'tone-up',
+    'tongue-and-groove', 'tongue-in-cheek', 'tongue-lash', 'tongue-lashing', 'tongue-tied', 'tongue-twister',
+    'too-too',
+    'tool-bag', 'tool-bar', // (UI)
+    'tool-box', 'tool-kit', 'tool-maker', 'tool-making', 'tool-pusher', 'tool-room', 'tool-shed',
+    'tool-tip', // (UI Critical)
+    'tooth-ache', 'tooth-brush', 'tooth-comb', 'tooth-decay', 'tooth-mug', 'tooth-paste', 'tooth-pick', 'tooth-powder', 'tooth-some',
+    'top-boot', 'top-brass', 'top-class', 'top-coat', 'top-dog', 'top-down', 'top-drawer', 'top-dress', 'top-dressing', 'top-end', 'top-flight', 'top-floor', 'top-gallant', 'top-gear', 'top-grade', 'top-hat', 'top-heavy', 'top-knot',
+    'top-level', // (Tech: Top-level domain)
+    'top-mast', 'top-notch', 'top-off', 'top-out', 'top-piece', 'top-price', 'top-priority', 'top-quality', 'top-rank', 'top-ranking', 'top-rate', 'top-sail', 'top-secret', 'top-side', 'top-soil', 'top-speed', 'top-spin',
+    'top-up', // (UK Mobile/Finance)
+    'torch-bearer', 'torch-light', 'torch-lit',
+    'toss-up',
+    'total-loss', // (Insurance)
+    'touch-and-go', 'touch-down',
+    'touch-pad', // (Laptop)
+    'touch-paper', 'touch-screen', // (Tech Critical)
+    'touch-sensitive', 'touch-type', 'touch-typing', 'touch-typist', 'touch-up',
+    'tough-guy', 'tough-minded',
+    'tour-de-force', 'tour-guide', 'tour-operator',
+    'tow-away', 'tow-bar', 'tow-path', 'tow-rope', 'tow-truck',
+    'tower-block', // (UK Housing)
+    'town-clerk', 'town-crier', 'town-hall', 'town-house', 'town-planning', 'town-ship',
+    'toy-boy', 'toy-shop', 'toy-town',
+    'trace-element',
+    'track-and-field', 'track-ball', 'track-down', 'track-event', 'track-laying', 'track-record', 'track-shoes', 'track-suit',
+    'traction-engine',
+    'tractor-trailer',
+    'trade-in', 'trade-mark', 'trade-name', 'trade-off', 'trade-price', 'trade-route', 'trade-secret', 'trade-union', 'trade-unionist', 'trade-wind',
+    'trading-estate', 'trading-floor', 'trading-post', 'trading-stamp',
+    'traffic-calming', 'traffic-circle', 'traffic-cone', 'traffic-cop', 'traffic-island', 'traffic-jam', 'traffic-light', 'traffic-warden', // (UK)
+    'trail-blaze', 'trail-blazer', 'trail-blazing',
+    'trailing-edge', // (Tech)
+    'train-bearer', 'train-crash', 'train-driver', 'train-journey', 'train-set', 'train-spotter', 'train-spotting',
+    'training-camp', 'training-college', 'training-course', 'training-ground', 'training-shoe', 'training-suit',
+    'tramp-steamer',
+    'transfer-fee', 'transfer-list',
+    'transit-camp', 'transit-visa',
+    'transmission-line',
+    'transparent-gif', // (Web Design)
+    'transport-cafe',
+    'trap-door',
+    'trash-can',
+    'travel-agency', 'travel-agent', 'travel-allowance', 'travel-bag', 'travel-book', 'travel-card', // (London Transport)
+    'travel-cheque', 'travel-guide', 'travel-insurance', 'travel-log', 'travel-sick', 'travel-sickness', 'travel-stained', 'travel-writer',
+    'trawl-net',
+    'tread-mill', 'tread-plate', 'tread-softly',
+    'treasure-chest', 'treasure-house', 'treasure-hunt', 'treasure-hunter', 'treasure-trove',
+    'treasury-bill', 'treasury-bond', 'treasury-tag', // (UK Office Stationery)
+    'tree-creeper', 'tree-fern', 'tree-house', 'tree-lined', 'tree-planter', 'tree-planting', 'tree-ring', 'tree-shaking', // (Dev: Optimisation)
+    'tree-structure', 'tree-stump', 'tree-surgeon', 'tree-surgery', 'tree-top', 'tree-trunk',
+    'trestle-table',
+    'trial-and-error', 'trial-balance', 'trial-run',
+    'trick-cycle', 'trick-or-treat',
+    'tricolour-flag',
+    'trigger-happy', 'trigger-man',
+    'trim-tab',
+    'triple-crown', 'triple-jump', 'triple-time',
+    'trip-up', 'trip-wire',
+    'troop-carrier', 'troop-ship',
+    'trophy-hunter', 'trophy-hunting', 'trophy-wife',
+    'trouble-maker', 'trouble-making', 'trouble-shooter', 'trouble-shooting', // (Tech Support)
+    'trouble-some', 'trouble-spot',
+    'trousers-press', 'trouser-suit',
+    'truck-driver', 'truck-load', 'truck-stop',
+    'true-blue', 'true-born', 'true-bred', 'true-life', 'true-love',
+    'trumpet-call', 'trumpet-major',
+    'trundle-bed',
+    'trunk-call', 'trunk-line', 'trunk-road', // (UK Highway)
+    'truss-bridge',
+    'trust-deed', 'trust-fund',
+    'truth-drug', 'truth-teller',
+    'try-on', 'try-out', 'try-square',
+    't-shirt',
+    'tub-thumper', 'tub-thumping',
+    'tube-station', // (London Underground)
+    'tuck-box', 'tuck-in', 'tuck-shop', // (UK School)
+    'tug-boat', 'tug-of-love', 'tug-of-war',
+    'tumble-down', 'tumble-dry', 'tumble-dryer', 'tumble-weed',
+    'tune-up',
+    'tuning-fork',
+    'tunnel-vision',
+    'turbo-charge', 'turbo-charged', 'turbo-charger', 'turbo-drive', 'turbo-jet', 'turbo-prop',
+    'turf-accountant', // (UK Bookie)
+    'turkey-cock', 'turkey-shoot',
+    'turn-about', 'turn-around', 'turn-buckle', 'turn-coat', 'turn-down', 'turn-in',
+    'turn-key', // (Business: "Turn-key solution")
+    'turn-off', 'turn-on', 'turn-out', 'turn-over', 'turn-pike', 'turn-round', 'turn-screw', 'turn-stile', 'turn-table', 'turn-up',
+    'turning-circle', 'turning-point',
+    'turtle-neck',
+    'tutti-frutti',
+    'tv-dinner',
+    'tweet-deck',
+    'twelve-fold',
+    'twenty-fold', 'twenty-four', 'twenty-something',
+    'twin-bedded', 'twin-engined', 'twin-set', 'twin-town', 'twin-tub',
+    'twinkle-toed',
+    'two-bit', 'two-dimensional', 'two-door', 'two-edged', 'two-faced',
+    'two-factor', // (Security: 2FA)
+    'two-fold', 'two-handed', 'two-lane', 'two-level', 'two-piece', 'two-ply', 'two-point', 'two-seater', 'two-sided', 'two-speed', 'two-step', 'two-stroke', 'two-time', 'two-timer', 'two-timing', 'two-tone', 'two-way', 'two-wheeler',
+    'type-cast', 'type-face', // (Design)
+    'type-script', // (Often TypeScript, but hyphenated generic exists)
+    'type-set', 'type-setter', 'type-setting', 'type-write', 'type-writer', 'type-written',
+    'tyre-lever', 'tyre-pressure',
+
     // Z
     'z-bend', 'z-list', 'zenith-distance', 'zero-hour', 'zero-in', 'zero-option', 'zero-rated', 'zero-tolerance', 'zig-zag',
     'zinc-plate', 'zip-code', 'zip-fastener', 'zip-file', 'zip-up', 'zone-out', 'zoo-keeper', 'zoom-in', 'zoom-lens', 'zoom-out'
