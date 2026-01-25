@@ -1276,6 +1276,87 @@ export const COMPOUND_WORDS = new Set<string>([
     'nut-case', 'nut-cracker', 'nut-hatch', 'nut-roast', 'nut-shell', 'nut-tree',
     'nylon-string',
 
+    // O (Modern & Tech Supplement)
+    'o-level', // (Retro UK Education)
+    'o-ring',
+    'object-based', 'object-code', 'object-lesson',
+    'object-oriented', // (Dev Critical: OOP)
+    'obstacle-course', 'obstacle-race',
+    'ocean-going',
+    'odd-ball', 'odd-job', 'odd-looking', 'odd-man-out',
+    'off-air', 'off-axis',
+    'off-balance', 'off-base', 'off-beat', 'off-campus', 'off-center', 'off-chance', 'off-colour', // (UK Spelling)
+    'off-duty', 'off-grid', 'off-guard', 'off-hand', 'off-hour', 'off-key', 'off-label',
+    'off-licence', // (UK Essential: "Going to the off-licence")
+    'off-limits',
+    'off-line', // (Tech)
+    'off-load', 'off-message', 'off-page', // (SEO)
+    'off-peak', 'off-piste', 'off-plan', // (UK Real Estate)
+    'off-price', 'off-putting', 'off-ramp', 'off-road', 'off-roader', 'off-screen', 'off-season', 'off-set', 'off-shoot', 'off-shore', // (Business)
+    'off-shoulder', 'off-side', // (Football)
+    'off-site', 'off-spin', 'off-spinner', 'off-spring', 'off-stage', 'off-street',
+    'off-the-cuff', 'off-the-peg', 'off-the-record', 'off-the-shelf', 'off-the-shoulder', 'off-the-wall',
+    'off-topic', // (Forum/Internet)
+    'off-track', 'off-white', 'off-world', // (Sci-Fi)
+    'office-bearer', 'office-block', 'office-boy', 'office-holder', 'office-mate', 'office-seeker', 'office-work',
+    'oil-cake', 'oil-can', 'oil-cloth', 'oil-colour', 'oil-field', 'oil-fired', 'oil-lamp', 'oil-man', 'oil-paint', 'oil-painting', 'oil-paper', 'oil-platform', 'oil-producing', 'oil-rich', 'oil-rig', 'oil-slick', 'oil-stone', 'oil-tanker', 'oil-well',
+    'old-age', 'old-boy', // (UK School Network)
+    'old-clothes', 'old-est', 'old-face', 'old-fashioned', 'old-girl', 'old-gold', 'old-growth', 'old-hand', 'old-hat', 'old-maid', 'old-master', 'old-school', 'old-style', 'old-time', 'old-timer', 'old-wives', 'old-world',
+    'on-air', 'on-board', // (Adj: "On-board computer")
+    'on-brand', // (Marketing)
+    'on-call', 'on-camera', 'on-campus',
+    'on-click', // (Dev: UI events)
+    'on-cost',
+    'on-demand', // (Tech/SaaS)
+    'on-duty', 'on-going', 'on-hand', 'on-hold',
+    'on-line', // (Tech)
+    'on-looker', 'on-looking', 'on-message', 'on-off',
+    'on-premise', // (Tech/Enterprise)
+    'on-ramp', 'on-rush', 'on-rushing',
+    'on-screen', // (UI/TV)
+    'on-set', 'on-shore', 'on-side', 'on-site', 'on-stage', 'on-street', 'on-target', 'on-the-job', 'on-time', 'on-to', 'on-trend', 'on-trial',
+    'one-act', 'one-another', 'one-armed', 'one-bagger', 'one-bedroom', 'one-by-one', 'one-child', 'one-day', 'one-dimensional', 'one-eyed', 'one-horse', 'one-legged', 'one-liner', 'one-man', 'one-night', 'one-nighter', 'one-off', 'one-on-one', 'one-parent', 'one-party', 'one-piece', 'one-reeler', 'one-room', 'one-shot', 'one-sided', 'one-size', 'one-star', 'one-step',
+    'one-stop', // (Business: "One-stop shop")
+    'one-time',
+    'one-to-many', // (Dev: Database relationships)
+    'one-to-one', // (Dev/Business)
+    'one-track', 'one-up', 'one-upping', 'one-way', 'one-woman', 'one-year',
+    'onion-ring', 'onion-skin',
+    'open-air', 'open-and-shut', 'open-back', 'open-beak', 'open-book', 'open-cast', 'open-circuit', 'open-collar', 'open-door', 'open-ended', 'open-eyed', 'open-face', 'open-faced', 'open-handed', 'open-heart', 'open-hearth', 'open-house', 'open-letter', 'open-market', 'open-minded', 'open-mouthed', 'open-neck', 'open-plan', 'open-sandwich', 'open-secret',
+    'open-source', // (Dev Critical)
+    'open-space', 'open-top', 'open-topped', 'open-up', 'open-work',
+    'opera-glass', 'opera-glasses', 'opera-hat', 'opera-house', 'opera-singer',
+    'operating-system', // (Tech: OS)
+    'optical-character-recognition', // (Tech: OCR)
+    'optical-disk', 'optical-fiber', 'optical-fibre', 'optical-illusion',
+    'opt-in', // (Marketing/GDPR)
+    'opt-out',
+    'orange-blossom', 'orange-peel', 'orange-stick',
+    'order-book',
+    'organ-grinder', 'organ-loft', 'organ-stop',
+    'organic-search', // (SEO)
+    'out-and-about', 'out-and-out', 'out-basket', 'out-bid', 'out-board', 'out-bound', 'out-box', 'out-break', 'out-breath', 'out-building', 'out-class', 'out-crop', 'out-cross', 'out-cry', 'out-distance', 'out-do', 'out-door', 'out-face', 'out-fall', 'out-field', 'out-fight', 'out-fit', 'out-fitter', 'out-flank', 'out-flow', 'out-fox', 'out-general', 'out-go', 'out-going', 'out-grow', 'out-growth', 'out-guess', 'out-gun', 'out-house', 'out-jump', 'out-land', 'out-landish', 'out-last', 'out-law', 'out-lay', 'out-let', 'out-lier', 'out-line', 'out-live', 'out-look', 'out-lying', 'out-manoeuvre', 'out-match', 'out-moded', 'out-number',
+    'out-of-body', 'out-of-bounds', 'out-of-control', 'out-of-court', 'out-of-date', 'out-of-door', 'out-of-doors', 'out-of-focus', 'out-of-hand', 'out-of-home', 'out-of-hours', 'out-of-mind', 'out-of-order', 'out-of-place', 'out-of-pocket', 'out-of-print', 'out-of-range', 'out-of-reach', 'out-of-school', 'out-of-season', 'out-of-sight', 'out-of-stock',
+    'out-of-the-blue',
+    'out-of-the-box', // (Dev/Business: OOTB)
+    'out-of-touch', 'out-of-work',
+    'out-pace', 'out-patient', 'out-perform', 'out-performance', 'out-placement', 'out-play', 'out-point', 'out-post', 'out-pour', 'out-pouring', 'out-produce', 'out-put', 'out-rage', 'out-rageous', 'out-rank', 'out-reach', 'out-ride', 'out-rider', 'out-rigger', 'out-right', 'out-run', 'out-sell', 'out-set', 'out-shine', 'out-shoot', 'out-side', 'out-sider', 'out-size', 'out-smart',
+    'out-source', // (Business Critical)
+    'out-sourcing',
+    'out-span', 'out-spoken', 'out-spread', 'out-standing', 'out-stare', 'out-stay', 'out-station', 'out-stretched', 'out-strip', 'out-take', 'out-talk', 'out-think', 'out-tray', 'out-vote', 'out-walk', 'out-ward', 'out-weigh', 'out-wit', 'out-work', 'out-worker',
+    'oven-baked', 'oven-cloth', 'oven-glove', 'oven-proof', 'oven-ready', 'oven-ware',
+    'over-abundance', 'over-act', 'over-active', 'over-all', 'over-ambitious', 'over-anxious', 'over-arch', 'over-arching', 'over-arm', 'over-awe', 'over-balance', 'over-bear', 'over-bearing', 'over-blown', 'over-board', 'over-book', 'over-booking', 'over-burden', 'over-busy', 'over-came', 'over-capacity', 'over-capitalized', 'over-cast', 'over-cautious', 'over-charge', 'over-coat', 'over-come', 'over-compensate', 'over-confident', 'over-cook', 'over-crowd', 'over-crowding', 'over-do', 'over-done', 'over-dose', 'over-draft', 'over-draw', 'over-drawn', 'over-dress', 'over-dressed', 'over-drive', 'over-dub', 'over-due', 'over-eat', 'over-eating', 'over-emphasize', 'over-estimate', 'over-estimation', 'over-excite', 'over-excited', 'over-exert', 'over-expose', 'over-exposed', 'over-exposure', 'over-feed', 'over-fill', 'over-fish', 'over-fishing', 'over-flight', 'over-flow', 'over-fly', 'over-garment', 'over-graze', 'over-ground', 'over-grow', 'over-grown', 'over-growth', 'over-hand', 'over-hang', 'over-hanging', 'over-haul', 'over-head', 'over-hear', 'over-heat', 'over-heating', 'over-hung', 'over-indulge', 'over-indulgence', 'over-joyed', 'over-kill', 'over-lade', 'over-laden', 'over-land', 'over-lander', 'over-lap', 'over-lay', 'over-leaf', 'over-lie', 'over-load', 'over-long', 'over-look', 'over-lord', 'over-loud', 'over-man', 'over-mantel', 'over-much', 'over-nice', 'over-night', 'over-nighter', 'over-paid', 'over-pass', 'over-pay', 'over-payment', 'over-play', 'over-populated', 'over-population', 'over-power', 'over-powering', 'over-price', 'over-priced', 'over-print', 'over-produce', 'over-production', 'over-protected', 'over-protective', 'over-qualified', 'over-rate', 'over-rated', 'over-reach', 'over-react', 'over-reaction', 'over-ride', 'over-riding', 'over-ripe', 'over-rule', 'over-run', 'over-sea', 'over-seas', 'over-see', 'over-seer', 'over-sell', 'over-sensitive', 'over-sexed', 'over-shadow', 'over-shoe', 'over-shoot', 'over-sight', 'over-simplify', 'over-size', 'over-sized', 'over-sleep', 'over-spend', 'over-spending', 'over-spill', 'over-staffed', 'over-state', 'over-statement', 'over-stay', 'over-step', 'over-stitch', 'over-stock', 'over-stocked', 'over-strain', 'over-stretch', 'over-stretched', 'over-strung', 'over-stuff', 'over-subscribe', 'over-subscribed', 'over-supply', 'over-take', 'over-tax',
+    'over-the-air', // (Tech: OTA updates)
+    'over-the-counter', // (Pharma/Finance)
+    'over-the-moon', 'over-the-top',
+    'over-throw', 'over-time', 'over-tired', 'over-tone', 'over-top', 'over-train', 'over-trained', 'over-training', 'over-turn', 'over-use', 'over-value', 'over-view', 'over-weening', 'over-weight', 'over-whelm', 'over-whelming', 'over-wind', 'over-winter', 'over-work', 'over-worked', 'over-wrought', 'over-zealous',
+    'own-brand', // (UK Retail)
+    'own-goal', // (Football/Idiom)
+    'own-label',
+    'owner-driver', 'owner-occupied', 'owner-occupier',
+    'ox-blood', 'ox-bow', 'ox-cart', 'ox-eye', 'ox-tail',
+    'ozone-friendly', 'ozone-hole', 'ozone-layer',
+
     // P (Partial for critical words)
     'part-exchange', 'part-time', 'passer-by', 'pay-as-you-go', 'pay-day', 'pay-off', 'pay-roll', 'pea-green', 'pea-souper',
     'peace-keeping', 'peace-loving', 'peace-maker', 'peace-offering', 'peace-pipe', 'peace-time', 'peak-time', 'pear-shaped',
