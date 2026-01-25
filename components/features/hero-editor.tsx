@@ -41,8 +41,14 @@ export function HeroEditor() {
                 break;
         }
 
+        // Determine the actual operation label for history
+        let historyLabel = mode;
+        if (mode === "hyphenate") {
+            historyLabel = isTextHyphenated ? "unhyphenate" : "hyphenate";
+        }
+
         setText(newText);
-        await addToHistory(newText, mode);
+        await addToHistory(newText, historyLabel);
     };
 
     const copyToClipboard = () => {
