@@ -1015,6 +1015,177 @@ export const COMPOUND_WORDS = new Set<string>([
     'lurex-thread',
     'lying-in',
 
+    // M (Modern & Tech Supplement)
+    'mac-address',
+    'machine-code', 'machine-gun', 'machine-head', 'machine-language',
+    'machine-learning', // (Tech Critical: ML)
+    'machine-made',
+    'machine-readable', // (Dev: JSON/XML)
+    'machine-tool', 'machine-washable',
+    'mad-cap', 'mad-doctor', 'mad-dog', 'mad-house', 'mad-man',
+    'made-to-measure', 'made-to-order', 'made-up',
+    'magic-carpet', 'magic-eye', 'magic-lantern', 'magic-mushroom', 'magic-wand',
+    'magnetic-field', 'magnetic-tape',
+    'mail-bag', 'mail-bomb', 'mail-box', 'mail-coach', 'mail-drop',
+    'mail-merge', // (Office Tech)
+    'mail-order', 'mail-room', 'mail-shot', // (UK Marketing Term)
+    'main-brace', 'main-drag',
+    'main-frame', // (Legacy Tech)
+    'main-line', 'main-mast', 'main-sail', 'main-spring', 'main-stay', 'main-stream', 'main-top',
+    'major-general',
+    'make-believe', 'make-do', 'make-or-break', 'make-over', 'make-piece', 'make-shift', 'make-up', 'make-weight',
+    'man-bag', 'man-child', 'man-eater', 'man-eating', 'man-handle', 'man-hole', 'man-hour', 'man-hunt',
+    'man-in-the-middle', // (Security Critical: MITM Attack)
+    'man-kind', 'man-made', 'man-of-war', 'man-power', 'man-sized', 'man-slaughter', 'man-trap',
+    'management-buyout',
+    'mangel-wurzel',
+    'manger-manger',
+    'manic-depressive',
+    'map-maker', 'map-read', 'map-reader', 'map-reading',
+    'marble-cake',
+    'marching-orders',
+    'mark-down', // (Retail & Markup Language common confusion)
+    'mark-up', // (Dev Critical: HTML/XML)
+    'market-day', 'market-driven', 'market-force', 'market-garden',
+    'market-leader', // (Business)
+    'market-maker', 'market-place', 'market-price', 'market-rate', 'market-research', 'market-share', 'market-town', 'market-value',
+    'marking-ink',
+    'marrow-bone', 'marrow-fat',
+    'marsh-gas', 'marsh-land', 'marsh-mallow',
+    'martial-art', 'martial-law',
+    'masking-tape',
+    'mass-market', 'mass-media', 'mass-produce', 'mass-produced', 'mass-production', 'mass-spectrometer',
+    'master-bedroom', 'master-builder', 'master-class', 'master-key', 'master-mind', 'master-piece', 'master-plan', 'master-stroke', 'master-switch', 'master-work',
+    'match-box', 'match-day', 'match-fix', 'match-fixing', 'match-made', 'match-maker', 'match-making', 'match-play', 'match-point', 'match-stick', 'match-wood',
+    'matter-of-fact',
+    'meal-ticket', 'meal-time',
+    'mean-spirited', 'mean-time', // (Greenwich Mean Time)
+    'measure-up',
+    'meat-ball', 'meat-eater', 'meat-head', 'meat-hook', 'meat-loaf', 'meat-market', 'meat-packer', 'meat-pie', 'meat-safe',
+    'media-savvy',
+    'medical-history',
+    'meeting-place', 'meeting-point', 'meeting-room',
+    'mega-bite', 'mega-bucks',
+    'mega-byte', // (Tech)
+    'mega-city', 'mega-drive',
+    'mega-hertz', // (Tech)
+    'mega-hit', 'mega-lith',
+    'mega-pixel', // (Tech)
+    'mega-star', 'mega-store', 'mega-structure', 'mega-watt',
+    'melting-pot', 'melting-point',
+    'member-state',
+    'memo-pad',
+    'memory-bank', 'memory-card', 'memory-foam', 'memory-lane', 'memory-loss',
+    'memory-stick', // (Tech)
+    'men-at-work',
+    'merchant-bank', 'merchant-man', 'merchant-navy', 'merchant-ship',
+    'merit-pay',
+    'merry-go-round', 'merry-maker', 'merry-making',
+    'mess-room', 'mess-tin', 'mess-up',
+    'message-board',
+    'meta-analysis', 'meta-data', // (Tech/SEO Critical)
+    'meta-fiction', 'meta-language', 'meta-level', 'meta-physics',
+    'meta-tag', // (SEO Critical)
+    'metal-detector', 'metal-work', 'metal-worker',
+    'meter-maid', 'meter-reading',
+    'micro-aggression', 'micro-analysis', 'micro-biology', 'micro-brewery', 'micro-chip', 'micro-climate', 'micro-computer', 'micro-credit', 'micro-dot', 'micro-economics', 'micro-electronic', 'micro-electronics', 'micro-fibre', 'micro-fiche', 'micro-film', 'micro-finance',
+    'micro-frontend', // (Modern Web Dev)
+    'micro-gravity', 'micro-groove', 'micro-light', 'micro-manage', 'micro-management', 'micro-manager', 'micro-nutrient', 'micro-organism',
+    'micro-payment', // (FinTech)
+    'micro-phone', 'micro-processor', 'micro-scope', 'micro-second',
+    'micro-service', // (Dev Critical)
+    'micro-surgery', 'micro-switch', 'micro-system', 'micro-wave',
+    'mid-air', 'mid-atlantic', 'mid-day', 'mid-flight', 'mid-life', 'mid-morning', 'mid-night', 'mid-off', 'mid-on', 'mid-range', 'mid-rib', 'mid-riff', 'mid-sentence', 'mid-ship', 'mid-size', 'mid-stream', 'mid-summer',
+    'mid-term', // (UK Politics/School)
+    'mid-way', 'mid-week', 'mid-wicket', 'mid-wife', 'mid-winter', 'mid-year',
+    'middle-aged', 'middle-class', // (UK Social Class)
+    'middle-distance', 'middle-ear', 'middle-east', 'middle-ground',
+    'middle-man', // (Business)
+    'middle-name', 'middle-of-the-road', 'middle-school', 'middle-weight',
+    'midi-system',
+    'mile-high', 'mile-ometer', 'mile-post', 'mile-stone', // (Project Management)
+    'milk-bar', 'milk-bottle', 'milk-chocolate',
+    'milk-float', // (UK Specific)
+    'milk-maid', 'milk-man', 'milk-run', 'milk-shake', 'milk-sop', 'milk-tooth', 'milk-white',
+    'mill-house', 'mill-pond', 'mill-race', 'mill-stone', 'mill-wheel', 'mill-work',
+    'mince-meat',
+    'mince-pie', // (UK Christmas)
+    'mind-bending', 'mind-blowing', 'mind-boggling', 'mind-control', 'mind-expand', 'mind-expanding', 'mind-map', 'mind-numbing', 'mind-read', 'mind-reader',
+    'mind-set', // (Already in your file, but essential)
+    'mine-field', 'mine-host', 'mine-hunter', 'mine-layer', 'mine-shaft', 'mine-sweeper', // (Classic PC Game)
+    'mini-bar', 'mini-break', 'mini-bus',
+    'mini-cab', // (UK Specific: Private Hire)
+    'mini-computer',
+    'mini-disk', // (Retro Tech)
+    'mini-dress', 'mini-market',
+    'mini-roundabout', // (UK Road)
+    'mini-series', 'mini-skirt', 'mini-state', 'mini-van',
+    'minimum-wage',
+    'minor-key',
+    'mint-condition', 'mint-green', 'mint-sauce',
+    'mirror-image',
+    'mis-cast', 'mis-count', 'mis-deal', 'mis-direct', 'mis-file', 'mis-fire', 'mis-fit', 'mis-fortune', 'mis-guide', 'mis-handle', 'mis-hear', 'mis-inform', 'mis-interpret', 'mis-judge', 'mis-lead', 'mis-manage', 'mis-match', 'mis-place', 'mis-print', 'mis-quote', 'mis-read', 'mis-report', 'mis-represent', 'mis-rule', 'mis-sell', 'mis-selling', 'mis-shape', 'mis-spell', 'mis-spelling', 'mis-spend', 'mis-spent', 'mis-statement', 'mis-take', 'mis-time', 'mis-treat', 'mis-trust', 'mis-understand', 'mis-understanding', 'mis-use',
+    'mission-critical', // (Business/Tech Critical)
+    'mission-statement',
+    'mix-up', 'mixed-ability', 'mixed-bag', 'mixed-economy', 'mixed-marriage',
+    'mixed-media', // (Art/Design)
+    'mixed-race', 'mixed-sex', 'mixed-up',
+    'mobile-app', // (Modern Tech)
+    'mobile-first', // (Web Design Critical)
+    'mobile-friendly',
+    'mobile-home',
+    'mobile-phone', // (UK Standard)
+    'mock-heroic', 'mock-up', 'mock-turtle',
+    'model-making', 'model-t',
+    'modem-cable',
+    'modern-day',
+    'money-back', 'money-bag', 'money-belt', 'money-box', 'money-changer', 'money-grubber', 'money-launder', 'money-laundering', 'money-lender', 'money-maker', 'money-making', 'money-market', 'money-off', 'money-order', 'money-saving',
+    'money-spinner', // (UK Idiom)
+    'money-supply', 'money-talks',
+    'monkey-bar', 'monkey-business', 'monkey-nut', 'monkey-puzzle', 'monkey-suit', 'monkey-wrench',
+    'mono-rail', 'mono-theism', 'mono-tone',
+    'moon-beam', 'moon-boot', 'moon-face', 'moon-light', 'moon-lighting', 'moon-lit', 'moon-scape', 'moon-shine', 'moon-shot', 'moon-stone', 'moon-struck', 'moon-walk',
+    'mop-head', 'mop-up',
+    'moral-fibre',
+    'morning-after', 'morning-coat', 'morning-glory', 'morning-paper', 'morning-prayer', 'morning-sickness', 'morning-star', 'morning-suit',
+    'mortar-board',
+    'mother-board', // (Tech)
+    'mother-care', 'mother-country', 'mother-earth', 'mother-figure', 'mother-land', 'mother-lode', 'mother-nature', 'mother-of-pearl', 'mother-ship', 'mother-tongue', 'mother-to-be', 'mother-wit',
+    'motion-picture', 'motion-sickness',
+    'motor-bike', 'motor-boat', 'motor-cade', 'motor-car', 'motor-cycle', 'motor-cycling', 'motor-cyclist', 'motor-home', 'motor-man', 'motor-mouth', 'motor-oil', 'motor-race', 'motor-racing', 'motor-scooter', 'motor-sport', 'motor-vehicle',
+    'motor-way', // (UK Critical)
+    'mountain-ash', 'mountain-bike', 'mountain-chain', 'mountain-climb', 'mountain-climber', 'mountain-goat', 'mountain-lion', 'mountain-range', 'mountain-side', 'mountain-top',
+    'mounted-police',
+    'mouse-click',
+    'mouse-hole',
+    'mouse-mat', // (UK Specific - US is mousepad)
+    'mouse-trap',
+    'mouth-guard', 'mouth-organ', 'mouth-piece', 'mouth-to-mouth', 'mouth-wash', 'mouth-water', 'mouth-watering',
+    'move-able',
+    'movie-goer', 'movie-maker', 'movie-star', 'movie-theatre',
+    'moving-staircase',
+    'mp-3', // (Tech - often MP3 but hyphen check needed)
+    'muck-heap', 'muck-rake', 'muck-raking', 'muck-spreader', 'muck-up',
+    'mud-bath', 'mud-flap', 'mud-flat', 'mud-guard', 'mud-pack', 'mud-pie', 'mud-slide', 'mud-slinging', 'mud-wrestle', 'mud-wrestling',
+    'muffing-top',
+    'mug-shot',
+    'multi-channel', 'multi-coloured', 'multi-cultural', 'multi-dimensional', 'multi-directional', 'multi-disciplinary', 'multi-ethnic', 'multi-faceted', 'multi-faith', 'multi-function', 'multi-functional', 'multi-gym', 'multi-lateral', 'multi-layer', 'multi-layered', 'multi-level', 'multi-lingual',
+    'multi-media', // (Tech/Design)
+    'multi-million', 'multi-national', 'multi-part', 'multi-party',
+    'multi-player', // (Gaming)
+    'multi-purpose', 'multi-racial', 'multi-screen', 'multi-stage',
+    'multi-storey', // (UK Car Park)
+    'multi-task', 'multi-tasking', // (Business Critical)
+    'multi-touch', // (Tech)
+    'multi-user', 'multi-vitamin',
+    'muscle-bound', 'muscle-man',
+    'music-box', 'music-center', 'music-centre', 'music-hall', 'music-lesson', 'music-lover', 'music-maker', 'music-stand', 'music-stool',
+    'musical-chairs',
+    'must-have', // (Marketing)
+    'mustard-gas', 'mustard-pot',
+    'mutton-chop',
+    'my-space', // (Retro Tech)
+
     // P (Partial for critical words)
     'part-exchange', 'part-time', 'passer-by', 'pay-as-you-go', 'pay-day', 'pay-off', 'pay-roll', 'pea-green', 'pea-souper',
     'peace-keeping', 'peace-loving', 'peace-maker', 'peace-offering', 'peace-pipe', 'peace-time', 'peak-time', 'pear-shaped',
