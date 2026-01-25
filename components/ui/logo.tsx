@@ -26,7 +26,7 @@ export function Logo({ className = "w-8 h-8" }: { className?: string }) {
             className={className}
             aria-label="CorrectCase Logo"
         >
-            <g transform="rotate(-45 50 50)">
+            <g transform="rotate(-80 50 50)">
                 {/* Outer Capital C */}
                 <circle
                     cx="50"

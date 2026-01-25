@@ -13,7 +13,7 @@ export function Header() {
                     <div className="h-6 w-px bg-border-subtle mx-1" />
 
                     <div className="flex items-center gap-2">
-                        <Logo className="w-6 h-6" />
+                        <Logo className="w-8 h-8" />
                         <h1 className="text-lg font-bold tracking-tight text-body">
                             CorrectCase
                         </h1>

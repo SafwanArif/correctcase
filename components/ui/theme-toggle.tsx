@@ -39,14 +39,12 @@ export function ThemeToggle() {
              ${isDark ? "translate-x-6" : "translate-x-0"}
         `}
             >
-                <span className="relative z-10">
-                    {isDark ? (
-                        <Moon className="w-3.5 h-3.5 text-indigo-300" />
-                    ) : (
-                        <Sun className="w-3.5 h-3.5 text-amber-500" />
-                    )}
-                </span>
+                {isDark ? (
+                    <Moon className="w-3.5 h-3.5 text-indigo-300 relative z-10" />
+                ) : (
+                    <Sun className="w-3.5 h-3.5 text-amber-500 relative z-10" />
+                )}
             </div>
-        </button>
+        </button >
     );
 }
