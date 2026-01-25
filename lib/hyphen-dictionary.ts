@@ -825,6 +825,57 @@ export const COMPOUND_WORDS = new Set<string>([
     'just-in-time', // (Business/Logistics: JIT)
     'just-so',
 
+    // K (Modern & Tech Supplement)
+    'kangaroo-court', 'kangaroo-hop',
+    'karate-chop', 'karate-kick',
+    'keel-haul',
+    'keep-away', 'keep-cup', 'keep-fit', 'keep-net', 'keep-out', 'keep-sake', 'keep-up',
+    'kettle-bell', 'kettle-drum',
+    'key-board', // (Often solid, but useful to catch variants)
+    'key-card', 'key-change', 'key-chain',
+    'key-frame', // (Video/Animation Critical)
+    'key-grip', 'key-holder', 'key-hole', 'key-light',
+    'key-logger', 'key-logging', // (Security)
+    'key-money', 'key-note', 'key-pad',
+    'key-pair', // (Crypto/Dev Critical)
+    'key-ring', 'key-signature', 'key-stage', // (UK Education)
+    'key-stone', 'key-stroke',
+    'key-value', // (Dev: Key-value store)
+    'key-way', 'key-word', 'key-worker', // (UK Critical)
+    'kick-about', // (UK Football)
+    'kick-ass', 'kick-back', 'kick-boxer', 'kick-boxing', 'kick-down', 'kick-off', 'kick-start', 'kick-starter', 'kick-up',
+    'kid-gloves', 'kid-size',
+    'kidney-bean', 'kidney-machine', 'kidney-stone',
+    'kill-cord', 'kill-joy', 'kill-off',
+    'kill-switch', // (Tech/Security)
+    'kilo-byte', 'kilo-cycle', 'kilo-gram', 'kilo-hertz', 'kilo-joule', 'kilo-liter', 'kilo-metre', 'kilo-ton', 'kilo-watt',
+    'kind-hearted',
+    'king-cobra', 'king-crab', 'king-hit', 'king-maker', 'king-pin', 'king-prawn',
+    'king-size', 'king-sized', // (Consumer/Retail)
+    'kiss-and-tell', 'kiss-chase', 'kiss-curl', 'kiss-of-life',
+    'kit-bag', 'kit-car',
+    'kitchen-diner', 'kitchen-garden', 'kitchen-maid',
+    'kitchen-sink', // (Adj: "Kitchen-sink drama")
+    'kitchen-table', 'kitchen-ware',
+    'kite-mark', // (UK Standards)
+    'kite-surf', 'kite-surfer', 'kite-surfing',
+    'knee-bend', 'knee-breeches', 'knee-cap', 'knee-deep', 'knee-high', 'knee-hole',
+    'knee-jerk', // (Common Idiom)
+    'knee-length', 'knee-pad', 'knee-slapper', 'knee-sock',
+    'knife-edge', 'knife-point', 'knife-rest', 'knife-sharpener',
+    'knight-errant', 'knight-hood',
+    'knit-wear',
+    'knob-head', // (UK Colloquial)
+    'knock-about', 'knock-back', 'knock-down', 'knock-for-knock', 'knock-kneed', 'knock-off',
+    'knock-on', // (Rugby/Cause-and-effect)
+    'knock-out', 'knock-up',
+    'knot-hole',
+    'know-all',
+    'know-how', // (Business Critical)
+    'know-it-all', 'know-nothing',
+    'knuckle-ball', 'knuckle-bone', 'knuckle-duster', 'knuckle-head', 'knuckle-sandwich',
+    'kung-fu',
+
     // P (Partial for critical words)
     'part-exchange', 'part-time', 'passer-by', 'pay-as-you-go', 'pay-day', 'pay-off', 'pay-roll', 'pea-green', 'pea-souper',
     'peace-keeping', 'peace-loving', 'peace-maker', 'peace-offering', 'peace-pipe', 'peace-time', 'peak-time', 'pear-shaped',
