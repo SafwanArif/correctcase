@@ -1,5 +1,6 @@
 import { HeroEditor } from "@/components/features/hero-editor";
 import { Metadata } from "next";
+import { Shell } from "@/components/layout/shell";
 
 export const metadata: Metadata = {
     title: "Hyphenate Text Tool - SEO Slug Generator | CorrectCase",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
 
 export default function HyphenateTextPage() {
     return (
-        <HeroEditor defaultTools={["hyphenation"]} />
+        <Shell>
+            <HeroEditor defaultTools={["hyphenation"]} />
+        </Shell>
     );
 }

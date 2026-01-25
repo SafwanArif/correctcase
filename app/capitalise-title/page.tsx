@@ -1,5 +1,6 @@
 import { HeroEditor } from "@/components/features/hero-editor";
 import { Metadata } from "next";
+import { Shell } from "@/components/layout/shell";
 
 export const metadata: Metadata = {
     title: "Capitalise Title Tool - Free Title Case Converter | CorrectCase",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
 
 export default function CapitaliseTitlePage() {
     return (
-        <HeroEditor defaultTools={["case"]} />
+        <Shell>
+            <HeroEditor defaultTools={["case"]} />
+        </Shell>
     );
 }

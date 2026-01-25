@@ -6,6 +6,7 @@ import { addToHistory } from "@/lib/db";
 import { Copy, Type, AlignLeft, Link, Unlink, Quote, MoreHorizontal, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { DropdownMenu, DropdownItem } from "@/components/ui/dropdown-menu";
+import { useRouter } from "next/navigation";
 
 interface HeroEditorProps {
     defaultTools?: ('case' | 'hyphenation')[]; // controls which tools are primary
@@ -16,6 +17,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const [isCopied, setIsCopied] = useState(false);
     const [preservePunctuation, setPreservePunctuation] = useState(false);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const router = useRouter();
 
     // Derived State
     const isTextHyphenated = isHyphenated(text);
@@ -38,11 +40,11 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             case "sentence":
                 newText = toSentenceCase(text);
                 // SEO: Update URL if needed
-                window.history.replaceState(null, "", "/capitalise-title");
+                router.push("/capitalise-title", { scroll: false });
                 break;
             case "title":
                 newText = toTitleCase(text);
-                window.history.replaceState(null, "", "/capitalise-title");
+                router.push("/capitalise-title", { scroll: false });
                 break;
             case "hyphenate":
                 if (isTextHyphenated) {
@@ -50,7 +52,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                 } else {
                     newText = toHyphenated(text, preservePunctuation);
                 }
-                window.history.replaceState(null, "", "/hyphenate-text");
+                router.push("/hyphenate-text", { scroll: false });
                 break;
         }
 
