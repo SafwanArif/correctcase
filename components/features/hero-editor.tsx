@@ -85,14 +85,16 @@ export function HeroEditor() {
 
                 <div className="h-6 w-px bg-border-subtle mx-1" />
 
-                {/* Preservation Toggle */}
-                <ActionButton
-                    onClick={() => setPreservePunctuation(!preservePunctuation)}
-                    icon={<Quote className="w-4 h-4" />}
-                    label="Keep Punctuation"
-                    isActive={preservePunctuation}
-                    variant="secondary"
-                />
+                {/* Preservation Toggle - Only show when we are about to Hyphenate (not when Unhyphenating) */}
+                {!isTextHyphenated && (
+                    <ActionButton
+                        onClick={() => setPreservePunctuation(!preservePunctuation)}
+                        icon={<Quote className="w-4 h-4" />}
+                        label="Keep Punctuation"
+                        isActive={preservePunctuation}
+                        variant="secondary"
+                    />
+                )}
 
                 <div className="ml-auto flex items-center gap-2">
                     <button
