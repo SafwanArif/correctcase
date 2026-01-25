@@ -519,6 +519,83 @@ export const COMPOUND_WORDS = new Set<string>([
     'full-time', 'full-timer', 'fun-fair', 'fun-loving', 'fun-run',
     'fund-holder', 'fund-manager', 'fund-raiser', 'fund-raising', 'funeral-director', 'funeral-parlour',
     'funny-bone', 'fur-coat', 'fur-seal', 'furnishing-fabric', 'fuse-box', 'fuse-wire', 'fuss-pot',
+    'fuzzy-logic',
+
+    // G (Modern & Tech Supplement)
+    'gadget-bag', 'gag-order',
+    'game-changer', 'game-changing', 'game-day', 'game-pad', 'game-plan', 'game-play', 'game-show', 'game-theory', 'game-winner', 'game-winning',
+    'gap-analysis', 'gap-fill', 'gap-year', // (UK Essential)
+    'garage-sale',
+    'garden-center', 'garden-centre', // (UK Spelling)
+    'garden-city', 'garden-leave', // (UK Business Term)
+    'garden-party', 'garden-variety',
+    'gas-guzzler', 'gas-light', 'gas-lighting', 'gas-mask', 'gas-pedal', 'gas-station', 'gas-works',
+    'gate-crash', 'gate-crasher', 'gate-fold', 'gate-keeper', 'gate-way',
+    'gear-box', 'gear-change', 'gear-lever', 'gear-shift', 'gear-stick', // (UK Essential)
+    'geek-chic',
+    'gender-bender', 'gender-bias', 'gender-fluid', 'gender-gap', 'gender-identity', 'gender-neutral', 'gender-reveal', 'gender-specific', 'gender-swap',
+    'general-purpose',
+    'generation-gap', 'generation-x', 'generation-y', 'generation-z',
+    'geo-block', 'geo-cache', 'geo-caching', 'geo-code', 'geo-fencing', 'geo-location', 'geo-political', 'geo-politics', 'geo-spatial', 'geo-tag', 'geo-tagging', 'geo-thermal',
+    'get-go', 'get-out', 'get-rich-quick', 'get-together', 'get-up-and-go',
+    'ghost-hunter', 'ghost-story', 'ghost-town', 'ghost-write', 'ghost-writer',
+    'gift-card', 'gift-cert', 'gift-certificate', 'gift-shop', 'gift-wrap', 'gift-wrapped',
+    'gig-bag', 'gig-economy', // (Modern Business Critical)
+    'ginger-ale', 'ginger-beer', 'ginger-bread', 'ginger-nut', 'ginger-snap',
+    'girl-band', 'girl-friend', 'girl-next-door', 'girl-power', 'girl-talk',
+    'give-and-take', 'give-away',
+    'glam-rock',
+    'glass-blower', 'glass-ceiling', 'glass-cutter', 'glass-fronted', 'glass-house', 'glass-ware',
+    'global-warming',
+    'glue-gun', 'glue-stick',
+    'go-ahead', 'go-between', 'go-cart', 'go-getter', 'go-getting', 'go-kart',
+    'go-live', // (Tech/Project Management Critical)
+    'go-no-go', 'go-slow', 'go-to', 'go-to-market', // (Business Critical)
+    'goal-difference', 'goal-hanger', 'goal-keeper', 'goal-kick', 'goal-line', 'goal-mouth', 'goal-post', 'goal-scorer', 'goal-scoring', 'goal-setting',
+    'gob-smacked', // (British Slang)
+    'god-child', 'god-daughter', 'god-father', 'god-fearing', 'god-given', 'god-mother', 'god-parent', 'god-send', 'god-son',
+    'going-over',
+    'gold-digger', 'gold-dust', 'gold-leaf', 'gold-mine', 'gold-plated', 'gold-rush',
+    'golden-age', 'golden-boy', 'golden-girl', 'golden-handshake', // (Business Term)
+    'golden-hour', 'golden-jubilee', 'golden-oldie', 'golden-rule', 'golden-ticket', 'golden-wedding',
+    'golf-bag', 'golf-ball', 'golf-cart', 'golf-club', 'golf-course',
+    'good-bye', 'good-for-nothing', 'good-humoured', 'good-looking', 'good-luck', 'good-natured', 'good-night', 'good-will',
+    'google-eyed', 'googly-eyed',
+    'goose-bump', 'goose-bumps', 'goose-step',
+    'government-backed', 'government-funded',
+    'gps-tracker',
+    'grab-and-go', 'grab-bag', 'grab-handle', 'grab-rail',
+    'grade-point',
+    'grand-dad', 'grand-parent', 'grand-slam', 'grand-stand',
+    'grant-maintained',
+    'grape-fruit', 'grape-shot', 'grape-vine',
+    'graph-paper',
+    'grass-court', 'grass-hopper', 'grass-roots', 'grass-snake',
+    'grave-digger', 'grave-stone', 'grave-yard',
+    'gravity-feed',
+    'grease-gun', 'grease-proof',
+    'great-aunt', 'great-grandchild', 'great-grandfather', 'great-grandmother', 'great-grandparent', 'great-nephew', 'great-niece', 'great-uncle',
+    'green-belt', // (UK Planning Term)
+    'green-card', 'green-eyed', 'green-fingers', 'green-fly', 'green-grocer', 'green-house', 'green-light', 'green-room', 'green-screen', 'green-tea', 'green-wash', 'green-washing', // (Modern Business)
+    'grey-area', // (UK Spelling)
+    'grey-beard', 'grey-hair', 'grey-hound', 'grey-matter', 'grey-scale',
+    'grid-lock', 'grid-locked', 'grid-reference',
+    'grill-pan',
+    'ground-ball', 'ground-breaking', 'ground-control', 'ground-cover', 'ground-floor', 'ground-hog', 'ground-nut', 'ground-rule', 'ground-sheet', 'ground-staff', 'ground-swell', 'ground-work', 'ground-zero',
+    'group-chat', 'group-hug', 'group-stage', 'group-therapy', 'group-think', 'group-ware',
+    'grown-up',
+    'growth-hacking', // (Marketing Critical)
+    'grub-screw',
+    'guard-dog', 'guard-rail', 'guard-room',
+    'guest-book', 'guest-house', 'guest-list', 'guest-room', 'guest-speaker', 'guest-star', 'guest-worker',
+    'guide-book', 'guide-dog', 'guide-line', 'guide-price',
+    'guilt-edge', 'guilt-free', 'guilt-trip',
+    'guinea-fowl', 'guinea-pig',
+    'gum-boot', 'gum-disease', 'gum-shield',
+    'gun-boat', 'gun-crime', 'gun-dog', 'gun-fight', 'gun-fire', 'gun-man', 'gun-metal', 'gun-point', 'gun-powder', 'gun-runner', 'gun-running', 'gun-shot', 'gun-shy', 'gun-smith',
+    'gut-feeling', 'gut-wrenching',
+    'gym-kit', 'gym-shoes', 'gym-slip',
+
     // P (Partial for critical words)
     'part-exchange', 'part-time', 'passer-by', 'pay-as-you-go', 'pay-day', 'pay-off', 'pay-roll', 'pea-green', 'pea-souper',
     'peace-keeping', 'peace-loving', 'peace-maker', 'peace-offering', 'peace-pipe', 'peace-time', 'peak-time', 'pear-shaped',
