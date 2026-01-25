@@ -34,6 +34,28 @@ export const COMPOUND_WORDS = new Set<string>([
     'self-control', 'self-esteem', 'semi-final', 'second-hand', 'top-heavy',
     'vice-president',
 
+    // A (Modern Additions)
+    'A-list', 'A-lister', 'A-road', 'A-star',
+    'access-control', 'accident-free', 'account-holder', 'active-duty',
+    'ad-block', 'ad-blocker', 'ad-break', 'ad-free', 'add-to-cart',
+    'admin-rights', 'advance-booking', 'age-appropriate', 'age-verification',
+    'agri-business', 'agri-tech', 'aid-worker', 'air-ambulance', 'air-con',
+    'air-corridor', 'air-defence', 'air-dry', 'air-fryer', 'air-guitar',
+    'air-passenger', 'air-quality', 'air-taxi', 'air-traffic-control',
+    'alcohol-free', 'all-hands', 'all-in-one', 'all-new', 'all-or-nothing',
+    'all-terrain', 'alpha-male', 'alt-click', 'alt-key', 'alt-right', 'always-on',
+    'anchor-text', 'angel-investor', 'animal-welfare',
+    'anti-bullying', 'anti-fraud', 'anti-malware', 'anti-money-laundering',
+    'anti-phishing', 'anti-piracy', 'anti-scam', 'anti-slip', 'anti-spam',
+    'anti-spyware', 'anti-tamper',
+    'api-key', 'app-store', 'apple-picking', 'arms-control', 'arms-race',
+    'art-dealer', 'art-history', 'artificial-intelligence', 'asset-management',
+    'asset-stripping', 'assisted-suicide', 'at-risk', 'at-sea',
+    'audio-guide', 'audit-trail',
+    'auto-detect', 'auto-enrollment', 'auto-fill', 'auto-play', 'auto-renew',
+    'auto-reply', 'auto-save', 'auto-suggest', 'auto-update',
+    'award-winning', 'away-day', 'away-game', 'away-goal', 'away-match',
+
     // A
     'a-frame', 'a-level', 'abide-by', 'able-bodied', 'above-board', 'above-mentioned', 'absent-minded', 'accident-prone',
     'accounts-payable', 'accounts-receivable', 'acid-free', 'acid-test', 'acting-out', 'action-packed', 'ad-hoc', 'ad-infinitum',
