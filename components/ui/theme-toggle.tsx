@@ -14,7 +14,7 @@ export function ThemeToggle() {
 
     if (!mounted) {
         return (
-            <div className="w-14 h-8 rounded-full bg-slate-200 dark:bg-slate-800 animate-pulse border border-slate-300 dark:border-white/10" />
+            <div className="w-14 h-8 rounded-full bg-surface animate-pulse border border-border-subtle" />
         );
     }
 
@@ -23,18 +23,18 @@ export function ThemeToggle() {
     return (
         <button
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="relative w-14 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 glass-premium shadow-inner overflow-hidden group"
+            className="relative w-14 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core)/0.5)] glass-premium shadow-inner overflow-hidden group bg-surface border border-border-subtle"
             aria-label="Toggle Theme"
         >
             {/* Background Track Status Indicator */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 opacity-50 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-surface to-elevated opacity-50 transition-opacity duration-300" />
 
             {/* The Sliding Pill */}
             <div
                 className={`
             absolute top-1 left-1 w-6 h-6 rounded-full shadow-sm flex items-center justify-center
-            bg-white dark:bg-slate-700
-            border border-slate-200 dark:border-white/10
+            bg-elevated
+            border border-border-subtle
             toggle-spring transform
              ${isDark ? "translate-x-6" : "translate-x-0"}
         `}

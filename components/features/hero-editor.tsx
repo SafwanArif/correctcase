@@ -89,7 +89,7 @@ export function HeroEditor() {
                 />
 
                 {/* Stats overlay - Subtle & Clean */}
-                <div className="absolute bottom-4 right-6 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-6 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="flex items-center gap-4 text-[10px] font-mono font-medium text-muted bg-elevated px-3 py-1.5 rounded-full border border-border-subtle shadow-sm">
                         <span>{countWords(text)} WORDS</span>
                         <span className="w-px h-3 bg-border-subtle" />

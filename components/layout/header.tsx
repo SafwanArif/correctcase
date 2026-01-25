@@ -10,7 +10,7 @@ export function Header() {
                 <div className="flex items-center gap-4">
                     <ThemeToggle />
                     <div className="h-6 w-px bg-border-subtle mx-1" />
-                    <h1 className="text-lg font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-body to-muted">
+                    <h1 className="text-lg font-bold tracking-tight text-body">
                         CorrectCase
                     </h1>
                 </div>
