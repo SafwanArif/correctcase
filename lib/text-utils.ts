@@ -113,8 +113,9 @@ export function isHyphenated(text: string): boolean {
 
 /**
  * Smartly recovers text from a hyphenated string, preserving known compound words.
- * @param text The hyphenated text (e.g. "well-being-check").
- * @returns The recovered sentence (e.g. "Well-being check").
+ * Uses a greedy approach to find longest matches first (up to 3 words).
+ * @param text The hyphenated text (e.g. "mother-in-law-visits").
+ * @returns The recovered sentence (e.g. "Mother-in-law visits").
  */
 export function smartUnhyphenate(text: string): string {
     if (!text) return '';
@@ -122,24 +123,38 @@ export function smartUnhyphenate(text: string): string {
     const parts = text.split('-');
     const recoveredParts: string[] = [];
 
-    for (let i = 0; i < parts.length; i++) {
+    let i = 0;
+    while (i < parts.length) {
         const current = parts[i].toLowerCase();
 
-        // Peek ahead
-        if (i < parts.length - 1) {
-            const next = parts[i + 1].toLowerCase();
-            const compoundCandidate = `${current}-${next}`;
+        // 1. Try 3-word compound (e.g. father-in-law)
+        if (i < parts.length - 2) {
+            const next1 = parts[i + 1].toLowerCase();
+            const next2 = parts[i + 2].toLowerCase();
+            const tripleCandidate = `${current}-${next1}-${next2}`;
 
-            if (COMPOUND_WORDS.has(compoundCandidate)) {
-                // It's a compound word! Keep the hyphen.
-                recoveredParts.push(compoundCandidate);
-                i++; // Skip the next part since we consumed it
+            if (COMPOUND_WORDS.has(tripleCandidate)) {
+                recoveredParts.push(tripleCandidate);
+                i += 3;
                 continue;
             }
         }
 
-        // Not a compound, just add the word
+        // 2. Try 2-word compound (e.g. well-being)
+        if (i < parts.length - 1) {
+            const next = parts[i + 1].toLowerCase();
+            const doubleCandidate = `${current}-${next}`;
+
+            if (COMPOUND_WORDS.has(doubleCandidate)) {
+                recoveredParts.push(doubleCandidate);
+                i += 2;
+                continue;
+            }
+        }
+
+        // 3. No compound match, just use the word
         recoveredParts.push(current);
+        i++;
     }
 
     // Join with spaces and apply Sentence Case

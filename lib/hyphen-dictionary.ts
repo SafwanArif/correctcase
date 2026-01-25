@@ -6,6 +6,12 @@
  */
 
 export const COMPOUND_WORDS = new Set<string>([
+    // User requested & Common Multi-part
+    'mother-in-law', 'father-in-law', 'brother-in-law', 'sister-in-law',
+    'son-in-law', 'daughter-in-law', 'editor-in-chief', 'merry-go-round',
+    'forget-me-not', 'lily-of-the-valley', 'jack-in-the-box', 'state-of-the-art',
+    'up-to-date', 'day-to-day', 'face-to-face', 'one-to-one', 'step-by-step',
+
     // A
     'a-frame', 'a-level', 'abide-by', 'able-bodied', 'above-board', 'above-mentioned', 'absent-minded', 'accident-prone',
     'accounts-payable', 'accounts-receivable', 'acid-free', 'acid-test', 'acting-out', 'action-packed', 'ad-hoc', 'ad-infinitum',
