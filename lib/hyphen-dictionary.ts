@@ -1184,7 +1184,97 @@ export const COMPOUND_WORDS = new Set<string>([
     'must-have', // (Marketing)
     'mustard-gas', 'mustard-pot',
     'mutton-chop',
+    'mutton-chop',
     'my-space', // (Retro Tech)
+
+    // N (Modern & Tech Supplement)
+    'nail-biting', 'nail-brush', 'nail-clipper', 'nail-file', 'nail-polish', 'nail-scissors', 'nail-varnish',
+    'name-call', 'name-calling', 'name-check', 'name-day', 'name-drop', 'name-dropper', 'name-dropping', 'name-plate', 'name-sake', 'name-tag', 'name-tape',
+    'nanny-goat', 'nanny-state', // (UK Politics)
+    'napkin-ring',
+    'nappy-rash', // (UK Specific - US is diaper rash)
+    'narrow-boat', // (UK Canals)
+    'narrow-gauge', 'narrow-minded',
+    'national-insurance', // (UK Tax)
+    'native-app', // (Tech/Mobile)
+    'native-speaker',
+    'natural-born', 'natural-gas',
+    'navel-gazing',
+    'near-by', 'near-death', 'near-distance', 'near-fatal',
+    'near-field', // (Tech: NFC)
+    'near-miss', 'near-sighted', 'near-term',
+    'neat-freak',
+    'neck-band', 'neck-line', 'neck-rest', 'neck-tie', 'neck-wear',
+    'needle-point', 'needle-work',
+    'negative-equity',
+    'neighbourhood-watch', // (UK Spelling)
+    'neon-light',
+    'nerve-cell', 'nerve-center', 'nerve-centre', 'nerve-ending', 'nerve-gas', 'nerve-racking', 'nerve-wracking',
+    'net-book', // (Retro Tech)
+    'net-curtain', // (UK Household)
+    'net-head', 'net-income', 'net-neutrality', // (Tech/Politics)
+    'net-profit', 'net-result', 'net-work', 'net-working', 'net-worth',
+    'network-attached', // (Tech: NAS)
+    'neural-network', // (AI/Tech)
+    'never-ending', 'never-failing', 'never-land', 'never-mind', 'never-more', 'never-the-less',
+    'new-age', 'new-born', 'new-build', // (UK Real Estate)
+    'new-comer', 'new-found', 'new-laid', 'new-look', 'new-money', 'new-moon', 'new-normal', // (Post-2020)
+    'new-rich', 'new-tech', 'new-wave', 'new-world', 'new-year',
+    'news-agent', // (UK Retail)
+    'news-anchor', 'news-boy', 'news-brief', 'news-cast', 'news-caster', 'news-conference', 'news-desk', 'news-flash', 'news-group', 'news-hound', 'news-letter', 'news-man', 'news-paper', 'news-print', 'news-reader', 'news-reel', 'news-room', 'news-sheet', 'news-stand', 'news-vendor', 'news-wire', 'news-worthy',
+    'next-door', 'next-gen', 'next-generation', // (Tech/Gaming)
+    'next-of-kin',
+    'nice-looking',
+    'niche-market',
+    'nickel-and-dime', 'nickel-plate',
+    'night-blindness', 'night-cap', 'night-club', 'night-dress', 'night-duty', 'night-fall', 'night-gown', 'night-life', 'night-light', 'night-long',
+    'night-mode', // (UI/App Critical)
+    'night-owl', 'night-porter', 'night-school', 'night-shift', 'night-shirt', 'night-sky', 'night-spot', 'night-time', 'night-vision', 'night-watch', 'night-watchman', 'night-wear',
+    'nine-fold', 'nine-pin',
+    'nitty-gritty',
+    'no-ball', // (Cricket)
+    'no-brainer', 'no-can-do', 'no-claim', // (Insurance)
+    'no-code', // (SaaS/Dev Critical)
+    'no-confidence', 'no-contest', 'no-cost', 'no-entry', 'no-fault', 'no-fly',
+    'no-go', // (UK: "It's a no-go area")
+    'no-good', 'no-hoper', 'no-how', 'no-load', 'no-man', 'no-mans-land',
+    'no-name', // (Generic Brand)
+    'no-nonsense',
+    'no-one', // (Common UK style preference over "no one")
+    'no-show',
+    'no-sql', // (Tech: NoSQL databases)
+    'no-strings', 'no-tax', 'no-trumps', 'no-win',
+    'noble-man', 'noble-minded', 'noble-woman',
+    'noise-cancelling', // (Tech/Audio)
+    'noise-free', 'noise-level', 'noise-maker', 'noise-pollution', 'noise-reduction',
+    'non-acceptance', 'non-action', 'non-addictive', 'non-alcoholic', 'non-aligned', 'non-appearance', 'non-attendance', 'non-believer', 'non-belligerent',
+    'non-binary', // (Modern Identity)
+    'non-blocking', // (Dev: "Non-blocking I/O")
+    'non-breakable', 'non-christian', 'non-combatant', 'non-combustible', 'non-commercial', 'non-commissioned', 'non-committal', 'non-compliance', 'non-compliant', 'non-conductor', 'non-conforming', 'non-conformist', 'non-contagious', 'non-contributory', 'non-cooperation', 'non-corrosive', 'non-custodial', 'non-deductible', 'non-delivery', 'non-destructive',
+    'non-disclosure', // (Legal: NDA)
+    'non-discrimination', 'non-drinker', 'non-driver', 'non-drip', 'non-drying', 'non-durable', 'non-effective', 'non-essential', 'non-event', 'non-exclusive', 'non-executive', 'non-existence', 'non-existent', 'non-fat', 'non-ferrous',
+    'non-fiction', // (Publishing)
+    'non-flammable', 'non-flowering', 'non-flying', 'non-food',
+    'non-fungible', // (Tech: NFT)
+    'non-governmental', 'non-human', 'non-intervention', 'non-invasive', 'non-iron', 'non-jewish', 'non-linear', 'non-member', 'non-metal', 'non-military', 'non-native', 'non-negotiable', 'non-nuclear', 'non-observance', 'non-official', 'non-operational', 'non-payment', 'non-performance', 'non-perishable', 'non-playing', 'non-poisonous', 'non-political', 'non-porous', 'non-productive', 'non-professional',
+    'non-profit', // (Business Critical)
+    'non-proliferation', 'non-racial', 'non-random', 'non-reactive', 'non-refundable', 'non-religious', 'non-renewable', 'non-resident', 'non-resistance', 'non-resistant', 'non-returnable', 'non-scheduled', 'non-sectarian', 'non-sense', 'non-sensitive', 'non-sexist', 'non-skid', 'non-slip', 'non-smoker', 'non-smoking', 'non-standard',
+    'non-starter', // (Business: "That idea is a non-starter")
+    'non-stick', 'non-stop', 'non-striker', 'non-structural', 'non-swimmer', 'non-taxable', 'non-technical', 'non-toxic', 'non-transferable', 'non-union', 'non-user', 'non-verbal', 'non-violence', 'non-violent', 'non-voting', 'non-white', 'non-working',
+    'noodle-soup',
+    'north-bound', 'north-east', 'north-easterly', 'north-eastern', 'north-facing', 'north-pole', 'north-star', 'north-west', 'north-westerly', 'north-western',
+    'nose-bag', 'nose-bleed', 'nose-cone', 'nose-dive', 'nose-flute', 'nose-job', 'nose-pick', 'nose-ring', 'nose-wheel',
+    'nosey-parker', // (Classic UK Slang)
+    'not-for-profit',
+    'note-book', // (Stationery & Laptop)
+    'note-case', 'note-let', 'note-pad', 'note-paper', 'note-taking', 'note-worthy',
+    'notice-board',
+    'nuclear-free', 'nuclear-powered',
+    'null-and-void',
+    'number-cruncher', 'number-crunching', 'number-one', 'number-plate', // (UK Car)
+    'nurse-maid', 'nursery-man', 'nursery-rhyme', 'nursery-school', 'nursery-slope',
+    'nut-case', 'nut-cracker', 'nut-hatch', 'nut-roast', 'nut-shell', 'nut-tree',
+    'nylon-string',
 
     // P (Partial for critical words)
     'part-exchange', 'part-time', 'passer-by', 'pay-as-you-go', 'pay-day', 'pay-off', 'pay-roll', 'pea-green', 'pea-souper',
