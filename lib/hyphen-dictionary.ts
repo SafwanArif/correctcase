@@ -719,6 +719,63 @@ export const COMPOUND_WORDS = new Set<string>([
     'hyper-local', 'hyper-market', 'hyper-real', 'hyper-sensitive', 'hyper-sonic', 'hyper-space', 'hyper-text', 'hyper-thread', 'hyper-thyroid', 'hyper-vent', 'hyper-ventilate',
     'hyphen-dictionary', // (Meta!)
 
+    // I (Modern & Tech Supplement)
+    'i-beam', 'i-ching', 'i-pad', 'i-phone', 'i-player', 'i-pod',
+    'ice-age', 'ice-axe', 'ice-bath', 'ice-berg', 'ice-blond', 'ice-blue', 'ice-box', 'ice-breaker', 'ice-bucket', 'ice-cap', 'ice-cold', 'ice-cool', 'ice-cream', // (Classic UK hyphenation)
+    'ice-cube', 'ice-dance', 'ice-dancer', 'ice-dancing', 'ice-field', 'ice-floe', 'ice-hockey', 'ice-house', 'ice-lolly', // (UK Specific)
+    'ice-machine', 'ice-maker', 'ice-pack', 'ice-pick', 'ice-plant', 'ice-rink', 'ice-sheet', 'ice-skate', 'ice-skater', 'ice-skating', 'ice-storm', 'ice-tray', 'ice-wine',
+    'id-card', 'id-tag',
+    'idea-rich',
+    'identity-card', 'identity-theft',
+    'ill-advised', 'ill-afford', 'ill-assorted', 'ill-at-ease', 'ill-bred', 'ill-conceived', 'ill-consider', 'ill-considered', 'ill-defined', 'ill-discipline', 'ill-effect', 'ill-equipped', 'ill-fated', 'ill-favoured', 'ill-fitting', 'ill-founded', 'ill-gain', 'ill-gotten', 'ill-health', 'ill-humour', 'ill-informed', 'ill-judge', 'ill-judged', 'ill-looking', 'ill-mannered', 'ill-natured', 'ill-omen', 'ill-omened', 'ill-prepare', 'ill-prepared', 'ill-repute', 'ill-spent', 'ill-starred', 'ill-suit', 'ill-suited', 'ill-temper', 'ill-tempered', 'ill-time', 'ill-timed', 'ill-treat', 'ill-treatment', 'ill-use', 'ill-used', 'ill-will', 'ill-wind',
+    'image-conscious', 'image-maker', 'image-processing', 'image-stabilization', 'image-stabilizer',
+    'immune-system',
+    'impact-assessment', 'impact-resistant',
+    'in-app', // (Tech/SaaS Critical)
+    'in-basket', 'in-between', 'in-board', 'in-bound', // (Marketing/Travel)
+    'in-box', // (Often solid 'inbox', but useful to catch variants)
+    'in-breath', 'in-brief', 'in-build', 'in-built', 'in-camera', 'in-car', 'in-charge', 'in-cinema', 'in-class', 'in-club', 'in-country', 'in-crowd',
+    'in-depth', // (You have this, but good to group)
+    'in-ear', 'in-feed', 'in-field', 'in-fighting', 'in-fill', 'in-flight', 'in-flow', 'in-foal', 'in-game', // (Gaming)
+    'in-going', 'in-grown', 'in-growing',
+    'in-house', // (Business Critical)
+    'in-joke', 'in-keeping', 'in-land', 'in-law', 'in-line', // (Tech: "Inline styles")
+    'in-loco-parentis', 'in-memory', // (Tech: "In-memory database")
+    'in-migrate', 'in-migration', 'in-name-only', 'in-off', 'in-patient', 'in-person', 'in-phase', 'in-place', 'in-pocket', 'in-post', 'in-practice', 'in-process', 'in-progress', 'in-pub', 'in-road', 'in-room', 'in-rush', 'in-season', 'in-service', 'in-shore', 'in-shot', 'in-sight', 'in-situ', 'in-sole', 'in-soul', 'in-step',
+    'in-store', // (Retail)
+    'in-style', 'in-swing', 'in-swinger', 'in-the-black', 'in-the-money', 'in-the-red', 'in-thing', 'in-toed', 'in-tray', 'in-use',
+    'in-vitro', // (Science)
+    'in-vivo', 'in-voice', 'in-work', 'in-year', 'in-your-face',
+    'inch-perfect', 'inch-worm',
+    'income-support', 'income-tax',
+    'index-finger', 'index-fund', 'index-link', 'index-linked',
+    'indoor-outdoor',
+    'industrial-strength',
+    'info-graphic', 'info-mercial', 'info-tainment',
+    'infra-red', 'infra-structure',
+    'ink-blot', 'ink-cartridge', 'ink-jet', // (Tech: Ink-jet printer)
+    'ink-pot', 'ink-pad', 'ink-spot', 'ink-stand', 'ink-well',
+    'inner-circle', 'inner-city', 'inner-ear', 'inner-most', 'inner-sole', 'inner-space', 'inner-tube',
+    'input-output', // (Tech: I/O)
+    'insect-bite', 'insect-repellent',
+    'inside-out', 'inside-track',
+    'instant-messaging',
+    'intellectual-property', // (Business: IP)
+    'intelligence-gathering', 'intelligence-service', 'intelligence-test',
+    'interest-free', 'interest-group', 'interest-only', 'interest-rate',
+    'interior-design', 'interior-designer',
+    'internet-banking', 'internet-cafe', 'internet-ready',
+    'ion-exchange',
+    'ip-address', // (Tech Critical)
+    'iron-age', 'iron-bridge', 'iron-clad', 'iron-fisted', 'iron-foundry', 'iron-grey', 'iron-lung', 'iron-man',
+    'iron-monger', 'iron-mongery', // (UK Retail)
+    'iron-on', 'iron-ore', 'iron-oxide', 'iron-work', 'iron-works',
+    'ironing-board',
+    'island-hop', 'island-hopping',
+    'it-bag', 'it-crowd', 'it-girl',
+    'ivory-tower',
+    'ivy-covered', 'ivy-league', 'ivy-leaved',
+
     // P (Partial for critical words)
     'part-exchange', 'part-time', 'passer-by', 'pay-as-you-go', 'pay-day', 'pay-off', 'pay-roll', 'pea-green', 'pea-souper',
     'peace-keeping', 'peace-loving', 'peace-maker', 'peace-offering', 'peace-pipe', 'peace-time', 'peak-time', 'pear-shaped',
