@@ -13,6 +13,26 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* GLOBAL RESET & ACCESSIBILITY */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid oklch(var(--action-primary));
+  outline-offset: 2px;
+}
+
+/* PREVENT UI SELECTION (Ghost Text Fix) */
+header,
+footer,
+button,
+.history-panel,
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
 /* 
   CUSTOM UTILITIES (The Visual Physics)
 */
