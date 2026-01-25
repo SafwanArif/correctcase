@@ -3,49 +3,127 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* OKLCH Color Palette Configuration */
+  /* Extended via CSS variables below */
 }
 
+/* 
+  2026 Design Standards:
+  - OKLCH Colors
+  - CSS Scale Variables
+  - Expensive Depth
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* BACKGROUNDS */
+  /* Soft Medical White: oklch(98.5% 0 0) -> approx #fbfbfb */
+  --background: 98.5% 0 0;
+  
+  /* FOREGROUNDS */
+  /* Deep Neutral Grey: oklch(20% 0 0) -> approx #333333 */
+  --foreground: 20% 0 0;
+
+  /* ACCENTS */
+  /* Medical Indigo: oklch(55% 0.2 260) */
+  --primary: 55% 0.2 260; 
+  --primary-foreground: 99% 0 0;
+
+  /* MUTED */
+  /* Light input background: oklch(96% 0 0) */
+  --muted: 96% 0 0;
+  --muted-foreground: 45% 0 0;
+  
+  /* BORDERS */
+  --border: 92% 0 0;
+  
+  /* UTILS */
+  --radius: 1rem; /* rounded-2xl */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  /* DARK MODE OVERRIDES */
+  /* Deep Void: oklch(15% 0 0) */
+  --background: 15% 0 0; 
+  --foreground: 98% 0 0;
+  
+  /* Softer Accent for Dark Mode */
+  --primary: 65% 0.15 260;
+  --primary-foreground: 100% 0 0;
+
+  --muted: 25% 0 0;
+  --muted-foreground: 70% 0 0;
+  
+  --border: 25% 0 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  /* Usage of OKLCH variables */
+  background-color: oklch(var(--background));
+  color: oklch(var(--foreground));
   font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom Scrollbar for "Polished" feel */
+/* 
+  CUSTOM UTILITIES 
+  "Expensive" UI Depth
+*/
+
+.shadow-depth {
+  /* Layered shadow for depth in Light Mode */
+  box-shadow: 
+    0 4px 6px -1px oklch(0 0 0 / 0.05), 
+    0 2px 4px -1px oklch(0 0 0 / 0.03),
+    0 10px 15px -3px oklch(0 0 0 / 0.02);
+}
+
+.glass-premium {
+  /* Physical Glass Look */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: oklch(100% 0 0 / 0.7); /* White opacity */
+  border-bottom: 1px solid oklch(0 0 0 / 0.05);
+}
+
+.dark .glass-premium {
+  background: oklch(0 0 0 / 0.4); /* Dark opacity */
+  border-bottom: 1px solid oklch(100% 0 0 / 0.1);
+}
+
+/* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.3); /* gray-400 with opacity */
+  background: oklch(var(--muted-foreground) / 0.3);
   border-radius: 10px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(156, 163, 175, 0.5);
+  background: oklch(var(--muted-foreground) / 0.5);
 }
 
-/* Glassmorphism Utilities if needed beyond Tailwind utilities */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Toggle Animation */
+.toggle-spring {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Spring-like */
+}
+
+/* Animation Utils */
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
 }
