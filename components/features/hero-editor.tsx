@@ -76,18 +76,31 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             <div className="flex flex-wrap items-center gap-2 p-3 border-b border-border-subtle bg-canvas">
 
                 {showCaseTools && (
-                    <>
-                        <ActionButton
-                            onClick={() => handleConversion("sentence")}
-                            icon={<AlignLeft className="w-4 h-4" />}
-                            label="Sentence Case"
-                        />
-                        <ActionButton
-                            onClick={() => handleConversion("title")}
-                            icon={<Type className="w-4 h-4" />}
-                            label="Title Case"
-                        />
-                    </>
+                    <div className="relative z-20">
+                        <DropdownMenu
+                            align="left"
+                            trigger={
+                                <div className="flex items-center gap-2 px-4 py-1.5 text-sm font-medium text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle rounded-lg transition-all shadow-sm hover:shadow cursor-pointer select-none">
+                                    <Type className="w-4 h-4" />
+                                    <span>Capitalise Title</span>
+                                    <ChevronDown className="w-3 h-3 opacity-50" />
+                                </div>
+                            }
+                        >
+                            <DropdownItem
+                                onClick={() => handleConversion("title")}
+                                icon={<span className="text-lg">🇺🇸</span>}
+                                label="US Style (Title Case)"
+                                description="Capitalize major words. Standard for NYT, Time, etc."
+                            />
+                            <DropdownItem
+                                onClick={() => handleConversion("sentence")}
+                                icon={<span className="text-lg">🇬🇧</span>}
+                                label="UK Style (Sentence Case)"
+                                description="First word only. Standard for BBC, The Guardian."
+                            />
+                        </DropdownMenu>
+                    </div>
                 )}
 
                 {showHyphenTools && (

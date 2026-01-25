@@ -48,22 +48,40 @@ interface DropdownItemProps {
     onClick: () => void;
     icon?: React.ReactNode;
     label: string;
+    description?: string;
     isActive?: boolean;
 }
 
-export function DropdownItem({ onClick, icon, label, isActive }: DropdownItemProps) {
+export function DropdownItem({ onClick, icon, label, description, isActive }: DropdownItemProps) {
     return (
         <button
             onClick={onClick}
             className={cn(
-                "flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg text-left transition-colors w-full",
+                "flex items-start gap-3 px-3 py-2.5 text-sm font-medium rounded-lg text-left transition-colors w-full group",
                 isActive
                     ? "bg-[oklch(var(--brand-core)/0.1)] text-primary"
                     : "text-muted hover:text-body hover:bg-surface"
             )}
         >
-            {icon && <span className="w-4 h-4 flex items-center justify-center">{icon}</span>}
-            <span>{label}</span>
+            {icon && (
+                <span className={cn(
+                    "w-5 h-5 flex items-center justify-center shrink-0 mt-0.5",
+                    isActive ? "text-primary" : "text-muted-foreground group-hover:text-body"
+                )}>
+                    {icon}
+                </span>
+            )}
+            <div className="flex flex-col gap-0.5">
+                <span className="leading-tight">{label}</span>
+                {description && (
+                    <span className={cn(
+                        "text-[10px] leading-snug",
+                        isActive ? "text-primary/70" : "text-muted group-hover:text-muted-foreground"
+                    )}>
+                        {description}
+                    </span>
+                )}
+            </div>
         </button>
     );
 }
