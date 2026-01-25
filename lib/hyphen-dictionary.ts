@@ -2783,6 +2783,99 @@ export const COMPOUND_WORDS = new Set<string>([
     'user-name', // (Often solid, but hyphenated in formal docs)
     'utility-man', 'utility-room', 'utility-truck', 'utility-vehicle',
 
+    // V (Modern & Tech Supplement)
+    'v-chip', 'v-cylinder', 'v-day', 'v-engine', 'v-formation',
+    'v-neck', // (Clothing)
+    'v-sign',
+    'vac-pac',
+    'vacation-time',
+    'vacuum-bottle', 'vacuum-brake', 'vacuum-clean', 'vacuum-cleaner', 'vacuum-flask', 'vacuum-packed', 'vacuum-pump', 'vacuum-tube',
+    'valet-parking',
+    'valley-bottom',
+    'valuation-list',
+    'value-added', // (Business: VAT)
+    'value-driven', 'value-for-money', 'value-investing',
+    'valve-gear', 'valve-guide', 'valve-lifter', 'valve-seat', 'valve-spring', 'valve-timing',
+    'van-driver', 'van-guard', 'van-load',
+    'vanilla-flavour',
+    'vanity-bag', 'vanity-case', 'vanity-fair', 'vanity-mirror', 'vanity-plate', 'vanity-press', 'vanity-publishing', 'vanity-unit',
+    'vapour-bath', 'vapour-lock', 'vapour-trail',
+    'variable-geometry', 'variable-pitch',
+    'variable-rate', // (Finance)
+    'variable-speed',
+    'varicose-vein',
+    'variety-show', 'variety-store',
+    'varnish-remover',
+    'vas-deferens',
+    'vat-man', // (UK Tax Inspector)
+    'vaulting-horse',
+    'vector-graphic', // (Design/Tech)
+    'veg-box',
+    'vegetable-garden', 'vegetable-marrow', 'vegetable-oil', 'vegetable-patch', 'vegetable-rack',
+    'vehicle-inspection', 'vehicle-registration',
+    'velvet-glove',
+    'vending-machine',
+    'venetian-blind',
+    'vent-peg', 'vent-pipe',
+    'venture-capital', // (Business Critical: VC)
+    'venture-capitalist',
+    'verbal-diarrhoea', // (UK Spelling)
+    'verging-on',
+    'vertical-blind', 'vertical-take-off',
+    'very-high-frequency', // (VHF)
+    'very-low-frequency',
+    'vest-pocket',
+    'vested-interest',
+    'vetting-process',
+    'vice-admiral', 'vice-captain', 'vice-chairman', 'vice-chancellor', 'vice-consul', 'vice-gerent', 'vice-president', 'vice-presidential', 'vice-principal', 'vice-regal', 'vice-squad',
+    'video-art', 'video-camera', 'video-cassette', 'video-chat', // (Tech)
+    'video-clip', 'video-club',
+    'video-conference', // (Business Critical)
+    'video-conferencing', 'video-diary', 'video-disc', 'video-disk',
+    'video-game', // (Tech/Gaming)
+    'video-link', 'video-nasty', // (UK 80s Term)
+    'video-on-demand', // (Tech: VOD)
+    'video-phone', 'video-player', 'video-recorder', 'video-tape', 'video-taped',
+    'view-data', 'view-finder', 'view-point',
+    'village-green', 'village-hall', 'village-idiot',
+    'vine-leaf',
+    'vintage-car', 'vintage-year',
+    'vinyl-record',
+    'violin-bow', 'violin-case',
+    'virgin-birth', 'virgin-wool',
+    'virtual-assistant', // (Tech: VA)
+    'virtual-machine', // (Tech: VM)
+    'virtual-reality', // (Tech: VR)
+    'virtual-server',
+    'virus-check', 'virus-checker', // (Tech)
+    'vis-a-vis', // (Often hyphenated in UK English)
+    'visiting-card', 'visiting-hour', 'visiting-team',
+    'visual-aid', 'visual-display',
+    'vitamin-b', 'vitamin-c', 'vitamin-d', 'vitamin-deficiency', 'vitamin-pill', 'vitamin-rich',
+    'voice-activate', 'voice-activated', // (Tech)
+    'voice-box',
+    'voice-command', // (Tech)
+    'voice-control',
+    'voice-mail', // (Tech Critical)
+    'voice-over', // (Media)
+    'voice-pipe', 'voice-print', 'voice-production',
+    'voice-recognition', // (Tech Critical)
+    'void-deck',
+    'volatile-memory', // (Tech)
+    'volcanic-ash', 'volcanic-eruption', 'volcanic-rock',
+    'volley-ball',
+    'voltage-regulator',
+    'volume-control',
+    'vomit-bag',
+    'vote-catcher', 'vote-catching', 'vote-winner', 'vote-winning',
+    'voting-age', 'voting-booth', 'voting-card', 'voting-machine', 'voting-paper', 'voting-right', 'voting-slip', 'voting-system',
+    'voucher-code', // (E-commerce)
+    'voucher-copy',
+    'vowel-change', 'vowel-sound',
+    'vpn-client', // (Tech)
+    'vulcanised-rubber',
+    'vulture-capitalist', // (Business Slang)
+
     // Z
     'z-bend', 'z-list', 'zenith-distance', 'zero-hour', 'zero-in', 'zero-option', 'zero-rated', 'zero-tolerance', 'zig-zag',
     'zinc-plate', 'zip-code', 'zip-fastener', 'zip-file', 'zip-up', 'zone-out', 'zoo-keeper', 'zoom-in', 'zoom-lens', 'zoom-out'
