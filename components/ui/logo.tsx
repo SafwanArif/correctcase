@@ -32,7 +32,7 @@ export function Logo({ className = "w-8 h-8" }: { className?: string }) {
                     <stop offset="100%" stopColor="oklch(60% 0.2 240)" />
                 </linearGradient>
             </defs>
-            <g transform="rotate(-85 50 50)">
+            <g transform="rotate(-90 50 50)">
                 {/* Outer Capital C */}
                 <circle
                     cx="50"
