@@ -3,13 +3,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
 import { addToHistory } from "@/lib/db";
-import { Copy, Type, AlignLeft, Link } from "lucide-react";
+import { Copy, Type, AlignLeft, Link, Unlink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function HeroEditor() {
     const [text, setText] = useState("");
     const [isCopied, setIsCopied] = useState(false);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    // Derived State
+    const isTextHyphenated = isHyphenated(text);
 
     useEffect(() => {
         // Auto-focus on load
@@ -28,7 +31,7 @@ export function HeroEditor() {
                 newText = toTitleCase(text);
                 break;
             case "hyphenate":
-                if (isHyphenated(text)) {
+                if (isTextHyphenated) {
                     // Smart recovery (Unhyphenate)
                     newText = smartUnhyphenate(text);
                 } else {
@@ -63,11 +66,15 @@ export function HeroEditor() {
                     icon={<Type className="w-4 h-4" />}
                     label="Title"
                 />
+
+                {/* Dynamic Hyphenate Toggle */}
                 <ActionButton
                     onClick={() => handleConversion("hyphenate")}
-                    icon={<Link className="w-4 h-4" />}
-                    label="Hyphenate"
+                    icon={isTextHyphenated ? <Unlink className="w-4 h-4" /> : <Link className="w-4 h-4" />}
+                    label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
+                    isActive={isTextHyphenated}
                 />
+
                 <div className="ml-auto flex items-center gap-2">
                     <button
                         onClick={copyToClipboard}
@@ -107,14 +114,19 @@ export function HeroEditor() {
     );
 }
 
-function ActionButton({ onClick, icon, label }: { onClick: () => void; icon: React.ReactNode; label: string }) {
+function ActionButton({ onClick, icon, label, isActive }: { onClick: () => void; icon: React.ReactNode; label: string; isActive?: boolean }) {
     return (
         <button
             onClick={onClick}
-            className="flex items-center gap-2 px-4 py-1.5 text-sm font-medium text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle rounded-lg transition-all duration-200 active:scale-95 shadow-sm hover:shadow"
+            className={cn(
+                "flex items-center gap-2 px-4 py-1.5 text-sm font-medium border rounded-lg transition-all duration-200 active:scale-95 shadow-sm hover:shadow",
+                isActive
+                    ? "bg-[oklch(var(--brand-core)/0.1)] text-primary border-[oklch(var(--brand-core)/0.2)]"
+                    : "text-muted hover:text-body bg-elevated hover:bg-surface border-border-subtle"
+            )}
         >
             {icon}
-            <span>{label}</span>
+            <span className="min-w-[60px] text-center">{label}</span>
         </button>
     );
 }
