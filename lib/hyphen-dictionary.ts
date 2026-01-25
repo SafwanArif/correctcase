@@ -2876,6 +2876,151 @@ export const COMPOUND_WORDS = new Set<string>([
     'vulcanised-rubber',
     'vulture-capitalist', // (Business Slang)
 
+    // W (Modern & Tech Supplement)
+    'waffle-iron',
+    'wage-claim', 'wage-earner', 'wage-freeze', 'wage-packet', 'wage-slave',
+    'wagon-lit',
+    'wait-and-see', 'wait-list', 'wait-listed',
+    'waiting-game', 'waiting-list', 'waiting-room',
+    'wake-up', // (Call/Call-up)
+    'walk-about', 'walk-away', 'walk-in', 'walk-on', 'walk-out', 'walk-over',
+    'walk-through', // (Dev/Gaming: "Read the walk-through")
+    'walk-up', 'walk-way',
+    'walkie-talkie',
+    'wall-bars', 'wall-chart', 'wall-covering', 'wall-eye', 'wall-eyed', 'wall-flower', 'wall-hanging', 'wall-mounted', 'wall-painting', 'wall-paper', 'wall-plate', 'wall-plug', 'wall-to-wall', 'wall-unit',
+    'wallet-sized',
+    'war-chest', // (Business/Politics)
+    'war-cloud', 'war-correspondent', 'war-crime', 'war-criminal', 'war-cry', 'war-dance', 'war-game', 'war-gaming', 'war-grave', 'war-head', 'war-horse', 'war-lord', 'war-memorial', 'war-monger', 'war-mongering', 'war-paint', 'war-path', 'war-plane', 'war-ship', 'war-torn', 'war-weary', 'war-widow', 'war-wound', 'war-zone',
+    'ward-room',
+    'warm-blooded', 'warm-down', 'warm-front', 'warm-hearted', 'warm-up',
+    'warning-light', 'warning-sign',
+    'warrant-officer',
+    'wash-bag', 'wash-basin', 'wash-board', 'wash-bowl', 'wash-day', 'wash-house', 'wash-leather', 'wash-out', 'wash-room', 'wash-stand', 'wash-tub',
+    'washer-dryer', 'washer-up',
+    'washing-line', 'washing-machine', 'washing-powder', 'washing-soda',
+    'washing-up', // (UK Essential: "Do the washing-up")
+    'waste-basket', 'waste-bin', 'waste-disposal', 'waste-land', 'waste-paper', 'waste-pipe', 'waste-product', 'waste-water',
+    'watch-band', 'watch-case', 'watch-chain', 'watch-dog', 'watch-glass', 'watch-maker', 'watch-making', 'watch-man', 'watch-night', 'watch-strap', 'watch-tower', 'watch-word',
+    'water-bed', 'water-bird', 'water-biscuit', 'water-borne', 'water-bottle', 'water-butt', 'water-cannon', 'water-closet',
+    'water-colour', // (Art)
+    'water-cooled', 'water-cooler', 'water-course', 'water-cress', 'water-diviner', 'water-fall', 'water-fowl', 'water-front', 'water-gate', 'water-glass', 'water-heater', 'water-hole', 'water-ice', 'water-jacket', 'water-jump', 'water-level', 'water-lily', 'water-line', 'water-logged', 'water-main', 'water-mark', 'water-meadow', 'water-melon', 'water-meter', 'water-mill', 'water-pistol', 'water-polo', 'water-power', 'water-proof', 'water-proofing', 'water-pump', 'water-rat', 'water-rate', 'water-repellent', 'water-resistant', 'water-shed', 'water-shoot', 'water-side', 'water-ski', 'water-skier', 'water-skiing', 'water-slide', 'water-softener', 'water-soluble', 'water-spout', 'water-supply', 'water-table', 'water-tank', 'water-tight', 'water-tower', 'water-way', 'water-weed', 'water-wheel', 'water-wings', 'water-works',
+    'watering-can', 'watering-hole', 'watering-place',
+    'wave-band', 'wave-form', 'wave-length', 'wave-power',
+    'wax-work',
+    'way-bill', 'way-in', 'way-out', 'way-point', 'way-side', 'way-station',
+    'weak-kneed', 'weak-kness', 'weak-minded', 'weak-point', 'weak-willed',
+    'wealth-tax',
+    'wear-and-tear',
+    'weather-beaten', 'weather-board', 'weather-boarding', 'weather-bound', 'weather-chart', 'weather-cock', 'weather-eye', 'weather-forecast', 'weather-girl', 'weather-glass', 'weather-man', 'weather-map', 'weather-person', 'weather-proof', 'weather-report', 'weather-ship', 'weather-station', 'weather-strip', 'weather-vane', 'weather-worn',
+    'weave-knit',
+    'web-address', // (Tech)
+    'web-based', // (Dev/SaaS Critical)
+    'web-browser', 'web-cam', 'web-cast', 'web-design', 'web-designer', 'web-feed', 'web-footed', 'web-form', 'web-hosting', 'web-log', 'web-mail', 'web-master', 'web-offset',
+    'web-page', // (Often solid, but useful to catch)
+    'web-server',
+    'web-site', // (UK/Formal style often retains hyphen, though solid is common)
+    'wedding-breakfast', 'wedding-cake', 'wedding-day', 'wedding-dress', 'wedding-guest', 'wedding-march', 'wedding-night', 'wedding-present', 'wedding-ring',
+    'wedge-heels', 'wedge-shaped',
+    'wee-wee',
+    'weed-killer',
+    'week-day', 'week-end', 'week-long', 'week-night', 'week-old',
+    'weeping-willow',
+    'weigh-bridge', 'weigh-in',
+    'weight-lift', 'weight-lifter', 'weight-lifting', 'weight-loss', 'weight-watchers', 'weight-watching',
+    'welcome-mat',
+    'welfare-state',
+    'well-adjusted', 'well-advised', 'well-aimed', 'well-appointed', 'well-argued', 'well-attended', 'well-balanced', 'well-behaved',
+    'well-being', // (Health/Business Critical)
+    'well-beloved', 'well-born', 'well-bred', 'well-built', 'well-chosen', 'well-connected', 'well-defined', 'well-deserved', 'well-designed', 'well-developed', 'well-disposed', 'well-documented', 'well-doing', 'well-done', 'well-dressed', 'well-earned', 'well-educated', 'well-endowed', 'well-equipped', 'well-established', 'well-fed', 'well-formed', 'well-founded', 'well-groomed', 'well-grounded', 'well-heeled', 'well-honed', 'well-hung', 'well-informed', 'well-intentioned', 'well-judge', 'well-judged', 'well-kept', 'well-knit', 'well-known', 'well-laid', 'well-liked', 'well-lined', 'well-lit', 'well-loved', 'well-made', 'well-maintained', 'well-mannered', 'well-marked', 'well-matched', 'well-meaning', 'well-meant', 'well-off', 'well-oiled', 'well-ordered', 'well-organised', 'well-paid', 'well-placed', 'well-planned', 'well-pleased', 'well-point', 'well-prepared', 'well-preserved', 'well-proportioned', 'well-proven', 'well-qualified', 'well-read', 'well-received', 'well-regarded', 'well-related', 'well-respected', 'well-rounded', 'well-run', 'well-said', 'well-scrubbed', 'well-seasoned', 'well-set', 'well-shod', 'well-spoken', 'well-stocked', 'well-structured', 'well-suited', 'well-supported', 'well-thought-of', 'well-thought-out', 'well-thumbed', 'well-timed', 'well-to-do', 'well-travelled', 'well-tried', 'well-trodden', 'well-used', 'well-versed', 'well-wear', 'well-wish', 'well-wisher', 'well-worn', 'well-written',
+    'west-bound', 'west-country', 'west-end', 'west-facing', 'west-north-west', 'west-south-west', 'west-ward',
+    'wet-bar', 'wet-blanket', 'wet-dock', 'wet-land', 'wet-look', 'wet-nurse', 'wet-room', 'wet-suit',
+    'whale-bone', 'whale-meat', 'whale-oil',
+    'what-for', 'what-if', 'what-not',
+    'wheel-align', 'wheel-alignment', 'wheel-arch', 'wheel-balance', 'wheel-balancing', 'wheel-barrow', 'wheel-base',
+    'wheel-chair', // (Accessibility)
+    'wheel-clamp', 'wheel-house', 'wheel-lock', 'wheel-spin', 'wheel-trim', 'wheel-wright',
+    'where-abouts', // (Noun: "His whereabouts are unknown")
+    'whet-stone',
+    'whey-faced',
+    'which-ever',
+    'whip-cord', 'whip-hand', 'whip-lash',
+    'whip-round', // (UK Office Collection)
+    'whipper-snapper', 'whipping-boy', 'whipping-cream', 'whipping-post', 'whipping-top',
+    'whirl-pool', 'whirl-wind',
+    'whisk-broom',
+    'whisky-soda',
+    'whistle-blower', // (Business/Legal)
+    'whistle-blowing', 'whistle-stop',
+    'white-bait',
+    'white-board', // (Office/Education)
+    'white-bread', 'white-cap',
+    'white-collar', // (Business)
+    'white-face', 'white-faced', 'white-flag', 'white-fly', 'white-gold', 'white-haired', 'white-head', 'white-heat', 'white-hot', 'white-knuckle',
+    'white-label', // (SaaS/Business)
+    'white-lead', 'white-lie', 'white-list', 'white-listed', 'white-listing', // (Tech Security)
+    'white-meat', 'white-noise', 'white-out',
+    'white-paper', // (Business/Crypto)
+    'white-room', 'white-sauce', 'white-slave', 'white-smith',
+    'white-space', // (Design/Dev)
+    'white-spirit', 'white-tie', 'white-trash', 'white-wall', 'white-wash', 'white-washing', 'white-water', 'white-wedding', 'white-wine',
+    'who-dunnit',
+    'whole-food', 'whole-grain', 'whole-hearted', 'whole-meal', 'whole-number', 'whole-sale', 'whole-saler', 'whole-time', 'whole-wheat',
+    'whooping-cough',
+    'wicket-gate', 'wicket-keeper',
+    'wide-angle', 'wide-awake', 'wide-body', 'wide-brimmed', 'wide-eyed', 'wide-mouthed', 'wide-open', 'wide-ranging', 'wide-screen', 'wide-spread',
+    'wi-fi', // (Tech Critical)
+    'wild-boar', 'wild-card', 'wild-cat', 'wild-fire', 'wild-flower', 'wild-fowl', 'wild-goose', 'wild-life',
+    'willy-nilly',
+    'wind-bag', 'wind-blown', 'wind-break', 'wind-cheater', 'wind-chill', 'wind-down', 'wind-farm', 'wind-gauge', 'wind-instrument', 'wind-jammer', 'wind-mill', 'wind-pipe', 'wind-power', 'wind-proof', 'wind-pump', 'wind-screen', 'wind-shield', 'wind-sock', 'wind-storm', 'wind-surf', 'wind-surfer', 'wind-surfing', 'wind-swept', 'wind-tunnel', 'wind-up',
+    'window-box', 'window-cleaner', 'window-cleaning', 'window-dress', 'window-dresser', 'window-dressing', 'window-frame', 'window-ledge', 'window-pane', 'window-seat', 'window-shop', 'window-shopper', 'window-shopping', 'window-sill',
+    'wine-bar', 'wine-bin', 'wine-bottle', 'wine-box', 'wine-cellar', 'wine-cooler', 'wine-glass', 'wine-grower', 'wine-growing', 'wine-list', 'wine-merchant', 'wine-press', 'wine-rack', 'wine-shop', 'wine-skin', 'wine-taster', 'wine-tasting', 'wine-vinegar', 'wine-waiter',
+    'wing-back', 'wing-chair', 'wing-collar', 'wing-collared', 'wing-commander', 'wing-mirror', 'wing-nut', 'wing-span', 'wing-spread', 'wing-tip',
+    'winter-flowering', 'winter-garden', 'winter-green', 'winter-sports', 'winter-time',
+    'wipe-out',
+    'wire-cutter', 'wire-frame', // (Design/UX)
+    'wire-free', 'wire-haired', 'wire-less', 'wire-man', 'wire-mesh', 'wire-netting', 'wire-service', 'wire-tap', 'wire-tapper', 'wire-tapping', 'wire-wool', 'wire-work', 'wire-worm',
+    'wish-bone', 'wish-fulfillment', 'wish-list',
+    'wishy-washy',
+    'witch-doctor', 'witch-hazel', 'witch-hunt',
+    'with-it',
+    'wobble-board',
+    'wolf-cub', 'wolf-hound', 'wolf-whistle',
+    'wonder-boy', 'wonder-drug', 'wonder-kid', 'wonder-woman', 'wonder-work',
+    'wood-block', 'wood-carver', 'wood-carving', 'wood-chopper', 'wood-cut', 'wood-cutter', 'wood-engraver', 'wood-engraving', 'wood-fire', 'wood-land', 'wood-louse', 'wood-man', 'wood-nymph', 'wood-panel', 'wood-panelled', 'wood-pecker', 'wood-pile', 'wood-pulp', 'wood-shed', 'wood-smoke', 'wood-wind', 'wood-work', 'wood-worker', 'wood-working', 'wood-worm',
+    'wool-fat', 'wool-gather', 'wool-gathering', 'wool-winder',
+    'word-blind', 'word-blindness', 'word-book', 'word-break', // (CSS)
+    'word-for-word', 'word-game', 'word-of-mouth', 'word-paint', 'word-painting', 'word-perfect', 'word-play',
+    'word-process', 'word-processing', 'word-processor', // (Tech)
+    'word-search', 'word-split', 'word-wrap', // (Tech/Code)
+    'work-a-day', 'work-around', // (Tech/Dev Critical)
+    'work-bag', 'work-basket', 'work-bench', 'work-book', 'work-box', 'work-camp', 'work-clothes', 'work-day', 'work-ethic', 'work-experience',
+    'work-flow', // (Dev/Business)
+    'work-force', 'work-horse', 'work-hour', 'work-house',
+    'work-life', // (Balance)
+    'work-load', 'work-man', 'work-manship', 'work-mate',
+    'work-out', // (Gym)
+    'work-permit', 'work-place', 'work-room', 'work-sheet', 'work-shop', 'work-shy', 'work-space', 'work-station', 'work-study', 'work-surface', 'work-table', 'work-top',
+    'work-up', // (Medical)
+    'work-wear', 'work-week',
+    'working-class', 'working-day', 'working-party', 'working-week',
+    'world-beater', 'world-beating', 'world-class', 'world-famous', 'world-power', 'world-ranking', 'world-record', 'world-view', 'world-war', 'world-weary',
+    'world-wide', // (WWW)
+    'worm-cast', 'worm-eaten', 'worm-gear', 'worm-hole',
+    'worn-out',
+    'worry-beads', 'worry-guts',
+    'worth-while',
+    'would-be',
+    'wound-up',
+    'wrap-around', 'wrap-over', 'wrap-up',
+    'wrecking-ball', 'wrecking-bar', 'wrecking-crew',
+    'wrist-band', 'wrist-watch',
+    'write-down', // (Finance)
+    'write-in', 'write-off', 'write-up',
+    'writing-case', 'writing-desk', 'writing-pad', 'writing-paper', 'writing-table',
+    'wrong-doer', 'wrong-doing', 'wrong-foot', 'wrong-headed',
+    'wrought-iron',
+    'wry-neck',
+
     // Z
     'z-bend', 'z-list', 'zenith-distance', 'zero-hour', 'zero-in', 'zero-option', 'zero-rated', 'zero-tolerance', 'zig-zag',
     'zinc-plate', 'zip-code', 'zip-fastener', 'zip-file', 'zip-up', 'zone-out', 'zoo-keeper', 'zoom-in', 'zoom-lens', 'zoom-out'
