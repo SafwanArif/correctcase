@@ -1823,6 +1823,158 @@ export const COMPOUND_WORDS = new Set<string>([
     'quote-unquote',
     'qr-code', // (Tech Essential)
 
+    // R (Modern & Tech Supplement)
+    'rabbit-hole', 'rabbit-hutch', 'rabbit-punch',
+    'race-card', 'race-course', 'race-day', 'race-goer', 'race-horse', 'race-meeting', 'race-relation', 'race-riot', 'race-track',
+    'rack-and-pinion', 'rack-mount', 'rack-mounted', // (Tech Hardware)
+    'racket-ball',
+    'radar-trap',
+    'radio-active', 'radio-activity', 'radio-alarm', 'radio-button', // (UI Critical)
+    'radio-controlled', 'radio-frequency', 'radio-phone', 'radio-station', 'radio-telephone', 'radio-telescope', 'radio-therapy', 'radio-wave',
+    'rag-and-bone', 'rag-bag', 'rag-doll', 'rag-tag', 'rag-time', 'rag-trade',
+    'raid-array', // (Tech)
+    'rail-card', // (UK Travel)
+    'rail-road', 'rail-way', // (Often solid, but hyphenated in some contexts)
+    'rain-bow', 'rain-check', 'rain-cloud', 'rain-coat', 'rain-dance', 'rain-drop', 'rain-fall', 'rain-forest', 'rain-gauge', 'rain-maker', 'rain-proof', 'rain-shadow', 'rain-storm', 'rain-water', 'rain-wear',
+    'rally-cross', 'rally-driver',
+    'ram-raid', 'ram-raider',
+    'random-access', // (RAM)
+    'range-finder', 'range-rover',
+    'rapid-fire', 'rapid-reaction', 'rapid-response',
+    'rare-bit', 'rare-earth',
+    'rat-race', 'rat-trap',
+    'rate-card', // (Media/Business)
+    'rate-limit', 'rate-limiting', // (Dev Critical: API)
+    'rate-payer',
+    'rattle-snake',
+    'raw-hide',
+    'razor-blade', 'razor-edge', 'razor-sharp', 'razor-wire',
+    're-admit', 're-align', 're-allocate', 're-apply', 're-appoint', 're-arm', 're-arrange', 're-assemble', 're-assess', 're-assign', 're-attach', 're-awakening', 're-birth', 're-boot', // (Tech)
+    're-born', 're-brand', 're-build', 're-call', 're-capture', 're-cast', 're-charge', 're-chargeable', 're-check', 're-classify', 're-connect', 're-conquer', 're-consider', 're-construct', 're-count', 're-cover', 're-create', 're-cycle', 're-design', 're-develop', 're-dial', 're-direct', 're-discover', 're-distribute', 're-do', 're-draft', 're-draw', 're-edit', 're-educate', 're-elect', 're-election', 're-emerge', 're-enact', 're-enactment', 're-enter', 're-entry', 're-establish', 're-evaluate', 're-examine', 're-export', 're-finance', 're-focus', 're-form', 're-format', // (Tech)
+    're-formulate', 're-fuel', 're-gain', 're-generate', 're-group', 're-grow', 're-hash', 're-heat', 're-hire', 're-house', 're-ignite', 're-imburse', 're-install', 're-interpret', 're-introduce', 're-invest', 're-issue', 're-join', 're-kindle', 're-label', 're-launch', 're-lay', 're-learn', 're-live', 're-load', 're-locate', 're-make', 're-map', 're-marriage', 're-marry', 're-match', 're-mix', 're-model', 're-name', 're-negotiate', 're-number', 're-occur', 're-open', 're-order', 're-organise', 're-orient', 're-pack', 're-package', 're-paint', 're-pass', 're-phrase', 're-play', 're-populate', 're-possess', 're-pot', 're-print', 're-produce', 're-program', 're-publish', 're-read', 're-route', 're-run', 're-sale', 're-schedule', 're-seal', 're-seat', 're-select', 're-send', 're-set', 're-shape', 're-shuffle', 're-size', 're-spray', 're-start', 're-state', 're-stock', 're-structure', 're-style', 're-submit', 're-supply', 're-surface', 're-take', 're-tell', 're-test', 're-think', 're-touch', 're-trace', 're-train', 're-trial', 're-try', 're-tune', 're-turn', 're-tweet', // (Social Media)
+    're-type', 're-union', 're-unite', 're-use', 're-usable', 're-valuation', 're-value', 're-visit', 're-vitalize', 're-wire', 're-word', 're-work', 're-write', 're-zone',
+    'read-me', // (Dev: README.md)
+    'read-only', // (Dev Critical)
+    'read-out', 'read-write',
+    'ready-made', 'ready-meal', 'ready-mixed', 'ready-money', 'ready-reckoner',
+    'ready-salted', // (UK Crisps)
+    'ready-steady-go', 'ready-to-eat', 'ready-to-wear', 'ready-witted',
+    'real-estate', 'real-life', 'real-politik',
+    'real-time', // (Tech/Dev Critical)
+    'real-world',
+    'rear-admiral', 'rear-end', 'rear-guard', 'rear-lamp', 'rear-light', 'rear-view', 'rear-ward', 'rear-wheel',
+    'record-breaking', 'record-holder', 'record-keeper', 'record-player', 'record-set',
+    'recovery-mode', // (Tech)
+    'recycle-bin',
+    'red-blooded', 'red-brick', // (UK University)
+    'red-card', 'red-carpet', 'red-coat', 'red-eye', 'red-faced', 'red-handed', 'red-head', 'red-headed', 'red-hot', 'red-lead', 'red-letter', 'red-light', 'red-line', 'red-meat', 'red-neck', 'red-tape', 'red-wing',
+    'reel-to-reel',
+    'reference-book', 'reference-point',
+    'referral-code', // (Marketing/SaaS)
+    'refresh-rate', // (Tech/Display)
+    'refuse-collector',
+    'register-office', // (UK)
+    'registered-post',
+    'relational-database', // (Tech: RDBMS)
+    'release-candidate', // (Dev)
+    'release-date', 'release-note',
+    'relief-map', 'relief-road', 'relief-valve',
+    'remote-access', // (Tech)
+    'remote-control', 'remote-controlled', 'remote-sensing',
+    'remote-work', 'remote-worker',
+    'render-farm', // (3D/VFX)
+    'rent-a-car', 'rent-act', 'rent-boy', 'rent-control', 'rent-free', 'rent-payer', 'rent-roll', 'rent-seeking', 'rent-strike',
+    'reproduction-cost',
+    'rescue-party',
+    'research-and-development', // (R&D)
+    'reset-button',
+    'resident-permit',
+    'respect-worthy',
+    'response-time', // (Dev/Perf)
+    'responsive-design', // (Web Dev)
+    'rest-area', 'rest-cure', 'rest-home', 'rest-house', 'rest-room',
+    'resting-place',
+    'retail-park', // (UK)
+    'retail-price', 'retail-therapy',
+    'retina-display', // (Tech)
+    'return-flight', 'return-match',
+    'return-on-investment', // (Business: ROI)
+    'return-ticket', // (UK Travel)
+    'revenue-sharing',
+    'reverse-charge', 'reverse-engineer', 'reverse-engineering', 'reverse-thrust',
+    'rib-cage', 'rib-eye',
+    'rice-paper', 'rice-pudding',
+    'rich-list',
+    'rich-text', // (Tech: RTF)
+    'rick-shaw',
+    'ride-on', 'ride-share', 'ride-sharing',
+    'riff-raff',
+    'right-angled', 'right-click', // (UI Critical)
+    'right-hand', 'right-handed', 'right-hander', 'right-minded', 'right-of-way', 'right-on', 'right-side', 'right-thinking', 'right-to-buy', 'right-to-die', 'right-to-know', 'right-to-life', 'right-to-work', 'right-ward', 'right-wing', 'right-winger',
+    'ring-back', 'ring-binder', 'ring-dove', 'ring-fence', 'ring-finger', 'ring-leader', 'ring-master',
+    'ring-road', // (UK Road)
+    'ring-side', 'ring-tone', 'ring-worm',
+    'rink-side',
+    'riot-control', 'riot-gear', 'riot-police', 'riot-shield', 'riot-squad',
+    'rip-cord', 'rip-current', 'rip-off', 'rip-roaring', 'rip-tide',
+    'risk-assessment', 'risk-averse', 'risk-benefit', 'risk-capital', 'risk-factor', 'risk-free', 'risk-management', 'risk-taker', 'risk-taking',
+    'river-bank', 'river-bed', 'river-boat', 'river-dance', 'river-front', 'river-side',
+    'road-block', 'road-hog', 'road-holding', 'road-house', 'road-kill',
+    'road-map', // (Business/Product)
+    'road-metal', 'road-rage', 'road-roller', 'road-runner', 'road-show', 'road-side', 'road-sign', 'road-sweeper', 'road-tax', 'road-test', 'road-trip', 'road-user', 'road-way', 'road-work', 'road-works', 'road-worthy',
+    'roast-beef',
+    'robot-arm',
+    'rock-and-roll', 'rock-band', 'rock-bottom', 'rock-cake', 'rock-climb', 'rock-climber', 'rock-climbing', 'rock-concert', 'rock-crystal', 'rock-face', 'rock-fall', 'rock-garden', 'rock-hard', 'rock-n-roll', 'rock-pool', 'rock-salt', 'rock-solid', 'rock-star',
+    'rocket-launcher', 'rocket-man', 'rocket-propulsion', 'rocket-science', 'rocket-scientist',
+    'rod-fishing',
+    'role-model',
+    'role-play', 'role-playing', // (Gaming: RPG)
+    'roll-back', // (Tech/DB)
+    'roll-bar', 'roll-call', 'roll-film', 'roll-mop',
+    'roll-neck', // (UK Clothing)
+    'roll-on', 'roll-on-roll-off',
+    'roll-out', // (Business/Tech Launch)
+    'roll-over', 'roll-top', 'roll-up',
+    'roller-blade', 'roller-blading', 'roller-blind', 'roller-coaster', 'roller-disco', 'roller-skate', 'roller-skating', 'roller-towel',
+    'rolling-mill', 'rolling-pin', 'rolling-stock', 'rolling-stone',
+    'roman-candle',
+    'roof-garden', 'roof-light', 'roof-rack', 'roof-top', 'roof-tree',
+    'room-mate', 'room-service', 'room-temperature',
+    'root-beer', 'root-cause',
+    'root-directory', // (Tech)
+    'rope-ladder', 'rope-trick', 'rope-walk', 'rope-walker',
+    'rose-bed', 'rose-bowl', 'rose-bud', 'rose-bush', 'rose-colour', 'rose-coloured', 'rose-garden', 'rose-hip', 'rose-petal', 'rose-pink', 'rose-red', 'rose-tinted', 'rose-water', 'rose-wood',
+    'rosette-stone',
+    'rot-gut',
+    'rough-and-ready', 'rough-and-tumble', 'rough-cast', 'rough-cut', 'rough-draft', 'rough-dry', 'rough-hewn', 'rough-house', 'rough-neck', 'rough-shod', 'rough-spoken',
+    'round-about', // (UK Road Noun, or Adj "Round-about way")
+    'round-arm', 'round-dance', 'round-faced', 'round-game', 'round-house', 'round-neck', 'round-robin', 'round-shouldered', 'round-table', 'round-the-clock',
+    'round-trip', // (Travel/Tech)
+    'round-up', 'round-worm',
+    'route-map', 'route-master',
+    'router-table', // (Tech)
+    'rowing-boat', // (UK Specific - US is rowboat)
+    'royal-blue',
+    'rub-down',
+    'rubber-band', 'rubber-bullet', 'rubber-check', 'rubber-plant', 'rubber-stamp', 'rubber-stamped', 'rubber-wear',
+    'rubbish-bin', // (UK)
+    'rubbish-dump', 'rubbish-heap', 'rubbish-tip',
+    'rugby-ball', 'rugby-club', 'rugby-football',
+    'rugby-league', // (UK Sport)
+    'rugby-union',
+    'rule-book', 'rule-breaking', 'rule-of-thumb',
+    'rum-baba', 'rum-punch',
+    'rumble-strip',
+    'rump-steak',
+    'run-about', 'run-around',
+    'run-away', // (Noun/Adj)
+    'run-down', 'run-in', 'run-off', 'run-on', 'run-out', 'run-through',
+    'run-time', // (Dev Critical: Runtime error)
+    'run-up', 'run-way',
+    'running-board', 'running-cost', 'running-mate', 'running-shoe', 'running-stitch',
+    'rush-hour', 'rush-job', 'rush-mat',
+    'rust-bucket', 'rust-proof', 'rust-red',
+
     // Z
     'z-bend', 'z-list', 'zenith-distance', 'zero-hour', 'zero-in', 'zero-option', 'zero-rated', 'zero-tolerance', 'zig-zag',
     'zinc-plate', 'zip-code', 'zip-fastener', 'zip-file', 'zip-up', 'zone-out', 'zoo-keeper', 'zoom-in', 'zoom-lens', 'zoom-out'
