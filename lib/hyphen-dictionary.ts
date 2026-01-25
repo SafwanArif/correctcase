@@ -2713,6 +2713,76 @@ export const COMPOUND_WORDS = new Set<string>([
     'type-set', 'type-setter', 'type-setting', 'type-write', 'type-writer', 'type-written',
     'tyre-lever', 'tyre-pressure',
 
+    // U (Modern & Tech Supplement)
+    'u-bend', // (UK Plumbing)
+    'u-boat', 'u-bolt', 'u-shape', 'u-shaped', 'u-tube', 'u-turn', 'u-value', // (Construction/Thermal)
+    'ugly-looking',
+    'ultra-cautious', 'ultra-clean', 'ultra-conservative', 'ultra-fine', 'ultra-high', // (Tech: "Ultra-high definition")
+    'ultra-light', 'ultra-low', 'ultra-marine', 'ultra-modern', 'ultra-nationalism', 'ultra-safe', 'ultra-sensitive', 'ultra-short', 'ultra-slim', 'ultra-sonic', 'ultra-sound', 'ultra-thin', 'ultra-violet', 'ultra-wide', // (Camera lens)
+    'umbilical-cord',
+    'un-american', 'un-ban', // (Tech Moderation)
+    'un-become', 'un-becoming',
+    'un-check', // (UI: Checkbox)
+    'un-christian', 'un-come-at-able', 'un-cool', 'un-coordinated',
+    'un-delete', // (Tech)
+    'un-do', // (UI)
+    'un-english',
+    'un-follow', // (Social Media)
+    'un-friend', // (Social Media)
+    'un-get-at-able', 'un-godly', 'un-install', // (Tech)
+    'un-like', // (Social Media)
+    'un-look-ed-for', 'un-man', 'un-make',
+    'un-mute', // (Video Conferencing Critical)
+    'un-neighbourly', 'un-put-downable', 'un-read', // (Email status)
+    'un-real', 'un-say',
+    'un-subscribe', // (Email/SaaS)
+    'un-teach', 'un-think', 'un-zip', // (Tech: Files)
+    'uncle-in-law',
+    'under-achieve', 'under-achievement', 'under-achiever', 'under-active', 'under-age', 'under-arm', 'under-belly', 'under-bid', 'under-budget', 'under-canvas', 'under-carriage', 'under-charge', 'under-class', 'under-clothes', 'under-clothing', 'under-coat', 'under-cook', 'under-cooked', 'under-cover', 'under-current', 'under-cut', 'under-develop', 'under-developed', 'under-development', 'under-dog', 'under-done', 'under-employed', 'under-employment', 'under-estimate', 'under-estimation', 'under-expose', 'under-exposed', 'under-exposure', 'under-fed', 'under-felt',
+    'under-floor', // (Heating)
+    'under-foot', 'under-fund', 'under-funded', 'under-funding', 'under-garment', 'under-go', 'under-graduate', 'under-ground', 'under-growth', 'under-hand', 'under-handed', 'under-invest', 'under-investment', 'under-layer', 'under-lie',
+    'under-line', 'under-lined', // (Text Formatting)
+    'under-ling', 'under-lying', 'under-man', 'under-manage', 'under-managed', 'under-mentioned', 'under-mine', 'under-nourish', 'under-nourished', 'under-nutrition', 'under-paid', 'under-pants', 'under-part', 'under-pass', 'under-pay', 'under-payment', 'under-perform', 'under-performance', 'under-pin', 'under-play', 'under-populated', 'under-population', 'under-power', 'under-powered', 'under-price', 'under-priced', 'under-privileged', 'under-produce', 'under-production', 'under-quote', 'under-rate', 'under-rated', 'under-report', 'under-reporting', 'under-represented',
+    'under-score', // (Tech: The character "_")
+    'under-seal', 'under-secretary', 'under-sell', 'under-sexed', 'under-sheet', 'under-shirt', 'under-shoot', 'under-shorts', 'under-side', 'under-sign', 'under-signed', 'under-size', 'under-sized', 'under-skirt', 'under-staffed', 'under-stating', 'under-state', 'under-statement', 'under-stock', 'under-stocked', 'under-strap', 'under-study', 'under-subscription', 'under-tow', 'under-use', 'under-used', 'under-value', 'under-valued', 'under-water', 'under-way', 'under-wear', 'under-weight', 'under-whelm', 'under-whelming', 'under-wing', 'under-wire', 'under-wired', 'under-world', 'under-write', 'under-writer',
+    'unit-cost', 'unit-holder', 'unit-price',
+    'unit-test', 'unit-testing', // (Dev Critical)
+    'unit-trust', // (UK Finance)
+    'universal-joint',
+    'unix-like', // (Tech)
+    'up-anchor', 'up-and-coming', 'up-and-down', 'up-and-over', 'up-and-under', 'up-beat', 'up-braid', 'up-bring', 'up-bringing', 'up-cast', 'up-chuck', 'up-country', 'up-date', 'up-end', 'up-field', 'up-front', 'up-grade', 'up-growth', 'up-hill', 'up-hold', 'up-keep', 'up-land', 'up-lift', 'up-load',
+    'up-market', // (UK Business: "Up-market brand")
+    'up-on', 'up-rate', 'up-right', 'up-rise', 'up-rising', 'up-river', 'up-roar', 'up-root', 'up-rush',
+    'up-scale', // (Business)
+    'up-sell', 'up-selling', // (Business/Sales)
+    'up-set', 'up-shot', 'up-side', 'up-side-down', 'up-skill', 'up-skilling', 'up-stage', 'up-stairs', 'up-stand', 'up-standing', 'up-start', 'up-state',
+    'up-stream', // (Tech/Git)
+    'up-stroke', 'up-surge', 'up-sweep', 'up-swept', 'up-swing', 'up-take', 'up-thrust', 'up-tight',
+    'up-time', // (Tech: Server Availability)
+    'up-to-date', 'up-to-the-minute', 'up-town', 'up-train', 'up-turn',
+    'up-vote', // (Social Media)
+    'up-wind',
+    'upper-case', // (Dev/Text)
+    'upper-class', // (UK Social)
+    'upper-crust', 'upper-cut', 'upper-hand', 'upper-most',
+    'ups-and-downs',
+    'uranium-enrichment',
+    'urban-legend', 'urban-renewal',
+    'use-by', // (Date)
+    'used-car',
+    'user-acceptance', // (UAT)
+    'user-agent', // (Dev)
+    'user-base',
+    'user-centric', // (Design)
+    'user-defined', // (Dev)
+    'user-experience', // (UX)
+    'user-facing', // (Dev)
+    'user-generated', // (UGC)
+    'user-group',
+    'user-interface', // (UI)
+    'user-name', // (Often solid, but hyphenated in formal docs)
+    'utility-man', 'utility-room', 'utility-truck', 'utility-vehicle',
+
     // Z
     'z-bend', 'z-list', 'zenith-distance', 'zero-hour', 'zero-in', 'zero-option', 'zero-rated', 'zero-tolerance', 'zig-zag',
     'zinc-plate', 'zip-code', 'zip-fastener', 'zip-file', 'zip-up', 'zone-out', 'zoo-keeper', 'zoom-in', 'zoom-lens', 'zoom-out'
