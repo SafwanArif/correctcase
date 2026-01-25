@@ -1357,18 +1357,336 @@ export const COMPOUND_WORDS = new Set<string>([
     'ox-blood', 'ox-bow', 'ox-cart', 'ox-eye', 'ox-tail',
     'ozone-friendly', 'ozone-hole', 'ozone-layer',
 
-    // P (Partial for critical words)
-    'part-exchange', 'part-time', 'passer-by', 'pay-as-you-go', 'pay-day', 'pay-off', 'pay-roll', 'pea-green', 'pea-souper',
-    'peace-keeping', 'peace-loving', 'peace-maker', 'peace-offering', 'peace-pipe', 'peace-time', 'peak-time', 'pear-shaped',
-    'pecking-order', 'peeping-tom', 'pen-friend', 'pen-knife', 'pen-name', 'pen-pal', 'pen-pusher', 'penalty-area', 'penalty-box',
-    'penalty-kick', 'penalty-point', 'pencil-case', 'pencil-sharpener', 'pepper-corn', 'pepper-mint', 'pepper-spray',
-    'perfect-pitch', 'pet-name', 'petrol-bomb', 'petrol-cap', 'petrol-pump', 'petrol-station', 'petrol-tank', 'phone-book',
-    'phone-box', 'phone-call', 'phone-card', 'phone-in', 'phone-number', 'photo-call', 'photo-chemical', 'photo-copier',
-    'photo-copy', 'photo-electric', 'photo-finish', 'photo-fit', 'photo-frame', 'photo-genic', 'photo-graph', 'photo-journalism',
-    'photo-journalist', 'photo-shoot', 'photo-synthesis', 'piano-accordion', 'piano-key', 'piano-tuner', 'pick-axe', 'pick-me-up',
-    'pick-pocket', 'pick-up', 'picnic-basket', 'picture-book', 'picture-card', 'picture-frame', 'picture-postcard', 'piece-meal',
-    'piece-work', 'pig-headed', 'pig-iron', 'pig-sty', 'pig-tail', 'pigeon-hole', 'pigeon-toed', 'piggy-back', 'piggy-bank',
-    'pill-box', 'pillow-case', 'pillow-slip', 'pillow-talk', 'pilot-light', 'pilot-officer', 'pin-ball', 'pin-cushion',
+    'ozone-friendly', 'ozone-hole', 'ozone-layer',
+
+    // P (Modern & Tech Supplement)
+    'pack-animal', 'pack-horse', 'pack-ice', 'pack-leader', 'pack-saddle',
+    'package-deal', 'package-holiday', 'package-tour',
+    'packet-boat', 'packet-switching', // (Tech)
+    'packing-case', 'packing-list', 'packing-tape',
+    'pad-lock',
+    'paddle-board', 'paddle-boat', 'paddle-steamer', 'paddle-wheel',
+    'page-boy', 'page-break', 'page-down', 'page-load', 'page-maker', 'page-proof', 'page-rank', 'page-turner', 'page-up', 'page-view',
+    'paid-for', 'paid-in-full', 'paid-up',
+    'pain-killer', 'pain-killing', 'pain-relief', 'pain-staking',
+    'paint-ball', 'paint-box', 'paint-brush', 'paint-by-numbers', 'paint-pot', 'paint-roller', 'paint-scraper', 'paint-shop', 'paint-stripper', 'paint-work',
+    'pair-bond',
+    'pal-up',
+    'pale-face',
+    'palm-top', // (Retro Tech)
+    'pan-african', 'pan-american', 'pan-asian', 'pan-european', 'pan-fried', 'pan-fry', 'pan-pipe',
+    'panel-beater', 'panel-beating', 'panel-game', 'panel-pin',
+    'panic-attack', 'panic-button', 'panic-buy', 'panic-buying', 'panic-room', 'panic-stricken',
+    'paper-bag', 'paper-board', 'paper-boy', 'paper-chain', 'paper-chase', 'paper-clip', 'paper-cup', 'paper-girl', 'paper-hanger', 'paper-knife', 'paper-mill', 'paper-money', 'paper-plate', 'paper-round', // (UK Essential)
+    'paper-shredder', 'paper-thin', 'paper-tiger', 'paper-towel', 'paper-trail', 'paper-weight', 'paper-work',
+    'papier-mache',
+    'par-value',
+    'parachute-jump',
+    'parallel-bars', 'parallel-park', 'parallel-parking', 'parallel-port', 'parallel-processing',
+    'parcel-bomb', 'parcel-post', 'parcel-shelf', 'parcel-tape',
+    'parent-child', 'parent-company', 'parent-teacher',
+    'park-and-ride', // (UK Transport)
+    'park-keeper', 'park-land',
+    'parking-bay', 'parking-brake', 'parking-fine', 'parking-lot', 'parking-meter', 'parking-permit', 'parking-space', 'parking-ticket', 'parking-zone',
+    'parole-board', 'parole-officer',
+    'parrot-fashion',
+    'part-exchange', // (UK Retail/Car)
+    'part-owner', 'part-ownership', 'part-payment', 'part-song', 'part-time', 'part-timer', 'part-way', 'part-work', 'part-worn',
+    'party-animal', 'party-dress', 'party-goer', 'party-hat', 'party-line', 'party-piece', 'party-plan', 'party-political', 'party-pooper', 'party-spirit', 'party-wall',
+    'pass-book', 'pass-code', 'pass-fail', 'pass-key', 'pass-mark',
+    'pass-phrase', // (Crypto/Security)
+    'pass-the-parcel', 'pass-through',
+    'passenger-seat', 'passenger-train',
+    'passer-by',
+    'passport-control', 'passport-holder', 'passport-photo', 'passport-size',
+    'password-protect', 'password-protected',
+    'past-master',
+    'paste-board', 'paste-up',
+    'pastry-board', 'pastry-cook', 'pastry-cutter',
+    'pasty-face', 'pasty-faced',
+    'patch-pocket', 'patch-test', 'patch-up', 'patch-work',
+    'patent-holder', 'patent-leather', 'patent-pending',
+    'path-finder', 'path-way',
+    'patrol-car',
+    'pattern-recognition',
+    'paved-area',
+    'paw-mark', 'paw-print',
+    'pay-as-you-earn', // (UK Tax: PAYE)
+    'pay-as-you-go', // (Mobile/Finance)
+    'pay-back', 'pay-bed', 'pay-check',
+    'pay-cheque', // (UK Spelling)
+    'pay-claim', 'pay-day', 'pay-dirt', 'pay-freeze',
+    'pay-gap', // (Business/Social)
+    'pay-load', 'pay-master', 'pay-off',
+    'pay-packet', // (UK)
+    'pay-per-click', // (Marketing: PPC)
+    'pay-per-view',
+    'pay-phone', 'pay-play', 'pay-rise', // (UK)
+    'pay-roll', 'pay-scale', 'pay-slip',
+    'pay-wall', // (Media/Tech)
+    'pea-green', 'pea-shooter', 'pea-souper',
+    'peace-conference', 'peace-corps', 'peace-keeping', 'peace-lover', 'peace-loving', 'peace-maker', 'peace-making', 'peace-offering', 'peace-process', 'peace-talks', 'peace-time', 'peace-treaty',
+    'peach-blown',
+    'peacock-blue',
+    'peak-flow', 'peak-hour', 'peak-period', 'peak-season', 'peak-time',
+    'pear-shaped', // (UK Idiom: "Gone pear-shaped")
+    'pearl-diver', 'pearl-fisher', 'pearl-grey',
+    'pebbled-dash', 'pebbled-glass',
+    'pecking-order',
+    'pedal-bin', // (UK Household)
+    'pedal-board', 'pedal-boat', 'pedal-car', 'pedal-cycle', 'pedal-power', 'pedal-pusher',
+    'peel-off',
+    'peep-hole', 'peep-show', 'peeping-tom',
+    'peer-assessment', 'peer-group', 'peer-pressure', 'peer-review', 'peer-reviewed', 'peer-support',
+    'peer-to-peer', // (Tech Critical: P2P)
+    'pen-and-ink', 'pen-drive', // (Tech)
+    'pen-friend', 'pen-knife', 'pen-name', 'pen-pal', 'pen-portrait', 'pen-pusher', 'pen-pushing',
+    'penalty-area', 'penalty-box', 'penalty-clause', 'penalty-corner', 'penalty-kick', 'penalty-point', 'penalty-shootout', 'penalty-spot', 'penalty-taker',
+    'pencil-case', 'pencil-drawing', 'pencil-mark', 'pencil-pusher', 'pencil-sharpener', 'pencil-skirt', 'pencil-thin',
+    'pendant-light',
+    'penny-farthing', 'penny-loafers', 'penny-pinch', 'penny-pincher', 'penny-pinching', 'penny-share', 'penny-whistle', 'penny-worth',
+    'pension-fund', 'pension-off', 'pension-plan', 'pension-scheme',
+    'pent-house', 'pent-roof',
+    'people-carrier', // (UK Car type)
+    'people-mover', 'people-person', 'people-pleaser', 'people-power', 'people-smuggling', 'people-watch', 'people-watcher', 'people-watching',
+    'pepper-corn', 'pepper-mill', 'pepper-mint', 'pepper-pot', 'pepper-spray',
+    'per-annum', 'per-capita', 'per-cent', 'per-diem', 'per-se',
+    'perfect-pitch',
+    'performance-art', 'performance-enhancing', 'performance-related',
+    'period-costume', 'period-drama', 'period-piece',
+    'permanent-press', 'permanent-wave',
+    'personal-assistant', // (PA)
+    'personal-computer', // (PC)
+    'personal-effects', 'personal-injury', 'personal-organizer', 'personal-shopper', 'personal-stereo', 'personal-touch', 'personal-trainer',
+    'pet-food',
+    'pet-hate', // (UK Idiom)
+    'pet-name', 'pet-shop', 'pet-sitting',
+    'petrol-bomb', // (UK)
+    'petrol-cap', 'petrol-consumption', 'petrol-engine',
+    'petrol-head', // (UK Slang for car lover)
+    'petrol-pump', 'petrol-station', 'petrol-tank',
+    'phase-in', 'phase-out',
+    'phone-bill', 'phone-book',
+    'phone-box', // (UK Essential)
+    'phone-call', 'phone-card', 'phone-charger', 'phone-in', 'phone-line', 'phone-number', 'phone-tap', 'phone-tapping',
+    'photo-album', 'photo-bomb', 'photo-call', 'photo-copier', 'photo-copy', 'photo-edit', 'photo-editing', 'photo-electric', 'photo-finish',
+    'photo-fit', // (UK Police term)
+    'photo-frame', 'photo-genic', 'photo-graph', 'photo-journalism', 'photo-journalist', 'photo-montage', 'photo-opportunity', 'photo-realism', 'photo-realistic', 'photo-sensitive', 'photo-shoot', 'photo-shop', 'photo-synthesis',
+    'physical-education', // (PE)
+    'piano-accordion', 'piano-key', 'piano-lesson', 'piano-player', 'piano-stool', 'piano-teacher', 'piano-tuner', 'piano-wire',
+    'pick-and-mix', // (UK Sweets)
+    'pick-axe', 'pick-lock', 'pick-me-up', 'pick-n-mix', 'pick-pocket', 'pick-up',
+    'picnic-area', 'picnic-basket', 'picnic-hamper', 'picnic-table',
+    'picture-book', 'picture-card', 'picture-editor', 'picture-frame', 'picture-postcard', 'picture-rail', 'picture-window',
+    'pie-chart', 'pie-crust', 'pie-dish', 'pie-eyed',
+    'piece-goods', 'piece-meal', 'piece-rate', 'piece-work',
+    'pier-glass',
+    'pig-farm', 'pig-headed', 'pig-iron', 'pig-out', 'pig-pen', 'pig-sty', 'pig-swill', 'pig-tail',
+    'pigeon-hole', 'pigeon-loft', 'pigeon-toed',
+    'piggy-back', 'piggy-bank',
+    'pile-driver', 'pile-up',
+    'pill-box', 'pill-popper',
+    'pillar-box', // (UK Mailbox)
+    'pillow-case', 'pillow-fight', 'pillow-slip', 'pillow-talk',
+    'pilot-fish', 'pilot-light', 'pilot-officer', 'pilot-scheme', 'pilot-study',
+    'pin-ball', 'pin-code', 'pin-cushion', 'pin-down', 'pin-hole', 'pin-money', 'pin-point', 'pin-prick', 'pin-stripe', 'pin-striped', 'pin-tuck', 'pin-up', 'pin-wheel',
+    'pina-colada',
+    'pinch-hit', 'pinch-hitter',
+    'pine-apple', // (Included for safety, though mostly solid)
+    'pine-cone', 'pine-forest', 'pine-needle', 'pine-nut', 'pine-tree',
+    'ping-pong',
+    'pink-eye', 'pink-slip',
+    'pipe-band', 'pipe-clay', 'pipe-cleaner', 'pipe-dream', 'pipe-line', 'pipe-major', 'pipe-organ', 'pipe-work',
+    'piping-hot',
+    'pistol-grip', 'pistol-whip',
+    'pit-bull', 'pit-head', 'pit-pony', 'pit-prop', 'pit-stop',
+    'pitch-black', 'pitch-dark', 'pitch-fork', 'pitch-perfect', 'pitch-pine', 'pitch-pipe',
+    'pixel-art', 'pixel-density',
+    'pixel-perfect', // (Design/Dev Critical)
+    'pizza-cutter',
+    'place-kick', 'place-mat', 'place-name', 'place-setting', 'place-value',
+    'plain-chocolate', 'plain-clothes', 'plain-flour', 'plain-paper',
+    'plain-sailing', // (UK Idiom)
+    'plain-song', 'plain-speaking', 'plain-spoken',
+    'plain-text', // (Tech)
+    'plane-crash', 'plane-spotter', 'plane-spotting', 'plane-tree',
+    'planet-saving',
+    'planning-permission', // (UK Property)
+    'plant-holder', 'plant-life', 'plant-pot', // (UK)
+    'plaster-board', 'plaster-cast', 'plaster-of-paris', 'plaster-work',
+    'plastic-coated', 'plastic-surgery',
+    'plate-glass', 'plate-layer', 'plate-rack',
+    'platform-game', 'platform-shoe', 'platform-ticket',
+    'play-act', 'play-acting', 'play-actor', 'play-area', 'play-back', 'play-boy', 'play-date', 'play-dough', 'play-group', 'play-house',
+    'play-list', // (Tech/Music)
+    'play-mate', 'play-off', 'play-pen', 'play-room', 'play-school', 'play-thing', 'play-time', 'play-wright', 'play-writing',
+    'playing-card', 'playing-field',
+    'pleasure-boat', 'pleasure-ground', 'pleasure-seeker', 'pleasure-trip',
+    'plimsoll-line',
+    'plot-line',
+    'plough-man', // (UK: Ploughman's Lunch)
+    'plough-share',
+    'plug-and-play', // (Tech Critical)
+    'plug-hole', // (UK)
+    'plug-in', // (Tech)
+    'plug-ugly',
+    'po-faced',
+    'pocket-book', 'pocket-calculator', 'pocket-comb', 'pocket-knife',
+    'pocket-money', // (UK)
+    'pocket-picking', 'pocket-size', 'pocket-sized', 'pocket-watch',
+    'point-blank', 'point-duty', 'point-guard',
+    'point-of-sale', // (POS)
+    'point-scoring', 'point-to-point',
+    'poison-gas', 'poison-ivy', 'poison-pen',
+    'poke-bonnet',
+    'poker-face', 'poker-faced', 'poker-work',
+    'polar-bear', 'polar-ice',
+    'pole-axe', 'pole-dance', 'pole-dancer', 'pole-dancing', 'pole-jump',
+    'pole-position', // (F1/Business)
+    'pole-star', 'pole-vault', 'pole-vaulter',
+    'police-box', // (UK Cultural Icon)
+    'police-car', 'police-constable', 'police-dog', 'police-force', 'police-man', 'police-officer', 'police-record', 'police-state', 'police-station', 'police-van', 'police-woman',
+    'policy-holder', 'policy-maker', 'policy-making',
+    'polish-remover',
+    'political-correctness', 'political-party', 'political-prisoner',
+    'polling-booth', 'polling-card', 'polling-day', 'polling-place', 'polling-station',
+    'polo-neck', // (UK)
+    'polo-shirt',
+    'polter-geist',
+    'poly-ester', 'poly-filler', 'poly-styrene', 'poly-technic', 'poly-thene', 'poly-unsaturated',
+    'pom-pom',
+    'pond-life',
+    'pony-tail', 'pony-trekking',
+    'pooh-pooh',
+    'pool-side', 'pool-table',
+    'poor-box', 'poor-house', 'poor-law', 'poor-quality', 'poor-spirited',
+    'pop-art', 'pop-corn', 'pop-culture', 'pop-eyed', 'pop-group', 'pop-gun', 'pop-idol', 'pop-music', 'pop-quiz', 'pop-song', 'pop-star',
+    'pop-up', // (UI/Tech)
+    'pop-video',
+    'pooper-scooper',
+    'poppy-cock', 'poppy-day',
+    'pork-butcher', 'pork-chop',
+    'pork-pie', // (UK Food)
+    'port-hole', 'port-wine',
+    'portable-document-format', // (PDF)
+    'pose-able',
+    'position-paper',
+    'post-bag',
+    'post-box', // (UK Essential)
+    'post-boy', 'post-chaise',
+    'post-code', // (UK Essential: "ZIP code" in US)
+    'post-date', 'post-doc', 'post-doctoral', 'post-free', 'post-grad', 'post-graduate', 'post-haste', 'post-horn', 'post-horse', 'post-impressionism', 'post-industrial',
+    'post-man', // (UK)
+    'post-mark', 'post-master', 'post-mistress', 'post-modern', 'post-modernism', 'post-mortem', 'post-natal', 'post-office', 'post-operative', 'post-paid', 'post-production', 'post-room', 'post-script', 'post-season', 'post-traumatic', 'post-truth', 'post-war', 'post-woman',
+    'pot-belly', 'pot-boiler', 'pot-bound', 'pot-herb', 'pot-hole', 'pot-holer', 'pot-holing', 'pot-hook', 'pot-luck',
+    'pot-plant', // (UK)
+    'pot-pourri', 'pot-roast', 'pot-shot', 'pot-sticker',
+    'potato-chip',
+    'potato-crisp', // (UK)
+    'potato-masher', 'potato-peeler',
+    'pound-cake',
+    'pound-shop', // (UK Retail)
+    'poverty-line', 'poverty-stricken', 'poverty-trap',
+    'powder-blue', 'powder-compact', 'powder-keg', 'powder-puff', 'powder-room',
+    'power-assisted', 'power-boat', 'power-broker', 'power-cord',
+    'power-cut', // (UK)
+    'power-dressing', 'power-drill', 'power-driven', 'power-grid', 'power-house', 'power-hungry', 'power-lift', 'power-line', 'power-lunch', 'power-mad', 'power-nap', 'power-pack', 'power-plant',
+    'power-point', // (UK: Electric Socket)
+    'power-play', 'power-ranger', 'power-saving', 'power-sharing', 'power-station', 'power-steering', 'power-struggle', 'power-suit', 'power-tool', 'power-trip', 'power-up',
+    'power-user', // (Tech)
+    'power-walk', 'power-walking',
+    'practical-joke', 'practical-joker',
+    'prawn-cocktail',
+    'prayer-book', 'prayer-mat', 'prayer-meeting', 'prayer-wheel',
+    'pre-arrange', 'pre-book', 'pre-cast', 'pre-centennial', 'pre-christian', 'pre-condition', 'pre-cooked', 'pre-date', 'pre-deceased', 'pre-defined', 'pre-destined', 'pre-determine', 'pre-digest', 'pre-echampsia', 'pre-election', 'pre-eminence', 'pre-eminent', 'pre-empt', 'pre-emption', 'pre-emptive', 'pre-exist', 'pre-existing', 'pre-fab', 'pre-fabricate', 'pre-fill', 'pre-flight', 'pre-form', 'pre-formed', 'pre-heat', 'pre-history', 'pre-ignition', 'pre-industrial', 'pre-judge', 'pre-judgment', 'pre-launch', 'pre-load', 'pre-marital', 'pre-med', 'pre-menstrual', 'pre-mix', 'pre-natal', 'pre-nuptial', 'pre-occupied', 'pre-occupy', 'pre-ordained', 'pre-order', 'pre-owned', 'pre-pack', 'pre-package', 'pre-paid', 'pre-pay', 'pre-plan', 'pre-production', 'pre-program', 'pre-qualify', 'pre-raphaelite', 'pre-read', 'pre-record', 'pre-register', 'pre-registration', 'pre-release', 'pre-render', 'pre-requisite', 'pre-sale', 'pre-school', 'pre-season', 'pre-select', 'pre-set', 'pre-shrunk', 'pre-soak', 'pre-sold', 'pre-sort', 'pre-stressed', 'pre-tax', 'pre-teen', 'pre-tension', 'pre-test', 'pre-trial', 'pre-view', 'pre-war', 'pre-wash', 'pre-wrap',
+    'precious-stone',
+    'preferential-treatment',
+    'pregnancy-test',
+    'premium-bond', // (UK Finance)
+    'prep-school',
+    'present-day',
+    'press-agent', 'press-box', 'press-conference', 'press-cutting', 'press-gang', 'press-pack', 'press-pass', 'press-release', 'press-room', 'press-stud',
+    'press-up', // (UK: Push-up)
+    'pressure-cooker', 'pressure-group', 'pressure-point', 'pressure-sore', 'pressure-washer',
+    'pretty-boy', 'pretty-pretty',
+    'price-cap', 'price-check', 'price-control', 'price-cut', 'price-fixing', 'price-freeze', 'price-hike', 'price-list', 'price-range', 'price-tag', 'price-war',
+    'prickly-heat', 'prickly-pear',
+    'prime-minister', 'prime-mover', 'prime-number', 'prime-suspect', 'prime-time',
+    'print-head', 'print-maker', 'print-off', 'print-out', 'print-run', 'print-shop', 'print-works',
+    'printed-circuit',
+    'prison-camp', 'prison-guard', 'prison-officer',
+    'private-detective', 'private-enterprise', 'private-eye',
+    'private-key', // (Crypto)
+    'private-practice', 'private-school',
+    'private-sector', // (Business)
+    'privy-council', 'privy-purse', 'privy-seal',
+    'prize-fight', 'prize-fighter', 'prize-fighting', 'prize-giving', 'prize-money', 'prize-winner', 'prize-winning',
+    'pro-active', 'pro-bono', 'pro-choice', 'pro-life', 'pro-rata', 'pro-tem', 'pro-vice-chancellor',
+    'problem-child',
+    'problem-page', // (UK Magazine term)
+    'problem-solver', 'problem-solving',
+    'product-design', 'product-key',
+    'product-life-cycle', // (Business)
+    'product-line', 'product-market', 'product-placement',
+    'production-line', 'production-manager',
+    'profit-and-loss', 'profit-loss', 'profit-making', 'profit-margin', 'profit-share',
+    'profit-sharing', // (Business)
+    'profit-taking',
+    'program-manager',
+    'progress-bar', // (UI)
+    'progress-chaser', 'progress-report',
+    'project-manager',
+    'promo-video',
+    'proof-read', 'proof-reader', 'proof-reading',
+    'prop-forward', // (Rugby)
+    'property-developer', 'property-ladder', 'property-market', 'property-owner', 'property-tax',
+    'proportional-representation',
+    'prosecuting-counsel',
+    'prospecting-pick',
+    'protection-money', 'protection-racket',
+    'protective-custody',
+    'protein-shake',
+    'protest-march',
+    'pseudo-code', // (Dev)
+    'pseudo-intellectual', 'pseudo-science', 'pseudo-scientific',
+    'public-address', 'public-domain',
+    'public-house', // (Pub)
+    'public-key', // (Crypto)
+    'public-opinion',
+    'public-relations', // (PR)
+    'public-school', // (UK private school)
+    'public-sector', 'public-service', 'public-speaking', 'public-spirited', 'public-transport', 'public-works',
+    'publish-and-be-damned',
+    'publishing-house',
+    'pudding-basin', 'pudding-bowl',
+    'puff-adder', 'puff-ball', 'puff-pastry', 'puff-sleeve',
+    'pug-dog', 'pug-nose', 'pug-nosed',
+    'pull-back', 'pull-cord',
+    'pull-down', // (UI)
+    'pull-in', 'pull-off', 'pull-out', 'pull-over',
+    'pull-request', // (Dev Critical)
+    'pull-string', 'pull-through', 'pull-together', 'pull-up',
+    'pulp-fiction', 'pulp-wood',
+    'pump-action',
+    'punch-bag', 'punch-bowl', 'punch-card', 'punch-drunk', 'punch-line',
+    'punch-up', // (UK Slang)
+    'punching-bag',
+    'punctuation-mark',
+    'puppet-government', 'puppet-master', 'puppet-show', 'puppet-state',
+    'purchase-ledger', 'purchase-order', 'purchase-tax',
+    'pure-blood', 'pure-bred',
+    'purple-heart',
+    'push-bike', // (UK)
+    'push-button', 'push-cart',
+    'push-chair', // (UK Stroller)
+    'push-fit',
+    'push-notification', // (Tech)
+    'push-over', 'push-start', 'push-up',
+    'pushing-and-shoving',
+    'put-down', 'put-on', 'put-out', 'put-up', 'put-upon',
+    'putting-green',
+    'puzzle-book',
+    'pyjama-case', 'pyjama-party',
     'pin-money', 'pin-point', 'pin-prick', 'pin-stripe', 'pin-striped', 'pin-up', 'pinch-hit', 'pine-apple', 'pine-cone',
     'pine-nut', 'ping-pong', 'pipe-cleaner', 'pipe-dream', 'pipe-line', 'piping-hot', 'pit-bull', 'pit-fall', 'pit-head',
     'pit-pony', 'pit-stop', 'pitch-black', 'pitch-dark', 'pitch-fork', 'pizza-parlour', 'place-mat', 'place-name', 'place-setting',
