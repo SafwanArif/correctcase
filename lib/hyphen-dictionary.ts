@@ -1791,6 +1791,38 @@ export const COMPOUND_WORDS = new Set<string>([
     'worm-eaten', 'worm-hole', 'would-be', 'wrap-around', 'wrap-up', 'wrecking-ball', 'wrist-band', 'wrist-watch',
     'write-down', 'write-off', 'write-up', 'writing-desk', 'writing-paper', 'writing-table', 'wrong-doer', 'wrong-doing',
     'wrong-foot', 'wrong-head', 'wrong-headed', 'wry-neck',
+
+    // Q (Modern & Tech Supplement)
+    'quad-bike', // (UK Leisure)
+    'quad-core', // (Tech)
+    'quality-assurance', // (QA)
+    'quality-control', 'quality-of-life', 'quality-time',
+    'quantum-computer', 'quantum-computing', 'quantum-leap', 'quantum-mechanics', 'quantum-physics', 'quantum-theory',
+    'quarry-tile',
+    'quarter-back', 'quarter-binding', 'quarter-day', // (UK Business/Legal)
+    'quarter-deck', 'quarter-final', 'quarter-finalist', 'quarter-hour', 'quarter-light', 'quarter-master', 'quarter-plate', 'quarter-pounder', 'quarter-session', 'quarter-staff',
+    'quasi-legal', 'quasi-official', 'quasi-scientific',
+    'queen-bee', 'queen-consort', 'queen-mother', 'queen-post', 'queen-regent',
+    'queen-size', 'queen-sized', // (Bedding)
+    'query-language', 'query-string', // (Dev/URL Critical)
+    'question-and-answer', 'question-mark', 'question-master', 'question-time',
+    'queue-jump', 'queue-jumper',
+    'quick-acting', 'quick-change', 'quick-dry', 'quick-drying',
+    'quick-fire', // (Business/Media: "Quick-fire round")
+    'quick-fix', // (Tech/Business)
+    'quick-freeze', 'quick-frozen', 'quick-lime', 'quick-march', 'quick-release', 'quick-sand', 'quick-service', 'quick-set', 'quick-setting', 'quick-silver',
+    'quick-start', // (Tech: "Quick-start guide")
+    'quick-step', 'quick-tempered', 'quick-thinking', 'quick-time', 'quick-witted',
+    'quiet-room',
+    'quill-driver', 'quill-pen',
+    'quilt-cover',
+    'quit-claim', 'quit-rent',
+    'quiz-master', 'quiz-show',
+    'quid-pro-quo',
+    'quota-system',
+    'quote-unquote',
+    'qr-code', // (Tech Essential)
+
     // Z
     'z-bend', 'z-list', 'zenith-distance', 'zero-hour', 'zero-in', 'zero-option', 'zero-rated', 'zero-tolerance', 'zig-zag',
     'zinc-plate', 'zip-code', 'zip-fastener', 'zip-file', 'zip-up', 'zone-out', 'zoo-keeper', 'zoom-in', 'zoom-lens', 'zoom-out'
