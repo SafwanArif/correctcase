@@ -3,12 +3,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
 import { addToHistory } from "@/lib/db";
-import { Copy, Type, AlignLeft, Link, Unlink } from "lucide-react";
+import { Copy, Type, AlignLeft, Link, Unlink, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function HeroEditor() {
     const [text, setText] = useState("");
     const [isCopied, setIsCopied] = useState(false);
+    const [preservePunctuation, setPreservePunctuation] = useState(false);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     // Derived State
@@ -33,10 +34,11 @@ export function HeroEditor() {
             case "hyphenate":
                 if (isTextHyphenated) {
                     // Smart recovery (Unhyphenate)
+                    // Note: smartUnhyphenate naturally preserves punctuation if it was left in
                     newText = smartUnhyphenate(text);
                 } else {
                     // Hyphenate
-                    newText = toHyphenated(text);
+                    newText = toHyphenated(text, preservePunctuation);
                 }
                 break;
         }
@@ -81,6 +83,17 @@ export function HeroEditor() {
                     isActive={isTextHyphenated}
                 />
 
+                <div className="h-6 w-px bg-border-subtle mx-1" />
+
+                {/* Preservation Toggle */}
+                <ActionButton
+                    onClick={() => setPreservePunctuation(!preservePunctuation)}
+                    icon={<Quote className="w-4 h-4" />}
+                    label="Keep Punctuation"
+                    isActive={preservePunctuation}
+                    variant="secondary"
+                />
+
                 <div className="ml-auto flex items-center gap-2">
                     <button
                         onClick={copyToClipboard}
@@ -120,7 +133,7 @@ export function HeroEditor() {
     );
 }
 
-function ActionButton({ onClick, icon, label, isActive }: { onClick: () => void; icon: React.ReactNode; label: string; isActive?: boolean }) {
+function ActionButton({ onClick, icon, label, isActive, variant = "primary" }: { onClick: () => void; icon: React.ReactNode; label: string; isActive?: boolean; variant?: "primary" | "secondary" }) {
     return (
         <button
             onClick={onClick}
@@ -128,11 +141,12 @@ function ActionButton({ onClick, icon, label, isActive }: { onClick: () => void;
                 "flex items-center gap-2 px-4 py-1.5 text-sm font-medium border rounded-lg transition-all duration-200 active:scale-95 shadow-sm hover:shadow",
                 isActive
                     ? "bg-[oklch(var(--brand-core)/0.1)] text-primary border-[oklch(var(--brand-core)/0.2)]"
-                    : "text-muted hover:text-body bg-elevated hover:bg-surface border-border-subtle"
+                    : "text-muted hover:text-body bg-elevated hover:bg-surface border-border-subtle",
+                variant === "secondary" && isActive && "bg-body/5 text-body border-body/10" // Subtle style for secondary toggle
             )}
         >
             {icon}
-            <span className="min-w-[60px] text-center">{label}</span>
+            <span className={cn("text-center", variant === "primary" ? "min-w-[60px]" : "")}>{label}</span>
         </button>
     );
 }

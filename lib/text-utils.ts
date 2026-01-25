@@ -71,16 +71,29 @@ import { COMPOUND_WORDS } from './hyphen-dictionary';
 /**
  * Converts text to a URL-friendly hyphenated format (formerly "Slug").
  * @param text The text to format.
+ * @param preservePunctuation If true, retains punctuation like ?, !, ., etc.
  * @returns The hyphenated string.
  */
-export function toHyphenated(text: string): string {
+export function toHyphenated(text: string, preservePunctuation: boolean = false): string {
     if (!text) return '';
-    return text
-        .toLowerCase()
-        .trim()
-        .replace(/[^\w\s-]/g, '') // Remove non-word chars
-        .replace(/[\s_-]+/g, '-') // Replace spaces and underscores with hyphens
-        .replace(/^-+|-+$/g, ''); // Trim start/end hyphens
+
+    let processed = text.toLowerCase().trim();
+
+    if (preservePunctuation) {
+        // Allow word chars, spaces, hyphens AND common punctuation
+        processed = processed
+            .replace(/[^\w\s\-!?,.:;'"()]/g, '') // Keep basic punctuation
+            .replace(/[\s_]+/g, '-')              // Replace spaces/underscores with hyphens
+            .replace(/^-+|-+$/g, '');             // Trim start/end hyphens
+    } else {
+        // Strict URL safe (Standard)
+        processed = processed
+            .replace(/[^\w\s-]/g, '')
+            .replace(/[\s_-]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
+    return processed;
 }
 
 export function countWords(text: string): number {
