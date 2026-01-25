@@ -596,6 +596,129 @@ export const COMPOUND_WORDS = new Set<string>([
     'gut-feeling', 'gut-wrenching',
     'gym-kit', 'gym-shoes', 'gym-slip',
 
+    // H (Modern & Tech Supplement)
+    'hack-a-thon', 'hack-saw',
+    'hair-band', 'hair-brush', 'hair-clip', 'hair-cut', 'hair-do', 'hair-dresser', 'hair-dryer', 'hair-grip', 'hair-line', 'hair-net', 'hair-piece', 'hair-pin', 'hair-raising', 'hair-spray', 'hair-style', 'hair-stylist',
+    'half-and-half', 'half-baked', 'half-board', 'half-breed', 'half-brother', 'half-caste', 'half-cocked', 'half-cut', 'half-day',
+    'half-empty', 'half-full', 'half-hearted', 'half-holiday', 'half-hour', 'half-life', 'half-mast', 'half-measure', 'half-moon', 'half-open', 'half-pace', 'half-past', 'half-price',
+    'half-sister', 'half-size', 'half-sleeve', 'half-term', // (UK Education Critical)
+    'half-time', 'half-tone', 'half-track', 'half-truth', 'half-volley', 'half-way', 'half-wit', 'half-witted', 'half-yearly',
+    'hammer-blow', 'hammer-head', 'hammer-toe',
+    'hand-bag', // (UK Specific - US is purse)
+    'hand-ball', 'hand-bell', 'hand-bill', 'hand-book', 'hand-brake', 'hand-cart', 'hand-clap', 'hand-cream', 'hand-cuff', 'hand-delivered', 'hand-dryer', 'hand-grenade', 'hand-grip', 'hand-gun',
+    'hand-held', 'hand-job', 'hand-luggage', 'hand-made', 'hand-me-down', 'hand-out', 'hand-over', 'hand-paint', 'hand-pick', 'hand-picked', 'hand-rail', 'hand-saw', 'hand-set', 'hand-shake', 'hand-stand', 'hand-to-hand', 'hand-to-mouth', 'hand-towel', 'hand-wash', 'hand-washing', 'hand-work', 'hand-woven', 'hand-wringing', 'hand-write', 'hand-written',
+    'hands-down', 'hands-free', 'hands-off', 'hands-on', 'hands-up',
+    'hang-glider', 'hang-gliding', 'hang-out', 'hang-over', 'hang-up',
+    'hanger-on',
+    'happy-clappy', 'happy-go-lucky', 'happy-hour', 'happy-slapping', // (UK Slang)
+    'hard-and-fast', 'hard-back', 'hard-ball', 'hard-bit', 'hard-boiled', 'hard-case', 'hard-cash', 'hard-code', 'hard-coded', // (Dev Critical)
+    'hard-copy', 'hard-core', 'hard-cover', 'hard-disk',
+    'hard-drive', // (Tech Critical)
+    'hard-earned', 'hard-fi', 'hard-fought', 'hard-hitter', 'hard-hitting', 'hard-line', 'hard-liner', 'hard-nosed', 'hard-pressed',
+    'hard-reset', // (Tech Critical)
+    'hard-rock', 'hard-sell', 'hard-shoulder', // (UK Road Term)
+    'hard-stop', // (Business: "I have a hard-stop at 2pm")
+    'hard-stuff', 'hard-top', 'hard-up', 'hard-wearing', 'hard-wired', 'hard-working',
+    'hare-brained',
+    'hash-brown', 'hash-key', 'hash-rate', 'hash-table',
+    'hash-tag', // (Social Media Critical)
+    'hat-band', 'hat-box', 'hat-stand', 'hat-trick',
+    'hate-crime', 'hate-mail', 'hate-speech',
+    'have-a-go', 'have-not',
+    'hay-fever', 'hay-loft', 'hay-maker', 'hay-making', 'hay-ride', 'hay-stack', 'hay-wire',
+    'haz-mat',
+    'head-ache', 'head-banger', 'head-band', 'head-board', 'head-butt', 'head-case', 'head-count', // (Business Critical)
+    'head-dress', 'head-first', 'head-gear', 'head-hunt', 'head-hunter', 'head-hunting',
+    'head-lamp', 'head-light', 'head-line', 'head-master', // (UK School)
+    'head-mistress', 'head-note', 'head-office', 'head-on',
+    'head-phone', 'head-piece', 'head-quarters', 'head-rest', 'head-room', 'head-scarf', 'head-set', // (Tech/Gaming)
+    'head-space', 'head-start', 'head-stone', 'head-strong', 'head-teacher', 'head-to-head', 'head-up', // (HUD)
+    'head-waiter', 'head-way', 'head-wind', 'head-word',
+    'health-care', 'health-check', 'health-club', 'health-conscious',
+    'heap-big',
+    'hearing-aid', 'hearing-impaired',
+    'heart-ache', 'heart-attack', 'heart-beat', 'heart-break', 'heart-broken', 'heart-burn', 'heart-failure', 'heart-felt', 'heart-land', 'heart-lung', 'heart-rate', 'heart-rending', 'heart-search', 'heart-sick', 'heart-stopping', 'heart-strings', 'heart-throb', 'heart-to-heart', 'heart-warm', 'heart-warming',
+    'heat-proof', 'heat-pump', 'heat-rash', 'heat-resistant', 'heat-seeker', 'heat-seeking', 'heat-shield', 'heat-sink', // (Tech Critical)
+    'heat-stroke', 'heat-wave',
+    'heavy-duty', 'heavy-handed', 'heavy-heart', 'heavy-hearted', 'heavy-metal', 'heavy-set', 'heavy-weight',
+    'hedge-fund', 'hedge-hog', 'hedge-hop', 'hedge-row', 'hedge-trimmer',
+    'heel-bar', 'heel-tap',
+    'height-adjustable',
+    'hell-bent', 'hell-fire', 'hell-hole', 'hell-raiser',
+    'help-desk', 'help-line',
+    'helter-skelter', // (UK Fairground)
+    'hem-line',
+    'hen-house', 'hen-night', 'hen-party', 'hen-peck', 'hen-pecked',
+    'here-abouts', 'here-after', 'here-by', 'here-in', 'here-of', 'here-to', 'here-to-fore', 'here-under', 'here-upon', 'here-with',
+    'hero-worship',
+    'hide-and-seek', 'hide-away', 'hide-bound', 'hide-out',
+    'hi-fi', 'hi-hat', 'hi-res', 'hi-tech', // (Often High-tech, but common abbreviation)
+    'high-and-mighty', 'high-born', 'high-brow', 'high-chair', 'high-class',
+    'high-definition', // (High-def)
+    'high-density', 'high-end', 'high-energy', 'high-fidelity', 'high-five', 'high-flyer', 'high-flying', 'high-frequency', 'high-grade', 'high-handed', 'high-heeled', 'high-heels', 'high-impact', 'high-jump', 'high-level', // (Business: "High-level overview")
+    'high-life', 'high-light', 'high-maintenance', 'high-minded', 'high-octane', 'high-off', 'high-performance', 'high-pitch', 'high-pitched', 'high-point', 'high-power', 'high-powered', 'high-pressure', 'high-profile', 'high-quality', 'high-ranking',
+    'high-resolution', // (Tech)
+    'high-rise', 'high-risk', 'high-road', 'high-school', 'high-season', 'high-speed', 'high-spirited', 'high-stakes', 'high-street', // (UK Retail Critical)
+    'high-strung', 'high-table', 'high-tech', 'high-tension', 'high-time', 'high-top', 'high-vis', 'high-visibility', 'high-voltage', 'high-water', 'high-way', 'high-wire', 'high-yield',
+    'hill-billy', 'hill-climb', 'hill-farm', 'hill-fort', 'hill-side', 'hill-top', 'hill-walk', 'hill-walker', 'hill-walking',
+    'hip-bath', 'hip-flask', 'hip-hop', 'hip-joint', 'hip-replacement',
+    'hire-car', 'hire-purchase', // (UK Finance)
+    'hit-and-miss', 'hit-and-run', 'hit-list', 'hit-man', 'hit-parade', 'hit-squad',
+    'hive-mind',
+    'hobby-horse',
+    'hob-nob',
+    'hocus-pocus',
+    'hoe-down',
+    'hog-roast', 'hog-tie', 'hog-wash',
+    'hoist-man',
+    'hold-all', 'hold-back', 'hold-down', 'hold-out', 'hold-over', 'hold-up',
+    'hole-and-corner', 'hole-in-one', 'hole-in-the-wall', 'hole-punch',
+    'holiday-maker',
+    'home-baked', 'home-base', 'home-boy', 'home-brew', 'home-brood', 'home-build', 'home-buyer', 'home-coming', 'home-cook', 'home-cooked', 'home-counties', 'home-court', 'home-delivery', 'home-economics', 'home-front', 'home-grown', 'home-help', 'home-improvement', 'home-land', 'home-loan', 'home-made', 'home-maker', 'home-movie', 'home-office', 'home-owner',
+    'home-page', // (Web)
+    'home-rule', 'home-run', 'home-school', 'home-schooling', 'home-screen', 'home-sick', 'home-sickness', 'home-spun', 'home-stead', 'home-straight', 'home-stretch', 'home-time', 'home-town', 'home-truth', 'home-ward', 'home-work',
+    'honest-to-god',
+    'honey-bee', 'honey-comb', 'honey-dew', 'honey-moon', 'honey-pot', 'honey-suckle', 'honey-trap',
+    'hood-wink',
+    'hook-and-eye', 'hook-line-and-sinker', 'hook-nose', 'hook-up',
+    'hop-scotch',
+    'horror-struck',
+    'horse-back', 'horse-box', 'horse-brass', 'horse-chestnut', 'horse-drawn', 'horse-fly', 'horse-hair', 'horse-man', 'horse-play', 'horse-power', 'horse-race', 'horse-racing', 'horse-radish', 'horse-rider', 'horse-riding', 'horse-shoe', 'horse-trade', 'horse-trading', 'horse-whip', 'horse-woman',
+    'hose-pipe',
+    'hot-air', 'hot-bed', 'hot-blood', 'hot-blooded', 'hot-button', 'hot-cake', 'hot-cross-bun', 'hot-desk', 'hot-desking', // (Modern Office)
+    'hot-dog', 'hot-fix', // (Tech)
+    'hot-foot', 'hot-head', 'hot-headed', 'hot-house',
+    'hot-key', // (Tech)
+    'hot-line',
+    'hot-link', // (Web)
+    'hot-melt', 'hot-pants', 'hot-plate',
+    'hot-pot', // (Lancashire Hot-pot)
+    'hot-potato', 'hot-press', 'hot-rod', 'hot-seat', 'hot-shoe', 'hot-shot',
+    'hot-spot', // (Tech/Wifi)
+    'hot-spring', 'hot-stuff',
+    'hot-swap', // (Tech Hardware)
+    'hot-tempered', 'hot-tub', 'hot-water', 'hot-wire',
+    'hotel-keeper',
+    'hour-glass', 'hour-hand',
+    'house-arrest', 'house-boat', 'house-bound', 'house-break', 'house-breaker', 'house-breaking', 'house-call', 'house-coat', 'house-fly', 'house-guest', 'house-hold', 'house-holder', 'house-hunting', 'house-husband', 'house-keep', 'house-keeper', 'house-keeping', 'house-maid', 'house-master', 'house-mate', 'house-mistress', 'house-mother', 'house-move', 'house-music', 'house-parent', 'house-party', 'house-plant', 'house-price', 'house-proud', 'house-rule', 'house-share', 'house-sit', 'house-sitter', 'house-trained', 'house-training', 'house-warm', 'house-warming', 'house-wife', 'house-work',
+    'hover-board', 'hover-craft',
+    'how-to', // (Noun: "Read the how-to")
+    'hub-cap',
+    'human-being', 'human-interest', 'human-readable', 'human-right', 'human-scale',
+    'humble-brag',
+    'hump-back',
+    'hunch-back', 'hunch-backed',
+    'hundred-weight',
+    'hurly-burly', 'hurry-up',
+    'hush-hush', 'hush-money', 'hush-puppy',
+    'hybrid-cloud', 'hybrid-electric',
+    'hydro-electric', 'hydro-electricity', 'hydro-power', 'hydro-therapy',
+    'hype-man',
+    'hyper-active', 'hyper-activity', 'hyper-critical', 'hyper-drive', 'hyper-extend', 'hyper-inflation',
+    'hyper-link', // (Web)
+    'hyper-local', 'hyper-market', 'hyper-real', 'hyper-sensitive', 'hyper-sonic', 'hyper-space', 'hyper-text', 'hyper-thread', 'hyper-thyroid', 'hyper-vent', 'hyper-ventilate',
+    'hyphen-dictionary', // (Meta!)
+
     // P (Partial for critical words)
     'part-exchange', 'part-time', 'passer-by', 'pay-as-you-go', 'pay-day', 'pay-off', 'pay-roll', 'pea-green', 'pea-souper',
     'peace-keeping', 'peace-loving', 'peace-maker', 'peace-offering', 'peace-pipe', 'peace-time', 'peak-time', 'pear-shaped',
