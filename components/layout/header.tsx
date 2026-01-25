@@ -1,3 +1,4 @@
+import { Logo } from "@/components/ui/logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ShieldCheck } from "lucide-react";
 
@@ -7,12 +8,16 @@ export function Header() {
             <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 
                 {/* Left: Branding & Controls */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                     <ThemeToggle />
                     <div className="h-6 w-px bg-border-subtle mx-1" />
-                    <h1 className="text-lg font-bold tracking-tight text-body">
-                        <span className="text-[oklch(var(--brand-core))]">C</span>orrect<span className="text-[oklch(var(--brand-core))]">C</span>ase
-                    </h1>
+
+                    <div className="flex items-center gap-2">
+                        <Logo className="w-6 h-6" />
+                        <h1 className="text-lg font-bold tracking-tight text-body">
+                            CorrectCase
+                        </h1>
+                    </div>
                 </div>
 
                 {/* Right: Badges */}
