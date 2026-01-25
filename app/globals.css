@@ -23,14 +23,19 @@ body {
   outline-offset: 2px;
 }
 
-/* PREVENT UI SELECTION (Ghost Text Fix) */
-header,
-footer,
-button,
-.history-panel,
-.no-select {
+/* PREVENT UI SELECTION (Ghost Text Fix - Global Aggressive) */
+body {
   user-select: none;
   -webkit-user-select: none;
+}
+
+/* Allow selection only where it matters */
+textarea,
+input,
+.select-text,
+[contenteditable="true"] {
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 /* 
