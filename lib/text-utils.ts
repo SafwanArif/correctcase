@@ -34,12 +34,7 @@ export function toSentenceCase(text: string): string {
 
             // Check for UK Proper Nouns
             if (UK_PROPER_NOUNS.has(upperWord)) {
-                return word; // Keep original casing or enforce uppercase? Usually acronyms are uppercase.
-                // Let's assume input might be messy, so maybe enforce uppercase for known acronyms if we want to be strict,
-                // but the prompt says "preserve". If input is "nhs", we might want "NHS".
-                // Let's force uppercase for acronyms.
-                // REVISE: "preserve common UK proper nouns" implies "don't lowercase them".
-                // If user typed "Nhs", we should probably fix it to "NHS".
+                return word;
             }
 
             // First word of sentence
@@ -47,7 +42,7 @@ export function toSentenceCase(text: string): string {
                 return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
             }
 
-            // Check if it's "I" (conceptually a proper noun in English, though check logic)
+            // Check if it's "I" (conceptually a proper noun in English)
             if (word.toLowerCase() === 'i') return 'I';
 
             // Default: lowercase
@@ -64,8 +59,7 @@ export function toSentenceCase(text: string): string {
 export function toTitleCase(text: string): string {
     if (!text) return '';
 
-    // Simple Title Case logic (can be expanded for minor words later)
-    // For now, standard capitalize all words.
+    // Simple Title Case logic
     return text.toLowerCase().split(' ').map(word => {
         if (UK_PROPER_NOUNS.has(word.toUpperCase())) return word.toUpperCase();
         return word.charAt(0).toUpperCase() + word.slice(1);
@@ -94,4 +88,15 @@ export function countWords(text: string): number {
 
 export function countCharacters(text: string): number {
     return text.length;
+}
+
+export function isSlug(text: string): boolean {
+    if (!text.trim()) return false;
+    // Check if it has hyphens and NO spaces
+    return text.includes('-') && !/\s/.test(text.trim());
+}
+
+export function fromSlug(text: string): string {
+    if (!text) return '';
+    return text.replace(/-/g, ' ');
 }

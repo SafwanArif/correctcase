@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { toSentenceCase, toTitleCase, toSlug, countWords, countCharacters } from "@/lib/text-utils";
+import { toSentenceCase, toTitleCase, toSlug, countWords, countCharacters, isSlug, fromSlug } from "@/lib/text-utils";
 import { addToHistory } from "@/lib/db";
 import { Copy, Type, AlignLeft, Link } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -28,7 +28,11 @@ export function HeroEditor() {
                 newText = toTitleCase(text);
                 break;
             case "slug":
-                newText = toSlug(text);
+                if (isSlug(text)) {
+                    newText = fromSlug(text);
+                } else {
+                    newText = toSlug(text);
+                }
                 break;
         }
 
@@ -43,7 +47,7 @@ export function HeroEditor() {
     };
 
     return (
-        <div className="flex flex-col h-full min-h-[500px] w-full bg-surface rounded-2xl border border-border-subtle overflow-hidden shadow-depth dark:shadow-none relative transition-colors duration-300">
+        <div className="flex flex-col h-full min-h-[500px] w-full bg-surface rounded-2xl border border-border-subtle overflow-hidden shadow-depth dark:shadow-none relative transition-colors duration-300 select-none">
 
             {/* Toolbar - Crisp & Professional */}
             <div className="flex flex-wrap items-center gap-2 p-3 border-b border-border-subtle bg-canvas">
@@ -84,7 +88,7 @@ export function HeroEditor() {
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     placeholder="Type or paste your text to analyse..."
-                    className="w-full h-full p-6 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans"
+                    className="w-full h-full p-6 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
                     spellCheck={false}
                 />
 
