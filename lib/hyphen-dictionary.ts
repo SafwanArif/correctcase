@@ -12,6 +12,12 @@ export const COMPOUND_WORDS = new Set<string>([
     'forget-me-not', 'lily-of-the-valley', 'jack-in-the-box', 'state-of-the-art',
     'up-to-date', 'day-to-day', 'face-to-face', 'one-to-one', 'step-by-step',
 
+    // Prefixes (Re-, Co-, De-, Ex-)
+    're-enter', 're-educate', 're-examine', 're-evaluate', 're-elect',
+    'co-exist', 'co-existence', 'co-author', 'co-founder', 'co-operate', 'co-operation',
+    'de-ice', 'de-icer', 'de-escalate', 'de-brief', 'de-activate',
+    'x-ray', 'u-turn', 'u-boat', 't-shirt', 'v-neck', 'g-string', 'e-mail',
+
     // A
     'a-frame', 'a-level', 'abide-by', 'able-bodied', 'above-board', 'above-mentioned', 'absent-minded', 'accident-prone',
     'accounts-payable', 'accounts-receivable', 'acid-free', 'acid-test', 'acting-out', 'action-packed', 'ad-hoc', 'ad-infinitum',
