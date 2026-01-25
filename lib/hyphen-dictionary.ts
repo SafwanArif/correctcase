@@ -776,6 +776,55 @@ export const COMPOUND_WORDS = new Set<string>([
     'ivory-tower',
     'ivy-covered', 'ivy-league', 'ivy-leaved',
 
+    // J (Modern & Tech Supplement)
+    'jack-boot', 'jack-hammer', 'jack-in-the-box', 'jack-knife',
+    'jack-of-all-trades', 'jack-plug', // (Tech/Audio)
+    'jack-pot', 'jack-rabbit', 'jack-screw', 'jack-tar',
+    'jacobs-ladder',
+    'jam-jar', 'jam-packed', 'jam-session', 'jam-tart',
+    'jaw-bone', 'jaw-breaker', 'jaw-dropping', 'jaw-line',
+    'jazz-band', 'jazz-club', 'jazz-fusion', 'jazz-man', 'jazz-singer',
+    'jeep-coat',
+    'jelly-baby', // (UK Sweet)
+    'jelly-bag', 'jelly-bean', 'jelly-fish', 'jelly-mould', 'jelly-roll',
+    'jerk-water',
+    'jerry-build', 'jerry-builder', 'jerry-built', 'jerry-can', 'jerry-rig', // (Tech/DIY)
+    'jersey-cream',
+    'jet-age', 'jet-black', 'jet-boat', 'jet-engine', 'jet-foil',
+    'jet-lag', 'jet-lagged', // (Travel/Remote Work)
+    'jet-liner', 'jet-pack', 'jet-plane', 'jet-propulsion', 'jet-set', 'jet-setter', 'jet-setting',
+    'jet-ski', 'jet-skier', 'jet-stream',
+    'jet-wash', // (UK Car Clean)
+    'jewel-box', 'jewel-case', // (CD/DVD Storage)
+    'jib-boom', 'jib-crane', 'jib-door',
+    'jig-saw', // (Tool & Puzzle)
+    'job-application', 'job-center', 'job-centre', // (UK Government)
+    'job-creation', 'job-description', 'job-holder', 'job-hunt', 'job-hunter', 'job-hunting',
+    'job-lot', // (UK Retail/Auction)
+    'job-market', 'job-satisfaction', 'job-search', 'job-seeker', 'job-share', 'job-sharing', // (HR/Business)
+    'job-sheet', 'job-site', 'job-ticket', 'job-title', 'job-work', 'job-sworth', // (UK Slang: "More than my job's worth")
+    'jockey-wheel',
+    'joe-bloggs', // (UK "Average Joe")
+    'joe-public',
+    'jog-trot',
+    'john-bull', 'john-dory',
+    'joint-account', 'joint-stock', 'joint-venture', // (Business)
+    'joke-book', 'joke-shop',
+    'joy-flight', 'joy-pad', // (Gaming)
+    'joy-ride', 'joy-rider', 'joy-riding',
+    'joy-stick', // (Gaming/Aviation)
+    'juice-bar', 'juice-extractor',
+    'juke-box',
+    'jump-cut', 'jump-jet',
+    'jump-lead', // (UK for Jumper Cable)
+    'jump-off', 'jump-rope', 'jump-shot', 'jump-start', 'jump-suit',
+    'jumping-bean', 'jumping-jack',
+    'jungle-gym',
+    'junk-bond', 'junk-dealer', 'junk-email', 'junk-food', 'junk-mail', 'junk-shop', 'junk-yard',
+    'jury-box', 'jury-man', 'jury-mast', 'jury-rig', 'jury-rigged', 'jury-service',
+    'just-in-time', // (Business/Logistics: JIT)
+    'just-so',
+
     // P (Partial for critical words)
     'part-exchange', 'part-time', 'passer-by', 'pay-as-you-go', 'pay-day', 'pay-off', 'pay-roll', 'pea-green', 'pea-souper',
     'peace-keeping', 'peace-loving', 'peace-maker', 'peace-offering', 'peace-pipe', 'peace-time', 'peak-time', 'pear-shaped',
