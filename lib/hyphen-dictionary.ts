@@ -876,6 +876,145 @@ export const COMPOUND_WORDS = new Set<string>([
     'knuckle-ball', 'knuckle-bone', 'knuckle-duster', 'knuckle-head', 'knuckle-sandwich',
     'kung-fu',
 
+    // L (Modern & Tech Supplement)
+    'lab-coat', 'lab-rat', 'lab-technician',
+    'label-mate',
+    'labour-camp', 'labour-force', 'labour-intensive', 'labour-market', 'labour-movement', 'labour-party', 'labour-saving', 'labour-union',
+    'lace-up',
+    'lack-lustre', // (UK Spelling)
+    'ladder-back', 'ladder-proof',
+    'ladies-man',
+    'lady-bird', // (UK Specific - US is Ladybug)
+    'lady-in-waiting', 'lady-killer', 'lady-like', 'lady-love',
+    'lager-lout', // (UK Slang)
+    'laid-back', 'laid-off', 'laid-up',
+    'lake-side',
+    'lamb-chop', 'lamb-wool',
+    'lame-brain', 'lame-duck',
+    'lamp-black', 'lamp-post', 'lamp-shade',
+    'land-agent', 'land-based', 'land-crab', 'land-fill', 'land-form', 'land-grab', 'land-holder', 'land-line', 'land-locked', 'land-lord', 'land-lubber', 'land-mass', 'land-mine', 'land-owner', 'land-owning', 'land-rover', 'land-slide', 'land-slip',
+    'landing-craft', 'landing-gear',
+    'landing-page', // (Marketing/Web Critical)
+    'landing-stage', 'landing-strip',
+    'lane-discipline',
+    'language-learning',
+    'lap-dancer', 'lap-dancing', 'lap-dog', 'lap-joint', 'lap-top', // (Solid 'laptop' common, but hyphenated adj "lap-top computer" persists)
+    'large-print', 'large-scale',
+    'laser-disk', 'laser-guided', 'laser-printer',
+    'last-ditch', 'last-gasp', 'last-minute', 'last-named', 'last-post', 'last-rights', 'last-word',
+    'latch-key',
+    'late-comer', 'late-night',
+    'laughing-gas', 'laughing-stock',
+    'launch-pad', 'launch-party', 'launch-site', 'launch-window',
+    'launder-ette', // (UK Specific)
+    'law-abiding', 'law-breaker', 'law-breaking', 'law-court', 'law-maker', 'law-making', 'law-man', 'law-suit',
+    'lay-about', 'lay-by', // (UK Road Term)
+    'lay-figure', 'lay-off', 'lay-out', 'lay-over', 'lay-person', 'lay-reader', 'lay-up',
+    'lazy-bones',
+    'lazy-load', 'lazy-loading', // (Dev/Web Perf Critical)
+    'lead-free', 'lead-in', 'lead-line', 'lead-off', 'lead-singer',
+    'lead-time', // (Business/Manufacturing)
+    'lead-up',
+    'leading-edge', // (Tech)
+    'leaf-let', 'leaf-mould', 'leaf-spring',
+    'lean-to',
+    'leap-frog', 'leap-year',
+    'learning-curve', 'learning-disabled', 'learning-disability',
+    'lease-hold', 'lease-holder', 'lease-lend',
+    'leave-taking',
+    'left-back', 'left-bank', 'left-footer', 'left-hand', 'left-handed', 'left-hander', 'left-hook', 'left-luggage', // (UK Train Station)
+    'left-over', 'left-wing', 'left-winger',
+    'leg-before', // (Cricket)
+    'leg-break', 'leg-pull', 'leg-room', 'leg-spin', 'leg-warmer',
+    'legal-aid', 'legal-tender',
+    'lemon-curd', 'lemon-grass', 'lemon-squeezer',
+    'lend-lease',
+    'let-down', 'let-out', 'let-up',
+    'letter-bomb', 'letter-box', // (UK Specific)
+    'letter-card', 'letter-carrier', 'letter-case', 'letter-head', 'letter-opener', 'letter-press', 'letter-spacing', // (Design/CSS)
+    'letter-writer',
+    'level-crossing', // (UK Road/Rail)
+    'level-headed', 'level-peg', 'level-pegging',
+    'li-ion', // (Lithium-Ion)
+    'lib-dem', // (UK Politics)
+    'library-book',
+    'lie-detector', 'lie-down', 'lie-in', // (UK: Sleeping late)
+    'life-belt', 'life-blood', 'life-boat', 'life-buoy', 'life-cycle', // (Business/Dev)
+    'life-death', 'life-expectancy', 'life-force', 'life-form', 'life-giving', 'life-guard', 'life-hack', // (Modern Internet)
+    'life-jacket', 'life-like', 'life-line', 'life-long', 'life-member', 'life-preserver', 'life-raft', 'life-saver', 'life-saving', 'life-science', 'life-sentence', 'life-size', 'life-sized', 'life-skill', 'life-span', 'life-style', 'life-support', 'life-threatening', 'life-time', 'life-work',
+    'lift-off',
+    'light-blue', 'light-bulb', 'light-fingered', 'light-footed', 'light-green', 'light-head', 'light-headed', 'light-heart', 'light-hearted', 'light-heavyweight', 'light-house', 'light-meter', 'light-pen', 'light-rail', 'light-ship', 'light-switch', 'light-weight', 'light-year',
+    'light-box', // (UI/Photo)
+    'like-minded',
+    'lily-livered', 'lily-pad', 'lily-white',
+    'lime-green', 'lime-light', 'lime-scale', // (UK Household)
+    'limit-switch',
+    'line-break', // (Dev/Text)
+    'line-dance', 'line-dancer', 'line-dancing', 'line-drawing', 'line-drive',
+    'line-height', // (CSS/Design)
+    'line-item', // (Business/Invoice)
+    'line-manager', // (UK HR Critical)
+    'line-out', 'line-up',
+    'linear-b',
+    'link-bait', // (SEO/Marketing)
+    'link-up',
+    'lion-heart', 'lion-hearted', 'lion-tamer',
+    'lip-gloss', 'lip-read', 'lip-reader', 'lip-reading', 'lip-service', 'lip-stick', 'lip-sync',
+    'liquid-crystal', // (LCD)
+    'liquor-store',
+    'list-box', 'list-price', 'list-view', // (UI/Dev)
+    'listen-in',
+    'lithium-ion',
+    'litter-bin', // (UK Specific)
+    'litter-bug', 'litter-lout',
+    'live-action', 'live-blog', // (Journalism)
+    'live-feed', 'live-in', 'live-long', 'live-rail', 'live-stream', 'live-streaming', 'live-wire',
+    'liver-salt', 'liver-sausage',
+    'living-room', 'living-space', 'living-wage',
+    'load-balancer', 'load-balancing', // (DevOps Critical)
+    'load-shedding',
+    'loaf-tin',
+    'loan-shark', 'loan-word',
+    'lock-down', 'lock-in', 'lock-jaw', 'lock-keeper', 'lock-nut', 'lock-out', 'lock-smith', 'lock-stitch', 'lock-up', 'lock-washer',
+    'log-book', 'log-cabin', 'log-file', // (Tech)
+    'log-fire',
+    'log-in', 'log-off', 'log-on', 'log-out', // (Tech: Noun/Adj usually hyphenated or solid)
+    'logic-bomb', 'logic-chop', 'logic-gate',
+    'lollipop-lady', 'lollipop-man', // (UK School Crossing)
+    'london-pride',
+    'lone-parent', 'lone-star', 'lone-wolf',
+    'long-ago', 'long-awaited', 'long-bow', 'long-distance', 'long-drawn', 'long-drawn-out', 'long-face', 'long-faced', 'long-form', // (Content)
+    'long-hair', 'long-haired', 'long-hand', 'long-haul', 'long-horn', 'long-johns', 'long-jump', 'long-life', 'long-list', 'long-lived', 'long-lost', 'long-play', 'long-player', 'long-range', 'long-running', 'long-shore', 'long-shot', 'long-sight', 'long-sighted', 'long-stand', 'long-standing', 'long-stop', 'long-suffer', 'long-suffering', 'long-tail', // (SEO/Business)
+    'long-term', 'long-time', 'long-wave', 'long-winded',
+    'loo-roll', // (UK Essential!)
+    'look-alike', 'look-down', 'look-in', 'look-out', 'look-over', 'look-see',
+    'look-up', // (Tech: "Lookup table")
+    'loop-back', // (Tech: 127.0.0.1)
+    'loop-hole', 'loop-line',
+    'loose-box', 'loose-change', 'loose-end', 'loose-fill', 'loose-fit', 'loose-fitting', 'loose-leaf', 'loose-limbed',
+    'lord-lieutenant', 'lord-mayor',
+    'loss-leader', // (Retail)
+    'loss-making',
+    'lost-and-found', 'lost-cause', 'lost-property',
+    'loud-hailer', 'loud-mouth', 'loud-mouthed', 'loud-speaker',
+    'love-affair', 'love-bird', 'love-bite', 'love-child', 'love-hate', 'love-in', 'love-knot', 'love-letter', 'love-lies-bleeding', 'love-life', 'love-lock', 'love-lorn', 'love-making', 'love-nest', 'love-seat', 'love-sick', 'love-song', 'love-story',
+    'low-brow', 'low-cal', 'low-calorie', 'low-carb', 'low-class',
+    'low-code', // (Dev/SaaS)
+    'low-cost', 'low-cut', 'low-down', 'low-end', 'low-energy', 'low-fat', 'low-frequency', 'low-gear', 'low-grade', 'low-hanging', // (Business: "Low-hanging fruit")
+    'low-impact', 'low-income', 'low-key', 'low-level', // (Dev: "Low-level language")
+    'low-life', 'low-light', 'low-loader', 'low-maintenance', 'low-paid', 'low-pass', 'low-pitch', 'low-poly', // (3D Design)
+    'low-power', 'low-pressure', 'low-profile', 'low-rank', 'low-res', 'low-resolution', 'low-rider', 'low-rise', 'low-risk', 'low-spirited', 'low-tech', 'low-tide', 'low-voltage', 'low-volume', 'low-water',
+    'lower-case', // (Text Utility Critical!)
+    'lower-class',
+    'luck-out',
+    'lug-nut',
+    'luggage-rack', 'luggage-van',
+    'lump-sum', // (Finance)
+    'lunch-box', 'lunch-break', 'lunch-hour', 'lunch-time',
+    'lung-power',
+    'lurex-thread',
+    'lying-in',
+
     // P (Partial for critical words)
     'part-exchange', 'part-time', 'passer-by', 'pay-as-you-go', 'pay-day', 'pay-off', 'pay-roll', 'pea-green', 'pea-souper',
     'peace-keeping', 'peace-loving', 'peace-maker', 'peace-offering', 'peace-pipe', 'peace-time', 'peak-time', 'pear-shaped',
