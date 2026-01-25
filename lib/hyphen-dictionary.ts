@@ -1975,6 +1975,518 @@ export const COMPOUND_WORDS = new Set<string>([
     'rush-hour', 'rush-job', 'rush-mat',
     'rust-bucket', 'rust-proof', 'rust-red',
 
+    // S (Modern & Tech Supplement)
+    's-bend', 's-hook', 's-video',
+    'sabre-rattling', 'sabre-toothed',
+    'sack-race',
+    'safe-conduct', 'safe-deposit', 'safe-guard', 'safe-house',
+    'safe-mode', // (Tech)
+    'safe-keeping', 'safe-sex',
+    'safety-belt', 'safety-catch', 'safety-check', 'safety-curtain', 'safety-first', 'safety-glass', 'safety-harness', 'safety-helmet', 'safety-lamp', 'safety-match', 'safety-net', 'safety-pin', 'safety-razor', 'safety-valve',
+    'sail-board', 'sail-boat', 'sail-fish', 'sail-maker', 'sail-plane',
+    'salad-bowl', 'salad-cream', // (UK Condiment)
+    'salad-dressing', 'salad-oil',
+    'sale-and-leaseback', 'sale-price', 'sale-room',
+    'sales-clerk', 'sales-ledger', 'sales-pitch', 'sales-talk',
+    'salt-and-pepper', 'salt-beef', 'salt-cellar', 'salt-free', 'salt-marsh', 'salt-mine', 'salt-pan', 'salt-water',
+    'same-sex',
+    'sand-bag', 'sand-bank', 'sand-bar', 'sand-blast', 'sand-blaster', 'sand-box', 'sand-castle', 'sand-dune', 'sand-fly', 'sand-man', 'sand-paper', 'sand-pit', 'sand-shoe', 'sand-stone', 'sand-storm', 'sand-wich', // (Just kidding, sandwich is solid, but 'sandwich-board' exists)
+    'sandwich-board', 'sandwich-course',
+    'sanitary-towel', // (UK)
+    'satellite-dish', 'satellite-navigation', // (Sat-Nav)
+    'satin-wood',
+    'sauce-boat', 'sauce-pan',
+    'sausage-dog', 'sausage-meat', 'sausage-roll', // (UK Essential)
+    'save-as', // (UI Command)
+    'savings-account', 'savings-bank', 'savings-bond',
+    'saw-bench', 'saw-dust', 'saw-mill', 'saw-pit',
+    'sax-horn',
+    'scale-down', 'scale-up', // (Business/Dev)
+    'scare-crow', 'scare-monger', 'scare-mongering',
+    'scatter-brain', 'scatter-brained', 'scatter-cushion', 'scatter-gun',
+    'scene-shifter', 'scene-stealer',
+    'scent-bottle',
+    'school-bag', 'school-book', 'school-boy', 'school-bus', 'school-child', 'school-days', 'school-friend', 'school-girl', 'school-house', 'school-kid', 'school-leaver', // (UK Education)
+    'school-master', 'school-mate', 'school-mistress', 'school-room', 'school-teacher', 'school-work', 'school-year',
+    'science-fiction', // (Sci-Fi)
+    'scoot-er',
+    'score-board', 'score-card', 'score-draw', 'score-line', 'score-sheet',
+    'scotch-egg', // (UK Food)
+    'scout-master',
+    'scrap-book', 'scrap-heap', 'scrap-merchant', 'scrap-metal', 'scrap-yard',
+    'scratch-card', 'scratch-pad',
+    'screen-dump', 'screen-grab', 'screen-play', 'screen-print', 'screen-printing',
+    'screen-reader', // (Tech/Accessibility)
+    'screen-saver', 'screen-shot', // (Tech)
+    'screen-test', 'screen-writer',
+    'screw-cap', 'screw-driver', 'screw-top', 'screw-up',
+    'script-kiddie', // (Tech Slang)
+    'script-writer', 'script-writing',
+    'scrub-land',
+    'scrum-half', // (Rugby)
+    'scuba-dive', 'scuba-diver', 'scuba-diving',
+    'sculpture-park',
+    'sea-air', 'sea-anemone', 'sea-bed', 'sea-bird', 'sea-board', 'sea-breeze', 'sea-change', 'sea-chart', 'sea-cliff', 'sea-coal', 'sea-coast', 'sea-cow', 'sea-dog', 'sea-eagle', 'sea-fish', 'sea-fishing', 'sea-food', 'sea-front', 'sea-going', 'sea-green', 'sea-gull', 'sea-horse', 'sea-kale', 'sea-legs', 'sea-level', 'sea-lion', 'sea-man', 'sea-mile', 'sea-mist', 'sea-monster', 'sea-plane', 'sea-port', 'sea-power', 'sea-salt', 'sea-shell', 'sea-shore', 'sea-sick', 'sea-sickness', 'sea-side', 'sea-snake', 'sea-spray', 'sea-urchin', 'sea-view', 'sea-wall', 'sea-water', 'sea-way', 'sea-weed', 'sea-worthy',
+    'seal-ring',
+    'search-engine', // (Tech Critical)
+    'search-light', 'search-party', 'search-term', 'search-warrant',
+    'seat-belt',
+    'second-best', 'second-class', 'second-cousin', 'second-guess', 'second-half',
+    'second-hand', // (UK Retail)
+    'second-home', 'second-in-command', 'second-lieutenant', 'second-nature', 'second-rate', 'second-rater', 'second-sight', 'second-string', 'second-wind',
+    'secret-agent', 'secret-police', 'secret-service',
+    'section-head',
+    'security-check', 'security-guard', 'security-risk',
+    'see-saw', 'see-through',
+    'seed-bed', 'seed-corn', 'seed-money', 'seed-pearl', 'seed-potato',
+    'seeing-eye',
+    'seek-and-destroy',
+    'self-absorbed', 'self-abuse', 'self-access', 'self-adjusting', 'self-administer', 'self-aggrandizement', 'self-aligning', 'self-analysis', 'self-appointed', 'self-assembly',
+    'self-assessment', // (UK Tax)
+    'self-assurance', 'self-assured', 'self-aware', 'self-awareness', 'self-belief',
+    'self-catering', // (UK Holiday)
+    'self-centered', 'self-centred', // (UK Spelling)
+    'self-certify', 'self-cleaning', 'self-closing', 'self-confessed', 'self-confidence', 'self-confident', 'self-conscious', 'self-consistency', 'self-consistent', 'self-contained', 'self-control', 'self-correcting', 'self-create', 'self-critical', 'self-criticism', 'self-deception', 'self-defeating', 'self-defence', 'self-delusion', 'self-denial', 'self-deprecating', 'self-destruct', 'self-destruction', 'self-destructive', 'self-determination', 'self-discipline', 'self-discovery', 'self-doubt', 'self-drive', 'self-educated', 'self-effacing',
+    'self-employed', // (Business Critical)
+    'self-employment', 'self-esteem', 'self-evident', 'self-examination', 'self-explanatory', 'self-expression', 'self-finance', 'self-financing', 'self-fulfilling', 'self-governing', 'self-government', 'self-harm', 'self-help', 'self-host',
+    'self-hosted', // (Tech)
+    'self-hypnosis', 'self-image', 'self-importance', 'self-important', 'self-imposed', 'self-improvement', 'self-incrimination', 'self-induced', 'self-indulgence', 'self-indulgent', 'self-inflicted', 'self-interest', 'self-interested', 'self-isolating', 'self-isolation', 'self-knowledge', 'self-leveling', 'self-locking', 'self-love', 'self-made', 'self-medicate', 'self-mockery', 'self-motivation', 'self-obsessed', 'self-opinionated', 'self-parking', 'self-perpetuating', 'self-pity', 'self-portrait', 'self-possessed', 'self-possession', 'self-preservation', 'self-proclaimed', 'self-propel', 'self-propelled', 'self-protection', 'self-publish', 'self-publisher', 'self-publishing',
+    'self-raising', // (UK Flour)
+    'self-realization', 'self-referential', 'self-regard', 'self-register', 'self-regulating', 'self-regulation', 'self-reliance', 'self-reliant', 'self-report', 'self-respect', 'self-respecting', 'self-restraint', 'self-righteous', 'self-rule', 'self-sacrifice', 'self-sacrificing', 'self-same', 'self-satisfied', 'self-seeking', 'self-select', 'self-selection', 'self-serve',
+    'self-service', // (Business)
+    'self-serving',
+    'self-signed', // (Tech/Security)
+    'self-starter', 'self-storage', 'self-study', 'self-style', 'self-styled', 'self-sufficiency', 'self-sufficient', 'self-support', 'self-supporting', 'self-sustain', 'self-sustaining', 'self-tanning', 'self-tapping', 'self-taught', 'self-timer', 'self-willed', 'self-worth',
+    'sell-by', 'sell-off', 'sell-out',
+    'semi-annual', 'semi-automatic',
+    'semi-circle', 'semi-circular',
+    'semi-colon', // (Dev/Grammar)
+    'semi-conscious', 'semi-darkness',
+    'semi-detached', // (UK Housing: "Semi-detached house")
+    'semi-final', 'semi-finalist', 'semi-formal', 'semi-hard', 'semi-literate', 'semi-official', 'semi-permanent', 'semi-precious', 'semi-private', 'semi-pro', 'semi-professional', 'semi-retired', 'semi-retirement', 'semi-skilled',
+    'semi-skimmed', // (UK Milk)
+    'semi-solid',
+    'semi-structured', // (Data)
+    'semi-sweet', 'semi-tone', 'semi-trailer', 'semi-transparent', 'semi-tropical',
+    'send-off', 'send-up',
+    'senior-citizen',
+    'sense-organ',
+    'sensitive-skinned',
+    'sergeant-at-arms', 'sergeant-major',
+    'serial-number', 'serial-port',
+    'server-farm', 'server-less', 'server-room',
+    'server-side', // (Dev Critical)
+    'service-charge', 'service-delivery', 'service-flat', 'service-industry',
+    'service-level', // (SLA)
+    'service-provider', 'service-road', 'service-station',
+    'set-back', 'set-fair',
+    'set-menu', // (UK Restaurant)
+    'set-piece', 'set-point', 'set-square',
+    'set-top', // (Tech: Set-top box)
+    'set-up', // (Noun: "The set-up was wrong")
+    'seven-fold', 'seven-seas', 'seven-year',
+    'sewage-farm', 'sewage-works',
+    'sewing-machine',
+    'sex-appeal', 'sex-change', 'sex-chromosome', 'sex-drive', 'sex-linked', 'sex-starved', 'sex-symbol',
+    'shaggy-dog',
+    'shake-down', 'shake-up',
+    'shallow-fried', 'shallow-fry',
+    'shame-faced',
+    'shanty-town',
+    'share-capital', 'share-certificate', 'share-cropper', 'share-cropping', 'share-holder', 'share-index',
+    'share-option', // (UK Business)
+    'share-out', 'share-price',
+    'share-ware', // (Tech)
+    'shark-infested',
+    'sharp-eyed', 'sharp-set', 'sharp-shooter', 'sharp-shooting', 'sharp-tongued', 'sharp-witted',
+    'shaving-brush', 'shaving-cream', 'shaving-foam', 'shaving-mirror', 'shaving-point', 'shaving-soap', 'shaving-stick',
+    'she-bear', 'she-devil', 'she-goat', 'she-wolf',
+    'sheep-dip', 'sheep-dog', 'sheep-farmer', 'sheep-farming', 'sheep-fold', 'sheep-pen', 'sheep-run', 'sheep-shearer', 'sheep-shearing', 'sheep-skin',
+    'sheet-anchor', 'sheet-lightning', 'sheet-metal', 'sheet-music', 'sheet-piling',
+    'shelf-life', // (Business)
+    'shelf-mark', 'shelf-room', 'shelf-stable',
+    'shell-fire', 'shell-fish', 'shell-less', 'shell-like', 'shell-proof', 'shell-shock', 'shell-shocked', 'shell-suit',
+    'sherry-glass',
+    'shift-key', // (Tech)
+    'shift-work', 'shift-worker',
+    'shin-bone', 'shin-guard', 'shin-pad',
+    'ship-board', 'ship-broker', 'ship-builder', 'ship-building', 'ship-canal', 'ship-load', 'ship-mate', 'ship-owner', 'ship-shape', 'ship-to-shore', 'ship-wreck', 'ship-wrecked', 'ship-wright', 'ship-yard',
+    'shirt-dress', 'shirt-front', 'shirt-sleeve', 'shirt-sleeved', 'shirt-tail', 'shirt-waister',
+    'shock-absorber', 'shock-proof', 'shock-tactics', 'shock-therapy', 'shock-treatment', 'shock-wave',
+    'shoe-box', 'shoe-horn', 'shoe-lace', 'shoe-maker', 'shoe-polish', 'shoe-shine', 'shoe-shop', 'shoe-string', 'shoe-tree',
+    'shoot-em-up', // (Gaming)
+    'shoot-out',
+    'shop-assistant', 'shop-fitter', 'shop-fitting', 'shop-floor', 'shop-front', 'shop-girl', 'shop-keeper', 'shop-lifter', 'shop-lifting', 'shop-soil', 'shop-soiled', 'shop-steward', 'shop-talk', 'shop-walker', 'shop-window', 'shop-worn',
+    'shopping-arcade', 'shopping-bag', 'shopping-basket', 'shopping-cart', 'shopping-center', 'shopping-centre', // (UK)
+    'shopping-list', 'shopping-mall', 'shopping-trolley', // (UK)
+    'shore-line',
+    'short-change', 'short-circuit', 'short-coming', 'short-crust',
+    'short-cut', // (Tech/Common)
+    'short-dated', 'short-fall', 'short-hand', 'short-handed', 'short-haul', 'short-head',
+    'short-list', // (HR/Recruitment)
+    'short-listed', 'short-lived', 'short-range', 'short-sea', 'short-change', 'short-sight', 'short-sighted', 'short-sleeved', 'short-staffed', 'short-tempered',
+    'short-term', // (Business)
+    'short-time', 'short-wave', 'short-winded',
+    'shot-gun', 'shot-put', 'shot-putter',
+    'shoulder-bag', 'shoulder-blade', 'shoulder-high', 'shoulder-length', 'shoulder-pad', 'shoulder-strap',
+    'shout-out',
+    'shovel-hat',
+    'show-biz', 'show-business',
+    'show-case', // (Web/Portfolio)
+    'show-down', 'show-girl', 'show-ground', 'show-house', 'show-jump', 'show-jumper', 'show-jumping', 'show-man', 'show-off', 'show-piece', 'show-place', 'show-room',
+    'show-stopper', // (Tech/Business)
+    'show-stopping', 'show-trial',
+    'shower-bath', 'shower-cap', 'shower-curtain', 'shower-gel', 'shower-head', 'shower-proof', 'shower-room',
+    'shrink-wrap', 'shrink-wrapped',
+    'shrunken-head',
+    'shut-down', // (Tech Noun)
+    'shut-eye', 'shut-in', 'shut-out',
+    'shuttle-cock',
+    'shy-making',
+    'sick-bag', 'sick-bay', 'sick-bed', 'sick-building', 'sick-headache', 'sick-leave', 'sick-list',
+    'sick-note', // (UK HR)
+    'sick-parade', 'sick-pay', 'sick-room',
+    'side-bar', // (UI)
+    'side-board',
+    'side-by-side', // (Tech: "Side-by-side comparison")
+    'side-car', 'side-chapel', 'side-dish', 'side-drum',
+    'side-effect', // (Tech: "Pure functions have no side-effects")
+    'side-entrance', 'side-glance', 'side-impact', 'side-issue', 'side-kick', 'side-light', 'side-line',
+    'side-load', 'side-loading', // (Tech: Android/Apps)
+    'side-lock', 'side-on', 'side-panel', 'side-plate',
+    'side-project', // (Dev/Indie Hacker)
+    'side-road', 'side-saddle', 'side-shoot', 'side-show', 'side-slip', 'side-splitting', 'side-step', 'side-street', 'side-swipe', 'side-table', 'side-track', 'side-valve', 'side-view', 'side-walk', 'side-ward', 'side-way', 'side-whiskers', 'side-wind',
+    'sight-read', 'sight-reading', 'sight-screen', 'sight-see', 'sight-seer', 'sight-seeing',
+    'sign-board', 'sign-in', 'sign-language', 'sign-manual', 'sign-off', 'sign-on', 'sign-out', 'sign-post', 'sign-up', 'sign-writer', 'sign-writing',
+    'signal-box', 'signal-man',
+    'signature-tune',
+    'silence-cloth',
+    'silent-majority',
+    'silk-screen', 'silk-worm',
+    'silver-birch', 'silver-fish', 'silver-foil', 'silver-gilt', 'silver-grey', 'silver-haired', 'silver-lining', 'silver-plate', 'silver-plated', 'silver-sand', 'silver-screen', 'silver-side', 'silver-smith', 'silver-tongued', 'silver-ware', 'silver-wedding',
+    'sin-bin', 'sin-eater',
+    'sing-along', 'sing-song',
+    'single-action', 'single-barrelled', 'single-breasted', 'single-cell', 'single-combat',
+    'single-decker', // (UK Bus)
+    'single-file', 'single-handed', 'single-lens', 'single-man', 'single-minded',
+    'single-page', // (Tech: SPA)
+    'single-parent', 'single-phase', 'single-seater', 'single-sex', 'single-sided', 'single-space', 'single-spaced', 'single-track',
+    'single-use', // (Environmental)
+    'sink-hole', 'sink-unit',
+    'sister-in-law', 'sister-ship',
+    'sit-com', 'sit-down', 'sit-in', 'sit-up', 'sit-upon',
+    'sitting-room', 'sitting-target', 'sitting-tenant',
+    'six-fold', 'six-foot', 'six-footer', 'six-pack', 'six-penny', 'six-shooter',
+    'size-zero',
+    'skate-board', 'skate-boarder', 'skate-boarding', 'skate-park',
+    'sketch-book', 'sketch-map', 'sketch-pad',
+    'ski-boot', 'ski-jump', 'ski-lift', 'ski-mask', 'ski-pants', 'ski-run', 'ski-slope', 'ski-stick', 'ski-suit', 'ski-tow', 'ski-wear',
+    'skid-lid', 'skid-pan', 'skid-row',
+    'skimmed-milk',
+    'skin-care', 'skin-deep', 'skin-dive', 'skin-diver', 'skin-diving', 'skin-flick', 'skin-graft', 'skin-head', 'skin-tight',
+    'skip-hire',
+    'skipping-rope',
+    'skirt-chaser',
+    'skull-and-crossbones', 'skull-cap',
+    'sky-blue', 'sky-cap', 'sky-dived', 'sky-diver', 'sky-diving', 'sky-high', 'sky-jack', 'sky-jacker', 'sky-lark', 'sky-light', 'sky-line', 'sky-rocket', 'sky-scraper', 'sky-walk', 'sky-ward', 'sky-writing',
+    'slab-sided',
+    'slack-baked',
+    'slap-dash', 'slap-happy', 'slap-head', 'slap-stick', 'slap-up',
+    'slash-and-burn',
+    'slate-blue', 'slate-grey',
+    'slaughter-house',
+    'slave-driver', 'slave-labour', 'slave-market', 'slave-owner', 'slave-trade', 'slave-trader',
+    'sledge-hammer',
+    'sleep-apnoea', 'sleep-in', 'sleep-inducer', 'sleep-inducing', 'sleep-over', 'sleep-walk', 'sleep-walker', 'sleep-walking', 'sleep-wear',
+    'sleeping-bag', 'sleeping-car', 'sleeping-partner', 'sleeping-pill', 'sleeping-policeman', // (UK Speed Bump)
+    'sleeping-sickness', 'sleeping-tablet',
+    'sleeve-note',
+    'sleigh-bell', 'sleigh-ride',
+    'slice-of-life',
+    'slide-rule', 'slide-show', // (Tech)
+    'sliding-door', 'sliding-scale',
+    'slim-line',
+    'slip-case', 'slip-cover', 'slip-knot', 'slip-on', 'slip-road', // (UK Highway)
+    'slip-shod', 'slip-stitch', 'slip-stream', 'slip-up', 'slip-way',
+    'sloe-eyed', 'sloe-gin',
+    'slop-basin', 'slop-bucket', 'slop-pail',
+    'slope-arms',
+    'slot-machine',
+    'slow-burn', 'slow-burning', 'slow-coach', // (UK)
+    'slow-cook', 'slow-cooker', 'slow-down', 'slow-footed', 'slow-motion', 'slow-moving', 'slow-release', 'slow-worm', 'slow-witted',
+    'sludge-gulper',
+    'slug-pellet',
+    'sluice-gate', 'sluice-way',
+    'slum-dog', 'slum-dwellers', 'slum-land', 'slum-lord',
+    'smack-head',
+    'small-arms', 'small-fry', 'small-holding', 'small-hours', 'small-minded', 'small-pox',
+    'small-print', // (Legal/Business)
+    'small-scale', 'small-talk', 'small-time', 'small-timer', 'small-town',
+    'smart-arse', // (UK)
+    'smart-bomb', 'smart-card', 'smart-casual', 'smart-phone', 'smart-watch', // (Tech)
+    'smash-and-grab', 'smash-hit', 'smash-up',
+    'smelling-salts',
+    'smoke-alarm', 'smoke-ball', 'smoke-bomb', 'smoke-box', 'smoke-dried', 'smoke-free', 'smoke-glass', 'smoke-house', 'smoke-less', 'smoke-room', 'smoke-screen', 'smoke-signal', 'smoke-stack',
+    'smoking-jacket', 'smoking-room',
+    'smooth-bore', 'smooth-faced', 'smooth-talk', 'smooth-tongued',
+    'snail-mail', // (Tech Slang)
+    'snake-bite', 'snake-charmer', 'snake-oil', 'snake-pit', 'snake-skin',
+    'snap-decision', 'snap-dragon', 'snap-fastener', 'snap-happy', 'snap-shot',
+    'snatch-squad',
+    'sneak-thief',
+    'sneeze-guard',
+    'sniff-dog',
+    'snip-snap',
+    'snipe-hunt',
+    'snooty-nosed',
+    'snow-ball', 'snow-blind', 'snow-blindness', 'snow-blink', 'snow-blower', 'snow-board', 'snow-boarder', 'snow-boarding', 'snow-bound', 'snow-capped', 'snow-drift', 'snow-drop', 'snow-fall', 'snow-field', 'snow-flake', 'snow-goose', 'snow-line', 'snow-man', 'snow-mobile',
+    'snow-plough', // (UK Spelling)
+    'snow-scene', 'snow-shoe', 'snow-storm', 'snow-suit', 'snow-white',
+    'snuff-box', 'snuff-movie',
+    'so-and-so', 'so-called', 'so-so',
+    'soap-box', 'soap-bubble', 'soap-dish', 'soap-flake', 'soap-opera', 'soap-powder', 'soap-stone', 'soap-suds', 'soap-works',
+    'sob-story', 'sob-stuff',
+    'social-climber', 'social-climbing', 'social-democrat', 'social-media', // (Marketing Critical)
+    'social-security', 'social-service', 'social-worker',
+    'soda-bread', 'soda-fountain', 'soda-pop', 'soda-siphon', 'soda-water',
+    'soft-back', 'soft-ball', 'soft-board', 'soft-boiled', 'soft-bound', 'soft-center', 'soft-centered', 'soft-cover',
+    'soft-delete', // (Dev/DB)
+    'soft-drink', 'soft-focus', 'soft-fruit', 'soft-furnishings', 'soft-head', 'soft-headed', 'soft-hearted', 'soft-landing',
+    'soft-launch', // (Business)
+    'soft-option', 'soft-pedal', 'soft-porn', 'soft-reset', 'soft-rot', 'soft-sell', 'soft-soap', 'soft-spoken', 'soft-target', 'soft-top', 'soft-touch', 'soft-wood',
+    'soil-pipe',
+    'solar-cell', 'solar-eclipse', 'solar-energy', 'solar-flare', 'solar-heating',
+    'solar-panel', // (Tech/Eco)
+    'solar-plexus', 'solar-power', 'solar-powered', 'solar-system', 'solar-wind',
+    'soldier-ant',
+    'sole-charge',
+    'solicitor-general',
+    'solid-fuel', 'solid-looking',
+    'solid-state', // (Tech: SSD)
+    'solitary-confinement',
+    'solo-flight', 'solo-parent',
+    'some-day', 'some-how', 'some-one', 'some-place', 'some-time', 'some-way',
+    'son-et-lumiere', 'son-in-law', 'son-of-a-bitch', 'son-of-a-gun',
+    'song-bird', 'song-book', 'song-cycle', 'song-sheet', 'song-thrush', 'song-writer', 'song-writing',
+    'sonic-bang', 'sonic-boom',
+    'soot-fall',
+    'sore-head', 'sore-throat',
+    'soul-destroying', 'soul-food', 'soul-mate', 'soul-music', 'soul-search', 'soul-searching',
+    'sound-barrier', 'sound-bite', 'sound-board', 'sound-box', 'sound-check', 'sound-effect', 'sound-engineer', 'sound-hole', 'sound-man', 'sound-proof', 'sound-proofing', 'sound-system', 'sound-track', 'sound-wave',
+    'soup-bowl', 'soup-kitchen', 'soup-ladle', 'soup-plate', 'soup-spoon', 'soup-tureen',
+    'sour-dough', 'sour-puss',
+    'south-bound', 'south-east', 'south-easter', 'south-easterly', 'south-eastern', 'south-facing', 'south-paw', 'south-pole', 'south-sea', 'south-side', 'south-west', 'south-westerly', 'south-western',
+    'souvenir-hunter', 'souvenir-shop',
+    'soya-bean', 'soya-milk',
+    'space-age',
+    'space-bar', // (Tech)
+    'space-craft', 'space-flight', 'space-heater', 'space-invader', 'space-man', 'space-probe', 'space-rocket', 'space-saving', 'space-ship', 'space-shuttle', 'space-station', 'space-suit', 'space-time', 'space-walk', 'space-walker',
+    'spam-filter', // (Tech)
+    'spanner-in-the-works',
+    'spare-part', 'spare-rib', 'spare-room', 'spare-time', 'spare-tyre', 'spare-wheel',
+    'spark-plug',
+    'sparkling-water', 'sparkling-wine',
+    'speak-easy',
+    'spear-fishing', 'spear-head', 'spear-mint', 'spear-side',
+    'special-delivery', 'special-edition', 'special-effect', 'special-interest', 'special-licence', 'special-needs', 'special-offer',
+    'speech-day', 'speech-impediment', 'speech-maker', 'speech-making', 'speech-mark', 'speech-therapist', 'speech-therapy',
+    'speed-boat', 'speed-bump', 'speed-camera', 'speed-cop',
+    'speed-dial', // (Tech)
+    'speed-freak', 'speed-king', 'speed-limit', 'speed-merchant', 'speed-read', 'speed-reading', 'speed-test', 'speed-trap', 'speed-way',
+    'spell-binder', 'spell-binding', 'spell-bound',
+    'spell-check', 'spell-checker', // (Tech)
+    'spending-money', 'spending-power', 'spending-spree',
+    'spice-rack',
+    'spick-and-span',
+    'spider-man', 'spider-monkey', 'spider-plant', 'spider-web',
+    'spike-heel',
+    'spill-over', 'spill-way',
+    'spin-bowler', 'spin-doctor', 'spin-dry', 'spin-dryer',
+    'spin-off', // (Business/Media)
+    'spin-out',
+    'spiral-bound', 'spiral-staircase',
+    'spirit-gum', 'spirit-lamp', 'spirit-level',
+    'spit-fire', 'spit-roast',
+    'splash-back', 'splash-down', 'splash-guard',
+    'split-decision', 'split-level', 'split-pea', 'split-personality', 'split-pin', 'split-ring',
+    'split-screen', // (Tech/Gaming)
+    'split-second', 'split-shift', 'split-skirt',
+    'spoil-sport',
+    'spoke-shave',
+    'sponge-bag', 'sponge-bath', 'sponge-cake', 'sponge-pudding',
+    'spoon-bill', 'spoon-feed', 'spoon-fed',
+    'sport-utility', // (SUV)
+    'sports-car', 'sports-centre', 'sports-coat', 'sports-day', 'sports-ground', 'sports-jacket', 'sports-man', 'sports-person', 'sports-wear', 'sports-woman', 'sports-writer',
+    'spot-check', 'spot-kick', 'spot-light', 'spot-lit', 'spot-on', 'spot-price', 'spot-welder', 'spot-welding',
+    'spray-can', 'spray-gun', 'spray-on', 'spray-paint', 'spray-tan',
+    'spread-eagle', 'spread-eagled',
+    'spread-sheet', // (Tech - Often solid but worth catching)
+    'spring-balance', 'spring-bed', 'spring-board', 'spring-bok',
+    'spring-clean', 'spring-cleaning', // (UK)
+    'spring-clip', 'spring-fever', 'spring-loaded', 'spring-mattress', 'spring-onion', 'spring-roll', 'spring-tide', 'spring-time', 'spring-water',
+    'sprinkler-system',
+    'spy-glass', 'spy-hole', 'spy-plane', 'spy-satellite', 'spy-ware', // (Tech)
+    'square-bashing', 'square-bracket', 'square-dance', 'square-dancer', 'square-dancing', 'square-deal', 'square-eyed', 'square-jawed', 'square-leg', 'square-meal', 'square-mile', 'square-rigged', 'square-rigger', 'square-root', 'square-shooter', 'square-toed',
+    'squeaky-clean',
+    'squeeze-bottle', 'squeeze-box',
+    'st-johns-wort',
+    'stab-proof', 'stab-vest',
+    'stable-boy', 'stable-companion', 'stable-door', 'stable-lad', 'stable-mate', 'stable-yard',
+    'stack-overflow', // (Tech)
+    'stack-trace', // (Dev Critical)
+    'staff-nurse', 'staff-room', 'staff-sergeant',
+    'stage-coach', 'stage-direction', 'stage-door', 'stage-fright', 'stage-hand', 'stage-manage', 'stage-manager', 'stage-name', 'stage-play', 'stage-struck', 'stage-whisper',
+    'stained-glass',
+    'stair-carpet', 'stair-case', 'stair-head', 'stair-lift', 'stair-rod', 'stair-way', 'stair-well',
+    'stake-holder', // (Business Critical - often solid stakeholder, but hyphen valid in some guides)
+    'stake-out',
+    'stale-mate',
+    'stalking-horse',
+    'stall-holder',
+    'stamp-album', 'stamp-collector', 'stamp-collecting', 'stamp-duty', // (UK Tax)
+    'stamp-pad',
+    'stand-alone', // (Tech)
+    'stand-by', 'stand-down', 'stand-in', 'stand-off', 'stand-off-half', 'stand-offish', 'stand-out', 'stand-pipe', 'stand-point', 'stand-still', 'stand-to', 'stand-up',
+    'standard-bearer', 'standard-lamp', // (UK Furniture)
+    'standing-order', 'standing-room', 'standing-stone',
+    'staple-gun',
+    'star-board', 'star-chamber', 'star-chart', 'star-crossed', 'star-dom', 'star-dust', 'star-fish', 'star-gaze', 'star-gazer', 'star-gazing', 'star-jump', 'star-letter', 'star-light', 'star-lit', 'star-map', 'star-shell', 'star-sign', 'star-spangled', 'star-struck', 'star-studded', 'star-system', 'star-turn', 'star-wars',
+    'starch-reduced',
+    'start-date', 'start-point', 'start-time',
+    'start-up', // (Business Noun)
+    'starter-home', 'starter-motor', 'starter-pack',
+    'state-aided', 'state-control', 'state-controlled', 'state-owned', 'state-room', 'state-school',
+    'static-electricity',
+    'station-master', 'station-wagon',
+    'status-bar', // (UI)
+    'status-code', // (Dev: HTTP 404)
+    'status-quo', 'status-symbol',
+    'stay-at-home', 'stay-in-strike', 'stay-put',
+    'steady-state',
+    'steak-house', 'steak-knife',
+    'steam-bath', 'steam-boat', 'steam-boiler', 'steam-chest', 'steam-driven', 'steam-engine', 'steam-fitter', 'steam-hammer', 'steam-heat', 'steam-iron', 'steam-pipe', 'steam-power', 'steam-radio', 'steam-roll', 'steam-roller', 'steam-ship', 'steam-shovel', 'steam-train', 'steam-turbine',
+    'steel-band', 'steel-blue', 'steel-clad', 'steel-grey', 'steel-mill', 'steel-plated', 'steel-wool', 'steel-worker', 'steel-works',
+    'steering-column', 'steering-committee', 'steering-gear', 'steering-lock', 'steering-wheel',
+    'step-aunt', 'step-brother',
+    'step-by-step', // (Already in file, but essential)
+    'step-child', 'step-daughter', 'step-down', 'step-family', 'step-father', 'step-grandchild', 'step-grandfather', 'step-grandmother', 'step-grandparent',
+    'step-ladder', // (UK Essential)
+    'step-mother', 'step-parent', 'step-sister', 'step-son', 'step-uncle', 'step-up',
+    'stepping-stone',
+    'stereo-system', 'stereo-type', 'stereo-typed', 'stereo-typing',
+    'stetson-hat',
+    'stew-pan', 'stew-pot',
+    'stick-in-the-mud', 'stick-insect', 'stick-up',
+    'sticking-plaster', 'sticking-point',
+    'sticky-bun', 'sticky-fingered', 'sticky-rice',
+    'sticky-tape', // (UK)
+    'stiff-backed', 'stiff-necked', 'stiff-upper-lip',
+    'still-birth', 'still-born', 'still-life', 'still-room',
+    'sting-ray',
+    'stinging-nettle',
+    'stink-bomb',
+    'stir-fry', 'stir-fried',
+    'stirrup-cup', 'stirrup-pump',
+    'stitch-up',
+    'stock-breeder', 'stock-broker', 'stock-car', 'stock-control', 'stock-cube', 'stock-exchange', 'stock-in-trade', 'stock-jobber', 'stock-keeper', 'stock-list', 'stock-market', 'stock-pile', 'stock-pot', 'stock-proof', 'stock-room', 'stock-size', 'stock-still',
+    'stock-take', 'stock-taking', // (UK Retail Critical)
+    'stock-yard',
+    'stocking-filler', 'stocking-stitch', 'stocking-top',
+    'stomach-ache', 'stomach-pump', 'stomach-upset',
+    'stone-age', 'stone-broke', 'stone-chat', 'stone-circle', 'stone-cold', 'stone-crusher', 'stone-curlew', 'stone-cutter', 'stone-dead', 'stone-deaf', 'stone-dust', 'stone-faced', 'stone-fruit', 'stone-ground', 'stone-mason', 'stone-masonry', 'stone-pine', 'stone-pit', 'stone-wall', 'stone-walling', 'stone-ware', 'stone-wash', 'stone-washed', 'stone-work',
+    'stool-pigeon',
+    'stop-cock', // (UK Plumbing)
+    'stop-gap', 'stop-go', 'stop-light', 'stop-motion', 'stop-off', 'stop-over', 'stop-press', 'stop-watch',
+    'storage-heater', // (UK)
+    'storage-jar', 'storage-tank',
+    'store-card', 'store-cupboard', 'store-front', 'store-house', 'store-keeper', 'store-man', 'store-room', 'store-ship',
+    'storm-cloud', 'storm-cone', 'storm-damage', 'storm-door', 'storm-drain', 'storm-lantern', 'storm-petrel', 'storm-proof', 'storm-tossed', 'storm-trooper', 'storm-window',
+    'story-board', 'story-book', 'story-line', 'story-teller', 'story-telling',
+    'stove-pipe',
+    'stow-away',
+    'straight-away', 'straight-edge', 'straight-face', 'straight-faced', 'straight-forward', 'straight-laced', 'straight-line',
+    'strain-gauge',
+    'strap-hanger', 'strap-line', 'strap-on',
+    'straw-berry', // (Often solid, check your preference)
+    'straw-boater', 'straw-boss', 'straw-coloured', 'straw-hat', 'straw-man', 'straw-mattress', 'straw-poll', 'straw-vote',
+    'streak-free',
+    'stream-line', 'stream-lined',
+    'street-car', 'street-clothes', 'street-corner', 'street-cred', 'street-credibility', 'street-door', 'street-fighter', 'street-lamp', 'street-level', 'street-light', 'street-lighting', 'street-map', 'street-market', 'street-party', 'street-scene', 'street-smart', 'street-smarts', 'street-sweeper', 'street-theatre', 'street-urchin', 'street-walker', 'street-wear', 'street-wise',
+    'stress-free', 'stress-test', // (Tech/Finance)
+    'stretch-limo', 'stretch-mark',
+    'strictly-speaking',
+    'strike-action', 'strike-bound', 'strike-breaker', 'strike-breaking', 'strike-force', 'strike-pay',
+    'strike-through', // (Text Formatting)
+    'string-bag', 'string-band', 'string-bean', 'string-course', 'string-driven',
+    'string-literal', // (Dev)
+    'string-quartet', 'string-tie', 'string-vest',
+    'strip-cartoon', 'strip-club', 'strip-light', 'strip-mall', 'strip-search', 'strip-tease',
+    'strobe-light',
+    'strong-arm', 'strong-box', 'strong-hold', 'strong-man', 'strong-minded', 'strong-point', 'strong-room', 'strong-willed',
+    'stuck-up',
+    'student-nurse', 'student-prince', 'student-teacher', 'student-union',
+    'studio-couch', 'studio-flat', // (UK Housing)
+    'stuffing-box',
+    'stumbling-block',
+    'stump-up',
+    'stunt-flyer', 'stunt-flying', 'stunt-girl', 'stunt-kite', 'stunt-man', 'stunt-woman',
+    'style-book', 'style-guide', // (Design/Dev)
+    'sub-agent', 'sub-aquatic', 'sub-assembly', 'sub-atomic', 'sub-basement', 'sub-branch', 'sub-category', 'sub-class', 'sub-clause', 'sub-committee', 'sub-conscious', 'sub-contract', 'sub-contractor', 'sub-culture', 'sub-dean', 'sub-depot',
+    'sub-directory', // (Tech)
+    'sub-divide', 'sub-division',
+    'sub-domain', // (Tech)
+    'sub-edit', 'sub-editor',
+    'sub-folder', // (Tech)
+    'sub-group', 'sub-head', 'sub-heading', 'sub-human', 'sub-lease', 'sub-let', 'sub-librarian', 'sub-lieutenant', 'sub-machine',
+    'sub-menu', // (UI)
+    'sub-mission', // (Can be solid, but used in gaming/tasks)
+    'sub-net', 'sub-network', // (Tech)
+    'sub-normal', 'sub-office', 'sub-orbital', 'sub-paragraph', 'sub-plot', 'sub-postmaster', 'sub-postoffice', 'sub-region', 'sub-routine', 'sub-saharan', 'sub-section', 'sub-set', 'sub-sonic', 'sub-species', 'sub-standard', 'sub-station', 'sub-structure', 'sub-system', 'sub-tenant', 'sub-text', 'sub-title', 'sub-total', 'sub-tropical', 'sub-way', 'sub-zero',
+    'subject-matter',
+    'submarine-sandwich',
+    'subscription-based', // (SaaS)
+    'sucker-punch',
+    'sucking-pig',
+    'suction-pad', 'suction-pump',
+    'sugar-basin', 'sugar-beet', 'sugar-bowl', 'sugar-cane', 'sugar-coat', 'sugar-coated', 'sugar-daddy', 'sugar-free', 'sugar-loaf', 'sugar-lump', 'sugar-mill', 'sugar-plantation', 'sugar-plum', 'sugar-refinery', 'sugar-snap', 'sugar-soap', 'sugar-tongs',
+    'suit-case',
+    'sum-total',
+    'summer-house', 'summer-lightning', 'summer-school', 'summer-time',
+    'sump-oil',
+    'sun-bathe', 'sun-bather', 'sun-bathing', 'sun-beam', 'sun-bed', 'sun-blind', 'sun-block', 'sun-bonnet', 'sun-burn', 'sun-burned', 'sun-burnt', 'sun-cream', 'sun-deck', 'sun-dial', 'sun-down', 'sun-downer', 'sun-drenched', 'sun-dress', 'sun-dried', 'sun-flower', 'sun-glasses', 'sun-god', 'sun-hat', 'sun-lamp', 'sun-light', 'sun-lit', 'sun-lounge', 'sun-lounger', 'sun-oil', 'sun-porch', 'sun-ray', 'sun-rise', 'sun-roof', 'sun-room', 'sun-screen', 'sun-set', 'sun-shade', 'sun-shine', 'sun-spot', 'sun-streak', 'sun-stroke', 'sun-tan', 'sun-tanned', 'sun-trap', 'sun-up', 'sun-visor', 'sun-worship', 'sun-worshipper',
+    'sunday-best', 'sunday-driver', 'sunday-lunch', 'sunday-paper', 'sunday-school', 'sunday-trading',
+    'super-abundance', 'super-abundant', 'super-bug', 'super-charge', 'super-charged', 'super-charger',
+    'super-computer', // (Tech)
+    'super-conductivity', 'super-conductor', 'super-cool', 'super-duper', 'super-ego', 'super-glue', 'super-grass', 'super-heavyweight', 'super-hero', 'super-highway', 'super-human', 'super-impose', 'super-imposed', 'super-junction', 'super-man',
+    'super-market', // (UK Essential)
+    'super-model', 'super-natural', 'super-nova', 'super-power', 'super-rich', 'super-sensitive', 'super-size', 'super-sonic', 'super-star', 'super-state', 'super-store', 'super-structure', 'super-tanker', 'super-tax',
+    'super-user', // (Tech)
+    'super-woman',
+    'supply-chain', // (Business Critical)
+    'supply-side', 'supply-teacher',
+    'surface-air', 'surface-area', 'surface-mail', 'surface-noise', 'surface-tension', 'surface-to-air', 'surface-to-surface', 'surface-water',
+    'surge-protector',
+    'surgical-spirit',
+    'surround-sound',
+    'survey-ship',
+    'suspender-belt',
+    'swan-neck', 'swan-song', 'swan-uppng',
+    'sweat-band', 'sweat-gland', 'sweat-shirt', 'sweat-shop', 'sweat-suit',
+    'sweep-stake',
+    'sweet-and-sour', 'sweet-brier', 'sweet-corn', 'sweet-heart', 'sweet-meat', 'sweet-pea', 'sweet-potato',
+    'sweet-shop', // (UK Retail)
+    'sweet-talk', 'sweet-tooth', 'sweet-william',
+    'swimming-bath', 'swimming-cap',
+    'swimming-costume', // (UK)
+    'swimming-pool', 'swimming-trunks',
+    'swing-bin', 'swing-boat', 'swing-bridge', 'swing-door', 'swing-wing',
+    'swipe-card',
+    'swiss-roll',
+    'switch-back', 'switch-blade', 'switch-board', 'switch-gear', 'switch-over',
+    'sword-bearer', 'sword-belt', 'sword-cane', 'sword-dance', 'sword-fight', 'sword-fish', 'sword-play', 'sword-stick', 'sword-swallower',
+    'sys-admin', // (Tech)
+    'system-wide',
+
     // Z
     'z-bend', 'z-list', 'zenith-distance', 'zero-hour', 'zero-in', 'zero-option', 'zero-rated', 'zero-tolerance', 'zig-zag',
     'zinc-plate', 'zip-code', 'zip-fastener', 'zip-file', 'zip-up', 'zone-out', 'zoo-keeper', 'zoom-in', 'zoom-lens', 'zoom-out'
