@@ -27,7 +27,7 @@ export function Logo({ className = "w-8 h-8" }: { className?: string }) {
             aria-label="CorrectCase Logo"
         >
             <defs>
-                <linearGradient id="brand-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="brand-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
                     <stop offset="0%" stopColor="oklch(var(--brand-core))" />
                     <stop offset="100%" stopColor="oklch(60% 0.2 240)" />
                 </linearGradient>
