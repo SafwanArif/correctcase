@@ -26,13 +26,19 @@ export function Logo({ className = "w-8 h-8" }: { className?: string }) {
             className={className}
             aria-label="CorrectCase Logo"
         >
-            <g transform="rotate(-80 50 50)">
+            <defs>
+                <linearGradient id="brand-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="oklch(var(--brand-core))" />
+                    <stop offset="100%" stopColor="oklch(60% 0.2 240)" />
+                </linearGradient>
+            </defs>
+            <g transform="rotate(-85 50 50)">
                 {/* Outer Capital C */}
                 <circle
                     cx="50"
                     cy="50"
                     r={outerRadius}
-                    className="text-[oklch(var(--brand-core))]"
+                    stroke="url(#brand-gradient)"
                     strokeDasharray="0.75 1"
                     pathLength="1"
                     transform="rotate(135 50 50)"
@@ -43,7 +49,7 @@ export function Logo({ className = "w-8 h-8" }: { className?: string }) {
                     cx="50"
                     cy="50"
                     r={innerRadius}
-                    className="text-[oklch(var(--brand-core))]"
+                    stroke="url(#brand-gradient)"
                     strokeDasharray="0.75 1"
                     pathLength="1"
                     transform="rotate(135 50 50)"
