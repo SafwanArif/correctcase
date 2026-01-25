@@ -1,0 +1,74 @@
+/* 
+  THE SOURCE OF TRUTH
+  Modular CSS Architecture for AI Scalability
+*/
+
+@theme {
+    /* TAILWIND MAPPING */
+    /* Maps Semantic Variables to Utility Classes */
+    --color-canvas: var(--bg-canvas);
+    --color-surface: var(--bg-surface);
+    --color-elevated: var(--bg-elevated);
+
+    --color-primary: var(--action-primary);
+    --color-primary-fg: var(--text-on-primary);
+
+    --color-body: var(--text-primary);
+    --color-muted: var(--text-muted);
+
+    --color-border-subtle: var(--border-subtle);
+}
+
+:root {
+    /* 1. PRIMITIVES (The Raw Palette) */
+    /* Neutral Scale (OKLCH) */
+    --neutral-0: 100% 0 0;
+    /* Pure White */
+    --neutral-50: 98.5% 0 0;
+    /* Faint Grey (Medical Surface) */
+    --neutral-100: 96% 0 0;
+    --neutral-200: 92% 0 0;
+    --neutral-300: 87% 0 0;
+    --neutral-400: 70% 0 0;
+    --neutral-500: 55% 0 0;
+    --neutral-800: 30% 0 0;
+    --neutral-900: 20% 0 0;
+    /* Deep Grey */
+    --neutral-950: 15% 0 0;
+    /* Void */
+
+    /* Brand Core */
+    --brand-core: 55% 0.2 260;
+    /* Medical Indigo */
+    --brand-fg: 99% 0 0;
+    /* Text on Brand */
+
+    /* 2. SEMANTIC LIST (The Logic Switch) */
+    /* Light Mode Defaults */
+    --bg-canvas: var(--neutral-0);
+    --bg-surface: var(--neutral-50);
+    --bg-elevated: var(--neutral-0);
+
+    --text-primary: var(--neutral-900);
+    --text-muted: var(--neutral-500);
+    --text-on-primary: var(--brand-fg);
+
+    --border-subtle: var(--neutral-200);
+
+    --action-primary: var(--brand-core);
+}
+
+.dark {
+    /* Dark Mode Overrides */
+    --bg-canvas: var(--neutral-950);
+    --bg-surface: var(--neutral-900);
+    --bg-elevated: var(--neutral-800);
+
+    --text-primary: var(--neutral-50);
+    --text-muted: var(--neutral-400);
+
+    --border-subtle: var(--neutral-800);
+
+    /* Slightly adjusted action for dark mode contrast if needed, or keep core */
+    --action-primary: 60% 0.15 260;
+}

@@ -43,10 +43,10 @@ export function HeroEditor() {
     };
 
     return (
-        <div className="flex flex-col h-full min-h-[500px] w-full bg-white dark:bg-slate-900/40 rounded-2xl border border-slate-100 dark:border-white/5 overflow-hidden shadow-depth dark:shadow-none relative transition-colors duration-300">
+        <div className="flex flex-col h-full min-h-[500px] w-full bg-surface rounded-2xl border border-border-subtle overflow-hidden shadow-depth dark:shadow-none relative transition-colors duration-300">
 
             {/* Toolbar - Crisp & Professional */}
-            <div className="flex flex-wrap items-center gap-2 p-3 border-b border-slate-100 dark:border-white/5 bg-white dark:bg-transparent">
+            <div className="flex flex-wrap items-center gap-2 p-3 border-b border-border-subtle bg-canvas">
                 <ActionButton
                     onClick={() => handleConversion("sentence")}
                     icon={<AlignLeft className="w-4 h-4" />}
@@ -68,8 +68,8 @@ export function HeroEditor() {
                         className={cn(
                             "flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide rounded-full transition-all duration-200",
                             isCopied
-                                ? "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400"
-                                : "bg-slate-50 hover:bg-slate-100 text-slate-600 dark:bg-white/5 dark:hover:bg-white/10 dark:text-slate-300"
+                                ? "bg-[oklch(var(--brand-core)/0.1)] text-primary"
+                                : "bg-surface hover:bg-elevated text-muted hover:text-body"
                         )}
                     >
                         {isCopied ? "Copied" : <><Copy className="w-3.5 h-3.5" /> Copy</>}
@@ -78,21 +78,21 @@ export function HeroEditor() {
             </div>
 
             {/* Editor Area - "Paper" Feel */}
-            <div className="flex-1 relative group bg-[oklch(var(--muted))] dark:bg-transparent transition-colors duration-300">
+            <div className="flex-1 relative group bg-surface transition-colors duration-300">
                 <textarea
                     ref={textareaRef}
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     placeholder="Type or paste your text to analyse..."
-                    className="w-full h-full p-6 bg-transparent border-none outline-none resize-none text-[oklch(var(--foreground))] text-lg leading-relaxed placeholder:text-slate-400 dark:placeholder:text-slate-600 font-sans"
+                    className="w-full h-full p-6 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans"
                     spellCheck={false}
                 />
 
                 {/* Stats overlay - Subtle & Clean */}
                 <div className="absolute bottom-4 right-6 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="flex items-center gap-4 text-[10px] font-mono font-medium text-slate-400 dark:text-slate-500 bg-white dark:bg-black/80 px-3 py-1.5 rounded-full border border-slate-100 dark:border-white/10 shadow-sm">
+                    <div className="flex items-center gap-4 text-[10px] font-mono font-medium text-muted bg-elevated px-3 py-1.5 rounded-full border border-border-subtle shadow-sm">
                         <span>{countWords(text)} WORDS</span>
-                        <span className="w-px h-3 bg-slate-200 dark:bg-slate-700" />
+                        <span className="w-px h-3 bg-border-subtle" />
                         <span>{countCharacters(text)} CHARS</span>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ function ActionButton({ onClick, icon, label }: { onClick: () => void; icon: Rea
     return (
         <button
             onClick={onClick}
-            className="flex items-center gap-2 px-4 py-1.5 text-sm font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 border border-slate-200 dark:border-white/5 rounded-lg transition-all duration-200 active:scale-95 shadow-sm hover:shadow"
+            className="flex items-center gap-2 px-4 py-1.5 text-sm font-medium text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle rounded-lg transition-all duration-200 active:scale-95 shadow-sm hover:shadow"
         >
             {icon}
             <span>{label}</span>
