@@ -3,10 +3,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
 import { addToHistory } from "@/lib/db";
-import { Copy, Type, AlignLeft, Link, Unlink, Quote } from "lucide-react";
+import { Copy, Type, AlignLeft, Link, Unlink, Quote, MoreHorizontal, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { DropdownMenu, DropdownItem } from "@/components/ui/dropdown-menu";
 
-export function HeroEditor() {
+interface HeroEditorProps {
+    defaultTools?: ('case' | 'hyphenation')[]; // controls which tools are primary
+}
+
+export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const [text, setText] = useState("");
     const [isCopied, setIsCopied] = useState(false);
     const [preservePunctuation, setPreservePunctuation] = useState(false);
@@ -14,6 +19,11 @@ export function HeroEditor() {
 
     // Derived State
     const isTextHyphenated = isHyphenated(text);
+
+    // Determine visibility based on defaultTools prop (if provided)
+    // If no prop, show all (Dashboard mode)
+    const showCaseTools = !defaultTools || defaultTools.includes('case');
+    const showHyphenTools = !defaultTools || defaultTools.includes('hyphenation');
 
     useEffect(() => {
         // Auto-focus on load
@@ -27,23 +37,23 @@ export function HeroEditor() {
         switch (mode) {
             case "sentence":
                 newText = toSentenceCase(text);
+                // SEO: Update URL if needed
+                window.history.replaceState(null, "", "/capitalise-title");
                 break;
             case "title":
                 newText = toTitleCase(text);
+                window.history.replaceState(null, "", "/capitalise-title");
                 break;
             case "hyphenate":
                 if (isTextHyphenated) {
-                    // Smart recovery (Unhyphenate)
-                    // Note: smartUnhyphenate naturally preserves punctuation if it was left in
                     newText = smartUnhyphenate(text);
                 } else {
-                    // Hyphenate
                     newText = toHyphenated(text, preservePunctuation);
                 }
+                window.history.replaceState(null, "", "/hyphenate-text");
                 break;
         }
 
-        // Determine the actual operation label for history
         let historyLabel = mode;
         if (mode === "hyphenate") {
             historyLabel = isTextHyphenated ? "unhyphenate" : "hyphenate";
@@ -64,37 +74,76 @@ export function HeroEditor() {
 
             {/* Toolbar - Crisp & Professional */}
             <div className="flex flex-wrap items-center gap-2 p-3 border-b border-border-subtle bg-canvas">
-                <ActionButton
-                    onClick={() => handleConversion("sentence")}
-                    icon={<AlignLeft className="w-4 h-4" />}
-                    label="Sentence"
-                />
-                <ActionButton
-                    onClick={() => handleConversion("title")}
-                    icon={<Type className="w-4 h-4" />}
-                    label="Title"
-                />
 
-                {/* Dynamic Hyphenate Toggle */}
-                <ActionButton
-                    onClick={() => handleConversion("hyphenate")}
-                    icon={isTextHyphenated ? <Unlink className="w-4 h-4" /> : <Link className="w-4 h-4" />}
-                    label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
-                    isActive={isTextHyphenated}
-                />
+                {showCaseTools && (
+                    <>
+                        <ActionButton
+                            onClick={() => handleConversion("sentence")}
+                            icon={<AlignLeft className="w-4 h-4" />}
+                            label="Sentence Case"
+                        />
+                        <ActionButton
+                            onClick={() => handleConversion("title")}
+                            icon={<Type className="w-4 h-4" />}
+                            label="Title Case"
+                        />
+                    </>
+                )}
+
+                {showHyphenTools && (
+                    <ActionButton
+                        onClick={() => handleConversion("hyphenate")}
+                        icon={isTextHyphenated ? <Unlink className="w-4 h-4" /> : <Link className="w-4 h-4" />}
+                        label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
+                        isActive={isTextHyphenated}
+                    />
+                )}
 
                 <div className="h-6 w-px bg-border-subtle mx-1" />
 
-                {/* Preservation Toggle - Only show when we are about to Hyphenate (not when Unhyphenating) */}
-                {!isTextHyphenated && (
+                {/* Preservation Toggle - Context aware */}
+                {!isTextHyphenated && showHyphenTools && (
                     <ActionButton
                         onClick={() => setPreservePunctuation(!preservePunctuation)}
                         icon={<Quote className="w-4 h-4" />}
                         label="Keep Punctuation"
                         isActive={preservePunctuation}
                         variant="secondary"
+                        className="hidden sm:flex" // Hide on mobile, move to dropdown potentially
                     />
                 )}
+
+                {/* More Tools Dropdown - For tools NOT in the primary view */}
+                <div className="ml-1">
+                    <DropdownMenu
+                        trigger={
+                            <button className="p-2 text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle rounded-lg transition-all shadow-sm hover:shadow">
+                                <MoreHorizontal className="w-4 h-4" />
+                            </button>
+                        }
+                    >
+                        {!showCaseTools && (
+                            <>
+                                <DropdownItem onClick={() => handleConversion("sentence")} icon={<AlignLeft className="w-4 h-4" />} label="Sentence Case" />
+                                <DropdownItem onClick={() => handleConversion("title")} icon={<Type className="w-4 h-4" />} label="Title Case" />
+                            </>
+                        )}
+                        {!showHyphenTools && (
+                            <DropdownItem
+                                onClick={() => handleConversion("hyphenate")}
+                                icon={<Link className="w-4 h-4" />}
+                                label="Hyphenate Text"
+                            />
+                        )}
+                        {/* Always accessible extra tools could go here */}
+                        <DropdownItem
+                            onClick={() => setPreservePunctuation(!preservePunctuation)}
+                            icon={<Quote className="w-4 h-4" />}
+                            label="Keep Punctuation"
+                            isActive={preservePunctuation}
+                        />
+                    </DropdownMenu>
+                </div>
 
                 <div className="ml-auto flex items-center gap-2">
                     <button
@@ -135,7 +184,16 @@ export function HeroEditor() {
     );
 }
 
-function ActionButton({ onClick, icon, label, isActive, variant = "primary" }: { onClick: () => void; icon: React.ReactNode; label: string; isActive?: boolean; variant?: "primary" | "secondary" }) {
+interface ActionButtonProps {
+    onClick: () => void;
+    icon: React.ReactNode;
+    label: string;
+    isActive?: boolean;
+    variant?: "primary" | "secondary";
+    className?: string;
+}
+
+function ActionButton({ onClick, icon, label, isActive, variant = "primary", className }: ActionButtonProps) {
     return (
         <button
             onClick={onClick}
@@ -144,7 +202,8 @@ function ActionButton({ onClick, icon, label, isActive, variant = "primary" }: {
                 isActive
                     ? "bg-[oklch(var(--brand-core)/0.1)] text-primary border-[oklch(var(--brand-core)/0.2)]"
                     : "text-muted hover:text-body bg-elevated hover:bg-surface border-border-subtle",
-                variant === "secondary" && isActive && "bg-body/5 text-body border-body/10" // Subtle style for secondary toggle
+                variant === "secondary" && isActive && "bg-teal-500/10 text-teal-400 border-teal-500/30",
+                className
             )}
         >
             {icon}
