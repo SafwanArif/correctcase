@@ -18,6 +18,21 @@ export const COMPOUND_WORDS = new Set<string>([
     'de-ice', 'de-icer', 'de-escalate', 'de-brief', 'de-activate',
     'x-ray', 'u-turn', 'u-boat', 't-shirt', 'v-neck', 'g-string', 'e-mail',
 
+    // Developer & Tech (Gap Analysis)
+    'back-end', 'front-end', 'full-stack', 'open-source', 'real-time', 'use-case',
+    'plug-and-play', 'sign-in', 'sign-up', 'log-in', 'wi-fi', 'high-tech',
+    'off-line', 'on-line', 'know-how',
+
+    // Business & SaaS (Gap Analysis)
+    'first-class', 'high-level', 'in-depth', 'long-term', 'short-term',
+    'non-profit', 'self-employed', 'third-party', 'user-friendly',
+    'man-made', 'mind-set',
+
+    // Missing Alphabet Gaps (F-O, S-V)
+    'far-fetched', 'free-range', 'half-hearted', 'hard-core',
+    'life-size', 'long-distance', 'one-way',
+    'self-control', 'self-esteem', 'second-hand', 'top-heavy',
+
     // A
     'a-frame', 'a-level', 'abide-by', 'able-bodied', 'above-board', 'above-mentioned', 'absent-minded', 'accident-prone',
     'accounts-payable', 'accounts-receivable', 'acid-free', 'acid-test', 'acting-out', 'action-packed', 'ad-hoc', 'ad-infinitum',
