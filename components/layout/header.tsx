@@ -11,7 +11,7 @@ export function Header() {
                     <ThemeToggle />
                     <div className="h-6 w-px bg-border-subtle mx-1" />
                     <h1 className="text-lg font-bold tracking-tight text-body">
-                        <span className="text-primary">C</span>orrect<span className="text-primary">C</span>ase
+                        <span className="text-[oklch(var(--brand-core))]">C</span>orrect<span className="text-[oklch(var(--brand-core))]">C</span>ase
                     </h1>
                 </div>
 
