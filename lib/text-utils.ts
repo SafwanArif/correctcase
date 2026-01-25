@@ -103,7 +103,7 @@ export function isHyphenated(text: string): boolean {
  * @param text The hyphenated text (e.g. "well-being-check").
  * @returns The recovered sentence (e.g. "Well-being check").
  */
-export function smartDeHyphenate(text: string): string {
+export function smartUnhyphenate(text: string): string {
     if (!text) return '';
 
     const parts = text.split('-');
@@ -131,10 +131,13 @@ export function smartDeHyphenate(text: string): string {
 
     // Join with spaces and apply Sentence Case
     const rawSentence = recoveredParts.join(' ');
+    // Handle special case where user might want to re-hyphenate a sentence that was just unhyphenated?
+    // No, unhyphenate is strictly Slug -> Sentence with compounds.
     return toSentenceCase(rawSentence);
 }
 
 // Re-export recovering function aliases if needed
-export const toSlug = toHyphenated;
-export const fromSlug = smartDeHyphenate;
+// Re-export recovering function aliases if needed
+export const toSlug = toHyphenated; // Alias for backward compat
+export const fromSlug = smartUnhyphenate;
 export const isSlug = isHyphenated;

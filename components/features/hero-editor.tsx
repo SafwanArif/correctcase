@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartDeHyphenate } from "@/lib/text-utils";
+import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
 import { addToHistory } from "@/lib/db";
 import { Copy, Type, AlignLeft, Link } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -29,8 +29,8 @@ export function HeroEditor() {
                 break;
             case "hyphenate":
                 if (isHyphenated(text)) {
-                    // Smart recovery (De-Hyphenate)
-                    newText = smartDeHyphenate(text);
+                    // Smart recovery (Unhyphenate)
+                    newText = smartUnhyphenate(text);
                 } else {
                     // Hyphenate
                     newText = toHyphenated(text);
