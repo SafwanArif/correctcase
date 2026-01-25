@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { toSentenceCase, toTitleCase, toSlug, countWords, countCharacters, isSlug, fromSlug } from "@/lib/text-utils";
+import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartDeHyphenate } from "@/lib/text-utils";
 import { addToHistory } from "@/lib/db";
 import { Copy, Type, AlignLeft, Link } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -27,11 +27,13 @@ export function HeroEditor() {
             case "title":
                 newText = toTitleCase(text);
                 break;
-            case "slug":
-                if (isSlug(text)) {
-                    newText = fromSlug(text);
+            case "hyphenate":
+                if (isHyphenated(text)) {
+                    // Smart recovery (De-Hyphenate)
+                    newText = smartDeHyphenate(text);
                 } else {
-                    newText = toSlug(text);
+                    // Hyphenate
+                    newText = toHyphenated(text);
                 }
                 break;
         }
@@ -62,9 +64,9 @@ export function HeroEditor() {
                     label="Title"
                 />
                 <ActionButton
-                    onClick={() => handleConversion("slug")}
+                    onClick={() => handleConversion("hyphenate")}
                     icon={<Link className="w-4 h-4" />}
-                    label="Slug"
+                    label="Hyphenate"
                 />
                 <div className="ml-auto flex items-center gap-2">
                     <button

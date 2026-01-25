@@ -66,12 +66,14 @@ export function toTitleCase(text: string): string {
     }).join(' ');
 }
 
+import { COMPOUND_WORDS } from './hyphen-dictionary';
+
 /**
- * Converts text to a URL-friendly slug.
- * @param text The text to slugify.
- * @returns The slug string.
+ * Converts text to a URL-friendly hyphenated format (formerly "Slug").
+ * @param text The text to format.
+ * @returns The hyphenated string.
  */
-export function toSlug(text: string): string {
+export function toHyphenated(text: string): string {
     if (!text) return '';
     return text
         .toLowerCase()
@@ -90,13 +92,49 @@ export function countCharacters(text: string): number {
     return text.length;
 }
 
-export function isSlug(text: string): boolean {
+export function isHyphenated(text: string): boolean {
     if (!text.trim()) return false;
     // Check if it has hyphens and NO spaces
     return text.includes('-') && !/\s/.test(text.trim());
 }
 
-export function fromSlug(text: string): string {
+/**
+ * Smartly recovers text from a hyphenated string, preserving known compound words.
+ * @param text The hyphenated text (e.g. "well-being-check").
+ * @returns The recovered sentence (e.g. "Well-being check").
+ */
+export function smartDeHyphenate(text: string): string {
     if (!text) return '';
-    return text.replace(/-/g, ' ');
+
+    const parts = text.split('-');
+    const recoveredParts: string[] = [];
+
+    for (let i = 0; i < parts.length; i++) {
+        const current = parts[i].toLowerCase();
+
+        // Peek ahead
+        if (i < parts.length - 1) {
+            const next = parts[i + 1].toLowerCase();
+            const compoundCandidate = `${current}-${next}`;
+
+            if (COMPOUND_WORDS.has(compoundCandidate)) {
+                // It's a compound word! Keep the hyphen.
+                recoveredParts.push(compoundCandidate);
+                i++; // Skip the next part since we consumed it
+                continue;
+            }
+        }
+
+        // Not a compound, just add the word
+        recoveredParts.push(current);
+    }
+
+    // Join with spaces and apply Sentence Case
+    const rawSentence = recoveredParts.join(' ');
+    return toSentenceCase(rawSentence);
 }
+
+// Re-export recovering function aliases if needed
+export const toSlug = toHyphenated;
+export const fromSlug = smartDeHyphenate;
+export const isSlug = isHyphenated;
