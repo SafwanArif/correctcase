@@ -386,6 +386,62 @@ export const COMPOUND_WORDS = new Set<string>([
     'dust-cart', 'dust-cover', 'dust-jacket', 'dust-pan', 'dust-sheet', 'dust-storm', 'dust-up', 'duty-bound', 'duty-free',
     'dvd-player', 'dynamite-fishing',
     // ...
+    // E (Modern & Tech Supplement)
+    'e-banking', 'e-cigarette', 'e-form', 'e-gaming', 'e-government', 'e-invoice', 'e-learning', 'e-newsletter', 'e-passport', 'e-safety', 'e-scooter', 'e-signature', 'e-sport', 'e-voting', 'e-wallet', 'e-waste', 'e-zine',
+    'eagle-eyed',
+    'early-access', // (Gaming/SaaS Critical)
+    'early-adopter', 'early-bird', 'early-days', 'early-morning', 'early-onset', 'early-stage', 'early-warning',
+    'earnings-per-share',
+    'earth-mover', 'earth-moving', 'earth-shattering', 'earth-tone',
+    'east-coast', 'east-end', 'east-ender',
+    'easy-access', 'easy-breezy', 'easy-care', 'easy-clean', 'easy-grip', 'easy-peasy', 'easy-read', 'easy-to-use',
+    'eat-in',
+    'eco-friendly', 'eco-lodge', 'eco-village', 'eco-warrior',
+    'edge-case', // (Dev Critical: "Testing for edge-cases")
+    'edge-computing', 'edge-to-edge',
+    'editorial-board',
+    'egg-beater', 'egg-fried', 'egg-nog', 'egg-white', 'egg-yolk',
+    'eight-ball',
+    'elbow-patch', 'elbow-room',
+    'elder-care',
+    'election-night',
+    'electric-blanket', 'electric-car', 'electric-fence', 'electric-guitar', 'electric-razor', 'electric-toothbrush', 'electric-vehicle',
+    'electronic-transfer',
+    'elevator-music', 'elevator-pitch', // (Business Critical)
+    'email-marketing',
+    'emergency-brake', 'emergency-call', 'emergency-landing', 'emergency-services', 'emergency-stop',
+    'empty-nester',
+    'end-credit', 'end-goal', 'end-note',
+    'end-of-day', 'end-of-life', // (Tech: EOL Software)
+    'end-of-line', 'end-of-season', 'end-of-term', 'end-of-year',
+    'end-paper', 'end-piece',
+    'end-point', // (Dev Critical: API Endpoint)
+    'end-product', 'end-run', 'end-stage', 'end-time', 'end-to-end', // (Dev Critical: E2E Encryption/Testing)
+    'end-use', 'end-user', 'end-zone',
+    'energy-bar', 'energy-drink', 'energy-efficient', 'energy-saving',
+    'engine-room',
+    'english-breakfast', 'english-language',
+    'entry-code', 'entry-fee', 'entry-level', 'entry-point', 'entry-requirement', 'entry-way',
+    'error-checking', 'error-code', 'error-correction', 'error-free', 'error-handling', 'error-log', 'error-message', 'error-page', 'error-prone', 'error-rate',
+    'estate-planning', 'estate-tax',
+    'even-number',
+    'event-driven', // (Dev Critical)
+    'event-horizon', 'event-loop', 'event-planner',
+    'ever-changing', 'ever-decreasing', 'ever-expanding', 'ever-growing', 'ever-increasing', 'ever-present',
+    'every-day', // (Adjective: "An every-day occurrence" vs "I go every day")
+    'ex-boyfriend', 'ex-directory', 'ex-girlfriend', 'ex-pat', 'ex-patriot', 'ex-smoker',
+    'executive-suite',
+    'exercise-bike',
+    'exit-door', 'exit-interview', 'exit-poll', 'exit-ramp', 'exit-route', 'exit-strategy', 'exit-wound',
+    'expert-witness',
+    'expiry-date',
+    'export-control',
+    'extended-family', 'extended-play', 'extended-release',
+    'extension-cord', 'extension-lead',
+    'external-drive', 'external-hard-drive',
+    'extra-curricular', 'extra-large', 'extra-marital', 'extra-sensory', 'extra-small', 'extra-special', 'extra-terrestrial', 'extra-time', 'extra-virgin',
+    'eye-ball', 'eye-candy', 'eye-care', 'eye-level', 'eye-opener', 'eye-piece', 'eye-popping', 'eye-roll', 'eye-rolling', 'eye-socket', 'eye-strain', 'eye-test', 'eye-tracking', 'eye-wash', 'eye-wateringly', 'eye-wear',
+
     // E
     'e-book', 'e-business', 'e-card', 'e-commerce', 'e-learning', 'e-mail', 'e-number', 'e-petition', 'e-reader', 'e-ticket',
     'ear-ache', 'ear-bash', 'ear-drum', 'ear-mark', 'ear-phone', 'ear-piece', 'ear-plug', 'ear-ring', 'ear-shot', 'ear-splitting',
