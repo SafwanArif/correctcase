@@ -3021,7 +3021,47 @@ export const COMPOUND_WORDS = new Set<string>([
     'wrought-iron',
     'wry-neck',
 
+    'wrought-iron',
+    'wry-neck',
+
+    // X
+    'x-axis', // (Maths/Graphs)
+    'x-chromosome',
+    'x-factor',
+    'x-height', // (Typography)
+    'x-rated',
+    'x-ray', // (Medical)
+
+    // Y
+    'y-axis', // (Maths/Graphs)
+    'y-fronts', // (UK Clothing)
+    'yacht-club',
+    'yard-arm', 'yard-stick',
+    'year-book',
+    'year-end', // (Business/Finance)
+    'year-long', 'year-on-year', 'year-round',
+    'yellow-belly', 'yellow-card', // (Football)
+    'yellow-fever', 'yellow-hammer', 'yellow-pages',
+    'yes-man',
+    'yield-curve', // (Finance)
+    'yo-yo',
+    'yule-log', 'yule-tide',
+
     // Z
-    'z-bend', 'z-list', 'zenith-distance', 'zero-hour', 'zero-in', 'zero-option', 'zero-rated', 'zero-tolerance', 'zig-zag',
-    'zinc-plate', 'zip-code', 'zip-fastener', 'zip-file', 'zip-up', 'zone-out', 'zoo-keeper', 'zoom-in', 'zoom-lens', 'zoom-out'
+    'z-axis', // (3D Graphs)
+    'z-bend', 'z-list',
+    'zebra-crossing', // (UK Road)
+    'zenith-angle',
+    'zero-hour', 'zero-point',
+    'zero-rated', // (VAT/Tax)
+    'zero-sum', // (Game Theory)
+    'zig-zag',
+    'zinc-plated',
+    'zip-code', // (US Address - kept for compatibility)
+    'zip-fastener', 'zip-file', 'zip-up',
+    'zone-out',
+    'zoo-keeper',
+    'zoom-in', // (UI)
+    'zoom-lens',
+    'zoom-out', // (UI)
 ]);
