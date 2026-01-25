@@ -139,24 +139,32 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     >
                         {!showCaseTools && (
                             <>
-                                <DropdownItem onClick={() => handleConversion("sentence")} icon={<AlignLeft className="w-4 h-4" />} label="Sentence Case" />
-                                <DropdownItem onClick={() => handleConversion("title")} icon={<Type className="w-4 h-4" />} label="Title Case" />
+                                <div className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-muted font-semibold select-none">Capitalise Title</div>
+                                <DropdownItem
+                                    onClick={() => handleConversion("title")}
+                                    icon={<span className="text-lg">🇺🇸</span>}
+                                    label="US Style (Title Case)"
+                                    description="Standard for NYT, Time."
+                                />
+                                <DropdownItem
+                                    onClick={() => handleConversion("sentence")}
+                                    icon={<span className="text-lg">🇬🇧</span>}
+                                    label="UK Style (Sentence Case)"
+                                    description="Standard for BBC, Guardian."
+                                />
                             </>
                         )}
                         {!showHyphenTools && (
-                            <DropdownItem
-                                onClick={() => handleConversion("hyphenate")}
-                                icon={<Link className="w-4 h-4" />}
-                                label="Hyphenate Text"
-                            />
+                            <>
+                                {(!showCaseTools) && <div className="h-px bg-border-subtle my-1" />}
+                                <DropdownItem
+                                    onClick={() => handleConversion("hyphenate")}
+                                    icon={<Link className="w-4 h-4" />}
+                                    label="Hyphenate Text"
+                                    description="Generate URL slugs."
+                                />
+                            </>
                         )}
-                        {/* Always accessible extra tools could go here */}
-                        <DropdownItem
-                            onClick={() => setPreservePunctuation(!preservePunctuation)}
-                            icon={<Quote className="w-4 h-4" />}
-                            label="Keep Punctuation"
-                            isActive={preservePunctuation}
-                        />
                     </DropdownMenu>
                 </div>
 
