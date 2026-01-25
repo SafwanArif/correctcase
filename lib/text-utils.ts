@@ -127,7 +127,21 @@ export function smartUnhyphenate(text: string): string {
     while (i < parts.length) {
         const current = parts[i].toLowerCase();
 
-        // 1. Try 3-word compound (e.g. father-in-law)
+        // 1. Try 4-word compound (e.g. state-of-the-art)
+        if (i < parts.length - 3) {
+            const next1 = parts[i + 1].toLowerCase();
+            const next2 = parts[i + 2].toLowerCase();
+            const next3 = parts[i + 3].toLowerCase();
+            const quadCandidate = `${current}-${next1}-${next2}-${next3}`;
+
+            if (COMPOUND_WORDS.has(quadCandidate)) {
+                recoveredParts.push(quadCandidate);
+                i += 4;
+                continue;
+            }
+        }
+
+        // 2. Try 3-word compound (e.g. father-in-law)
         if (i < parts.length - 2) {
             const next1 = parts[i + 1].toLowerCase();
             const next2 = parts[i + 2].toLowerCase();

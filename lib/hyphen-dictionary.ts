@@ -31,7 +31,8 @@ export const COMPOUND_WORDS = new Set<string>([
     // Missing Alphabet Gaps (F-O, S-V)
     'far-fetched', 'free-range', 'half-hearted', 'hard-core',
     'life-size', 'long-distance', 'one-way',
-    'self-control', 'self-esteem', 'second-hand', 'top-heavy',
+    'self-control', 'self-esteem', 'semi-final', 'second-hand', 'top-heavy',
+    'vice-president',
 
     // A
     'a-frame', 'a-level', 'abide-by', 'able-bodied', 'above-board', 'above-mentioned', 'absent-minded', 'accident-prone',
