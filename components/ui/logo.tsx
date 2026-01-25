@@ -1,28 +1,74 @@
 import React from "react";
 
 export function Logo({ className = "w-8 h-8" }: { className?: string }) {
+    // Geometry Settings
+    // ViewBox: 100x100
+    // Center: 50,50
+    const strokeWidth = 10;
+    const outerRadius = 35;
+    const innerRadius = outerRadius * 0.55; // Reduced by 45%
+
+    // Gap calculation (Standard C shape)
+    // Circumference = 2 * PI * r
+    // We want a gap of about 60 degrees?
+    // 300 degrees visible.
+    // Circle length = 1 (pathLength)
+    // dasharray = 0.75 (visible), 0.25 (gap)? (270 degrees)
+    // Let's use pathLength=1 for easy math.
+
     return (
         <svg
             viewBox="0 0 100 100"
             fill="none"
             stroke="currentColor"
-            strokeWidth="10"
+            strokeWidth={strokeWidth}
             strokeLinecap="round"
             className={className}
             aria-label="CorrectCase Logo"
         >
-            {/* Outer Capital C */}
-            {/* Arcs from 45deg to 315deg (approx) */}
-            <path
-                d="M 85 25 A 40 40 0 1 0 85 75"
-                className="text-[oklch(var(--brand-core))]"
-            />
-            {/* Inner Lowercase c */}
-            <path
-                d="M 65 42 A 18 18 0 1 0 65 65"
-                className="text-[oklch(var(--brand-core))]"
-                strokeWidth="10"
-            />
+            <g transform="rotate(-45 50 50)">
+                {/* Outer Capital C */}
+                <circle
+                    cx="50"
+                    cy="50"
+                    r={outerRadius}
+                    className="text-[oklch(var(--brand-core))]"
+                    strokeDasharray="0.75 1"
+                    pathLength="1"
+                    transform="rotate(135 50 50)"
+                />
+
+                {/* Inner Lowercase c */}
+                <circle
+                    cx="50"
+                    cy="50"
+                    r={innerRadius}
+                    className="text-[oklch(var(--brand-core))]"
+                    strokeDasharray="0.75 1"
+                    pathLength="1"
+                    transform="rotate(135 50 50)"
+                />
+            </g>
         </svg>
     );
 }
+
+// Explanation of Rotation:
+// Default circle stroke starts at 3 o'clock (0 deg).
+// "C" usually needs gap at 3 o'clock.
+// stroke-dasharray="0.75 1" draws 75% of circle.
+// By default it draws clockwise from 0 deg -> 270 deg (6 o'clock).
+// Gap is from 270 to 360 (Bottom Right quadrant).
+// We want gap at Right (0 deg/360).
+// So we need to rotate the stroke so the gap (the empty 25%) is centered at 0 deg.
+// The drawn part is center of 0-270 is 135 deg.
+// Center of gap is 315 deg (-45).
+// To put gap at 0, we rotate by +45?
+// Actually, let's just rotate the container until it looks like a C.
+// If I rotate 135, the start (0) moves to 135. End (270) moves to 45.
+// Gap is 45 to 135. That's Top.
+// Let's stick to standard manual path if circle rotation is confusing?
+// No, circle is better for concentricity.
+// Let's try transform="rotate(-135 50 50)".
+// Start at -135. End at 135.
+// Gap is 135 to -135 (Right side). Perfect.
