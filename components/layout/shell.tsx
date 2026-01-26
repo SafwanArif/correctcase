@@ -14,7 +14,7 @@ export function Shell({ children }: ShellProps) {
                 {children}
 
                 <footer className="text-center text-[10px] text-[oklch(var(--muted-foreground))] mt-8 font-mono opacity-60">
-                    <p>&copy; {new Date().getFullYear()} CorrectCase UK. 100% Client-Side Secure.</p>
+                    <p>&copy; {new Date().getFullYear()} CorrectCase. 100% Client-Side Secure.</p>
                 </footer>
 
             </div>

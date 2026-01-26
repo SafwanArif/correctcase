@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | CorrectCase UK",
-    default: "CorrectCase UK | Privacy-First Text Utilities",
+    template: "%s | CorrectCase",
+    default: "CorrectCase | Privacy-First Text Utilities",
   },
   description: "Free privacy-first text tools for British English. Convert Case, formatting, and grammar locally in your browser. No data leaves your device.",
   applicationName: "CorrectCase",
