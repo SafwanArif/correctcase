@@ -5,7 +5,7 @@ import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters,
 import { addToHistory } from "@/lib/db";
 import { Copy, Type, Link, Unlink, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useHistory } from "@/lib/use-history";
 
 interface HeroEditorProps {
@@ -39,12 +39,24 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const showCaseTools = !defaultTools || defaultTools.includes('case');
     const showHyphenTools = !defaultTools || defaultTools.includes('hyphenation');
 
+    const pathname = usePathname();
+
     useEffect(() => {
         // Auto-focus on load
         if (textareaRef.current) {
             textareaRef.current.focus();
         }
-    }, []);
+
+        // Sync Active State with URL
+        if (pathname === "/capitalise-title") {
+            setActiveMode("case");
+            if (activeCase !== "sentence") {
+                setActiveCase("title");
+            }
+        } else if (pathname === "/hyphenate-text") {
+            setActiveMode("hyphenate");
+        }
+    }, [pathname]);
 
     const handleConversion = async (mode: string) => {
         let newText = text;
@@ -172,7 +184,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     value={text}
                     onChange={handleTextChange}
                     placeholder="Type or paste your text to analyse..."
-                    className="w-full h-full p-6 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none focus:shadow-none ring-0 resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
+                    className="w-full h-full p-6 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none focus:shadow-none focus-visible:outline-none focus-visible:ring-0 focus-visible:border-none focus-visible:shadow-none ring-0 resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
                     spellCheck={false}
                 />
 
