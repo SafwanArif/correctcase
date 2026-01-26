@@ -103,7 +103,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     <div className="flex items-center gap-2 ml-auto animate-in fade-in slide-in-from-left-2 duration-200">
                         <ActionButton
                             onClick={() => handleConversion("title")}
-                            icon={<span className="text-sm">🇺🇸</span>}
+                            icon={<svg viewBox="0 0 640 480" className="w-4 h-4 rounded-[1px] shadow-sm"><path fill="#bd3d44" d="M0 0h640v480H0" /><path stroke="#fff" strokeWidth="37" d="M0 55.3h640M0 129h640M0 202.8h640M0 276.5h640M0 350.2h640M0 423.9h640" /><path fill="#192f5d" d="M0 0h259.8v193.5H0z" /><path fill="#fff" d="M12.7 0h36.6v34.4h37.5v34.4h-37.5v34.3H12.7V68.8H-24.8V34.4h37.5zm50.8 193.5h36.6v-34.4h37.5v-34.4h-37.5v-34.3H63.5v34.3h-37.5v34.4h37.5z" /><path fill="#fff" d="M12.7 159.1h15.2v34.4H12.7zm208.6-159.1h15.2v34.4h-15.2z" /><path fill="#fff" d="M149.2 86h24.8v21.5h-24.8zm-82.6 0H91.4v21.5H66.6z" /><path fill="#fff" d="M149.2 150.5h24.8V172h-24.8zm-82.6 0H91.4V172H66.6z" /></svg>}
                             label="US Title Case"
                             isActive={activeCase === 'title'}
                             variant="secondary"
@@ -112,7 +112,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                         <div className="w-px h-4 bg-border-subtle" />
                         <ActionButton
                             onClick={() => handleConversion("sentence")}
-                            icon={<span className="text-sm">🇬🇧</span>}
+                            icon={<svg viewBox="0 0 640 480" className="w-4 h-4 rounded-[1px] shadow-sm"><path fill="#012169" d="M0 0h640v480H0z" /><path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 80 480H0v-60l240-179L0 60V0h75z" /><path fill="#C8102E" d="m424 281 216 159v40L369 281h55zm-184 20 6 5L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176-6-5L0 0z" /><path fill="#FFF" d="M241 0v480h160V0H241zM0 160v160h640V160H0z" /><path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z" /></svg>}
                             label="UK Sentence Case"
                             isActive={activeCase === 'sentence'}
                             variant="secondary"
@@ -121,9 +121,8 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     </div>
                 )}
 
-                {/* Hyphenation Tools */}
                 {showHyphenTools && (
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 w-full">
                         {(!showCaseTools || activeMode !== 'case') && (
                             <ActionButton
                                 onClick={() => {
@@ -139,14 +138,16 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
 
                         {/* Toggle appears alongside when relevant */}
                         {(defaultTools?.includes('hyphenation') || activeMode === 'hyphenate') && (
-                            <ActionButton
-                                onClick={() => setPreservePunctuation(!preservePunctuation)}
-                                icon={<Quote className="w-3.5 h-3.5" />}
-                                label="Keep Punctuation"
-                                isActive={preservePunctuation}
-                                variant="secondary"
-                                className="h-9 text-xs px-4 hidden sm:flex"
-                            />
+                            <div className="ml-auto flex">
+                                <ActionButton
+                                    onClick={() => setPreservePunctuation(!preservePunctuation)}
+                                    icon={<Quote className="w-3.5 h-3.5" />}
+                                    label="Keep Punctuation"
+                                    isActive={preservePunctuation}
+                                    variant="secondary"
+                                    className="h-9 text-xs px-4 hidden sm:flex"
+                                />
+                            </div>
                         )}
                     </div>
                 )}
