@@ -7,6 +7,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -14,7 +15,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     // Prevent hydration mismatch by rendering nothing (or a fallback) until mounted
     // This ensures that the server-rendered HTML matches what the client expects
     // initially, avoiding the "Prop `class` did not match" warning.
-    return <>{children}</>; 
+    return <>{children}</>;
     // NOTE: Returning children directly might still cause a flash if the theme is dark.
     // However, for SSG/Static Export, we usually accept a small paint shift or 
     // set a blocking script. next-themes handles the script injection.
