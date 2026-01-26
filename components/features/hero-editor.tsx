@@ -85,11 +85,9 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     <div className="flex items-center gap-2">
                         <ActionButton
                             onClick={() => {
-                                const newMode = activeMode === 'case' ? null : 'case';
+                                const newMode = 'case';
                                 setActiveMode(newMode);
-                                if (newMode === 'case') {
-                                    router.push("/capitalise-title");
-                                }
+                                router.push("/capitalise-title");
                             }}
                             icon={<Type className="w-4 h-4" />}
                             label="Capitalise Title"
@@ -97,28 +95,29 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                             className="h-9"
                         />
 
-                        {/* Nested Options - Appear only when active */}
-                        {activeMode === 'case' && (
-                            <div className="flex items-center bg-elevated rounded-lg p-1 border border-border-subtle shadow-sm animate-in fade-in slide-in-from-left-2 duration-200">
-                                <ActionButton
-                                    onClick={() => handleConversion("title")}
-                                    icon={<span className="text-sm">🇺🇸</span>}
-                                    label="US Title Case"
-                                    isActive={activeCase === 'title'}
-                                    variant="secondary"
-                                    className="h-9 text-xs px-3 border-none shadow-none"
-                                />
-                                <div className="w-px h-4 bg-border-subtle mx-1" />
-                                <ActionButton
-                                    onClick={() => handleConversion("sentence")}
-                                    icon={<span className="text-sm">🇬🇧</span>}
-                                    label="UK Sentence Case"
-                                    isActive={activeCase === 'sentence'}
-                                    variant="secondary"
-                                    className="h-9 text-xs px-3 border-none shadow-none"
-                                />
-                            </div>
-                        )}
+                    </div>
+                )}
+
+                {/* Case Tools Secondary Options - Permanent when active */}
+                {activeMode === 'case' && (
+                    <div className="flex items-center gap-2 ml-auto animate-in fade-in slide-in-from-left-2 duration-200">
+                        <ActionButton
+                            onClick={() => handleConversion("title")}
+                            icon={<span className="text-sm">🇺🇸</span>}
+                            label="US Title Case"
+                            isActive={activeCase === 'title'}
+                            variant="secondary"
+                            className="h-9 text-xs px-3 border-none shadow-none bg-elevated/50 hover:bg-elevated"
+                        />
+                        <div className="w-px h-4 bg-border-subtle" />
+                        <ActionButton
+                            onClick={() => handleConversion("sentence")}
+                            icon={<span className="text-sm">🇬🇧</span>}
+                            label="UK Sentence Case"
+                            isActive={activeCase === 'sentence'}
+                            variant="secondary"
+                            className="h-9 text-xs px-3 border-none shadow-none bg-elevated/50 hover:bg-elevated"
+                        />
                     </div>
                 )}
 
@@ -160,7 +159,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     placeholder="Type or paste your text to analyse..."
-                    className="w-full h-full p-6 pr-24 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
+                    className="w-full h-full p-6 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
                     spellCheck={false}
                 />
 
