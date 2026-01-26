@@ -75,98 +75,53 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
         <div className="flex flex-col h-full min-h-[500px] w-full bg-surface rounded-2xl border border-border-subtle overflow-hidden shadow-depth dark:shadow-none relative transition-colors duration-300 select-none">
 
             {/* Toolbar - Crisp & Professional */}
-            <div className="flex flex-wrap items-center gap-2 p-3 border-b border-border-subtle bg-canvas">
+            <div className="flex flex-wrap items-center gap-3 p-3 border-b border-border-subtle bg-canvas">
 
+                {/* Case Tools Group - Segmented Control Style */}
                 {showCaseTools && (
-                    <div className="relative z-20">
-                        <DropdownMenu
-                            align="left"
-                            trigger={
-                                <div className="flex items-center gap-2 px-4 py-1.5 text-sm font-medium text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle rounded-lg transition-all shadow-sm hover:shadow cursor-pointer select-none">
-                                    <Type className="w-4 h-4" />
-                                    <span>Capitalise Title</span>
-                                    <ChevronDown className="w-3 h-3 opacity-50" />
-                                </div>
-                            }
-                        >
-                            <DropdownItem
-                                onClick={() => handleConversion("title")}
-                                icon={<span className="text-lg">🇺🇸</span>}
-                                label="US Style (Title Case)"
-                                description="Capitalize major words. Standard for NYT, Time, etc."
-                            />
-                            <DropdownItem
-                                onClick={() => handleConversion("sentence")}
-                                icon={<span className="text-lg">🇬🇧</span>}
-                                label="UK Style (Sentence Case)"
-                                description="First word only. Standard for BBC, The Guardian."
-                            />
-                        </DropdownMenu>
+                    <div className="flex items-center bg-elevated rounded-lg p-1 border border-border-subtle shadow-sm">
+                        <ActionButton
+                            onClick={() => handleConversion("title")}
+                            icon={<span className="text-sm">🇺🇸</span>}
+                            label="US Title"
+                            variant="ghost"
+                            className="h-8 text-xs px-3 border-none shadow-none hover:bg-surface"
+                        />
+                        <div className="w-px h-4 bg-border-subtle mx-1" />
+                        <ActionButton
+                            onClick={() => handleConversion("sentence")}
+                            icon={<span className="text-sm">🇬🇧</span>}
+                            label="UK Sentence"
+                            variant="ghost"
+                            className="h-8 text-xs px-3 border-none shadow-none hover:bg-surface"
+                        />
                     </div>
                 )}
 
+                {/* Hyphenation Tools */}
                 {showHyphenTools && (
-                    <ActionButton
-                        onClick={() => handleConversion("hyphenate")}
-                        icon={isTextHyphenated ? <Unlink className="w-4 h-4" /> : <Link className="w-4 h-4" />}
-                        label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
-                        isActive={isTextHyphenated}
-                    />
-                )}
+                    <div className="flex items-center gap-2">
+                        <ActionButton
+                            onClick={() => handleConversion("hyphenate")}
+                            icon={isTextHyphenated ? <Unlink className="w-3.5 h-3.5" /> : <Link className="w-3.5 h-3.5" />}
+                            label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
+                            isActive={isTextHyphenated}
+                            className="h-10 text-xs px-4"
+                        />
 
-                <div className="h-6 w-px bg-border-subtle mx-1" />
-
-                {/* Preservation Toggle - Only on dedicated Hyphenation page per user request */}
-                {showHyphenTools && defaultTools?.includes('hyphenation') && (
-                    <ActionButton
-                        onClick={() => setPreservePunctuation(!preservePunctuation)}
-                        icon={<Quote className="w-4 h-4" />}
-                        label="Keep Punctuation"
-                        isActive={preservePunctuation}
-                        variant="secondary"
-                        className="hidden sm:flex" // Hide on mobile, move to dropdown potentially
-                    />
-                )}
-
-                {/* More Tools Dropdown - For tools NOT in the primary view */}
-                <div className="ml-1">
-                    <DropdownMenu
-                        trigger={
-                            <button className="p-2 text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle rounded-lg transition-all shadow-sm hover:shadow">
-                                <MoreHorizontal className="w-4 h-4" />
-                            </button>
-                        }
-                    >
-                        {!showCaseTools && (
-                            <>
-                                <div className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-muted font-semibold select-none">Capitalise Title</div>
-                                <DropdownItem
-                                    onClick={() => handleConversion("title")}
-                                    icon={<span className="text-lg">🇺🇸</span>}
-                                    label="US Style (Title Case)"
-                                    description="Standard for NYT, Time."
-                                />
-                                <DropdownItem
-                                    onClick={() => handleConversion("sentence")}
-                                    icon={<span className="text-lg">🇬🇧</span>}
-                                    label="UK Style (Sentence Case)"
-                                    description="Standard for BBC, Guardian."
-                                />
-                            </>
+                        {/* Toggle appears alongside when relevant */}
+                        {defaultTools?.includes('hyphenation') && (
+                            <ActionButton
+                                onClick={() => setPreservePunctuation(!preservePunctuation)}
+                                icon={<Quote className="w-3.5 h-3.5" />}
+                                label="Keep Punctuation"
+                                isActive={preservePunctuation}
+                                variant="secondary"
+                                className="h-10 text-xs px-4 hidden sm:flex"
+                            />
                         )}
-                        {!showHyphenTools && (
-                            <>
-                                {(!showCaseTools) && <div className="h-px bg-border-subtle my-1" />}
-                                <DropdownItem
-                                    onClick={() => handleConversion("hyphenate")}
-                                    icon={<Link className="w-4 h-4" />}
-                                    label="Hyphenate Text"
-                                    description="Generate URL slugs."
-                                />
-                            </>
-                        )}
-                    </DropdownMenu>
-                </div>
+                    </div>
+                )}
 
                 <div className="ml-auto flex items-center gap-2">
                     <button
@@ -212,7 +167,7 @@ interface ActionButtonProps {
     icon: React.ReactNode;
     label: string;
     isActive?: boolean;
-    variant?: "primary" | "secondary";
+    variant?: "primary" | "secondary" | "ghost";
     className?: string;
 }
 
@@ -221,11 +176,14 @@ function ActionButton({ onClick, icon, label, isActive, variant = "primary", cla
         <button
             onClick={onClick}
             className={cn(
-                "flex items-center gap-2 px-4 py-1.5 text-sm font-medium border rounded-lg transition-all duration-200 active:scale-95 shadow-sm hover:shadow",
-                isActive
+                "flex items-center gap-2 px-4 py-1.5 text-sm font-medium rounded-lg transition-all duration-200 active:scale-95 select-none",
+                variant !== "ghost" && "border shadow-sm hover:shadow",
+                variant === "primary" && (isActive
                     ? "bg-[oklch(var(--brand-core)/0.1)] text-primary border-[oklch(var(--brand-core)/0.2)]"
-                    : "text-muted hover:text-body bg-elevated hover:bg-surface border-border-subtle",
+                    : "text-muted hover:text-body bg-elevated hover:bg-surface border-border-subtle"),
                 variant === "secondary" && isActive && "bg-teal-500/10 text-teal-400 border-teal-500/30",
+                variant === "secondary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border-border-subtle",
+                variant === "ghost" && "hover:bg-surface text-muted hover:text-body",
                 className
             )}
         >

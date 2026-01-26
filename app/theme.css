@@ -37,19 +37,23 @@
     --neutral-950: 15% 0 0;
     /* Void */
 
-    /* Brand Core */
-    --brand-core: 45% 0.24 260;
-    /* Electric Blue (Swiss Architect) */
+    /* Brand Core (Nebula - Indigo/Violet) */
+    --brand-core: 45% 0.24 280;
+    /* Deep Indigo */
+    --brand-secondary: 55% 0.22 320;
+    /* Bright Purple/Pink */
+
     --brand-fg: 99% 0 0;
     /* Text on Brand */
 
     /* 2. SEMANTIC LIST (The Logic Switch) */
     /* Light Mode Defaults */
     --bg-canvas: var(--neutral-0);
-    --bg-surface: var(--neutral-50);
-    --bg-elevated: var(--neutral-0);
+    --bg-surface: var(--neutral-0);
+    /* Pure white surface for crispness */
+    --bg-elevated: var(--neutral-50);
 
-    --text-primary: var(--neutral-900);
+    --text-primary: var(--neutral-950);
     --text-muted: var(--neutral-500);
     --text-on-primary: var(--brand-fg);
 

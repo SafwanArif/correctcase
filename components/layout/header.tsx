@@ -1,10 +1,13 @@
+import Link from "next/link";
+import { History, ShieldCheck } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { ShieldCheck } from "lucide-react";
 
-import Link from "next/link";
+interface HeaderProps {
+    onOpenHistory?: () => void;
+}
 
-export function Header() {
+export function Header({ onOpenHistory }: HeaderProps) {
     return (
         <header className="sticky top-0 z-50 w-full glass-premium border-b border-border-subtle">
             <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between relative">
@@ -24,7 +27,16 @@ export function Header() {
                 </div>
 
                 {/* Right: Controls */}
-                <div>
+                <div className="flex items-center gap-2">
+                    {onOpenHistory && (
+                        <button
+                            onClick={onOpenHistory}
+                            className="p-2 text-muted hover:text-body transition-colors hover:bg-surface rounded-full border border-transparent hover:border-border-subtle"
+                            title="View History"
+                        >
+                            <History className="w-5 h-5" />
+                        </button>
+                    )}
                     <ThemeToggle />
                 </div>
             </div>
