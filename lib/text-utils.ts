@@ -5,7 +5,7 @@
  * Strict British English conventions used in code comments and implementation.
  */
 
-import { GLOBAL_COMPOUND_WORDS, UK_ACRONYMS, US_MINOR_WORDS } from '@/lib/dictionaries';
+import { GLOBAL_COMPOUND_WORDS, SENTENCE_CASE_EXCEPTIONS_MAP, US_MINOR_WORDS } from '@/lib/dictionaries';
 
 /**
  * Converts text to Sentence case, preserving common UK acronyms.
@@ -28,34 +28,14 @@ export function toSentenceCase(text: string): string {
         return words.map((word, index) => {
             // Clean word for checking (remove punctuation)
             const cleanWord = word.replace(/[^a-zA-Z0-9]/g, '');
-            const upperWord = cleanWord.toUpperCase();
+            const lowerWord = cleanWord.toLowerCase();
 
-            // Check for UK Proper Nouns (Prioritize Acronyms)
-            if (UK_ACRONYMS.has(cleanWord) || UK_ACRONYMS.has(upperWord)) { // Check both case-sensitive and upper
-                // If the word in dictionary is "SaaS", we want "SaaS".
-                // But our set has "SaaS". "SAAS" matches? 
-                // Simple approach: Check uppercase capability.
-                // Actually the dictionary has mixed case keys like 'SaaS'.
-                // We should check if the *uppercase version* of current word matches the specific casing in the set?
-                // No, Set lookup is exact.
-                // Let's loop the set? No O(1).
-                // For now, let's assume the dictionary handles the casing.
-                // If checking 'saas', 'SaaS' is in dictionary. We can't find it easily without normalizing.
-                // Wait, strict Set lookup means we need exact match or normalized match.
-                // Let's trust strict lookup for now, or maybe check upper?
-                // Most in UK_ACRONYMS are ALL CAPS. 'SaaS' is special.
-                // Let's stick to the existing logic which checks `upperWord`.
-                if (UK_ACRONYMS.has(upperWord)) return upperWord;
-                // Case specific check?
-                // Let's just return normalized word if found.
+            // Check for Proper Nouns / Acronyms / Brands (Case Insensitive Lookup)
+            if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerWord)) {
+                return SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerWord)!;
             }
 
-            // Quick Fix: The previous logic used `UK_PROPER_NOUNS.has(upperWord)`.
-            // My new dictionary has 'SaaS'. `UK_ACRONYMS.has('SAAS')` will be false.
-            // I should probably simplify: mostly UPPER.
-            if (UK_ACRONYMS.has(upperWord)) return upperWord;
-
-            // First word of sentence
+            // First word of sentence -> Capitalize (if not an exception)
             if (index === 0) {
                 return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
             }
@@ -87,7 +67,10 @@ export function toTitleCase(text: string): string {
         const upperVal = word.toUpperCase();
 
         // 1. Acronym Check (Priority)
-        if (UK_ACRONYMS.has(upperVal)) return upperVal;
+        // 1. Acronym/Exception Check (Priority)
+        if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerVal)) {
+            return SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerVal)!;
+        }
 
         // 2. First or Last Word Check -> Always Capitalize
         if (index === 0 || index === words.length - 1) {

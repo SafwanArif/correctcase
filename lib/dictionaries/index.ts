@@ -8,12 +8,22 @@
 import UNIVERSAL_COMPOUNDS from '@/data/dictionaries/universal/compounds.json';
 import UK_COMPOUNDS from '@/data/dictionaries/en-GB/compounds.json';
 import US_COMPOUNDS from '@/data/dictionaries/en-US/compounds.json';
-import UK_ACRONYMS_LIST from '@/data/dictionaries/en-GB/acronyms.json';
-import US_MINOR_WORDS_LIST from '@/data/dictionaries/en-US/minor.json';
+import UK_SENTENCE_CASE_EXCEPTIONS from '@/data/dictionaries/en-GB/sentence-case-exceptions.json';
+import UNIVERSAL_FIXED_CASE_WORDS from '@/data/dictionaries/universal/fixed-case-words.json';
+import UNIVERSAL_MINOR_WORDS_LIST from '@/data/dictionaries/universal/function-words.json';
 
 // Re-export specific sets for targeted logic
-export const UK_ACRONYMS = new Set(UK_ACRONYMS_LIST);
-export const US_MINOR_WORDS = new Set(US_MINOR_WORDS_LIST);
+export const US_MINOR_WORDS = new Set(UNIVERSAL_MINOR_WORDS_LIST);
+
+// Case-insensitive lookup map for exceptions (lowercase -> original)
+// Merges Universal + Regional lists (Regional takes precedence if conflict, though unlikely for these sets)
+const ALL_EXCEPTIONS = [...UNIVERSAL_FIXED_CASE_WORDS, ...UK_SENTENCE_CASE_EXCEPTIONS];
+export const SENTENCE_CASE_EXCEPTIONS_MAP = new Map(
+    ALL_EXCEPTIONS.map(word => [word.toLowerCase(), word])
+);
+
+// Keep Set for structural checks if needed, but Map is preferred for normalization
+export const SENTENCE_CASE_EXCEPTIONS = new Set(ALL_EXCEPTIONS);
 
 // Global Compound List (The "Antigravity" Database)
 // Aggregates Universal + Regional Dictionaries
