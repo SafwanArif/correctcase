@@ -160,7 +160,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     placeholder="Type or paste your text to analyse..."
-                    className="w-full h-full p-6 pb-20 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
+                    className="w-full h-full p-6 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
                     spellCheck={false}
                 />
 
@@ -179,13 +179,22 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     </button>
                 </div>
 
-                {/* Stats overlay - Bottom Left Tabs */}
-                <div className="absolute bottom-0 left-6 z-10">
-                    <div className="flex items-center gap-4 text-[10px] font-mono font-medium text-muted bg-elevated/50 backdrop-blur-sm px-3 py-1.5 rounded-t-lg border-t border-x border-border-subtle shadow-sm opacity-60 hover:opacity-100 transition-opacity duration-300 select-none">
-                        <span>{countWords(text)} WORDS</span>
-                        <span className="w-px h-3 bg-border-subtle" />
-                        <span>{countCharacters(text)} CHARS</span>
-                    </div>
+            </div>
+
+            {/* Dedicated Footer - Stats & Trust */}
+            <div className="h-10 border-t border-border-subtle bg-canvas/30 backdrop-blur-sm px-6 flex items-center justify-between select-none">
+
+                {/* Stats Logic (Left) */}
+                <div className="flex items-center gap-4 text-[10px] font-mono font-medium text-muted">
+                    <span>{countWords(text)} WORDS</span>
+                    <span className="w-px h-3 bg-border-subtle" />
+                    <span>{countCharacters(text)} CHARS</span>
+                </div>
+
+                {/* Trust Message (Right) */}
+                <div className="flex items-center gap-2 text-[10px] text-muted font-medium opacity-70">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>
+                    <span>100% CLIENT-SIDE • PRIVACY FIRST</span>
                 </div>
             </div>
         </div>
