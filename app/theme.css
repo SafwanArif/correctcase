@@ -37,11 +37,13 @@
     --neutral-950: 15% 0 0;
     /* Void */
 
-    /* Brand Core (Nebula - Indigo/Violet) */
-    --brand-core: 45% 0.24 280;
-    /* Deep Indigo */
-    --brand-secondary: 55% 0.22 320;
-    /* Bright Purple/Pink */
+    /* Brand Core (Acid - Electric Blue/Teal/Lime) */
+    --brand-core: 45% 0.24 260;
+    /* Electric Blue */
+    --brand-secondary: 70% 0.18 170;
+    /* Teal/Cyan */
+    --brand-tertiary: 85% 0.20 130;
+    /* Lime Green */
 
     --brand-fg: 99% 0 0;
     /* Text on Brand */
