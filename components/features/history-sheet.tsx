@@ -56,9 +56,10 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
                 ref={sheetRef}
                 className={cn(
                     "fixed inset-y-0 right-0 z-[70] w-full max-w-sm bg-surface border-l border-border-subtle shadow-2xl transition-transform duration-300 ease-in-out transform flex flex-col",
-                    isOpen ? "translate-x-0 visible" : "translate-x-full invisible"
+                    isOpen ? "translate-x-0 visible" : "translate-x-full invisible select-none"
                 )}
                 aria-hidden={!isOpen}
+                inert={!isOpen ? true : undefined}
             >
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-border-subtle bg-elevated">
