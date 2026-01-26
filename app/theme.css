@@ -11,7 +11,9 @@
     --color-elevated: var(--bg-elevated);
 
     --color-primary: var(--action-primary);
+    --color-primary: var(--action-primary);
     --color-primary-fg: var(--text-on-primary);
+    --color-active-item: var(--action-active);
 
     --color-body: var(--text-primary);
     --color-muted: var(--text-muted);
@@ -61,6 +63,8 @@
     --border-subtle: var(--neutral-200);
 
     --action-primary: var(--brand-core);
+    --action-active: 60% 0.24 260;
+    /* Vivid Electric Blue */
 }
 
 .dark {
@@ -83,4 +87,6 @@
 
     /* Slightly adjusted action for dark mode contrast if needed, or keep core */
     --action-primary: 60% 0.15 260;
+    --action-active: 65% 0.22 280;
+    /* Vivid Indigo/Purple */
 }

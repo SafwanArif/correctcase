@@ -22,29 +22,10 @@ body {
 }
 
 /* GLOBAL RESET & ACCESSIBILITY */
-*:focus {
-  outline: none;
-}
 
-*:focus-visible {
-  outline: 2px solid oklch(var(--action-primary));
-  outline-offset: 2px;
-}
 
 /* PREVENT UI SELECTION (Ghost Text Fix - Global Aggressive) */
-body {
-  user-select: none;
-  -webkit-user-select: none;
-}
 
-/* Allow selection only where it matters */
-textarea,
-input,
-.select-text,
-[contenteditable="true"] {
-  user-select: text;
-  -webkit-user-select: text;
-}
 
 /* 
   CUSTOM UTILITIES (The Visual Physics)
