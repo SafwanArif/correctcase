@@ -16,6 +16,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const [isCopied, setIsCopied] = useState(false);
     const [preservePunctuation, setPreservePunctuation] = useState(false);
     const [activeMode, setActiveMode] = useState<'case' | 'hyphenate' | null>(null);
+    const [activeCase, setActiveCase] = useState<'title' | 'sentence' | null>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
 
@@ -38,10 +39,12 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
         switch (mode) {
             case "sentence":
                 newText = toSentenceCase(text);
+                setActiveCase("sentence");
                 router.push("/capitalise-title", { scroll: false });
                 break;
             case "title":
                 newText = toTitleCase(text);
+                setActiveCase("title");
                 router.push("/capitalise-title", { scroll: false });
                 break;
             case "hyphenate":
@@ -92,16 +95,18 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                                     onClick={() => handleConversion("title")}
                                     icon={<span className="text-sm">🇺🇸</span>}
                                     label="US Title Case"
-                                    variant="ghost"
-                                    className="h-8 text-xs px-3 border-none shadow-none hover:bg-surface"
+                                    isActive={activeCase === 'title'}
+                                    variant="secondary"
+                                    className="h-8 text-xs px-3 border-none shadow-none"
                                 />
                                 <div className="w-px h-4 bg-border-subtle mx-1" />
                                 <ActionButton
                                     onClick={() => handleConversion("sentence")}
                                     icon={<span className="text-sm">🇬🇧</span>}
                                     label="UK Sentence Case"
-                                    variant="ghost"
-                                    className="h-8 text-xs px-3 border-none shadow-none hover:bg-surface"
+                                    isActive={activeCase === 'sentence'}
+                                    variant="secondary"
+                                    className="h-8 text-xs px-3 border-none shadow-none"
                                 />
                             </div>
                         )}
