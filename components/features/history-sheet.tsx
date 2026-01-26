@@ -88,7 +88,7 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
                         </div>
                     )}
 
-                    {history?.map((item) => (
+                    {isOpen && history?.map((item) => (
                         <div
                             key={item.id}
                             className="group relative p-3 bg-canvas border border-border-subtle rounded-xl hover:border-[oklch(var(--brand-core)/0.3)] hover:shadow-sm transition-all duration-200 cursor-pointer"
