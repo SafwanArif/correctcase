@@ -66,7 +66,9 @@ export function toTitleCase(text: string): string {
         const lowerVal = word.toLowerCase();
         const upperVal = word.toUpperCase();
 
-        // 1. Acronym Check (Priority)
+        // 0. Pronoun 'I' Check (Always Capitalize)
+        if (lowerVal === 'i') return 'I';
+
         // 1. Acronym/Exception Check (Priority)
         if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerVal)) {
             return SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerVal)!;
