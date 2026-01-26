@@ -1,16 +1,12 @@
-import { HeroEditor } from "@/components/features/hero-editor";
-import { Metadata } from "next";
-import { Shell } from "@/components/layout/shell";
+"use client";
 
-export const metadata: Metadata = {
-    title: "Hyphenate Text Tool - SEO Slug Generator | CorrectCase",
-    description: "Instantly hyphenate text for SEO-friendly URLs or unhyphenate slugs back to readable text. The smart tool for web developers and writers.",
-};
+import { HeroEditor } from "@/components/features/hero-editor";
+import { WorkstationLayout } from "@/components/layout/workstation-layout";
 
 export default function HyphenateTextPage() {
     return (
-        <Shell>
+        <WorkstationLayout activeTab="seo">
             <HeroEditor defaultTools={["hyphenation"]} />
-        </Shell>
+        </WorkstationLayout>
     );
 }
