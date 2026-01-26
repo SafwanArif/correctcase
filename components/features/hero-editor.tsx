@@ -2,11 +2,10 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
-import { addToHistory } from "@/lib/db";
 import { Copy, Type, Link, Unlink, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter, usePathname } from "next/navigation";
-import { useHistory } from "@/lib/use-history";
+import { useEditor } from "@/components/providers/editor-provider";
 
 interface HeroEditorProps {
     defaultTools?: ('case' | 'hyphenation')[]; // controls which tools are primary
@@ -23,13 +22,12 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
 
-    // History Hook
-    const { state: historyState, set: setHistoryText, undo, redo, canUndo, canRedo } = useHistory("");
-    const text = historyState.present;
+    // History Hook (Lifted to Context)
+    const { text, setText, undo, redo, canUndo, canRedo, addToHistory } = useEditor();
 
     // Wrapper to update text (and history)
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setHistoryText(e.target.value);
+        setText(e.target.value);
     };
 
     // Derived State
@@ -88,8 +86,8 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
 
 
 
-        setHistoryText(newText);
-        await addToHistory(newText, historyLabel);
+        setText(newText);
+        addToHistory(newText, historyLabel);
     };
 
     const copyToClipboard = async () => {
