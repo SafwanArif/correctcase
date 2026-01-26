@@ -5,7 +5,7 @@
  * Strict British English conventions used in code comments and implementation.
  */
 
-import { GLOBAL_COMPOUNDS, UK_ACRONYMS, US_MINOR_WORDS } from '@/lib/dictionaries';
+import { GLOBAL_COMPOUND_WORDS, UK_ACRONYMS, US_MINOR_WORDS } from '@/lib/dictionaries';
 
 /**
  * Converts text to Sentence case, preserving common UK acronyms.
@@ -170,7 +170,7 @@ export function smartUnhyphenate(text: string): string {
             const next3 = parts[i + 3].toLowerCase();
             const quadCandidate = `${current}-${next1}-${next2}-${next3}`;
 
-            if (GLOBAL_COMPOUNDS.has(quadCandidate)) {
+            if (GLOBAL_COMPOUND_WORDS.has(quadCandidate)) {
                 recoveredParts.push(quadCandidate);
                 i += 4;
                 continue;
@@ -183,7 +183,7 @@ export function smartUnhyphenate(text: string): string {
             const next2 = parts[i + 2].toLowerCase();
             const tripleCandidate = `${current}-${next1}-${next2}`;
 
-            if (GLOBAL_COMPOUNDS.has(tripleCandidate)) {
+            if (GLOBAL_COMPOUND_WORDS.has(tripleCandidate)) {
                 recoveredParts.push(tripleCandidate);
                 i += 3;
                 continue;
@@ -195,7 +195,7 @@ export function smartUnhyphenate(text: string): string {
             const next = parts[i + 1].toLowerCase();
             const doubleCandidate = `${current}-${next}`;
 
-            if (GLOBAL_COMPOUNDS.has(doubleCandidate)) {
+            if (GLOBAL_COMPOUND_WORDS.has(doubleCandidate)) {
                 recoveredParts.push(doubleCandidate);
                 i += 2;
                 continue;
