@@ -269,7 +269,7 @@ function ActionButton({ onClick, icon, label, isActive, variant = "primary", cla
                 variant === "toolbar-item" && "h-9 text-xs px-3 border-none shadow-none",
                 variant === "toolbar-item" && !isActive && "bg-elevated/50 hover:bg-elevated text-muted hover:text-body",
                 // Active State: Semantic High Contrast
-                variant === "toolbar-item" && isActive && "bg-active-item text-primary-fg font-medium shadow-sm",
+                variant === "toolbar-item" && isActive && "bg-[oklch(var(--action-active))] text-primary-fg font-medium shadow-sm",
 
                 // Ghost
                 variant === "ghost" && "hover:bg-surface text-muted hover:text-body",
