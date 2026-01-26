@@ -172,7 +172,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     value={text}
                     onChange={handleTextChange}
                     placeholder="Type or paste your text to analyse..."
-                    className="w-full h-full p-6 bg-transparent border-none outline-none focus:outline-none focus:ring-0 ring-0 resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
+                    className="w-full h-full p-6 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none focus:shadow-none ring-0 resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
                     spellCheck={false}
                 />
 
@@ -261,7 +261,8 @@ function ActionButton({ onClick, icon, label, isActive, variant = "primary", cla
                 // Toolbar Item (Borderless, Small, Uniform)
                 variant === "toolbar-item" && "h-9 text-xs px-3 border-none shadow-none",
                 variant === "toolbar-item" && !isActive && "bg-elevated/50 hover:bg-elevated text-muted hover:text-body",
-                variant === "toolbar-item" && isActive && "bg-[oklch(var(--brand-core)/0.15)] text-primary font-medium",
+                // Active State: Solid High Contrast Brand Color
+                variant === "toolbar-item" && isActive && "bg-primary text-primary-fg font-medium shadow-md ring-1 ring-primary/20",
 
                 // Ghost
                 variant === "ghost" && "hover:bg-surface text-muted hover:text-body",
