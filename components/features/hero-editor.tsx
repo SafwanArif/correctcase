@@ -15,7 +15,9 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const [text, setText] = useState("");
     const [isCopied, setIsCopied] = useState(false);
     const [preservePunctuation, setPreservePunctuation] = useState(false);
-    const [activeMode, setActiveMode] = useState<'case' | 'hyphenate' | null>(null);
+    const [activeMode, setActiveMode] = useState<'case' | 'hyphenate' | null>(
+        defaultTools?.includes('case') && defaultTools.length === 1 ? 'case' : null
+    );
     const [activeCase, setActiveCase] = useState<'title' | 'sentence' | null>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
@@ -82,7 +84,13 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                 {showCaseTools && (
                     <div className="flex items-center gap-2">
                         <ActionButton
-                            onClick={() => setActiveMode(activeMode === 'case' ? null : 'case')}
+                            onClick={() => {
+                                const newMode = activeMode === 'case' ? null : 'case';
+                                setActiveMode(newMode);
+                                if (newMode === 'case') {
+                                    router.push("/capitalise-title");
+                                }
+                            }}
                             icon={<Type className="w-4 h-4" />}
                             label="Capitalise Title"
                             isActive={activeMode === 'case'}
