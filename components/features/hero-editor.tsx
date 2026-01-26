@@ -69,14 +69,27 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
         let newText = text;
         switch (mode) {
             case "sentence":
+                // Toggle Off if already active
+                if (activeStyle === 'uk') {
+                    router.push("/capitalise-title", { scroll: false });
+                    return;
+                }
+                // Toggle On
                 newText = toSentenceCase(text);
                 router.push("/capitalise-title?style=uk", { scroll: false });
                 break;
             case "title":
+                // Toggle Off if already active
+                if (activeStyle === 'us') {
+                    router.push("/capitalise-title", { scroll: false });
+                    return;
+                }
+                // Toggle On
                 newText = toTitleCase(text);
                 router.push("/capitalise-title?style=us", { scroll: false });
                 break;
             case "hyphenate":
+                // Hyphenate is a route, not a query param style, but logic remains similar for now
                 if (isTextHyphenated) {
                     newText = smartUnhyphenate(text);
                 } else {
