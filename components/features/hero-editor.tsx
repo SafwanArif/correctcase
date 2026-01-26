@@ -101,19 +101,19 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                         {activeMode === 'case' && (
                             <div className="flex items-center bg-elevated rounded-lg p-1 border border-border-subtle shadow-sm animate-in fade-in slide-in-from-left-2 duration-200">
                                 <ActionButton
-                                    onClick={() => handleConversion("sentence")}
-                                    icon={<span className="text-sm">🇬🇧</span>}
-                                    label="UK Sentence Case"
-                                    isActive={activeCase === 'sentence'}
+                                    onClick={() => handleConversion("title")}
+                                    icon={<span className="text-sm">🇺🇸</span>}
+                                    label="US Title Case"
+                                    isActive={activeCase === 'title'}
                                     variant="secondary"
                                     className="h-9 text-xs px-3 border-none shadow-none"
                                 />
                                 <div className="w-px h-4 bg-border-subtle mx-1" />
                                 <ActionButton
-                                    onClick={() => handleConversion("title")}
-                                    icon={<span className="text-sm">🇺🇸</span>}
-                                    label="US Title Case"
-                                    isActive={activeCase === 'title'}
+                                    onClick={() => handleConversion("sentence")}
+                                    icon={<span className="text-sm">🇬🇧</span>}
+                                    label="UK Sentence Case"
+                                    isActive={activeCase === 'sentence'}
                                     variant="secondary"
                                     className="h-9 text-xs px-3 border-none shadow-none"
                                 />
@@ -165,14 +165,14 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                 />
 
                 {/* Floating Copy Button - Modern Ghost Style */}
-                <div className="absolute top-4 right-4 opacity-25 group-hover:opacity-100 transition-opacity duration-200">
+                <div className="absolute top-0 right-6 z-10">
                     <button
                         onClick={copyToClipboard}
                         className={cn(
-                            "flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-200 backdrop-blur-sm",
+                            "flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-b-md transition-all duration-200 backdrop-blur-sm opacity-35 hover:opacity-100",
                             isCopied
                                 ? "bg-[oklch(var(--brand-core)/0.15)] text-primary"
-                                : "bg-elevated/50 hover:bg-elevated text-muted hover:text-body border border-border-subtle"
+                                : "bg-elevated/50 hover:bg-elevated text-muted hover:text-body border-b border-x border-border-subtle"
                         )}
                     >
                         {isCopied ? "Copied" : <><Copy className="w-3.5 h-3.5" /> Copy</>}
