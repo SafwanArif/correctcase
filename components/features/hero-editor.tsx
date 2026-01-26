@@ -103,7 +103,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     <div className="flex items-center gap-2 ml-auto animate-in fade-in slide-in-from-left-2 duration-200">
                         <ActionButton
                             onClick={() => handleConversion("title")}
-                            icon={<svg viewBox="0 0 640 480" className="w-4 h-4 rounded-[1px] shadow-sm"><path fill="#bd3d44" d="M0 0h640v480H0" /><path stroke="#fff" strokeWidth="37" d="M0 55.3h640M0 129h640M0 202.8h640M0 276.5h640M0 350.2h640M0 423.9h640" /><path fill="#192f5d" d="M0 0h259.8v193.5H0z" /><path fill="#fff" d="M12.7 0h36.6v34.4h37.5v34.4h-37.5v34.3H12.7V68.8H-24.8V34.4h37.5zm50.8 193.5h36.6v-34.4h37.5v-34.4h-37.5v-34.3H63.5v34.3h-37.5v34.4h37.5z" /><path fill="#fff" d="M12.7 159.1h15.2v34.4H12.7zm208.6-159.1h15.2v34.4h-15.2z" /><path fill="#fff" d="M149.2 86h24.8v21.5h-24.8zm-82.6 0H91.4v21.5H66.6z" /><path fill="#fff" d="M149.2 150.5h24.8V172h-24.8zm-82.6 0H91.4V172H66.6z" /></svg>}
+                            icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1235 650" className="w-5 h-3.5 rounded-[1px] shadow-sm"><path fill="#B22234" d="M0 0h1235v650H0z" /><path stroke="#FFF" strokeWidth="50" d="M0 55h1235M0 125h1235M0 195h1235M0 265h1235M0 335h1235M0 405h1235M0 475h1235M0 545h1235M0 615h1235" /><path fill="#3C3B6E" d="M0 0h494v350H0z" /><g fill="#FFF"><g id="s18"><g id="s9"><g id="s5"><g id="s4"><path id="s" d="M24.7 9.8L16.2 38l25.8-19h-31.9l26.2 19z" /><use xlinkHref="#s" x="42" /></g><use xlinkHref="#s" x="84" /></g><use xlinkHref="#s5" x="168" /></g><use xlinkHref="#s9" x="252" /><use xlinkHref="#s" x="336" /></g><use xlinkHref="#s18" y="70" /><use xlinkHref="#s18" y="140" /><use xlinkHref="#s18" y="210" /><use xlinkHref="#s18" y="280" /><use xlinkHref="#s9" y="35" x="21" /><use xlinkHref="#s9" y="105" x="21" /><use xlinkHref="#s9" y="175" x="21" /><use xlinkHref="#s9" y="245" x="21" /></g></svg>}
                             label="US Title Case"
                             isActive={activeCase === 'title'}
                             variant="secondary"
@@ -112,7 +112,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                         <div className="w-px h-4 bg-border-subtle" />
                         <ActionButton
                             onClick={() => handleConversion("sentence")}
-                            icon={<svg viewBox="0 0 640 480" className="w-4 h-4 rounded-[1px] shadow-sm"><path fill="#012169" d="M0 0h640v480H0z" /><path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 80 480H0v-60l240-179L0 60V0h75z" /><path fill="#C8102E" d="m424 281 216 159v40L369 281h55zm-184 20 6 5L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176-6-5L0 0z" /><path fill="#FFF" d="M241 0v480h160V0H241zM0 160v160h640V160H0z" /><path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z" /></svg>}
+                            icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-5 h-3.5 rounded-[1px] shadow-sm"><path fill="#012169" d="M0 0h60v30H0z" /><path fill="#FFF" d="M0 0l60 30m0-30L0 30" strokeWidth="6" /><path fill="none" stroke="#C8102E" strokeWidth="4" d="M0 0l60 30m0-30L0 30" /><path fill="#FFF" d="M30 0v30M0 15h60" strokeWidth="10" /><path fill="none" stroke="#C8102E" strokeWidth="6" d="M30 0v30M0 15h60" /></svg>}
                             label="UK Sentence Case"
                             isActive={activeCase === 'sentence'}
                             variant="secondary"
@@ -160,7 +160,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     placeholder="Type or paste your text to analyse..."
-                    className="w-full h-full p-6 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
+                    className="w-full h-full p-6 pb-20 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
                     spellCheck={false}
                 />
 
@@ -179,9 +179,9 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     </button>
                 </div>
 
-                {/* Stats overlay - Subtle & Clean */}
-                <div className="absolute bottom-4 left-6 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="flex items-center gap-4 text-[10px] font-mono font-medium text-muted bg-elevated px-3 py-1.5 rounded-full border border-border-subtle shadow-sm">
+                {/* Stats overlay - Bottom Left Tabs */}
+                <div className="absolute bottom-0 left-6 z-10">
+                    <div className="flex items-center gap-4 text-[10px] font-mono font-medium text-muted bg-elevated/50 backdrop-blur-sm px-3 py-1.5 rounded-t-lg border-t border-x border-border-subtle shadow-sm opacity-60 hover:opacity-100 transition-opacity duration-300 select-none">
                         <span>{countWords(text)} WORDS</span>
                         <span className="w-px h-3 bg-border-subtle" />
                         <span>{countCharacters(text)} CHARS</span>
