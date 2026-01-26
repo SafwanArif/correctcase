@@ -70,7 +70,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     };
 
     return (
-        <div className="flex flex-col h-full min-h-[500px] w-full bg-transparent relative transition-colors duration-300 select-none">
+        <div className="flex flex-col flex-1 w-full bg-transparent relative transition-colors duration-300 select-none">
 
             {/* Toolbar - Crisp & Professional */}
             <div className="flex flex-wrap items-center gap-3 p-3 border-b border-border-subtle bg-canvas">
