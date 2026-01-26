@@ -116,8 +116,8 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
 
                 <div className="h-6 w-px bg-border-subtle mx-1" />
 
-                {/* Preservation Toggle - Context aware (Shows only when hyphenated, per user request) */}
-                {isTextHyphenated && showHyphenTools && (
+                {/* Preservation Toggle - Always visible when Hyphenation is active so user can pre-configure */}
+                {showHyphenTools && (
                     <ActionButton
                         onClick={() => setPreservePunctuation(!preservePunctuation)}
                         icon={<Quote className="w-4 h-4" />}
