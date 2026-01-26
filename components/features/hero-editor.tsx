@@ -6,13 +6,14 @@ import { addToHistory } from "@/lib/db";
 import { Copy, Type, Link, Unlink, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { useHistory } from "@/lib/use-history";
 
 interface HeroEditorProps {
     defaultTools?: ('case' | 'hyphenation')[]; // controls which tools are primary
 }
 
 export function HeroEditor({ defaultTools }: HeroEditorProps) {
-    const [text, setText] = useState("");
+    // History replaced useState
     const [isCopied, setIsCopied] = useState(false);
     const [preservePunctuation, setPreservePunctuation] = useState(false);
     const [activeMode, setActiveMode] = useState<'case' | 'hyphenate' | null>(
@@ -21,6 +22,15 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const [activeCase, setActiveCase] = useState<'title' | 'sentence' | null>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
+
+    // History Hook
+    const { state: historyState, set: setHistoryText, undo, redo, canUndo, canRedo } = useHistory("");
+    const text = historyState.present;
+
+    // Wrapper to update text (and history)
+    const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setHistoryText(e.target.value);
+    };
 
     // Derived State
     const isTextHyphenated = isHyphenated(text);
@@ -64,7 +74,9 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             historyLabel = isTextHyphenated ? "unhyphenate" : "hyphenate";
         }
 
-        setText(newText);
+
+
+        setHistoryText(newText);
         await addToHistory(newText, historyLabel);
     };
 
@@ -103,7 +115,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     <div className="flex items-center gap-2 ml-auto animate-in fade-in slide-in-from-left-2 duration-200">
                         <ActionButton
                             onClick={() => handleConversion("title")}
-                            icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1235 650" className="w-5 h-3.5 rounded-[1px] shadow-sm"><path fill="#B22234" d="M0 0h1235v650H0z" /><path stroke="#FFF" strokeWidth="50" d="M0 55h1235M0 125h1235M0 195h1235M0 265h1235M0 335h1235M0 405h1235M0 475h1235M0 545h1235M0 615h1235" /><path fill="#3C3B6E" d="M0 0h494v350H0z" /><g fill="#FFF"><g id="s18"><g id="s9"><g id="s5"><g id="s4"><path id="s" d="M24.7 9.8L16.2 38l25.8-19h-31.9l26.2 19z" /><use xlinkHref="#s" x="42" /></g><use xlinkHref="#s" x="84" /></g><use xlinkHref="#s5" x="168" /></g><use xlinkHref="#s9" x="252" /><use xlinkHref="#s" x="336" /></g><use xlinkHref="#s18" y="70" /><use xlinkHref="#s18" y="140" /><use xlinkHref="#s18" y="210" /><use xlinkHref="#s18" y="280" /><use xlinkHref="#s9" y="35" x="21" /><use xlinkHref="#s9" y="105" x="21" /><use xlinkHref="#s9" y="175" x="21" /><use xlinkHref="#s9" y="245" x="21" /></g></svg>}
+                            icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 32" className="w-5 h-auto rounded-[1px] shadow-sm"><rect width="60" height="32" fill="#B22234" /><path d="M0 0h24v18H0z" fill="#3C3B6E" /><g fill="#FFF"><rect y="3" width="60" height="3" /><rect y="9" width="60" height="3" /><rect y="15" width="60" height="3" /><rect y="21" width="60" height="3" /><rect y="27" width="60" height="3" /></g><g fill="#FFF"><path d="M2 2h2v2H2zM8 2h2v2H8zM14 2h2v2H14zM20 2h2v2H20zM5 5h2v2H5zM11 5h2v2H11zM17 5h2v2H17zM2 8h2v2H2zM8 8h2v2H8zM14 8h2v2H14zM20 8h2v2H20zM5 11h2v2H5zM11 11h2v2H11zM17 11h2v2H17zM2 14h2v2H2zM8 14h2v2H8zM14 14h2v2H14zM20 14h2v2H20z" /></g></svg>}
                             label="US Title Case"
                             isActive={activeCase === 'title'}
                             variant="secondary"
@@ -112,7 +124,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                         <div className="w-px h-4 bg-border-subtle" />
                         <ActionButton
                             onClick={() => handleConversion("sentence")}
-                            icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-5 h-3.5 rounded-[1px] shadow-sm"><path fill="#012169" d="M0 0h60v30H0z" /><path fill="#FFF" d="M0 0l60 30m0-30L0 30" strokeWidth="6" /><path fill="none" stroke="#C8102E" strokeWidth="4" d="M0 0l60 30m0-30L0 30" /><path fill="#FFF" d="M30 0v30M0 15h60" strokeWidth="10" /><path fill="none" stroke="#C8102E" strokeWidth="6" d="M30 0v30M0 15h60" /></svg>}
+                            icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-5 h-auto rounded-[1px] shadow-sm"><path fill="#012169" d="M0 0h60v30H0z" /><path fill="#FFF" d="M0 0l60 30m0-30L0 30" strokeWidth="6" /><path fill="none" stroke="#C8102E" strokeWidth="4" d="M0 0l60 30m0-30L0 30" /><path fill="#FFF" d="M30 0v30M0 15h60" strokeWidth="10" /><path fill="none" stroke="#C8102E" strokeWidth="6" d="M30 0v30M0 15h60" /></svg>}
                             label="UK Sentence Case"
                             isActive={activeCase === 'sentence'}
                             variant="secondary"
@@ -122,7 +134,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                 )}
 
                 {showHyphenTools && (
-                    <div className="flex items-center gap-2 w-full">
+                    <div className="flex items-center gap-2">
                         {(!showCaseTools || activeMode !== 'case') && (
                             <ActionButton
                                 onClick={() => {
@@ -158,7 +170,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                 <textarea
                     ref={textareaRef}
                     value={text}
-                    onChange={(e) => setText(e.target.value)}
+                    onChange={handleTextChange}
                     placeholder="Type or paste your text to analyse..."
                     className="w-full h-full p-6 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
                     spellCheck={false}
@@ -182,13 +194,35 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             </div>
 
             {/* Dedicated Footer - Stats & Trust */}
-            <div className="h-10 border-t border-border-subtle bg-canvas/30 backdrop-blur-sm px-6 flex items-center justify-between select-none">
+            <div className="relative h-10 border-t border-border-subtle bg-canvas/30 backdrop-blur-sm px-6 flex items-center justify-between select-none">
 
                 {/* Stats Logic (Left) */}
                 <div className="flex items-center gap-4 text-[10px] font-mono font-medium text-muted">
                     <span>{countWords(text)} WORDS</span>
                     <span className="w-px h-3 bg-border-subtle" />
                     <span>{countCharacters(text)} CHARS</span>
+                </div>
+
+
+                {/* Center - Undo/Redo Controls */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1">
+                    <button
+                        onClick={undo}
+                        disabled={!canUndo}
+                        className="p-1.5 text-muted hover:text-body disabled:opacity-30 disabled:hover:text-muted rounded-md transition-colors"
+                        title="Undo"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7v6h6" /><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" /></svg>
+                    </button>
+                    <div className="w-px h-3 bg-border-subtle mx-1" />
+                    <button
+                        onClick={redo}
+                        disabled={!canRedo}
+                        className="p-1.5 text-muted hover:text-body disabled:opacity-30 disabled:hover:text-muted rounded-md transition-colors"
+                        title="Redo"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 7v6h-6" /><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13" /></svg>
+                    </button>
                 </div>
 
                 {/* Trust Message (Right) */}
