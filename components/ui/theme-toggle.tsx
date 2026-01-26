@@ -22,6 +22,7 @@ export function ThemeToggle() {
 
     return (
         <button
+            type="button"
             onClick={() => setTheme(isDark ? "light" : "dark")}
             className="relative w-14 h-9 rounded-full p-1 m-1 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))] shadow-inner overflow-hidden group bg-surface border border-border-subtle"
             aria-label="Toggle Theme"

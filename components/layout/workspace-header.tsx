@@ -30,6 +30,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                     {/* Placeholder for future expansion */}
                     <NavTab active={false} icon={<Settings className="w-3.5 h-3.5" />} label="Settings" />
                     <button
+                        type="button"
                         onClick={onOpenHistory}
                         className={cn(
                             "flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-200 text-muted hover:text-body hover:bg-surface/50"
@@ -52,6 +53,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
 function NavTab({ active, icon, label }: { active: boolean; icon: React.ReactNode; label: string }) {
     return (
         <button
+            type="button"
             className={cn(
                 "flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-200",
                 active

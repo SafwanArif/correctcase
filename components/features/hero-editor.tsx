@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
 import { Copy, Type, Link, Unlink, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useEditor } from "@/components/providers/editor-provider";
 
 interface HeroEditorProps {
@@ -15,10 +15,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     // History replaced useState
     const [isCopied, setIsCopied] = useState(false);
     const [preservePunctuation, setPreservePunctuation] = useState(false);
-    const [activeMode, setActiveMode] = useState<'case' | 'hyphenate' | null>(
-        defaultTools?.includes('case') && defaultTools.length === 1 ? 'case' : null
-    );
-    const [activeCase, setActiveCase] = useState<'title' | 'sentence' | null>(null);
+
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
 
@@ -38,6 +35,12 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const showHyphenTools = !defaultTools || defaultTools.includes('hyphenation');
 
     const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    // URL-Driven State (Source of Truth)
+    const activeStyle = searchParams.get('style');
+    const isCaseMode = pathname === "/capitalise-title";
+    const isHyphenateMode = pathname === "/hyphenate-text";
 
     useEffect(() => {
         // Auto-focus on load
@@ -45,29 +48,24 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             textareaRef.current.focus();
         }
 
-        // Sync Active State with URL
-        if (pathname === "/capitalise-title") {
-            setActiveMode("case");
-            if (activeCase !== "sentence") {
-                setActiveCase("title");
-            }
-        } else if (pathname === "/hyphenate-text") {
-            setActiveMode("hyphenate");
+        // Client-Side SEO: Update Title based on selection (for Static Export support)
+        if (activeStyle === 'us') {
+            document.title = "US Title Case Converter | CorrectCase";
+        } else if (activeStyle === 'uk') {
+            document.title = "UK Sentence Case Converter | CorrectCase";
         }
-    }, [pathname]);
+    }, [activeStyle]);
 
     const handleConversion = async (mode: string) => {
         let newText = text;
         switch (mode) {
             case "sentence":
                 newText = toSentenceCase(text);
-                setActiveCase("sentence");
-                router.push("/capitalise-title", { scroll: false });
+                router.push("/capitalise-title?style=uk", { scroll: false });
                 break;
             case "title":
                 newText = toTitleCase(text);
-                setActiveCase("title");
-                router.push("/capitalise-title", { scroll: false });
+                router.push("/capitalise-title?style=us", { scroll: false });
                 break;
             case "hyphenate":
                 if (isTextHyphenated) {
@@ -108,13 +106,11 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     <div className="flex items-center gap-2">
                         <ActionButton
                             onClick={() => {
-                                const newMode = 'case';
-                                setActiveMode(newMode);
                                 router.push("/capitalise-title");
                             }}
                             icon={<Type className="w-4 h-4" />}
                             label="Capitalise Title"
-                            isActive={activeMode === 'case'}
+                            isActive={isCaseMode}
                             className="h-9"
                         />
 
@@ -122,12 +118,11 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                 )}
 
                 {/* Hyphenation Tool (Primary) */}
-                {showHyphenTools && (!showCaseTools || activeMode !== 'case') && (
+                {showHyphenTools && (!showCaseTools || !isCaseMode) && (
                     <div className="flex items-center gap-2">
                         <ActionButton
                             onClick={() => {
                                 handleConversion("hyphenate");
-                                setActiveMode('hyphenate');
                             }}
                             icon={isTextHyphenated ? <Unlink className="w-3.5 h-3.5" /> : <Link className="w-3.5 h-3.5" />}
                             label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
@@ -141,13 +136,13 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                 <div className="flex items-center gap-2 ml-auto animate-in fade-in slide-in-from-left-2 duration-200">
 
                     {/* Case Secondary Options */}
-                    {activeMode === 'case' && (
+                    {isCaseMode && (
                         <>
                             <ActionButton
                                 onClick={() => handleConversion("title")}
                                 icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 32" className="w-5 h-auto rounded-[1px] shadow-sm"><rect width="60" height="32" fill="#fff" /><rect width="60" height="32" fill="#B22234" /><path d="M0 0h24v18H0z" fill="#3C3B6E" /><g fill="#FFF"><rect y="3" width="60" height="3" /><rect y="9" width="60" height="3" /><rect y="15" width="60" height="3" /><rect y="21" width="60" height="3" /><rect y="27" width="60" height="3" /></g><g fill="#FFF"><path d="M2 2h2v2H2zM8 2h2v2H8zM14 2h2v2H14zM20 2h2v2H20zM5 5h2v2H5zM11 5h2v2H11zM17 5h2v2H17zM2 8h2v2H2zM8 8h2v2H8zM14 8h2v2H14zM20 8h2v2H20zM5 11h2v2H5zM11 11h2v2H11zM17 11h2v2H17zM2 14h2v2H2zM8 14h2v2H8zM14 14h2v2H14zM20 14h2v2H20z" /></g></svg>}
                                 label="US Title Case"
-                                isActive={activeCase === 'title'}
+                                isActive={activeStyle === 'us'}
                                 variant="toolbar-item"
                             />
                             <div className="w-px h-4 bg-border-subtle" />
@@ -155,14 +150,14 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                                 onClick={() => handleConversion("sentence")}
                                 icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-5 h-auto rounded-[1px] shadow-sm"><rect width="60" height="30" fill="#fff" /><path fill="#012169" d="M0 0h60v30H0z" /><path fill="#FFF" d="M0 0l60 30m0-30L0 30" strokeWidth="6" /><path fill="none" stroke="#C8102E" strokeWidth="4" d="M0 0l60 30m0-30L0 30" /><path fill="#FFF" d="M30 0v30M0 15h60" strokeWidth="10" /><path fill="none" stroke="#C8102E" strokeWidth="6" d="M30 0v30M0 15h60" /></svg>}
                                 label="UK Sentence Case"
-                                isActive={activeCase === 'sentence'}
+                                isActive={activeStyle === 'uk'}
                                 variant="toolbar-item"
                             />
                         </>
                     )}
 
                     {/* Hyphenation Secondary Options */}
-                    {(defaultTools?.includes('hyphenation') || activeMode === 'hyphenate') && (
+                    {(defaultTools?.includes('hyphenation') || isHyphenateMode) && (
                         <ActionButton
                             onClick={() => setPreservePunctuation(!preservePunctuation)}
                             icon={<Quote className="w-3.5 h-3.5" />}
@@ -252,11 +247,13 @@ interface ActionButtonProps {
     isActive?: boolean;
     variant?: "primary" | "secondary" | "ghost" | "toolbar-item";
     className?: string;
+    type?: "button" | "submit" | "reset";
 }
 
-function ActionButton({ onClick, icon, label, isActive, variant = "primary", className }: ActionButtonProps) {
+function ActionButton({ onClick, icon, label, isActive, variant = "primary", className, type = "button" }: ActionButtonProps) {
     return (
         <button
+            type={type}
             onClick={onClick}
             className={cn(
                 "flex items-center gap-2 px-4 py-1.5 text-sm font-medium rounded-lg transition-all duration-200 active:scale-95 select-none",
