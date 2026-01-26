@@ -3,9 +3,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
 import { addToHistory } from "@/lib/db";
-import { Copy, Type, AlignLeft, Link, Unlink, Quote, MoreHorizontal, ChevronDown } from "lucide-react";
+import { Copy, Type, Link, Unlink, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { DropdownMenu, DropdownItem } from "@/components/ui/dropdown-menu";
 import { useRouter } from "next/navigation";
 
 interface HeroEditorProps {
@@ -16,6 +15,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const [text, setText] = useState("");
     const [isCopied, setIsCopied] = useState(false);
     const [preservePunctuation, setPreservePunctuation] = useState(false);
+    const [activeMode, setActiveMode] = useState<'case' | 'hyphenate' | null>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
 
@@ -23,7 +23,6 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const isTextHyphenated = isHyphenated(text);
 
     // Determine visibility based on defaultTools prop (if provided)
-    // If no prop, show all (Dashboard mode)
     const showCaseTools = !defaultTools || defaultTools.includes('case');
     const showHyphenTools = !defaultTools || defaultTools.includes('hyphenation');
 
@@ -39,7 +38,6 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
         switch (mode) {
             case "sentence":
                 newText = toSentenceCase(text);
-                // SEO: Update URL if needed
                 router.push("/capitalise-title", { scroll: false });
                 break;
             case "title":
@@ -77,40 +75,56 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             {/* Toolbar - Crisp & Professional */}
             <div className="flex flex-wrap items-center gap-3 p-3 border-b border-border-subtle bg-canvas">
 
-                {/* Case Tools Group - Segmented Control Style */}
+                {/* Case Tools Group - Nested Logic */}
                 {showCaseTools && (
-                    <div className="flex items-center bg-elevated rounded-lg p-1 border border-border-subtle shadow-sm">
+                    <div className="flex items-center gap-2">
                         <ActionButton
-                            onClick={() => handleConversion("title")}
-                            icon={<span className="text-sm">🇺🇸</span>}
-                            label="US Title"
-                            variant="ghost"
-                            className="h-8 text-xs px-3 border-none shadow-none hover:bg-surface"
+                            onClick={() => setActiveMode(activeMode === 'case' ? null : 'case')}
+                            icon={<Type className="w-4 h-4" />}
+                            label="Capitalise Title"
+                            isActive={activeMode === 'case'}
                         />
-                        <div className="w-px h-4 bg-border-subtle mx-1" />
-                        <ActionButton
-                            onClick={() => handleConversion("sentence")}
-                            icon={<span className="text-sm">🇬🇧</span>}
-                            label="UK Sentence"
-                            variant="ghost"
-                            className="h-8 text-xs px-3 border-none shadow-none hover:bg-surface"
-                        />
+
+                        {/* Nested Options - Appear only when active */}
+                        {activeMode === 'case' && (
+                            <div className="flex items-center bg-elevated rounded-lg p-1 border border-border-subtle shadow-sm animate-in fade-in slide-in-from-left-2 duration-200">
+                                <ActionButton
+                                    onClick={() => handleConversion("title")}
+                                    icon={<span className="text-sm">🇺🇸</span>}
+                                    label="US Title Case"
+                                    variant="ghost"
+                                    className="h-8 text-xs px-3 border-none shadow-none hover:bg-surface"
+                                />
+                                <div className="w-px h-4 bg-border-subtle mx-1" />
+                                <ActionButton
+                                    onClick={() => handleConversion("sentence")}
+                                    icon={<span className="text-sm">🇬🇧</span>}
+                                    label="UK Sentence Case"
+                                    variant="ghost"
+                                    className="h-8 text-xs px-3 border-none shadow-none hover:bg-surface"
+                                />
+                            </div>
+                        )}
                     </div>
                 )}
 
                 {/* Hyphenation Tools */}
                 {showHyphenTools && (
                     <div className="flex items-center gap-2">
-                        <ActionButton
-                            onClick={() => handleConversion("hyphenate")}
-                            icon={isTextHyphenated ? <Unlink className="w-3.5 h-3.5" /> : <Link className="w-3.5 h-3.5" />}
-                            label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
-                            isActive={isTextHyphenated}
-                            className="h-10 text-xs px-4"
-                        />
+                        {(!showCaseTools || activeMode !== 'case') && (
+                            <ActionButton
+                                onClick={() => {
+                                    handleConversion("hyphenate");
+                                    setActiveMode('hyphenate');
+                                }}
+                                icon={isTextHyphenated ? <Unlink className="w-3.5 h-3.5" /> : <Link className="w-3.5 h-3.5" />}
+                                label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
+                                isActive={isTextHyphenated}
+                            />
+                        )}
 
                         {/* Toggle appears alongside when relevant */}
-                        {defaultTools?.includes('hyphenation') && (
+                        {(defaultTools?.includes('hyphenation') || activeMode === 'hyphenate') && (
                             <ActionButton
                                 onClick={() => setPreservePunctuation(!preservePunctuation)}
                                 icon={<Quote className="w-3.5 h-3.5" />}

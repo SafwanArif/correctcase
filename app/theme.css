@@ -56,13 +56,19 @@
     --text-primary: var(--neutral-950);
     --text-muted: var(--neutral-500);
     --text-on-primary: var(--brand-fg);
-
     --border-subtle: var(--neutral-200);
 
     --action-primary: var(--brand-core);
 }
 
 .dark {
+    /* Dark Mode: Nebula (Indigo + Purple + Pink) - Deep & Rich */
+    --brand-core: 45% 0.24 280;
+    /* Deep Indigo */
+    --brand-secondary: 55% 0.22 320;
+    /* Bright Pink/Purple */
+    --brand-tertiary: 60% 0.20 340;
+    /* Magenta */
     /* Dark Mode Overrides */
     --bg-canvas: var(--neutral-950);
     --bg-surface: var(--neutral-900);
