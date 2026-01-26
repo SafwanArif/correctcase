@@ -134,20 +134,18 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                         <>
                             <ActionButton
                                 onClick={() => handleConversion("title")}
-                                icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 32" className="w-5 h-auto rounded-[1px] shadow-sm"><rect width="60" height="32" fill="#B22234" /><path d="M0 0h24v18H0z" fill="#3C3B6E" /><g fill="#FFF"><rect y="3" width="60" height="3" /><rect y="9" width="60" height="3" /><rect y="15" width="60" height="3" /><rect y="21" width="60" height="3" /><rect y="27" width="60" height="3" /></g><g fill="#FFF"><path d="M2 2h2v2H2zM8 2h2v2H8zM14 2h2v2H14zM20 2h2v2H20zM5 5h2v2H5zM11 5h2v2H11zM17 5h2v2H17zM2 8h2v2H2zM8 8h2v2H8zM14 8h2v2H14zM20 8h2v2H20zM5 11h2v2H5zM11 11h2v2H11zM17 11h2v2H17zM2 14h2v2H2zM8 14h2v2H8zM14 14h2v2H14zM20 14h2v2H20zM5 11h2v2H5zM11 11h2v2H11zM17 11h2v2H17zM2 14h2v2H2zM8 14h2v2H8zM14 14h2v2H14zM20 14h2v2H20z" /></g></svg>}
+                                icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 32" className="w-5 h-auto rounded-[1px] shadow-sm"><rect width="60" height="32" fill="#fff" /><rect width="60" height="32" fill="#B22234" /><path d="M0 0h24v18H0z" fill="#3C3B6E" /><g fill="#FFF"><rect y="3" width="60" height="3" /><rect y="9" width="60" height="3" /><rect y="15" width="60" height="3" /><rect y="21" width="60" height="3" /><rect y="27" width="60" height="3" /></g><g fill="#FFF"><path d="M2 2h2v2H2zM8 2h2v2H8zM14 2h2v2H14zM20 2h2v2H20zM5 5h2v2H5zM11 5h2v2H11zM17 5h2v2H17zM2 8h2v2H2zM8 8h2v2H8zM14 8h2v2H14zM20 8h2v2H20zM5 11h2v2H5zM11 11h2v2H11zM17 11h2v2H17zM2 14h2v2H2zM8 14h2v2H8zM14 14h2v2H14zM20 14h2v2H20z" /></g></svg>}
                                 label="US Title Case"
                                 isActive={activeCase === 'title'}
-                                variant="secondary"
-                                className="h-9 text-xs px-3 border-none shadow-none bg-elevated/50 hover:bg-elevated"
+                                variant="toolbar-item"
                             />
                             <div className="w-px h-4 bg-border-subtle" />
                             <ActionButton
                                 onClick={() => handleConversion("sentence")}
-                                icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-5 h-auto rounded-[1px] shadow-sm"><path fill="#012169" d="M0 0h60v30H0z" /><path fill="#FFF" d="M0 0l60 30m0-30L0 30" strokeWidth="6" /><path fill="none" stroke="#C8102E" strokeWidth="4" d="M0 0l60 30m0-30L0 30" /><path fill="#FFF" d="M30 0v30M0 15h60" strokeWidth="10" /><path fill="none" stroke="#C8102E" strokeWidth="6" d="M30 0v30M0 15h60" /></svg>}
+                                icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-5 h-auto rounded-[1px] shadow-sm"><rect width="60" height="30" fill="#fff" /><path fill="#012169" d="M0 0h60v30H0z" /><path fill="#FFF" d="M0 0l60 30m0-30L0 30" strokeWidth="6" /><path fill="none" stroke="#C8102E" strokeWidth="4" d="M0 0l60 30m0-30L0 30" /><path fill="#FFF" d="M30 0v30M0 15h60" strokeWidth="10" /><path fill="none" stroke="#C8102E" strokeWidth="6" d="M30 0v30M0 15h60" /></svg>}
                                 label="UK Sentence Case"
                                 isActive={activeCase === 'sentence'}
-                                variant="secondary"
-                                className="h-9 text-xs px-3 border-none shadow-none bg-elevated/50 hover:bg-elevated"
+                                variant="toolbar-item"
                             />
                         </>
                     )}
@@ -159,8 +157,8 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                             icon={<Quote className="w-3.5 h-3.5" />}
                             label="Keep Punctuation"
                             isActive={preservePunctuation}
-                            variant="secondary"
-                            className="h-9 text-xs px-4 hidden sm:flex"
+                            variant="toolbar-item"
+                            className="hidden sm:flex"
                         />
                     )}
                 </div>
@@ -241,7 +239,7 @@ interface ActionButtonProps {
     icon: React.ReactNode;
     label: string;
     isActive?: boolean;
-    variant?: "primary" | "secondary" | "ghost";
+    variant?: "primary" | "secondary" | "ghost" | "toolbar-item";
     className?: string;
 }
 
@@ -251,13 +249,22 @@ function ActionButton({ onClick, icon, label, isActive, variant = "primary", cla
             onClick={onClick}
             className={cn(
                 "flex items-center gap-2 px-4 py-1.5 text-sm font-medium rounded-lg transition-all duration-200 active:scale-95 select-none",
-                variant !== "ghost" && "border shadow-sm hover:shadow",
-                variant === "primary" && (isActive
-                    ? "bg-[oklch(var(--brand-core)/0.1)] text-primary border-[oklch(var(--brand-core)/0.2)]"
-                    : "text-muted hover:text-body bg-elevated hover:bg-surface border-border-subtle"),
-                variant === "secondary" && isActive && "bg-teal-500/10 text-teal-400 border-teal-500/30",
-                variant === "secondary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border-border-subtle",
+                // Primary Variant
+                variant === "primary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm hover:shadow",
+                variant === "primary" && isActive && "bg-[oklch(var(--brand-core)/0.1)] text-primary border border-[oklch(var(--brand-core)/0.2)] shadow-sm",
+
+                // Secondary Variant (Teal/Accent)
+                variant === "secondary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
+                variant === "secondary" && isActive && "bg-teal-500/10 text-teal-400 border border-teal-500/30 shadow-sm",
+
+                // Toolbar Item (Borderless, Small, Uniform)
+                variant === "toolbar-item" && "h-9 text-xs px-3 border-none shadow-none",
+                variant === "toolbar-item" && !isActive && "bg-elevated/50 hover:bg-elevated text-muted hover:text-body",
+                variant === "toolbar-item" && isActive && "bg-elevated text-body font-semibold",
+
+                // Ghost
                 variant === "ghost" && "hover:bg-surface text-muted hover:text-body",
+
                 className
             )}
         >
