@@ -22,9 +22,18 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     // History Hook (Lifted to Context)
     const { text, setText, undo, redo, canUndo, canRedo, addToHistory } = useEditor();
 
-    // Wrapper to update text (and history)
+    // Live Conversion Wrapper
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setText(e.target.value);
+        let val = e.target.value;
+
+        // "Live Mode": Apply active transformation immediately while typing
+        if (activeStyle === 'uk') {
+            val = toSentenceCase(val);
+        } else if (activeStyle === 'us') {
+            val = toTitleCase(val);
+        }
+
+        setText(val);
     };
 
     // Derived State
