@@ -53,8 +53,17 @@ export function useHistory<T>(initialPresent: T) {
         setState((currentState) => {
             const { past, present } = currentState;
             if (newPresent === present) return currentState;
+
+            const MAX_HISTORY = 50;
+            const newPast = [...past, present];
+
+            // Cap the history stack
+            if (newPast.length > MAX_HISTORY) {
+                newPast.splice(0, newPast.length - MAX_HISTORY);
+            }
+
             return {
-                past: [...past, present],
+                past: newPast,
                 present: newPresent,
                 future: [],
             };
