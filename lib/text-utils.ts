@@ -60,6 +60,20 @@ export function toSentenceCase(text: string): string {
     });
 }
 
+// Verbs that typically bind *particles* (up, in, on, off, out) in Tech contexts.
+// When these precede a minor word, that minor word is likely a Particle (Capitalized).
+const PHRASAL_VERB_ROOTS = new Set([
+    'back', 'break', 'bring', 'call', 'check', 'clean', 'click', 'come', 'cut',
+    'drop', 'fill', 'find', 'follow', 'get', 'give', 'go', 'grow', 'hand', 'hold',
+    'keep', 'knock', 'lay', 'let', 'log', 'Look', 'make', 'mix', 'move', 'open',
+    'pass', 'pay', 'pick', 'point', 'power', 'pull', 'push', 'put', 'read', 'run',
+    'set', 'shut', 'sign', 'sit', 'sort', 'stand', 'start', 'step', 'stick', 'stop',
+    'switch', 'take', 'talk', 'tear', 'throw', 'turn', 'use', 'walk', 'work', 'write',
+    // Tech-specific
+    'boot', 'debug', 'key', 'lock', 'max', 'opt', 'pair', 'plug', 'pop', 'print',
+    'scroll', 'swipe', 'tap', 'wipe', 'zoom'
+]);
+
 /**
  * Converts text to Title Case (US Smart Style).
  * - Capitalizes principal words.
@@ -88,12 +102,53 @@ export function toTitleCase(text: string): string {
                 return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
             }
 
-            // 3. Minor Word Check -> Lowercase
+            // 3. Phrasal Verb Heuristic (Grammar Check)
+            // If this is a minor word, BUT the previous word was an "Action Verb",
+            // treated it as a Particle (Capitalize).
+            // E.g. "Logging [On]" -> "Log" implies "On" is active.
+            if (index > 0) {
+                // Get stem of previous word (remove 'ing', 'ed', 's')?
+                // For simplicity/speed, we check if the previous word starts with a Root.
+                // "Logging" starts with "Log". "Stepped" starts with "Step".
+                const prevWord = words[index - 1].toLowerCase();
+                // Simple heuristic: Does prevWord START with any of our roots?
+                // This covers: Log, Logging, Logged, Logs.
+                // We iterate our set (fast for small set, or we can optimize).
+                // Optimization: Just strip common suffixes.
+                let stem = prevWord;
+                if (stem.endsWith('ing')) stem = stem.slice(0, -3);
+                else if (stem.endsWith('ed')) stem = stem.slice(0, -2);
+                else if (stem.endsWith('s') && !stem.endsWith('ss')) stem = stem.slice(0, -1);
+
+                // Double letter handling (Logg-ing -> Log) is hard statically.
+                // Instead, let's just use strict includes or a rough check.
+                // Actually, simpler: "Is the previous word an Action Verb?"
+                // Let's rely on the Set.
+
+                // Better approach for stability:
+                // Check exact matches or simple "starts with" for known irregularities is risky.
+                // Let's just strip 'ing' and check.
+                if (prevWord.endsWith('ing')) {
+                    const rawStem = prevWord.slice(0, -3); // logg
+                    // Handle 'logging' -> 'log'
+                    if (PHRASAL_VERB_ROOTS.has(rawStem)) stem = rawStem;
+                    else if (PHRASAL_VERB_ROOTS.has(rawStem.slice(0, -1))) stem = rawStem.slice(0, -1);
+                }
+
+                if (PHRASAL_VERB_ROOTS.has(stem) || PHRASAL_VERB_ROOTS.has(prevWord)) {
+                    // Check if current word is a likely particle (up, down, in, on, off, out, over, to, with)
+                    // Most minor words ARE particles.
+                    // So we capitalize.
+                    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+                }
+            }
+
+            // 4. Minor Word Check -> Lowercase
             if (US_MINOR_WORDS.has(lowerVal)) {
                 return lowerVal;
             }
 
-            // 4. Default -> Title Case
+            // 5. Default -> Title Case
             return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
         }).join(' ');
     });
