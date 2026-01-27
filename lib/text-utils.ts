@@ -5,7 +5,7 @@
  * Strict British English conventions used in code comments and implementation.
  */
 
-import { GLOBAL_COMPOUND_WORDS, SENTENCE_CASE_EXCEPTIONS_MAP, US_MINOR_WORDS } from '@/lib/dictionaries';
+import { GLOBAL_COMPOUND_WORDS, SENTENCE_CASE_EXCEPTIONS_MAP, US_MINOR_WORDS, PHRASAL_VERB_ROOTS } from '@/lib/dictionaries';
 
 // Helper: Process text line-by-line
 function processByLine(text: string, processor: (line: string) => string): string {
@@ -59,20 +59,6 @@ export function toSentenceCase(text: string): string {
         }).join('');
     });
 }
-
-// Verbs that typically bind *particles* (up, in, on, off, out) in Tech contexts.
-// When these precede a minor word, that minor word is likely a Particle (Capitalized).
-const PHRASAL_VERB_ROOTS = new Set([
-    'back', 'break', 'bring', 'call', 'check', 'clean', 'click', 'come', 'cut',
-    'drop', 'fill', 'find', 'follow', 'get', 'give', 'go', 'grow', 'hand', 'hold',
-    'keep', 'knock', 'lay', 'let', 'log', 'Look', 'make', 'mix', 'move', 'open',
-    'pass', 'pay', 'pick', 'point', 'power', 'pull', 'push', 'put', 'read', 'run',
-    'set', 'shut', 'sign', 'sit', 'sort', 'stand', 'start', 'step', 'stick', 'stop',
-    'switch', 'take', 'talk', 'tear', 'throw', 'turn', 'use', 'walk', 'work', 'write',
-    // Tech-specific
-    'boot', 'debug', 'key', 'lock', 'max', 'opt', 'pair', 'plug', 'pop', 'print',
-    'scroll', 'swipe', 'tap', 'wipe', 'zoom'
-]);
 
 /**
  * Converts text to Title Case (US Smart Style).

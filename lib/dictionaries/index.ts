@@ -12,8 +12,11 @@ import UK_SENTENCE_CASE_EXCEPTIONS from '@/data/dictionaries/en-GB/sentence-case
 import UNIVERSAL_FIXED_CASE_WORDS from '@/data/dictionaries/universal/fixed-case-words.json';
 import UNIVERSAL_MINOR_WORDS_LIST from '@/data/dictionaries/universal/function-words.json';
 
+import US_PHRASAL_VERB_ROOTS from '@/data/dictionaries/en-US/phrasal-verb-roots.json';
+
 // Re-export specific sets for targeted logic
 export const US_MINOR_WORDS = new Set(UNIVERSAL_MINOR_WORDS_LIST);
+export const PHRASAL_VERB_ROOTS = new Set(US_PHRASAL_VERB_ROOTS);
 
 // Case-insensitive lookup map for exceptions (lowercase -> original)
 // Merges Universal + Regional lists (Regional takes precedence if conflict, though unlikely for these sets)
