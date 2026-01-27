@@ -9,6 +9,8 @@ import UNIVERSAL_COMPOUNDS from '@/data/dictionaries/universal/compounds.json';
 import UK_COMPOUNDS from '@/data/dictionaries/en-GB/compounds.json';
 import US_COMPOUNDS from '@/data/dictionaries/en-US/compounds.json';
 import UK_SENTENCE_CASE_EXCEPTIONS from '@/data/dictionaries/en-GB/sentence-case-exceptions.json';
+import UNIVERSAL_FIXED_CASE_WORDS from '@/data/dictionaries/universal/fixed-case-words.json';
+import UNIVERSAL_MINOR_WORDS_LIST from '@/data/dictionaries/universal/function-words.json';
 import UNIVERSAL_PHRASAL_VERB_ROOTS from '@/data/dictionaries/universal/phrasal-verb-roots.json';
 
 // Re-export specific sets for targeted logic
