@@ -82,68 +82,77 @@ export function toSentenceCase(text: string): string {
             const words = part.split(/\s+/);
             const processedWords: string[] = [];
 
+            // Helper to separate punctuation from word
+            const splitPunctuation = (str: string) => {
+                const match = str.match(/^([^a-zA-Z0-9]*)(.*?)([^a-zA-Z0-9]*)$/);
+                if (!match) return { prefix: '', word: str, suffix: '' };
+                return { prefix: match[1], word: match[2], suffix: match[3] };
+            };
+
             let i = 0;
             while (i < words.length) {
                 const current = words[i];
-                const currentLower = current.toLowerCase().replace(/[^a-z0-9]/g, ''); // rough clean
 
-                // Lookahead for 3 words
+                // --- Lookahead for 3 words ---
                 if (i < words.length - 2) {
-                    const next1 = words[i + 1];
-                    const next2 = words[i + 2];
-                    // Reconstruct strict phrase (cleaning punct might be tricky?)
-                    // "in New York," -> "New York" match?
-                    // Let's check the map against the raw sequence (cleaned of punct for lookup)
+                    const p1 = splitPunctuation(words[i]);
+                    const p2 = splitPunctuation(words[i + 1]);
+                    const p3 = splitPunctuation(words[i + 2]);
 
-                    // Optimization: Just check combined string?
-                    const phrase3 = `${words[i]} ${words[i + 1]} ${words[i + 2]}`;
-                    const clean3 = phrase3.replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase();
+                    const key3 = `${p1.word} ${p2.word} ${p3.word}`.toLowerCase();
 
-                    if (SENTENCE_CASE_EXCEPTIONS_MAP.has(clean3)) {
-                        processedWords.push(SENTENCE_CASE_EXCEPTIONS_MAP.get(clean3)!);
+                    if (SENTENCE_CASE_EXCEPTIONS_MAP.has(key3)) {
+                        const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(key3)!;
+                        // Re-attach punctuation: prefix of first, suffix of last
+                        processedWords.push(`${p1.prefix}${correct}${p3.suffix}`);
                         i += 3;
                         continue;
                     }
                 }
 
-                // Lookahead for 2 words
+                // --- Lookahead for 2 words ---
                 if (i < words.length - 1) {
-                    const phrase2 = `${words[i]} ${words[i + 1]}`;
-                    const clean2 = phrase2.replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase(); // "new york"
+                    const p1 = splitPunctuation(words[i]);
+                    const p2 = splitPunctuation(words[i + 1]);
 
-                    if (SENTENCE_CASE_EXCEPTIONS_MAP.has(clean2)) {
-                        processedWords.push(SENTENCE_CASE_EXCEPTIONS_MAP.get(clean2)!);
+                    const key2 = `${p1.word} ${p2.word}`.toLowerCase();
+
+                    if (SENTENCE_CASE_EXCEPTIONS_MAP.has(key2)) {
+                        const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(key2)!;
+                        processedWords.push(`${p1.prefix}${correct}${p2.suffix}`);
                         i += 2;
                         continue;
                     }
                 }
 
-                // Standard Single Word Processing
-                const cleanWord = current.replace(/[^a-zA-Z0-9]/g, '');
-                const lowerWord = cleanWord.toLowerCase();
+                // --- Single Word ---
+                const p = splitPunctuation(current);
+                const lowerKey = p.word.toLowerCase();
 
-                // Check Map
-                if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerWord)) {
-                    processedWords.push(SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerWord)!);
+                if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerKey)) {
+                    const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerKey)!;
+                    processedWords.push(`${p.prefix}${correct}${p.suffix}`);
                     i++;
                     continue;
                 }
 
-                // First word of sentence -> Capitalize
-                // Note: 'i' here is index in words array.
+                // Capitalize First Word (ignore punctuation for check, but capitalize the word part)
                 if (i === 0) {
-                    processedWords.push(current.charAt(0).toUpperCase() + current.slice(1).toLowerCase());
+                    const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
+                    processedWords.push(`${p.prefix}${capitalized}${p.suffix}`);
                     i++;
                     continue;
                 }
 
-                if (current.toLowerCase() === 'i') {
-                    processedWords.push('I');
+                // "I" Check
+                if (lowerKey === 'i') {
+                    processedWords.push(`${p.prefix}I${p.suffix}`);
                     i++;
                     continue;
                 }
 
-                processedWords.push(current.toLowerCase());
+                // Default Lowercase
+                processedWords.push(`${p.prefix}${p.word.toLowerCase()}${p.suffix}`);
                 i++;
             }
 
