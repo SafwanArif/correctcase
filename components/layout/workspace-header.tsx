@@ -13,7 +13,7 @@ interface WorkspaceHeaderProps {
 
 export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: WorkspaceHeaderProps) {
     return (
-        <header className="flex items-center justify-between p-4 border-b border-border-subtle bg-canvas/50">
+        <header className="flex items-center justify-between p-4 border-b border-border-subtle bg-transparent">
             {/* Left: Identity */}
             <div className="flex items-center gap-4">
                 <Link href="/" className="flex items-center gap-2 group outline-none">

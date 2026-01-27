@@ -193,7 +193,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             </div>
 
             {/* Editor Area - "Paper" Feel */}
-            <div className="flex-1 relative group bg-transparent transition-colors duration-300">
+            <div className="flex-1 relative group bg-canvas/20 transition-colors duration-300">
                 <textarea
                     ref={textareaRef}
                     value={text}
