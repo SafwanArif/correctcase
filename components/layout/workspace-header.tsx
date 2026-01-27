@@ -27,13 +27,13 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                 <button
                     type="button"
                     onClick={onOpenHistory}
-                    className="flex items-center justify-center w-9 h-9 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200"
+                    className="flex items-center justify-center w-10 h-10 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200"
                     title="History"
                     aria-label="View History"
                 >
                     <History className="w-5 h-5" />
                 </button>
-                <div className="w-px h-4 bg-border-subtle/50 ml-1 mr-3" />
+                <div className="w-px h-4 bg-border-subtle/50 ml-0.5 mr-3" />
                 <ThemeToggle />
             </div>
         </header>
