@@ -95,6 +95,6 @@
     --action-active: 65% 0.22 280;
     /* Vivid Indigo/Purple */
 
-    /* Focused Editor/Footer Tint (2026 Black 5% for Dark Mode) */
-    --bg-focus: oklch(var(--neutral-950) / 0.05);
+    /* Focused Editor/Footer Tint (2026 Black 25% for Dark Mode) */
+    --bg-focus: oklch(var(--neutral-950) / 0.25);
 }
