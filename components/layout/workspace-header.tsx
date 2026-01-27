@@ -31,7 +31,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                     title="History"
                     aria-label="View History"
                 >
-                    <History className="w-4 h-4" />
+                    <History className="w-5 h-5" />
                 </button>
                 <div className="w-px h-4 bg-border-subtle/50 mx-1" />
                 <ThemeToggle />
