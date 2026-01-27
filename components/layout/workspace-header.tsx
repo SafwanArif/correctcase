@@ -33,7 +33,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                 >
                     <History className="w-5 h-5" />
                 </button>
-                <div className="w-px h-4 bg-border-subtle/50 mx-3" />
+                <div className="w-px h-4 bg-border-subtle/50 ml-1 mr-3" />
                 <ThemeToggle />
             </div>
         </header>
