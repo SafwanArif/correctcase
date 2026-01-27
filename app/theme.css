@@ -18,6 +18,9 @@
     --color-muted: oklch(var(--text-muted));
 
     --color-border-subtle: oklch(var(--border-subtle));
+
+    /* Semantic Focus Tint */
+    --color-focus: var(--bg-focus);
 }
 
 :root {
@@ -64,6 +67,9 @@
     --action-primary: var(--brand-core);
     --action-active: 60% 0.24 260;
     /* Vivid Electric Blue */
+
+    /* Focused Editor/Footer Tint (Pure White 25% for Light Mode) */
+    --bg-focus: oklch(var(--neutral-0) / 0.25);
 }
 
 .dark {
@@ -88,4 +94,7 @@
     --action-primary: 60% 0.15 260;
     --action-active: 65% 0.22 280;
     /* Vivid Indigo/Purple */
+
+    /* Focused Editor/Footer Tint (2026 Black 5% for Dark Mode) */
+    --bg-focus: oklch(var(--neutral-950) / 0.05);
 }
