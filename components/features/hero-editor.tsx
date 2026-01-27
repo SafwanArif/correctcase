@@ -201,6 +201,9 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     placeholder="Type or paste your text to analyse..."
                     className="w-full h-full p-6 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text"
                     spellCheck={false}
+                    data-gramm="false"
+                    data-gramm_editor="false"
+                    data-enable-grammarly="false"
                 />
 
                 {/* Floating Copy Button - Modern Ghost Style */}
