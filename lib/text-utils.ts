@@ -24,6 +24,22 @@ function processByLine(text: string, processor: (line: string) => string): strin
  * @returns The text in Sentence case.
  */
 export function toSentenceCase(text: string): string {
+    // Helper to escape regex special characters
+    const escapeRegExp = (string: string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+    // Pre-compute multi-word exceptions if possible, or iterate map efficiently.
+    // For performance, we might want to cache this list, but doing it inside the function for safety now.
+    // Filter map keys for ones containing spaces.
+    const multiWordExceptions: string[] = [];
+    SENTENCE_CASE_EXCEPTIONS_MAP.forEach((_, key) => {
+        if (key.includes(' ')) {
+            multiWordExceptions.push(key);
+        }
+    });
+
+    // Sort by length (descending) to match longest phrases first ("New York City" before "New York")
+    multiWordExceptions.sort((a, b) => b.length - a.length);
+
     return processByLine(text, (line) => {
         const sentences = line.split(/([.!?]+[\s]+)/);
 
@@ -32,30 +48,107 @@ export function toSentenceCase(text: string): string {
             if (/^[.!?]+[\s]+$/.test(part)) return part;
             if (!part.trim()) return part;
 
-            // Process the sentence
-            const words = part.split(/\s+/);
+            // --- STEP 0: Multi-Word Replacement Strategy ---
+            // We can't rely on word-by-word tokenization for "New York".
+            // We will identify these phrases in the raw string and temporarily "protect" them
+            // OR, just replace them with their Correct Case version now, and verify they aren't clobbered later?
+            // If we replace "new york" -> "New York", the later word split might re-lowercase them?
+            // "New" -> index 0? -> TitleCase.
+            // "York" -> index 1? -> lowercase?
+            // Yes, the word loop logic `.toLowerCase()` default will clobber it unless we handle it.
 
-            return words.map((word, index) => {
-                // Clean word for checking (remove punctuation)
-                const cleanWord = word.replace(/[^a-zA-Z0-9]/g, '');
+            // Protected Tokens Strategy:
+            // 1. Find matches, replace with a placeholder OR standard format?
+            // 2. Tokenize.
+            // 3. If token matches a known Proper Compound, preserve it.
+
+            // SIMPLER: Use the existing logic but check `SENTENCE_CASE_EXCEPTIONS_MAP` against *combined words*?
+            // No, standard split destroys context.
+
+            // BEST: Pre-process the sentence to apply correct casing for multi-words,
+            // then when splitting, check if the word looks "Already Capitalized" and trust it?
+            // But valid sentence case SHOULD lowercase things that are mistakenly capitalized.
+
+            // Let's use a "Placeholder" approach for Multi-words.
+            // OR: A robust "Tokenize with Compounds" approach.
+
+            // Let's try to match multi-word exceptions in the `part` string
+            // and replace them with their Correct Cased versions, 
+            // BUT we need to ensure the subsequent loop respects them.
+
+            // Actually, let's keep the split logic but LOOK AHEAD.
+            // Similar to 'smartUnhyphenate'.
+
+            const words = part.split(/\s+/);
+            const processedWords: string[] = [];
+
+            let i = 0;
+            while (i < words.length) {
+                const current = words[i];
+                const currentLower = current.toLowerCase().replace(/[^a-z0-9]/g, ''); // rough clean
+
+                // Lookahead for 3 words
+                if (i < words.length - 2) {
+                    const next1 = words[i + 1];
+                    const next2 = words[i + 2];
+                    // Reconstruct strict phrase (cleaning punct might be tricky?)
+                    // "in New York," -> "New York" match?
+                    // Let's check the map against the raw sequence (cleaned of punct for lookup)
+
+                    // Optimization: Just check combined string?
+                    const phrase3 = `${words[i]} ${words[i + 1]} ${words[i + 2]}`;
+                    const clean3 = phrase3.replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase();
+
+                    if (SENTENCE_CASE_EXCEPTIONS_MAP.has(clean3)) {
+                        processedWords.push(SENTENCE_CASE_EXCEPTIONS_MAP.get(clean3)!);
+                        i += 3;
+                        continue;
+                    }
+                }
+
+                // Lookahead for 2 words
+                if (i < words.length - 1) {
+                    const phrase2 = `${words[i]} ${words[i + 1]}`;
+                    const clean2 = phrase2.replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase(); // "new york"
+
+                    if (SENTENCE_CASE_EXCEPTIONS_MAP.has(clean2)) {
+                        processedWords.push(SENTENCE_CASE_EXCEPTIONS_MAP.get(clean2)!);
+                        i += 2;
+                        continue;
+                    }
+                }
+
+                // Standard Single Word Processing
+                const cleanWord = current.replace(/[^a-zA-Z0-9]/g, '');
                 const lowerWord = cleanWord.toLowerCase();
 
-                // Check for Proper Nouns / Acronyms / Brands (Case Insensitive Lookup)
+                // Check Map
                 if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerWord)) {
-                    return SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerWord)!;
+                    processedWords.push(SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerWord)!);
+                    i++;
+                    continue;
                 }
 
-                // First word of sentence -> Capitalize (if not an exception)
-                if (index === 0) {
-                    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+                // First word of sentence -> Capitalize
+                // Note: 'i' here is index in words array.
+                if (i === 0) {
+                    processedWords.push(current.charAt(0).toUpperCase() + current.slice(1).toLowerCase());
+                    i++;
+                    continue;
                 }
 
-                // Check if it's "I" (conceptually a proper noun in English)
-                if (word.toLowerCase() === 'i') return 'I';
+                if (current.toLowerCase() === 'i') {
+                    processedWords.push('I');
+                    i++;
+                    continue;
+                }
 
-                // Default: lowercase
-                return word.toLowerCase();
-            }).join(' ');
+                processedWords.push(current.toLowerCase());
+                i++;
+            }
+
+            return processedWords.join(' ');
+
         }).join('');
     });
 }
