@@ -121,7 +121,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
         <div className="flex flex-col flex-1 w-full bg-transparent relative transition-colors duration-300 select-none">
 
             {/* Toolbar - Crisp & Professional */}
-            <div className="flex flex-wrap items-center gap-3 p-3 border-b border-border-subtle bg-canvas">
+            <div className="flex flex-wrap items-center gap-3 p-3 border-b border-border-subtle bg-transparent">
 
                 {/* Case Tools Group - Nested Logic */}
                 {showCaseTools && (
@@ -193,13 +193,13 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             </div>
 
             {/* Editor Area - "Paper" Feel */}
-            <div className="flex-1 relative group bg-surface transition-colors duration-300">
+            <div className="flex-1 relative group bg-transparent transition-colors duration-300">
                 <textarea
                     ref={textareaRef}
                     value={text}
                     onChange={handleTextChange}
                     placeholder="Type or paste your text to analyse..."
-                    className="w-full h-full p-6 bg-surface border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text relative z-10"
+                    className="w-full h-full p-6 bg-transparent border-none outline-none resize-none text-body text-lg leading-relaxed placeholder:text-muted font-sans select-text relative z-10"
                     spellCheck={false}
                 />
 
