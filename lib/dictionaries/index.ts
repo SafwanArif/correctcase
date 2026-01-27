@@ -9,7 +9,8 @@ import UNIVERSAL_COMPOUNDS from '@/data/dictionaries/universal/compounds.json';
 import UK_COMPOUNDS from '@/data/dictionaries/en-GB/compounds.json';
 import US_COMPOUNDS from '@/data/dictionaries/en-US/compounds.json';
 
-import UNIVERSAL_FIXED_CASE_WORDS from '@/data/dictionaries/universal/fixed-case-words.json';
+import UNIVERSAL_ACRONYMS from '@/data/dictionaries/universal/acronyms.json';
+import UNIVERSAL_BRANDS from '@/data/dictionaries/universal/brands.json';
 import UNIVERSAL_LOCATIONS from '@/data/dictionaries/universal/locations.json';
 import UNIVERSAL_NAMES from '@/data/dictionaries/universal/names.json';
 
@@ -23,7 +24,8 @@ export const PHRASAL_VERB_ROOTS = new Set(UNIVERSAL_PHRASAL_VERB_ROOTS);
 // Case-insensitive lookup map for exceptions (lowercase -> original)
 // Merges Universal + Regional lists (Regional takes precedence if conflict, though unlikely for these sets)
 const ALL_EXCEPTIONS = [
-    ...UNIVERSAL_FIXED_CASE_WORDS,
+    ...UNIVERSAL_ACRONYMS,
+    ...UNIVERSAL_BRANDS,
     ...UNIVERSAL_LOCATIONS,
     ...UNIVERSAL_NAMES
 ];
