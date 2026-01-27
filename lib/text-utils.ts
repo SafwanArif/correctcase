@@ -7,46 +7,57 @@
 
 import { GLOBAL_COMPOUND_WORDS, SENTENCE_CASE_EXCEPTIONS_MAP, US_MINOR_WORDS } from '@/lib/dictionaries';
 
+// Helper: Process text line-by-line
+function processByLine(text: string, processor: (line: string) => string): string {
+    if (!text) return '';
+    // Split by newlines, process each line, join back
+    return text.split('\n').map(line => {
+        // If line is empty or just whitespace, preserve it
+        if (!line.trim()) return line;
+        return processor(line);
+    }).join('\n');
+}
+
 /**
  * Converts text to Sentence case, preserving common UK acronyms.
  * @param text The input text to normalise.
  * @returns The text in Sentence case.
  */
 export function toSentenceCase(text: string): string {
-    if (!text) return '';
+    return processByLine(text, (line) => {
+        const sentences = line.split(/([.!?]+[\s]+)/);
 
-    const sentences = text.split(/([.!?]+[\s\n]+)/);
+        return sentences.map(part => {
+            // If it's just punctuation/whitespace, return as is
+            if (/^[.!?]+[\s]+$/.test(part)) return part;
+            if (!part.trim()) return part;
 
-    return sentences.map(part => {
-        // If it's just punctuation/whitespace, return as is
-        if (/^[.!?]+[\s\n]+$/.test(part)) return part;
-        if (!part.trim()) return part;
+            // Process the sentence
+            const words = part.split(/\s+/);
 
-        // Process the sentence
-        const words = part.split(/\s+/);
+            return words.map((word, index) => {
+                // Clean word for checking (remove punctuation)
+                const cleanWord = word.replace(/[^a-zA-Z0-9]/g, '');
+                const lowerWord = cleanWord.toLowerCase();
 
-        return words.map((word, index) => {
-            // Clean word for checking (remove punctuation)
-            const cleanWord = word.replace(/[^a-zA-Z0-9]/g, '');
-            const lowerWord = cleanWord.toLowerCase();
+                // Check for Proper Nouns / Acronyms / Brands (Case Insensitive Lookup)
+                if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerWord)) {
+                    return SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerWord)!;
+                }
 
-            // Check for Proper Nouns / Acronyms / Brands (Case Insensitive Lookup)
-            if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerWord)) {
-                return SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerWord)!;
-            }
+                // First word of sentence -> Capitalize (if not an exception)
+                if (index === 0) {
+                    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+                }
 
-            // First word of sentence -> Capitalize (if not an exception)
-            if (index === 0) {
-                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-            }
+                // Check if it's "I" (conceptually a proper noun in English)
+                if (word.toLowerCase() === 'i') return 'I';
 
-            // Check if it's "I" (conceptually a proper noun in English)
-            if (word.toLowerCase() === 'i') return 'I';
-
-            // Default: lowercase
-            return word.toLowerCase();
-        }).join(' ');
-    }).join('');
+                // Default: lowercase
+                return word.toLowerCase();
+            }).join(' ');
+        }).join('');
+    });
 }
 
 /**
@@ -58,35 +69,34 @@ export function toSentenceCase(text: string): string {
  * @returns The text in Title Case.
  */
 export function toTitleCase(text: string): string {
-    if (!text) return '';
+    return processByLine(text, (line) => {
+        const words = line.split(/\s+/);
 
-    const words = text.split(/\s+/);
+        return words.map((word, index) => {
+            const lowerVal = word.toLowerCase();
 
-    return words.map((word, index) => {
-        const lowerVal = word.toLowerCase();
-        const upperVal = word.toUpperCase();
+            // 0. Pronoun 'I' Check (Always Capitalize)
+            if (lowerVal === 'i') return 'I';
 
-        // 0. Pronoun 'I' Check (Always Capitalize)
-        if (lowerVal === 'i') return 'I';
+            // 1. Acronym/Exception Check (Priority)
+            if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerVal)) {
+                return SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerVal)!;
+            }
 
-        // 1. Acronym/Exception Check (Priority)
-        if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerVal)) {
-            return SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerVal)!;
-        }
+            // 2. First or Last Word Check -> Always Capitalize
+            if (index === 0 || index === words.length - 1) {
+                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            }
 
-        // 2. First or Last Word Check -> Always Capitalize
-        if (index === 0 || index === words.length - 1) {
+            // 3. Minor Word Check -> Lowercase
+            if (US_MINOR_WORDS.has(lowerVal)) {
+                return lowerVal;
+            }
+
+            // 4. Default -> Title Case
             return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-        }
-
-        // 3. Minor Word Check -> Lowercase
-        if (US_MINOR_WORDS.has(lowerVal)) {
-            return lowerVal;
-        }
-
-        // 4. Default -> Title Case
-        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-    }).join(' ');
+        }).join(' ');
+    });
 }
 
 /**
