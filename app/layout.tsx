@@ -87,7 +87,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[oklch(var(--background))] text-[oklch(var(--foreground))] selection:bg-[oklch(var(--primary)/0.2)]`}
+        className={`${geistSans.variable} ${geistMono.variable} selection:bg-[oklch(var(--primary)/0.2)]`}
       >
         <Providers>
           {children}
