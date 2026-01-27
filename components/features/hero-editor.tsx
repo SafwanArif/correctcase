@@ -253,7 +253,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                 </div>
 
                 {/* Trust Message (Right) */}
-                <div className="flex items-center gap-2 text-[10px] text-muted font-medium opacity-70">
+                <div className="hidden sm:flex items-center gap-2 text-[10px] text-muted font-medium opacity-70">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>
                     <span>100% CLIENT-SIDE • PRIVACY FIRST</span>
                 </div>

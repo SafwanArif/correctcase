@@ -23,7 +23,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
             </div>
 
             {/* Right: System Actions */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center">
                 <button
                     type="button"
                     onClick={onOpenHistory}
@@ -33,7 +33,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                 >
                     <History className="w-5 h-5" />
                 </button>
-                <div className="w-px h-4 bg-border-subtle/50 mx-1" />
+                <div className="w-px h-4 bg-border-subtle/50 mx-3" />
                 <ThemeToggle />
             </div>
         </header>
