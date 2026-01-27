@@ -6,18 +6,18 @@
 @theme {
     /* TAILWIND MAPPING */
     /* Maps Semantic Variables to Utility Classes */
-    --color-canvas: var(--bg-canvas);
-    --color-surface: var(--bg-surface);
-    --color-elevated: var(--bg-elevated);
+    --color-canvas: oklch(var(--bg-canvas));
+    --color-surface: oklch(var(--bg-surface));
+    --color-elevated: oklch(var(--bg-elevated));
 
-    --color-primary: var(--action-primary);
-    --color-primary-fg: var(--text-on-primary);
-    --color-active-item: var(--action-active);
+    --color-primary: oklch(var(--action-primary));
+    --color-primary-fg: oklch(var(--text-on-primary));
+    --color-active-item: oklch(var(--action-active));
 
-    --color-body: var(--text-primary);
-    --color-muted: var(--text-muted);
+    --color-body: oklch(var(--text-primary));
+    --color-muted: oklch(var(--text-muted));
 
-    --color-border-subtle: var(--border-subtle);
+    --color-border-subtle: oklch(var(--border-subtle));
 }
 
 :root {
