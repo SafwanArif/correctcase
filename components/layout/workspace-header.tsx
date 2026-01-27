@@ -13,7 +13,7 @@ interface WorkspaceHeaderProps {
 
 export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: WorkspaceHeaderProps) {
     return (
-        <header className="flex items-center justify-between p-4 border-b border-border-subtle bg-transparent">
+        <header className="flex items-center justify-between px-4 py-3.5 border-b border-border-subtle bg-transparent">
             {/* Left: Identity */}
             <div className="flex items-center gap-4">
                 <Link href="/" className="flex items-center gap-2 group outline-none">
@@ -31,7 +31,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                     title="History"
                     aria-label="View History"
                 >
-                    <History className="w-5 h-5" />
+                    <History className="w-6 h-6" />
                 </button>
                 <div className="w-px h-4 bg-border-subtle/50 ml-0.5 mr-3" />
                 <ThemeToggle />
