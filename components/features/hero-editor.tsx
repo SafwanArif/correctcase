@@ -223,13 +223,20 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             {/* Dedicated Footer - Stats & Trust */}
             <div className="relative h-10 border-t border-border-subtle bg-focus backdrop-blur-sm px-6 flex items-center justify-between select-none">
 
-                {/* Stats Logic (Left) */}
-                <div className="flex items-center gap-4 text-[10px] font-mono font-medium text-muted">
-                    <span>{countWords(text)} WORDS</span>
-                    <span className="w-px h-3 bg-border-subtle" />
-                    <span>{countCharacters(text)} CHARS</span>
-                </div>
+                {/* Left Side Group */}
+                <div className="flex items-center">
+                    {/* Desktop Stats: Combined */}
+                    <div className="hidden sm:flex items-center gap-4 text-[10px] font-mono font-medium text-muted">
+                        <span>{countWords(text)} WORDS</span>
+                        <span className="w-px h-3 bg-border-subtle" />
+                        <span>{countCharacters(text)} CHARS</span>
+                    </div>
 
+                    {/* Mobile Stats: Words Only (Left) */}
+                    <div className="flex sm:hidden items-center text-[10px] font-mono font-medium text-muted">
+                        <span>{countWords(text)} WORDS</span>
+                    </div>
+                </div>
 
                 {/* Center - Undo/Redo Controls */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1">
@@ -252,10 +259,18 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     </button>
                 </div>
 
-                {/* Trust Message (Right) */}
-                <div className="hidden sm:flex items-center gap-2 text-[10px] text-muted font-medium opacity-70">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>
-                    <span>100% CLIENT-SIDE • PRIVACY FIRST</span>
+                {/* Right Side Group */}
+                <div className="flex items-center">
+                    {/* Mobile Stats: Chars Only (Right) */}
+                    <div className="flex sm:hidden items-center text-[10px] font-mono font-medium text-muted">
+                        <span>{countCharacters(text)} CHARS</span>
+                    </div>
+
+                    {/* Trust Message (Desktop Only) */}
+                    <div className="hidden sm:flex items-center gap-2 text-[10px] text-muted font-medium opacity-70">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>
+                        <span>100% CLIENT-SIDE • PRIVACY FIRST</span>
+                    </div>
                 </div>
             </div>
         </div>
