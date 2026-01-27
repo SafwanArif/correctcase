@@ -7,8 +7,8 @@
     /* TAILWIND MAPPING */
     /* Maps Semantic Variables to Utility Classes */
     --color-canvas: oklch(var(--bg-canvas));
-    --color-surface: oklch(var(--bg-surface));
-    --color-elevated: oklch(var(--bg-elevated));
+    --color-surface: oklch(var(--bg-surface) / 0.75);
+    --color-elevated: oklch(var(--bg-elevated) / 0.75);
 
     --color-primary: oklch(var(--action-primary));
     --color-primary-fg: oklch(var(--text-on-primary));

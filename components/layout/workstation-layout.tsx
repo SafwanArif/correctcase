@@ -16,7 +16,7 @@ export function WorkstationLayout({ children, activeTab = 'text' }: WorkstationL
     return (
         <Shell>
             {/* The Unified Workstation Box */}
-            <div className="flex flex-col w-full max-w-5xl h-[85vh] bg-surface rounded-3xl border border-border-subtle shadow-depth dark:shadow-none overflow-hidden">
+            <div className="flex flex-col w-full max-w-5xl h-[85vh] bg-surface backdrop-blur-2xl rounded-3xl border border-border-subtle shadow-depth dark:shadow-none overflow-hidden">
 
                 {/* Integrated Header */}
                 <WorkspaceHeader
