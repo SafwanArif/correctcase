@@ -99,14 +99,32 @@ export function toSentenceCase(text: string): string {
                     const p2 = splitPunctuation(words[i + 1]);
                     const p3 = splitPunctuation(words[i + 2]);
 
-                    const key3 = `${p1.word} ${p2.word} ${p3.word}`.toLowerCase();
+                    const rawKey = `${p1.word} ${p2.word} ${p3.word}`;
+                    const key3 = rawKey.toLowerCase();
 
                     if (SENTENCE_CASE_EXCEPTIONS_MAP.has(key3)) {
                         const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(key3)!;
-                        // Re-attach punctuation: prefix of first, suffix of last
                         processedWords.push(`${p1.prefix}${correct}${p3.suffix}`);
                         i += 3;
                         continue;
+                    }
+
+                    // Try removing 's from last word (Possessive check)
+                    if (p3.word.toLowerCase().endsWith("'s")) {
+                        const base3 = p3.word.slice(0, -2);
+                        const key3Possessive = `${p1.word} ${p2.word} ${base3}`.toLowerCase();
+                        if (SENTENCE_CASE_EXCEPTIONS_MAP.has(key3Possessive)) {
+                            const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(key3Possessive)!;
+                            // We matched "da Vinci", but input was "da Vinci's"
+                            // Correct is "da Vinci". We simply append "'s" to the output of the last word part?
+                            // "da Vinci" is the string. We need to split correct string back? 
+                            // No, correct string is "da Vinci" (space separated).
+                            // We can just append 's to the end of the correct string?
+                            // "da Vinci" + "'s" -> "da Vinci's".
+                            processedWords.push(`${p1.prefix}${correct}'s${p3.suffix}`);
+                            i += 3;
+                            continue;
+                        }
                     }
                 }
 
@@ -115,7 +133,8 @@ export function toSentenceCase(text: string): string {
                     const p1 = splitPunctuation(words[i]);
                     const p2 = splitPunctuation(words[i + 1]);
 
-                    const key2 = `${p1.word} ${p2.word}`.toLowerCase();
+                    const rawKey = `${p1.word} ${p2.word}`;
+                    const key2 = rawKey.toLowerCase();
 
                     if (SENTENCE_CASE_EXCEPTIONS_MAP.has(key2)) {
                         const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(key2)!;
@@ -123,17 +142,41 @@ export function toSentenceCase(text: string): string {
                         i += 2;
                         continue;
                     }
+
+                    // Possessive Check
+                    if (p2.word.toLowerCase().endsWith("'s")) {
+                        const base2 = p2.word.slice(0, -2);
+                        const key2Possessive = `${p1.word} ${base2}`.toLowerCase();
+                        if (SENTENCE_CASE_EXCEPTIONS_MAP.has(key2Possessive)) {
+                            const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(key2Possessive)!;
+                            processedWords.push(`${p1.prefix}${correct}'s${p2.suffix}`);
+                            i += 2;
+                            continue;
+                        }
+                    }
                 }
 
                 // --- Single Word ---
                 const p = splitPunctuation(current);
                 const lowerKey = p.word.toLowerCase();
 
+                // 1. Direct Match
                 if (SENTENCE_CASE_EXCEPTIONS_MAP.has(lowerKey)) {
                     const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerKey)!;
                     processedWords.push(`${p.prefix}${correct}${p.suffix}`);
                     i++;
                     continue;
+                }
+
+                // 2. Possessive Match (word's -> word)
+                if (lowerKey.endsWith("'s")) {
+                    const baseKey = lowerKey.slice(0, -2);
+                    if (SENTENCE_CASE_EXCEPTIONS_MAP.has(baseKey)) {
+                        const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(baseKey)!;
+                        processedWords.push(`${p.prefix}${correct}'s${p.suffix}`);
+                        i++;
+                        continue;
+                    }
                 }
 
                 // Capitalize First Word (ignore punctuation for check, but capitalize the word part)
