@@ -193,7 +193,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             </div>
 
             {/* Editor Area - "Paper" Feel */}
-            <div className="flex-1 relative group bg-[oklch(var(--neutral-0)/0.2)] dark:bg-[oklch(var(--neutral-950)/0.2)] transition-colors duration-300">
+            <div className="flex-1 relative group bg-white/25 dark:bg-[oklch(var(--neutral-950)/0.05)] transition-colors duration-300">
                 <textarea
                     ref={textareaRef}
                     value={text}
@@ -221,7 +221,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
             </div>
 
             {/* Dedicated Footer - Stats & Trust */}
-            <div className="relative h-10 border-t border-border-subtle bg-[oklch(var(--neutral-0)/0.3)] dark:bg-[oklch(var(--neutral-950)/0.3)] backdrop-blur-sm px-6 flex items-center justify-between select-none">
+            <div className="relative h-10 border-t border-border-subtle bg-white/25 dark:bg-[oklch(var(--neutral-950)/0.05)] backdrop-blur-sm px-6 flex items-center justify-between select-none">
 
                 {/* Stats Logic (Left) */}
                 <div className="flex items-center gap-4 text-[10px] font-mono font-medium text-muted">
