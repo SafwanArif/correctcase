@@ -83,9 +83,49 @@ export function toSentenceCase(text: string): string {
             const processedWords: string[] = [];
 
             // Helper to separate punctuation from word
+            // We only want to strip "wrapping" punctuation (brackets, quotes, terminal punct).
+            // We MUST preserve internal hyphens and apostrophes (e.g. "O'Reilly", "post-Covid", "Levi's").
             const splitPunctuation = (str: string) => {
-                const match = str.match(/^([^a-zA-Z0-9]*)(.*?)([^a-zA-Z0-9]*)$/);
-                if (!match) return { prefix: '', word: str, suffix: '' };
+                // Match leading non-word chars that include open brackets/quotes
+                const match = str.match(/^([^\w]*)(.*?)([^\w]*)$/);
+                // Problem: [^\w] matches hyphen and apostrophe.
+
+                // Let's be manual.
+                // Strip specifically: . , ! ? : ; " ' ( ) [ ] { } < >
+                // But wait, " ' " is ambiguous. " 'Tis " vs " John's ".
+
+                // Regex: 
+                // Prefix: ^[^a-zA-Z0-9]*
+                // BUT exclude hyphen/apos? 
+
+                // Better: Trim strictly known punctuation from ends.
+                /*
+                chars to strip: . , ! ? : ; ( ) [ ] { } " “ ” ‘ ’
+                chars to keep: - ' (apostrophe inside)
+                */
+
+                // Let's use a simpler approach:
+                // match anything that isn't a letter or number at start/end
+                // BUT if the character is ' or - AND it's "inside" (checked later), we might want it?
+                // No, "Stratford-upon-Avon" -> - is inside.
+                // "-Word" -> - is prefix.
+
+                // Safe Regex for "Cleaning" word for lookup:
+                // We assume dictionary keys ALWAYS have trimmed punctuation.
+
+                // Try: match ([a-zA-Z0-9].*[a-zA-Z0-9]) 
+                // This grabs everything from first Alphanum to last Alphanum.
+                // "Levi's" -> "Levi's". (s is alphanum).
+                // "post-Covid" -> "post-Covid".
+                // "('Hello')" -> "Hello".
+                // "world." -> "world".
+                // "strategy..." -> "strategy".
+
+                const match = str.match(/^([^a-zA-Z0-9]*)([a-zA-Z0-9].*[a-zA-Z0-9]|[a-zA-Z0-9])([^a-zA-Z0-9]*)$/);
+                if (!match) {
+                    // If no textual content (e.g. "...")
+                    return { prefix: str, word: '', suffix: '' };
+                }
                 return { prefix: match[1], word: match[2], suffix: match[3] };
             };
 
