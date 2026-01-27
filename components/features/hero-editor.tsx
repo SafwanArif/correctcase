@@ -300,7 +300,7 @@ function ActionButton({ onClick, icon, label, isActive, variant = "primary", cla
 
                 // Secondary Variant (Teal/Accent)
                 variant === "secondary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
-                variant === "secondary" && isActive && "bg-teal-500/10 text-teal-400 border border-teal-500/30 shadow-sm",
+                variant === "secondary" && isActive && "bg-[oklch(var(--brand-secondary)/0.1)] text-[oklch(var(--brand-secondary))] border-[oklch(var(--brand-secondary)/0.3)] border shadow-sm",
 
                 // Toolbar Item (Borderless, Small, Uniform)
                 variant === "toolbar-item" && "h-9 text-xs px-3 border-none shadow-none",
@@ -315,7 +315,7 @@ function ActionButton({ onClick, icon, label, isActive, variant = "primary", cla
             )}
         >
             {icon}
-            <span className={cn("text-center", variant === "primary" ? "min-w-[60px]" : "")}>{label}</span>
+            <span className={cn("text-center", variant === "primary" ? "min-w-16" : "")}>{label}</span>
         </button>
     );
 }
