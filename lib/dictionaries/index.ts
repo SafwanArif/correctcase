@@ -22,9 +22,6 @@ export const SENTENCE_CASE_EXCEPTIONS_MAP = new Map(
     ALL_EXCEPTIONS.map(word => [word.toLowerCase(), word])
 );
 
-// Keep Set for structural checks if needed, but Map is preferred for normalization
-export const SENTENCE_CASE_EXCEPTIONS = new Set(ALL_EXCEPTIONS);
-
 // Global Compound List (The "Antigravity" Database)
 // Aggregates Universal + Regional Dictionaries
 export const GLOBAL_COMPOUND_WORDS = new Set([

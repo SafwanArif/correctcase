@@ -192,15 +192,11 @@ export function smartUnhyphenate(text: string): string {
         i++;
     }
 
+
+
     // Join with spaces and apply Sentence Case
     const rawSentence = recoveredParts.join(' ');
     // Handle special case where user might want to re-hyphenate a sentence that was just unhyphenated?
     // No, unhyphenate is strictly Slug -> Sentence with compounds.
     return toSentenceCase(rawSentence);
 }
-
-// Re-export recovering function aliases if needed
-// Re-export recovering function aliases if needed
-export const toSlug = toHyphenated; // Alias for backward compat
-export const fromSlug = smartUnhyphenate;
-export const isSlug = isHyphenated;
