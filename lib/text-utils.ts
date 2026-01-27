@@ -179,7 +179,73 @@ export function toSentenceCase(text: string): string {
                     }
                 }
 
+                // 3. Hyphenated Part Check (e.g. post-covid -> post-Covid, un-american -> un-American)
+                if (lowerKey.includes('-')) {
+                    const parts = lowerKey.split('-');
+                    // Check if any part is in the dictionary
+                    const partsRecovered = parts.map((part, idx) => {
+                        // Check raw part
+                        if (SENTENCE_CASE_EXCEPTIONS_MAP.has(part)) {
+                            return SENTENCE_CASE_EXCEPTIONS_MAP.get(part)!;
+                        }
+                        // Retain original casing if not found? No, we are in sentence case, so lowercase default.
+                        return part;
+                    });
+
+                    const reconstructed = partsRecovered.join('-');
+                    if (reconstructed !== lowerKey) {
+                        processedWords.push(`${p.prefix}${reconstructed}${p.suffix}`);
+                        i++;
+                        continue;
+                    }
+                }
+
                 // Capitalize First Word (ignore punctuation for check, but capitalize the word part)
+                if (i === 0) {
+                    // Check if we just did the hyphenated reconstruction?
+                    // If we did, we might have `post-Covid`.
+                    // We still need to capitalize the first letter `Post-Covid` if it's the start of sentence.
+
+                    // Actually, if we fell through to here, it means we didn't find a special casing EXCEPT maybe we want to force capitalize the result of the hyphen check?
+                    // But the hyphen check `continue`d if it found a match.
+
+                    // Re-run logic for "First Word Capitalization" on the hyphenated result?
+                    // Complex.
+
+                    // Let's modify the Hyphen block to NOT continue if i===0?
+                    // Or let's just handle i===0 explicitly inside the blocks.
+                }
+
+                // REVISION:
+                // If hyphen match found:
+                //   If i===0, capitalize the first char of the reconstructed string.
+                //   Push. Continue.
+
+                // Let's rewrite the block above.
+                if (lowerKey.includes('-')) {
+                    const parts = lowerKey.split('-');
+                    const partsRecovered = parts.map(part => {
+                        if (SENTENCE_CASE_EXCEPTIONS_MAP.has(part)) {
+                            return SENTENCE_CASE_EXCEPTIONS_MAP.get(part)!;
+                        }
+                        return part;
+                    });
+
+                    const reconstructed = partsRecovered.join('-');
+
+                    // If we changed anything OR if it's the first word, we use this constructed version
+                    if (reconstructed !== lowerKey || i === 0) {
+                        let final = reconstructed;
+                        if (i === 0) {
+                            final = final.charAt(0).toUpperCase() + final.slice(1);
+                        }
+                        processedWords.push(`${p.prefix}${final}${p.suffix}`);
+                        i++;
+                        continue;
+                    }
+                }
+
+                // Capitalize First Word (Standard)
                 if (i === 0) {
                     const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
                     processedWords.push(`${p.prefix}${capitalized}${p.suffix}`);
