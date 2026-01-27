@@ -37,7 +37,7 @@ export function ThemeToggle() {
             bg-elevated
             border border-border-subtle
             toggle-spring transform
-             ${isDark ? "translate-x-[22px]" : "translate-x-0"}
+             ${isDark ? "translate-x-full" : "translate-x-0"}
         `}
             >
                 {isDark ? (
