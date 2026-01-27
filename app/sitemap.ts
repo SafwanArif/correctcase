@@ -12,6 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/sentence-case',
         '/title-case',
         '/slug-generator',
+        '/hyphenate-text',
         // Add other planned routes
     ];
 

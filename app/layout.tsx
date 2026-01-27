@@ -20,16 +20,41 @@ export const metadata: Metadata = {
     template: "%s | CorrectCase",
     default: "CorrectCase | Privacy-First Text Utilities",
   },
-  description: "Free privacy-first text tools for British English. Convert Case, formatting, and grammar locally in your browser. No data leaves your device.",
+  description: "Free, privacy-first text tools for British English. Convert Case, formatting, and grammar locally in your browser. No data leaves your device.",
   applicationName: "CorrectCase",
-  authors: [{ name: "CorrectCase Team" }],
-  keywords: ["text converter", "sentence case", "title case", "british english", "privacy first"],
+  authors: [{ name: "Safwan", url: "https://correctcase.co.uk" }],
+  keywords: ["text converter", "sentence case", "title case", "british english", "privacy first", "offline tool"],
+  metadataBase: new URL("https://correctcase.co.uk"),
   alternates: {
-    canonical: "https://correctcase.co.uk",
+    canonical: "/",
+    languages: {
+      'en-GB': '/',
+    },
+  },
+  openGraph: {
+    title: "CorrectCase | Privacy-First Text Utilities",
+    description: "Instant text conversion tool. 100% Client-Side. No servers, no tracking, just utility.",
+    url: "https://correctcase.co.uk",
+    siteName: "CorrectCase",
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CorrectCase",
+    description: "Privacy-first text tools. Zero server data.",
+    creator: "@SafwanArif",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
