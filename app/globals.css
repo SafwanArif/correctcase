@@ -113,7 +113,14 @@ body {
   animation-delay: 4s;
 }
 
+/* Ghost Text Fix: Only style selection on authorized elements, hiding extension mirrors */
 ::selection {
+  background: transparent;
+}
+
+textarea::selection,
+input::selection,
+.select-text::selection {
   background-color: oklch(var(--brand-core) / 0.2);
   color: oklch(var(--text-primary));
 }
