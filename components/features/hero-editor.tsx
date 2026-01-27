@@ -208,7 +208,7 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
                     <button
                         onClick={copyToClipboard}
                         className={cn(
-                            "flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-b-md transition-all duration-200 backdrop-blur-sm opacity-40 group-hover:opacity-60 group-focus-within:opacity-60 hover:!opacity-100",
+                            "flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-b-md transition-all duration-200 backdrop-blur-sm opacity-50 group-hover:opacity-75 group-focus-within:opacity-75 hover:!opacity-100",
                             isCopied
                                 ? "bg-[oklch(var(--brand-core)/0.15)] text-primary opacity-100"
                                 : "bg-elevated/50 hover:bg-elevated text-muted hover:text-body border-b border-x border-border-subtle"
