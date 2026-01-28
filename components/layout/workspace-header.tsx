@@ -68,7 +68,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                     isToolActive ? "left-16 translate-x-0" : "left-1/2 -translate-x-1/2"
                 )}
             >
-                <Link href="/" className="flex items-center gap-[5px] group outline-none" onClick={() => {
+                <Link href="/" className="flex items-center gap-1.5 group outline-none" onClick={() => {
                     // Optional: Reset URL if needed, handled by Link href="/"
                 }}>
                     <Logo className="w-8 h-8 flex-shrink-0" />
