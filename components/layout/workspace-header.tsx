@@ -23,16 +23,16 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
 
     // Logic mirroring HeroEditor state
     if (pathname === "/capitalise-title") {
-        if (style === 'us') activeToolName = "US Title Case";
-        else if (style === 'uk') activeToolName = "UK Sentence Case";
-        else activeToolName = "Title Case"; // Default route without style
+        if (style === 'us') activeToolName = "US Title Case Converter";
+        else if (style === 'uk') activeToolName = "UK Sentence Case Converter";
+        else activeToolName = "Title Case Converter"; // Default
     } else if (pathname === "/hyphenate-text") {
-        activeToolName = "Hyphenator";
+        activeToolName = "Smart Hyphenator & Grammar Tool"; // High impact
     }
 
     // If style param is present on root (legacy support or initial load redirects)
-    if (pathname === "/" && style === 'uk') activeToolName = "UK Sentence Case";
-    if (pathname === "/" && style === 'us') activeToolName = "US Title Case";
+    if (pathname === "/" && style === 'uk') activeToolName = "UK Sentence Case Converter";
+    if (pathname === "/" && style === 'us') activeToolName = "US Title Case Converter";
 
     const isToolActive = !!activeToolName;
 
