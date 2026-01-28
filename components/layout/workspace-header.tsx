@@ -43,78 +43,56 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
     return (
         <header className="relative flex items-center justify-between px-4 py-3.5 border-b border-border-subtle bg-transparent h-[60px] overflow-hidden">
 
-            {/* Left: History Button (Static) */}
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 z-30">
-                <button
-                    type="button"
-                    onClick={onOpenHistory}
-                    className="flex items-center justify-center w-10 h-10 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]"
-                    title="History"
-                    aria-label="View History"
-                >
-                    <History className="w-6 h-6" />
-                </button>
-            </div>
-
-            {/* Left/Center: Dynamic Logo Area */}
-            {/* 
-                Animation Logic:
-                - Default (Home): left-1/2 -translate-x-1/2
-                - Active (Tool): left-16 translate-x-0 (Shifted to clear Toggle)
-            */}
-            <div
-                className={cn(
-                    "absolute top-1/2 -translate-y-1/2 flex items-center gap-2 z-20",
-                    isToolActive ? "left-16 translate-x-0" : "left-1/2 -translate-x-1/2"
-                )}
-            >
-                <Link href="/"
-                    className={cn(
-                        "flex items-center group outline-none relative h-8",
-                        isToolActive ? "justify-start" : "justify-center"
-                    )}
+            {/* Left: Logo & Wordmark */}
+            <div className="flex items-center z-20">
+                <Link
+                    href="/"
+                    className="flex items-center gap-1 group outline-none"
                     onClick={() => {
-                        // Optional: Reset URL if needed
-                    }}>
-                    <div className={cn(
-                        "flex-shrink-0 transition-none",
-                        isToolActive ? "relative" : "absolute right-full mr-1"
+                        // Reset if needed
+                    }}
+                >
+                    <Logo className="w-8 h-8 flex-shrink-0" />
+                    <span className={cn(
+                        "font-bold text-lg tracking-tight text-body whitespace-nowrap transition-opacity duration-300",
+                        // Mobile: Hide text if Tool is active (to make room for H1)
+                        // Desktop: Always show
+                        isToolActive ? "opacity-0 invisible w-0 md:visible md:opacity-100 md:w-auto" : "opacity-100"
                     )}>
-                        <Logo className="w-8 h-8" />
-                    </div>
-
-                    {/* Brand Text: Fades out when Tool is active */}
-                    <span
-                        aria-hidden={isToolActive}
-                        className={cn(
-                            "font-bold text-lg tracking-tight text-body whitespace-nowrap origin-left",
-                            isToolActive ? "opacity-0 w-0 scale-90 overflow-hidden" : "opacity-100 w-auto scale-100"
-                        )}
-                    >
                         CorrectCase
                     </span>
                 </Link>
             </div>
 
-            {/* Center: Tool H1 Title */}
-            {/* 
-                Animation Logic:
-                - Default: Opacity 0, Scale 95
-                - Active: Opacity 100, Scale 100
-            */}
+            {/* Center: Tool H1 Title (Absolute) */}
             <div className={cn(
                 "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-full max-w-[60%] pointer-events-none z-10",
-                isToolActive ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-95 blur-sm translate-y-2"
+                isToolActive ? "opacity-100 scale-100" : "opacity-0 scale-95"
             )}>
                 {activeToolName && (
-                    <h1 className="font-bold text-lg tracking-tight text-body text-center truncate px-4">
+                    <h1 className="font-bold text-lg tracking-tight text-body text-center truncate px-2">
                         {activeToolName}
                     </h1>
                 )}
             </div>
 
-            {/* Right: Theme Toggle */}
-            <div className="flex items-center ml-auto relative z-20">
+            {/* Right: History | Toggle */}
+            <div className="flex items-center gap-3 z-20">
+                {/* History Button */}
+                <button
+                    type="button"
+                    onClick={onOpenHistory}
+                    className="flex items-center justify-center w-10 h-10 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))]"
+                    title="History"
+                    aria-label="View History"
+                >
+                    <History className="w-5 h-5" />
+                </button>
+
+                {/* Divider */}
+                <div className="h-5 w-px bg-border-subtle" aria-hidden="true" />
+
+                {/* Theme Toggle */}
                 <ThemeToggle />
             </div>
         </header>
