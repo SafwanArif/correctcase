@@ -49,10 +49,31 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                 - Default (Home): left-1/2 -translate-x-1/2
                 - Active (Tool): left-4 translate-x-0
             */}
+            {/* Left: System Actions (Moved from Right) */}
+            <div className="flex items-center relative z-20">
+                <button
+                    type="button"
+                    onClick={onOpenHistory}
+                    className="flex items-center justify-center w-10 h-10 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]"
+                    title="History"
+                    aria-label="View History"
+                >
+                    <History className="w-6 h-6" />
+                </button>
+                <div className="w-px h-4 bg-border-subtle/50 ml-0.5 mr-3" />
+                <ThemeToggle />
+            </div>
+
+            {/* Left/Center: Dynamic Logo Area */}
+            {/* 
+                Animation Logic:
+                - Default (Home): left-1/2 -translate-x-1/2
+                - Active (Tool): left-32 translate-x-0 (shifted right to clear controls)
+            */}
             <div
                 className={cn(
                     "absolute top-1/2 -translate-y-1/2 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex items-center gap-2 z-20",
-                    isToolActive ? "left-4 translate-x-0" : "left-1/2 -translate-x-1/2"
+                    isToolActive ? "left-32 translate-x-0" : "left-1/2 -translate-x-1/2"
                 )}
             >
                 <Link href="/" className="flex items-center gap-2 group outline-none" onClick={() => {
@@ -88,21 +109,6 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                         {activeToolName}
                     </h1>
                 )}
-            </div>
-
-            {/* Right: System Actions (Always anchored right) */}
-            <div className="flex items-center ml-auto relative z-20">
-                <button
-                    type="button"
-                    onClick={onOpenHistory}
-                    className="flex items-center justify-center w-10 h-10 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]"
-                    title="History"
-                    aria-label="View History"
-                >
-                    <History className="w-6 h-6" />
-                </button>
-                <div className="w-px h-4 bg-border-subtle/50 ml-0.5 mr-3" />
-                <ThemeToggle />
             </div>
         </header>
     );
