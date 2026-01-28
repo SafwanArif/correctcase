@@ -90,7 +90,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                         aria-hidden="true"
                         className={cn(
                             "h-px flex-shrink-0 opacity-0 pointer-events-none transition-all duration-0",
-                            isToolActive ? "w-0" : "w-9"
+                            isToolActive ? "w-0" : "w-0 md:w-9"
                         )}
                     />
                 </Link>
