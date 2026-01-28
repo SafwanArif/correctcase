@@ -68,10 +68,20 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                     isToolActive ? "left-16 translate-x-0" : "left-1/2 -translate-x-1/2"
                 )}
             >
-                <Link href="/" className="flex items-center gap-1 group outline-none" onClick={() => {
-                    // Optional: Reset URL if needed, handled by Link href="/"
-                }}>
-                    <Logo className="w-8 h-8 flex-shrink-0" />
+                <Link href="/"
+                    className={cn(
+                        "flex items-center group outline-none relative h-8",
+                        isToolActive ? "justify-start" : "justify-center"
+                    )}
+                    onClick={() => {
+                        // Optional: Reset URL if needed
+                    }}>
+                    <div className={cn(
+                        "flex-shrink-0 transition-none",
+                        isToolActive ? "relative" : "absolute right-full mr-2"
+                    )}>
+                        <Logo className="w-8 h-8" />
+                    </div>
 
                     {/* Brand Text: Fades out when Tool is active */}
                     <span
@@ -83,16 +93,6 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                     >
                         CorrectCase
                     </span>
-
-                    {/* Optical Balancer: Ghost Spacer to center the Text, not the Group */}
-                    {/* Logo (32px) + Gap (4px) = 36px (w-9) */}
-                    <div
-                        aria-hidden="true"
-                        className={cn(
-                            "h-px flex-shrink-0 opacity-0 pointer-events-none transition-all duration-0",
-                            isToolActive ? "w-0" : "w-0 md:w-9"
-                        )}
-                    />
                 </Link>
             </div>
 
