@@ -64,7 +64,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
             */}
             <div
                 className={cn(
-                    "absolute top-1/2 -translate-y-1/2 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex items-center gap-2 z-20",
+                    "absolute top-1/2 -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.2,0,0,1)] flex items-center gap-2 z-20",
                     isToolActive ? "left-16 translate-x-0" : "left-1/2 -translate-x-1/2"
                 )}
             >
