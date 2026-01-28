@@ -69,6 +69,21 @@ export default function Icon() {
                             <stop offset="100%" stopColor={c2} />
                         </linearGradient>
                     </defs>
+
+                    {/* 
+                      Satori/ImageResponse often lacks support for 'pathLength="1"'.
+                      We must use absolute pixel values for strokeDasharray.
+                      
+                      Outer Radius: 35
+                      Circumference: 2 * PI * 35 ~= 220
+                      75% Visible: 165
+                      DashArray: "165 220"
+                      
+                      Inner Radius: 17
+                      Circumference: 2 * PI * 17 ~= 107
+                      75% Visible: 80
+                      DashArray: "80 107"
+                    */}
                     <g transform="rotate(-90 50 50)">
                         {/* Outer Capital C */}
                         <circle
@@ -77,8 +92,7 @@ export default function Icon() {
                             r={outerRadius}
                             stroke="url(#brand-gradient)"
                             strokeWidth={strokeWidth}
-                            strokeDasharray="0.75 1"
-                            pathLength="1"
+                            strokeDasharray="165 220"
                             transform="rotate(135 50 50)"
                             strokeLinecap="round"
                         />
@@ -90,8 +104,7 @@ export default function Icon() {
                             r={innerRadius}
                             stroke="url(#brand-gradient)"
                             strokeWidth={strokeWidth}
-                            strokeDasharray="0.75 1"
-                            pathLength="1"
+                            strokeDasharray="80 107"
                             transform="rotate(135 50 50)"
                             strokeLinecap="round"
                         />
