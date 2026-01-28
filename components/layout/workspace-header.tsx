@@ -22,12 +22,16 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
     let isHome = pathname === "/" && !style; // Pure home
 
     // Logic mirroring HeroEditor state
-    if (pathname === "/capitalise-title") {
-        if (style === 'us') activeToolName = "US Title Case Converter";
+    if (pathname?.includes("/capitalise-title")) {
+        // Check for specific static SEO routes first
+        if (pathname.includes("us-title-case")) activeToolName = "US Title Case Converter";
+        else if (pathname.includes("uk-sentence-case")) activeToolName = "UK Sentence Case Converter";
+        // Fallback to query params or default
+        else if (style === 'us') activeToolName = "US Title Case Converter";
         else if (style === 'uk') activeToolName = "UK Sentence Case Converter";
-        else activeToolName = "Title Case Converter"; // Default
+        else activeToolName = "Title Case Converter";
     } else if (pathname === "/hyphenate-text") {
-        activeToolName = "Smart Hyphenator & Grammar Tool"; // High impact
+        activeToolName = "Smart Hyphenator & Grammar Tool";
     }
 
     // If style param is present on root (legacy support or initial load redirects)

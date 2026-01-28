@@ -9,9 +9,10 @@ import { useEditor } from "@/components/providers/editor-provider";
 
 interface HeroEditorProps {
     defaultTools?: ('case' | 'hyphenation')[]; // controls which tools are primary
+    forcedStyle?: 'us' | 'uk'; // New: Support for static routes
 }
 
-export function HeroEditor({ defaultTools }: HeroEditorProps) {
+export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
     // History replaced useState
     const [isCopied, setIsCopied] = useState(false);
     const [preservePunctuation, setPreservePunctuation] = useState(false);
@@ -47,8 +48,10 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
     const searchParams = useSearchParams();
 
     // URL-Driven State (Source of Truth)
-    const activeStyle = searchParams.get('style');
-    const isCaseMode = pathname === "/capitalise-title";
+    const activeStyle = forcedStyle || searchParams.get('style');
+
+    // Derived Mode Checks
+    const isCaseMode = pathname?.includes("/capitalise-title");
     const isHyphenateMode = pathname === "/hyphenate-text";
 
     useEffect(() => {
@@ -58,35 +61,38 @@ export function HeroEditor({ defaultTools }: HeroEditorProps) {
         }
 
         // Client-Side SEO: Update Title based on selection (for Static Export support)
-        if (activeStyle === 'us') {
-            document.title = "US Title Case Converter | CorrectCase";
-        } else if (activeStyle === 'uk') {
-            document.title = "UK Sentence Case Converter | CorrectCase";
+        // Only needed if NOT on a static route (which handles its own metadata), but safe to keep as fallback
+        if (!forcedStyle) {
+            if (activeStyle === 'us') {
+                document.title = "US Title Case Converter | CorrectCase";
+            } else if (activeStyle === 'uk') {
+                document.title = "UK Sentence Case Converter | CorrectCase";
+            }
         }
-    }, [activeStyle]);
+    }, [activeStyle, forcedStyle]);
 
     const handleConversion = async (mode: string) => {
         let newText = text;
         switch (mode) {
             case "sentence":
-                // Toggle Off if already active
+                // Toggle Off if already active (Go back to root)
                 if (activeStyle === 'uk') {
-                    router.push("/capitalise-title", { scroll: false });
+                    router.push("/capitalise-title", { scroll: false }); // Or keep active? Design choice. Let's toggle.
                     return;
                 }
-                // Toggle On
+                // Toggle On (New Static Route)
                 newText = toSentenceCase(text);
-                router.push("/capitalise-title?style=uk", { scroll: false });
+                router.push("/capitalise-title/uk-sentence-case", { scroll: false });
                 break;
             case "title":
-                // Toggle Off if already active
+                // Toggle Off
                 if (activeStyle === 'us') {
                     router.push("/capitalise-title", { scroll: false });
                     return;
                 }
-                // Toggle On
+                // Toggle On (New Static Route)
                 newText = toTitleCase(text);
-                router.push("/capitalise-title?style=us", { scroll: false });
+                router.push("/capitalise-title/us-title-case", { scroll: false });
                 break;
             case "hyphenate":
                 // Hyphenate is a route, not a query param style, but logic remains similar for now
