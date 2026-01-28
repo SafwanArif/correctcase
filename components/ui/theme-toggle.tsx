@@ -14,7 +14,7 @@ export function ThemeToggle() {
 
     if (!mounted) {
         return (
-            <div className="w-12 h-8 rounded-full bg-surface animate-pulse border border-border-subtle" />
+            <div className="w-14 h-8 rounded-full bg-surface animate-pulse border border-border-subtle" />
         );
     }
 
