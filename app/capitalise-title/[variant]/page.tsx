@@ -29,9 +29,10 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ params }: { params: { variant: string } }): Promise<Metadata> {
-    const variant = params.variant as VariantKey;
-    const data = VARIANTS[variant];
+export async function generateMetadata({ params }: { params: Promise<{ variant: string }> }): Promise<Metadata> {
+    const { variant } = await params;
+    const variantKey = variant as VariantKey;
+    const data = VARIANTS[variantKey];
 
     if (!data) return {};
 
@@ -44,9 +45,10 @@ export async function generateMetadata({ params }: { params: { variant: string }
     };
 }
 
-export default function CapitaliseTitleVariantPage({ params }: { params: { variant: string } }) {
-    const variant = params.variant as VariantKey;
-    const data = VARIANTS[variant];
+export default async function CapitaliseTitleVariantPage({ params }: { params: Promise<{ variant: string }> }) {
+    const { variant } = await params;
+    const variantKey = variant as VariantKey;
+    const data = VARIANTS[variantKey];
 
     if (!data) {
         notFound();
