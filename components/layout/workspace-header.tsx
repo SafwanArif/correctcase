@@ -77,12 +77,17 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
             </div>
 
             {/* Right: History | Toggle */}
-            <div className="flex items-center gap-3 z-20">
+            <div className="flex items-center z-20">
                 {/* History Button */}
+                {/* Optical Compensation: 
+                    Button is 36px (w-9), Icon is 24px (w-6). 
+                    Internal padding is 6px.
+                    To achieve 12px optical gap: 12 - 6 = 6px margin (mr-1.5).
+                */}
                 <button
                     type="button"
                     onClick={onOpenHistory}
-                    className="flex items-center justify-center w-9 h-9 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))]"
+                    className="flex items-center justify-center w-9 h-9 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))] mr-1.5"
                     title="History"
                     aria-label="View History"
                 >
@@ -93,7 +98,10 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                 <div className="h-5 w-px bg-border-subtle" aria-hidden="true" />
 
                 {/* Theme Toggle */}
-                <ThemeToggle />
+                {/* Wrapper for margin since component doesn't accept props yet */}
+                <div className="ml-3">
+                    <ThemeToggle />
+                </div>
             </div>
         </header>
     );
