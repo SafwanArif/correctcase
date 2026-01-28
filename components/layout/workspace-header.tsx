@@ -78,7 +78,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                     }}>
                     <div className={cn(
                         "flex-shrink-0 transition-none",
-                        isToolActive ? "relative" : "absolute right-full mr-2"
+                        isToolActive ? "relative" : "absolute right-full mr-1"
                     )}>
                         <Logo className="w-8 h-8" />
                     </div>
