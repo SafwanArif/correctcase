@@ -83,6 +83,16 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                     >
                         CorrectCase
                     </span>
+
+                    {/* Optical Balancer: Ghost Spacer to center the Text, not the Group */}
+                    {/* Logo (32px) + Gap (4px) = 36px (w-9) */}
+                    <div
+                        aria-hidden="true"
+                        className={cn(
+                            "h-px flex-shrink-0 opacity-0 pointer-events-none transition-all duration-0",
+                            isToolActive ? "w-0" : "w-9"
+                        )}
+                    />
                 </Link>
             </div>
 

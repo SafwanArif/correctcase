@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
 import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
 import { Copy, Type, Link, Unlink, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -173,7 +172,6 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                                 label="US Title Case"
                                 isActive={activeStyle === 'us'}
                                 variant="toolbar-item"
-                                layoutId="case-mode-pill"
                             />
                             <div className="w-px h-4 bg-border-subtle" />
                             <ActionButton
@@ -182,7 +180,6 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                                 label="UK Sentence Case"
                                 isActive={activeStyle === 'uk'}
                                 variant="toolbar-item"
-                                layoutId="case-mode-pill"
                             />
                         </>
                     )}
@@ -286,7 +283,6 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
     );
 }
 
-
 interface ActionButtonProps {
     onClick: () => void;
     icon: React.ReactNode;
@@ -295,56 +291,37 @@ interface ActionButtonProps {
     variant?: "primary" | "secondary" | "ghost" | "toolbar-item";
     className?: string;
     type?: "button" | "submit" | "reset";
-    layoutId?: string; // New: For Shared Element Transitions
 }
 
-function ActionButton({ onClick, icon, label, isActive, variant = "primary", className, type = "button", layoutId }: ActionButtonProps) {
+function ActionButton({ onClick, icon, label, isActive, variant = "primary", className, type = "button" }: ActionButtonProps) {
     return (
         <button
             type={type}
             onClick={onClick}
             className={cn(
-                "relative flex items-center gap-2 px-4 py-1.5 text-sm font-medium rounded-lg transition-colors duration-200 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]",
+                "flex items-center gap-2 px-4 py-1.5 text-sm font-medium rounded-lg transition-all duration-200 active:scale-95 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]",
                 // Primary Variant
-                variant === "primary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm hover:shadow active:scale-95",
+                variant === "primary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm hover:shadow",
                 variant === "primary" && isActive && "bg-[oklch(var(--brand-core)/0.1)] text-primary border border-[oklch(var(--brand-core)/0.2)] shadow-sm",
 
-                // Secondary Variant
-                variant === "secondary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm active:scale-95",
+                // Secondary Variant (Teal/Accent)
+                variant === "secondary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
                 variant === "secondary" && isActive && "bg-[oklch(var(--brand-secondary)/0.1)] text-[oklch(var(--brand-secondary))] border-[oklch(var(--brand-secondary)/0.3)] border shadow-sm",
 
                 // Toolbar Item (Borderless, Small, Uniform)
                 variant === "toolbar-item" && "h-9 text-xs px-3 border-none shadow-none",
-                // Inactive State
-                variant === "toolbar-item" && !isActive && "text-muted hover:text-body hover:bg-elevated/50",
-                // Active State (Static Fallback if no layoutId)
-                variant === "toolbar-item" && isActive && !layoutId && "bg-[oklch(var(--action-active))] text-primary-fg font-medium shadow-sm",
-                // Active State (With LayoutId - Text Only)
-                variant === "toolbar-item" && isActive && layoutId && "text-primary-fg font-medium",
+                variant === "toolbar-item" && !isActive && "bg-elevated/50 hover:bg-elevated text-muted hover:text-body",
+                // Active State: Semantic High Contrast
+                variant === "toolbar-item" && isActive && "bg-[oklch(var(--action-active))] text-primary-fg font-medium shadow-sm",
 
                 // Ghost
-                variant === "ghost" && "hover:bg-surface text-muted hover:text-body active:scale-95",
+                variant === "ghost" && "hover:bg-surface text-muted hover:text-body",
 
                 className
             )}
         >
-            {/* Shared Layout Background (The "Context Transition" Pill) */}
-            {isActive && layoutId && (
-                <motion.span
-                    layoutId={layoutId}
-                    className="absolute inset-0 bg-[oklch(var(--action-active))] rounded-lg shadow-sm -z-10"
-                    transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 30
-                    }}
-                />
-            )}
-
-            <span className="relative z-10 flex items-center gap-2">
-                {icon}
-                <span className={cn("text-center", variant === "primary" ? "min-w-16" : "")}>{label}</span>
-            </span>
+            {icon}
+            <span className={cn("text-center", variant === "primary" ? "min-w-16" : "")}>{label}</span>
         </button>
     );
 }
