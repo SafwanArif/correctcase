@@ -45,7 +45,7 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
             {/* Backdrop */}
             <div
                 className={cn(
-                    "fixed inset-0 z-[60] bg-black/20 backdrop-blur-sm transition-opacity duration-300",
+                    "fixed inset-0 z-[60] bg-black/20 transition-opacity duration-300",
                     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                 )}
                 aria-hidden="true"
