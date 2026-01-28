@@ -64,7 +64,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
             */}
             <div
                 className={cn(
-                    "absolute top-1/2 -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.2,0,0,1)] flex items-center gap-2 z-20",
+                    "absolute top-1/2 -translate-y-1/2 flex items-center gap-2 z-20",
                     isToolActive ? "left-16 translate-x-0" : "left-1/2 -translate-x-1/2"
                 )}
             >
@@ -77,7 +77,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                     <span
                         aria-hidden={isToolActive}
                         className={cn(
-                            "font-bold text-lg tracking-tight text-body whitespace-nowrap transition-all duration-300 origin-left",
+                            "font-bold text-lg tracking-tight text-body whitespace-nowrap origin-left",
                             isToolActive ? "opacity-0 w-0 scale-90 overflow-hidden" : "opacity-100 w-auto scale-100"
                         )}
                     >
@@ -93,7 +93,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                 - Active: Opacity 100, Scale 100
             */}
             <div className={cn(
-                "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 delay-100 flex items-center justify-center w-full max-w-[60%] pointer-events-none z-10",
+                "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-full max-w-[60%] pointer-events-none z-10",
                 isToolActive ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-95 blur-sm translate-y-2"
             )}>
                 {activeToolName && (
