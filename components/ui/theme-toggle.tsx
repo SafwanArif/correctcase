@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { cn } from "@/lib/utils";
 
 export function ThemeToggle() {
     const { theme, setTheme, resolvedTheme } = useTheme();
@@ -14,7 +15,7 @@ export function ThemeToggle() {
 
     if (!mounted) {
         return (
-            <div className="w-14 h-8 rounded-full bg-surface animate-pulse border border-border-subtle" />
+            <div className="w-[48px] h-[26px] rounded-full bg-surface animate-pulse border border-border-subtle" />
         );
     }
 
@@ -24,7 +25,7 @@ export function ThemeToggle() {
         <button
             type="button"
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="relative w-[48px] h-[26px] rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))] shadow-inner overflow-hidden group bg-surface border border-border-subtle flex items-center"
+            className="relative w-[48px] h-[26px] rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))] shadow-inner overflow-hidden flex items-center bg-surface border border-border-subtle"
             aria-label="Toggle Theme"
         >
             {/* Background Track Status Indicator */}
@@ -32,13 +33,11 @@ export function ThemeToggle() {
 
             {/* The Sliding Pill */}
             <div
-                className={`
-            w-[22px] h-[22px] rounded-full shadow-sm flex items-center justify-center relative z-10
-            bg-elevated
-            border border-border-subtle
-            toggle-spring transform
-             ${isDark ? "translate-x-[23px]" : "translate-x-px"}
-        `}
+                className={cn(
+                    "w-[22px] h-[22px] rounded-full shadow-sm flex items-center justify-center relative z-10",
+                    "bg-elevated border border-border-subtle toggle-spring transform",
+                    isDark ? "translate-x-[23px]" : "translate-x-px"
+                )}
             >
                 {isDark ? (
                     <Moon className="w-3.5 h-3.5 text-indigo-300 relative z-10" />
