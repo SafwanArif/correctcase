@@ -6,12 +6,12 @@ export function Logo({ className = "w-8 h-8" }: { className?: string }) {
     // Center: 50,50
     const strokeWidth = 10;
     const outerRadius = 35;
-    // 2026 Refinement: "Breathable Geometry"
-    // Outer Stroke Inner Edge: 30px (35 - 5)
-    // Target Gap: 10px (Equals Stroke Width)
-    // Inner Stroke Outer Edge: 20px (30 - 10)
-    // Inner Radius (Center): 15px (20 - 5)
-    const innerRadius = 15;
+    // 2026 Refinement: "The Sweet Spot"
+    // Outer Stroke Inner Edge: 30px
+    // Target Gap: 8px (Balanced Tensions)
+    // Inner Stroke Outer Edge: 22px (30 - 8)
+    // Inner Radius (Center): 17px (22 - 5)
+    const innerRadius = 17;
 
     // Gap calculation (Standard C shape)
     // Circumference = 2 * PI * r
