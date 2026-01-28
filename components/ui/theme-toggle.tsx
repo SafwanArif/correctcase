@@ -24,7 +24,7 @@ export function ThemeToggle() {
         <button
             type="button"
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="relative w-[48px] h-[26px] rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))] shadow-inner overflow-hidden group bg-surface border border-border-subtle flex items-center px-[1px]"
+            className="relative w-[48px] h-[26px] rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))] shadow-inner overflow-hidden group bg-surface border border-border-subtle flex items-center"
             aria-label="Toggle Theme"
         >
             {/* Background Track Status Indicator */}
@@ -33,11 +33,11 @@ export function ThemeToggle() {
             {/* The Sliding Pill */}
             <div
                 className={`
-            w-6 h-6 rounded-full shadow-sm flex items-center justify-center relative z-10
+            w-[22px] h-[22px] rounded-full shadow-sm flex items-center justify-center relative z-10
             bg-elevated
             border border-border-subtle
             toggle-spring transform
-             ${isDark ? "translate-x-[20px]" : "translate-x-0"}
+             ${isDark ? "translate-x-[23px]" : "translate-x-px"}
         `}
             >
                 {isDark ? (
