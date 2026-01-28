@@ -43,9 +43,17 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
     return (
         <header className="relative flex items-center justify-between px-4 py-3.5 border-b border-border-subtle bg-transparent h-[60px] overflow-hidden">
 
-            {/* Left: Theme Toggle (Static) */}
+            {/* Left: History Button (Static) */}
             <div className="absolute left-4 top-1/2 -translate-y-1/2 z-30">
-                <ThemeToggle />
+                <button
+                    type="button"
+                    onClick={onOpenHistory}
+                    className="flex items-center justify-center w-10 h-10 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]"
+                    title="History"
+                    aria-label="View History"
+                >
+                    <History className="w-6 h-6" />
+                </button>
             </div>
 
             {/* Left/Center: Dynamic Logo Area */}
@@ -95,17 +103,9 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                 )}
             </div>
 
-            {/* Right: System Actions (History Only) */}
+            {/* Right: Theme Toggle */}
             <div className="flex items-center ml-auto relative z-20">
-                <button
-                    type="button"
-                    onClick={onOpenHistory}
-                    className="flex items-center justify-center w-10 h-10 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]"
-                    title="History"
-                    aria-label="View History"
-                >
-                    <History className="w-6 h-6" />
-                </button>
+                <ThemeToggle />
             </div>
         </header>
     );
