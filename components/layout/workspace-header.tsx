@@ -87,11 +87,11 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                 <button
                     type="button"
                     onClick={onOpenHistory}
-                    className="flex items-center justify-center w-9 h-9 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))] mr-1.5"
+                    className="flex items-center justify-center w-7 h-7 text-muted hover:text-body hover:bg-surface/50 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))] mr-2"
                     title="History"
                     aria-label="View History"
                 >
-                    <History className="w-9 h-9" />
+                    <History className="w-5 h-5" />
                 </button>
 
                 {/* Divider */}
