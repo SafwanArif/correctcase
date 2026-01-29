@@ -141,6 +141,16 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         setTimeout(() => setIsCopied(false), 2000);
     };
 
+    const handleClear = () => {
+        if (!text) return;
+        setText("");
+        addToHistory("", "clear");
+        if (textareaRef.current) {
+            textareaRef.current.focus();
+            adjustHeight(); // Will collapse
+        }
+    };
+
     const handlePaste = async () => {
         try {
             const clipboardText = await navigator.clipboard.readText();
@@ -189,14 +199,24 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 "flex items-center justify-between px-3 py-2 border-b border-border-subtle/50 transition-all duration-500",
                 isCompact ? "bg-surface/50" : "bg-surface/30"
             )}>
-                {/* Left - Paste Button */}
-                <div className="flex-1 flex justify-start">
+                {/* Left - Paste & Clear */}
+                <div className="flex-1 flex items-center justify-start gap-2">
                     <button
                         onClick={handlePaste}
                         className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md transition-all duration-200 select-none focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))]"
                         title="Paste from Clipboard"
                     >
-                        <Clipboard className="w-3.5 h-3.5" /> Paste
+                        <ClipboardIcon className="w-3.5 h-3.5" /> Paste
+                    </button>
+
+                    <div className="w-px h-3 bg-border-subtle/50" />
+
+                    <button
+                        onClick={handleClear}
+                        className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md transition-all duration-200 select-none focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))]"
+                        title="Clear Text"
+                    >
+                        <Eraser className="w-3.5 h-3.5" /> Clear
                     </button>
                 </div>
 
