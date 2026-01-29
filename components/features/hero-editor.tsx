@@ -26,11 +26,22 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
     const { text, setText, undo, redo, canUndo, canRedo, addToHistory } = useEditor();
 
     // Scroll Context
-    const { isCompact } = useScroll();
+    // const { isCompact } = useScroll(); // Use local derived for now to ensure sensitivity match
+    const { scrollTop } = useScroll();
+    const isCompact = scrollTop > 10;
+
+    const adjustHeight = () => {
+        const el = textareaRef.current;
+        if (el) {
+            el.style.height = 'auto'; // Reset to recalculate
+            el.style.height = `${Math.min(el.scrollHeight, window.innerHeight * 0.6)}px`; // Grow up to 60vh
+        }
+    };
 
     // Live Conversion Wrapper
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         let val = e.target.value;
+        adjustHeight();
 
         // "Live Mode": Apply active transformation immediately while typing
         if (activeStyle === 'uk') {
@@ -63,6 +74,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         // Auto-focus on load
         if (textareaRef.current) {
             textareaRef.current.focus();
+            adjustHeight();
         }
 
         // Client-Side SEO: Update Title based on selection (for Static Export support)
@@ -73,7 +85,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 document.title = "UK Sentence Case Converter | CorrectCase";
             }
         }
-    }, [activeStyle, forcedStyle]);
+    }, [activeStyle, forcedStyle, text]); // Add text dependency to resizing on load
 
     const handleConversion = async (mode: string) => {
         let newText = text;
@@ -118,6 +130,8 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
 
         setText(newText);
         addToHistory(newText, historyLabel);
+        // Defer height adjust to allow render update
+        setTimeout(adjustHeight, 0);
     };
 
     const copyToClipboard = async () => {
@@ -127,14 +141,14 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         setTimeout(() => setIsCopied(false), 2000);
     };
 
-    const isCompact = useScroll().scrollTop > 10; // Lower threshold
+    // const isCompact = useScroll().scrollTop > 10; // REMOVED DUPLICATE
 
     return (
         <div className={cn(
             "flex flex-col relative transition-all duration-500 ease-spring sticky z-30 mx-auto left-0 right-0",
             isCompact
                 ? "top-4 w-[90%] max-w-3xl bg-surface/80 backdrop-blur-xl border border-[oklch(var(--border-subtle)/0.6)] shadow-2xl rounded-2xl overflow-hidden"
-                : "top-0 w-full bg-transparent border-b border-transparent rounded-none shadow-none flex-1"
+                : "top-0 w-full bg-transparent border-b border-transparent rounded-none shadow-none"
         )}>
 
             {/* Toolbar - Crisp & Professional */}
@@ -217,7 +231,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
             {/* Editor Area - "Paper" Feel */}
             <div className={cn(
                 "relative group bg-focus transition-all duration-500 ease-spring overflow-hidden",
-                isCompact ? "h-14 bg-transparent" : "flex-1"
+                isCompact ? "h-auto bg-transparent" : "flex-1 min-h-[120px]"
             )}>
                 <textarea
                     ref={textareaRef}
@@ -225,10 +239,11 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                     onChange={handleTextChange}
                     placeholder="Type or paste your text to analyse..."
                     className={cn(
-                        "w-full h-full bg-transparent border-none outline-none resize-none text-body font-sans select-text relative z-10 transition-all duration-500",
-                        isCompact ? "px-4 py-3 text-base leading-normal overflow-hidden whitespace-nowrap" : "p-6 text-lg leading-relaxed placeholder:text-muted"
+                        "w-full bg-transparent border-none outline-none resize-none text-body font-sans select-text relative z-10 transition-all duration-500 scrollbar-hide",
+                        isCompact ? "px-4 py-3 text-base leading-normal h-14 whitespace-nowrap overflow-hidden" : "p-6 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[3.5rem]"
                     )}
                     spellCheck={false}
+                    rows={1}
                 />
 
                 {/* Floating Copy Button - Modern Ghost Style */}
