@@ -129,14 +129,16 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
 
     return (
         <div className={cn(
-            "flex flex-col w-full relative transition-all duration-500 ease-spring sticky top-0 z-30",
-            isCompact ? "bg-surface/90 backdrop-blur-xl border-b border-border-subtle shadow-sm" : "bg-transparent flex-1"
+            "flex flex-col relative transition-all duration-500 ease-spring sticky z-30 mx-auto",
+            isCompact
+                ? "top-4 w-[94%] max-w-3xl bg-surface/80 backdrop-blur-xl border border-[oklch(var(--border-subtle)/0.6)] shadow-2xl rounded-2xl overflow-hidden"
+                : "top-0 w-full bg-transparent border-b border-transparent rounded-none shadow-none flex-1"
         )}>
 
             {/* Toolbar - Crisp & Professional */}
             <div className={cn(
-                "flex flex-wrap items-center gap-3 border-b border-border-subtle bg-transparent transition-all duration-500",
-                isCompact ? "p-2 min-h-[50px] border-b-0" : "p-3"
+                "flex flex-wrap items-center gap-3 bg-transparent transition-all duration-500",
+                isCompact ? "px-3 py-2 border-b-0 min-h-[48px]" : "p-3 border-b border-border-subtle"
             )}>
 
                 {/* Case Tools Group - Nested Logic */}
@@ -149,7 +151,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                             icon={<Type className="w-4 h-4" />}
                             label="Capitalise Title"
                             isActive={isCaseMode}
-                            className={cn("h-9", isCompact && "h-8 text-xs")}
+                            className={cn("h-9 transition-all duration-500", isCompact && "h-8 text-xs")}
                         />
 
                     </div>
@@ -165,7 +167,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                             icon={isTextHyphenated ? <Unlink className="w-3.5 h-3.5" /> : <Link className="w-3.5 h-3.5" />}
                             label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
                             isActive={isTextHyphenated}
-                            className={cn("h-9", isCompact && "h-8 text-xs")}
+                            className={cn("h-9 transition-all duration-500", isCompact && "h-8 text-xs")}
                         />
                     </div>
                 )}
@@ -178,20 +180,20 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                         <>
                             <ActionButton
                                 onClick={() => handleConversion("title")}
-                                icon={<UsTitleCaseIcon className={cn("w-auto rounded-[2px] shadow-sm", isCompact ? "h-4" : "h-5")} />}
+                                icon={<UsTitleCaseIcon className={cn("w-auto rounded-[2px] shadow-sm transition-all duration-500", isCompact ? "h-4" : "h-5")} />}
                                 label="US Title Case"
                                 isActive={activeStyle === 'us'}
                                 variant="toolbar-item"
-                                className={cn(isCompact && "h-8 px-2 text-[10px]")}
+                                className={cn("transition-all duration-500", isCompact && "h-8 px-2 text-[10px]")}
                             />
                             <div className="w-px h-4 bg-border-subtle" />
                             <ActionButton
                                 onClick={() => handleConversion("sentence")}
-                                icon={<UkSentenceCaseIcon className={cn("w-auto rounded-[2px] shadow-sm", isCompact ? "h-4" : "h-5")} />}
+                                icon={<UkSentenceCaseIcon className={cn("w-auto rounded-[2px] shadow-sm transition-all duration-500", isCompact ? "h-4" : "h-5")} />}
                                 label="UK Sentence Case"
                                 isActive={activeStyle === 'uk'}
                                 variant="toolbar-item"
-                                className={cn(isCompact && "h-8 px-2 text-[10px]")}
+                                className={cn("transition-all duration-500", isCompact && "h-8 px-2 text-[10px]")}
                             />
                         </>
                     )}
@@ -213,7 +215,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
             {/* Editor Area - "Paper" Feel */}
             <div className={cn(
                 "relative group bg-focus transition-all duration-500 ease-spring overflow-hidden",
-                isCompact ? "h-16 bg-transparent" : "flex-1"
+                isCompact ? "h-14 bg-transparent" : "flex-1"
             )}>
                 <textarea
                     ref={textareaRef}
@@ -222,7 +224,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                     placeholder="Type or paste your text to analyse..."
                     className={cn(
                         "w-full h-full bg-transparent border-none outline-none resize-none text-body font-sans select-text relative z-10 transition-all duration-500",
-                        isCompact ? "p-4 text-sm leading-normal overflow-hidden whitespace-nowrap" : "p-6 text-lg leading-relaxed placeholder:text-muted"
+                        isCompact ? "px-4 py-3 text-base leading-normal overflow-hidden whitespace-nowrap" : "p-6 text-lg leading-relaxed placeholder:text-muted"
                     )}
                     spellCheck={false}
                 />
@@ -230,7 +232,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 {/* Floating Copy Button - Modern Ghost Style */}
                 <div className={cn(
                     "absolute right-4 z-10 transition-all duration-500",
-                    isCompact ? "top-3" : "top-0"
+                    isCompact ? "top-2.5" : "top-0"
                 )}>
                     <button
                         onClick={copyToClipboard}
