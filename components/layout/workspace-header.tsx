@@ -72,7 +72,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
             </div>
 
             {/* Right: History | Toggle */}
-            <div className="flex items-center z-20 gap-3">
+            <div className="flex items-center z-20">
                 {/* History Button */}
                 {/* Optical Compensation: 
                     Button is 28px (w-7). Icon is 28px (w-7).
@@ -88,7 +88,8 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                 </button>
 
                 {/* Divider */}
-                <div className="h-5 w-px bg-border-subtle" aria-hidden="true" />
+                {/* Optical Alignment: ml-2.5 (10px) to compensate for circular icon gap. mr-3 (12px) for box gap. */}
+                <div className="h-5 w-px bg-border-subtle ml-2.5 mr-3" aria-hidden="true" />
 
                 {/* Theme Toggle */}
                 <ThemeToggle />
