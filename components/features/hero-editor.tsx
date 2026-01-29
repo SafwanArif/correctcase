@@ -207,6 +207,11 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         }
     };
 
+    // Opacity Logic: Individual elements handle their own ghost state
+    // Base: 0. Hover: 50. Focus: 75. Self-Hover: 100.
+    const ghost = "transition-opacity duration-300 delay-75 opacity-0 group-hover:opacity-50 group-data-[focused=true]:opacity-75 hover:!opacity-100";
+    const ghostText = "transition-opacity duration-300 delay-75 opacity-0 group-hover:opacity-50 group-data-[focused=true]:opacity-75"; // Text (no hover 100 needed usually, strict stats)
+
     return (
         <EditorFrame
             isCompact={isCompact}
@@ -215,15 +220,15 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 <>
                     <button
                         onClick={handlePaste}
-                        className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md transition-all duration-200 select-none focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))]"
+                        className={cn(ghost, "flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md select-none focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))]")}
                         title="Paste from Clipboard"
                     >
                         <ClipboardIcon className="w-3.5 h-3.5" /> Paste
                     </button>
-                    <div className="w-px h-3 bg-border-subtle/50" />
+                    <div className={cn(ghostText, "w-px h-3 bg-border-subtle/50")} />
                     <button
                         onClick={handleClear}
-                        className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md transition-all duration-200 select-none focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))]"
+                        className={cn(ghost, "flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md select-none focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))]")}
                         title="Clear Formatting"
                     >
                         <Eraser className="w-3.5 h-3.5" /> Clear Format
@@ -232,11 +237,11 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
             }
             headerCenter={
                 <>
-                    <button onClick={undo} disabled={!canUndo} className="p-1.5 text-muted hover:text-body disabled:opacity-30 rounded-md transition-colors focus:ring-2 focus:ring-[oklch(var(--brand-core))]">
+                    <button onClick={undo} disabled={!canUndo} className={cn(ghost, "p-1.5 text-muted hover:text-body disabled:opacity-30 rounded-md focus:ring-2 focus:ring-[oklch(var(--brand-core))]")}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7v6h6" /><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" /></svg>
                     </button>
-                    <div className="w-px h-3 bg-border-subtle mx-1" />
-                    <button onClick={redo} disabled={!canRedo} className="p-1.5 text-muted hover:text-body disabled:opacity-30 rounded-md transition-colors focus:ring-2 focus:ring-[oklch(var(--brand-core))]">
+                    <div className={cn(ghostText, "w-px h-3 bg-border-subtle mx-1")} />
+                    <button onClick={redo} disabled={!canRedo} className={cn(ghost, "p-1.5 text-muted hover:text-body disabled:opacity-30 rounded-md focus:ring-2 focus:ring-[oklch(var(--brand-core))]")}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 7v6h-6" /><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13" /></svg>
                     </button>
                 </>
@@ -244,8 +249,8 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
             headerRight={
                 <button
                     onClick={copyToClipboard}
-                    className={cn(
-                        "flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-200 select-none",
+                    className={cn(ghost,
+                        "flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-md select-none",
                         isCopied ? "bg-[oklch(var(--brand-core)/0.15)] text-primary" : "text-muted hover:text-body hover:bg-elevated/50"
                     )}
                 >
@@ -254,22 +259,22 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
             }
             footerLeft={
                 <>
-                    <div className="hidden sm:flex items-center gap-4 text-[10px] font-mono font-medium text-muted">
+                    <div className={cn(ghostText, "hidden sm:flex items-center gap-4 text-[10px] font-mono font-medium text-muted")}>
                         <span>{countWords(text)} WORDS</span>
                         <span className="w-px h-3 bg-border-subtle" />
                         <span>{countCharacters(text)} CHARS</span>
                     </div>
-                    <div className="flex sm:hidden items-center text-[10px] font-mono font-medium text-muted">
+                    <div className={cn(ghostText, "flex sm:hidden items-center text-[10px] font-mono font-medium text-muted")}>
                         <span>{countWords(text)} WORDS</span>
                     </div>
                 </>
             }
             footerRight={
                 <>
-                    <div className="flex sm:hidden items-center text-[10px] font-mono font-medium text-muted">
+                    <div className={cn(ghostText, "flex sm:hidden items-center text-[10px] font-mono font-medium text-muted")}>
                         <span>{countCharacters(text)} CHARS</span>
                     </div>
-                    <div className="hidden sm:flex items-center gap-2 text-[10px] text-muted font-medium opacity-70">
+                    <div className={cn(ghostText, "hidden sm:flex items-center gap-2 text-[10px] text-muted font-medium opacity-70")}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>
                         <span>100% CLIENT-SIDE • PRIVACY FIRST</span>
                     </div>
