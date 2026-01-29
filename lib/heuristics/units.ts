@@ -39,5 +39,32 @@ export const processUnits: HeuristicProcessor = (currentWord, i, words, splitPun
         }
     }
 
+    // 3. Special Case: Amps ("13a" -> "13 A")
+    // We do NOT put "a" in the dictionary because "A" is the article "A" in titles, 
+    // but here we deal with *attached* units or numeric context.
+    const attachedAmpsMatch = lowerKey.match(/^(\d+(?:\.\d+)?)(a)$/);
+    if (attachedAmpsMatch) {
+        const val = attachedAmpsMatch[1];
+        return {
+            consumed: 1,
+            processedWords: [
+                `${p.prefix}${val}`,
+                `A${p.suffix}`
+            ]
+        };
+    }
+
+    // Standalone "a" (13 a -> 13 A)
+    // Only if previous word was a number
+    if (lowerKey === 'a' && i > 0) {
+        const prevP = splitPunctuation(words[i - 1]);
+        if (/^\d+(?:\.\d+)?$/.test(prevP.word)) {
+            return {
+                consumed: 1,
+                processedWords: [`${p.prefix}A${p.suffix}`]
+            };
+        }
+    }
+
     return null;
 };
