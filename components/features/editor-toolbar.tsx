@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { useEditor } from "@/components/providers/editor-provider";
 import { toSentenceCase, toTitleCase, toHyphenated, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
 import { UsTitleCaseIcon, UkSentenceCaseIcon } from "@/components/ui/custom-icons";
+import { ActionButton } from "@/components/ui/action-button";
 
 interface EditorToolbarProps {
     className?: string;
@@ -139,36 +140,4 @@ export function EditorToolbar({ className, defaultTools }: EditorToolbarProps) {
     );
 }
 
-// Reusing ActionButton (Local Definition to keep portability, or could import if made generic)
-interface ActionButtonProps {
-    onClick: () => void;
-    icon: React.ReactNode;
-    label: string;
-    isActive?: boolean;
-    variant?: "primary" | "secondary" | "ghost" | "toolbar-item";
-    className?: string;
-}
-
-function ActionButton({ onClick, icon, label, isActive, variant = "primary", className }: ActionButtonProps) {
-    return (
-        <button
-            onClick={onClick}
-            className={cn(
-                "flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-200 active:scale-95 select-none focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))]",
-
-                // Primary Tab Style
-                variant === "primary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
-                variant === "primary" && isActive && "bg-[oklch(var(--brand-core)/0.1)] text-primary border border-[oklch(var(--brand-core)/0.2)] shadow-sm",
-
-                // Toolbar Item (Smaller, more seamless)
-                variant === "toolbar-item" && "h-8 px-2 border border-transparent hover:bg-elevated/50",
-                variant === "toolbar-item" && isActive && "bg-[oklch(var(--action-active))] text-primary-fg shadow-sm border-transparent",
-
-                className
-            )}
-        >
-            {icon}
-            <span className={cn(variant === "primary" ? "hidden sm:inline" : "")}>{label}</span>
-        </button>
-    );
-}
+// Local ActionButton removed. Using shared component.
