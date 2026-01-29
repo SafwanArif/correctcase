@@ -45,10 +45,10 @@ export function stripFormatting(text: string): string {
     // Remove Blockquotes
     clean = clean.replace(/^[\s]*>[\s]*/gm, "");
 
-    // Remove Bold/Italic markers (*, **, _, __)
-    // Basic regex, might be too aggressive with single chars but valid for "Utility" clear
+    // Remove Bold/Italic/Strike markers (*, **, _, __, ~~)
     clean = clean.replace(/(\*\*|__)(.*?)\1/g, "$2"); // Bold
     clean = clean.replace(/(\*|_)(.*?)\1/g, "$2");   // Italic
+    clean = clean.replace(/(~~)(.*?)\1/g, "$2");     // Strikethrough
 
     // Remove Code Backticks
     clean = clean.replace(/`([^`]+)`/g, "$1");
