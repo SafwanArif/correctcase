@@ -145,10 +145,10 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
 
     return (
         <div className={cn(
-            "flex flex-col relative transition-all duration-500 ease-spring sticky top-4 z-30 mx-auto left-0 right-0 w-[90%] max-w-3xl rounded-2xl border overflow-hidden",
+            "flex flex-col shrink-0 relative transition-all duration-500 ease-spring sticky z-40 mx-auto left-0 right-0 w-[90%] max-w-3xl rounded-2xl border overflow-hidden",
             isCompact
-                ? "bg-surface/90 backdrop-blur-xl border-border-subtle shadow-2xl"
-                : "bg-surface/40 hover:bg-surface/60 border-border-subtle/50 shadow-sm mt-4 mb-8"
+                ? "top-4 bg-surface/90 backdrop-blur-xl border-border-subtle shadow-2xl"
+                : "top-4 bg-surface border-border-subtle/40 shadow-sm mt-6 mb-12"
         )}>
 
             {/* Toolbar - Crisp & Professional */}
