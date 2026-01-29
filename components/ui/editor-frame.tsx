@@ -73,7 +73,7 @@ export function EditorFrame({
                 // Matches desired balance.
                 isCompact
                     ? "h-auto bg-transparent"
-                    : "h-auto group-hover:pt-7 group-hover:pb-5 group-focus-within:pt-7 group-focus-within:pb-5"
+                    : "h-auto group-hover:pt-6 group-hover:pb-5 group-focus-within:pt-6 group-focus-within:pb-5"
             )}>
                 {children}
             </div>

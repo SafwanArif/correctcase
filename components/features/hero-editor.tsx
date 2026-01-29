@@ -209,8 +209,9 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
 
     // Opacity Logic: Individual elements handle their own ghost state
     // Base: 0. Hover: 50. Focus (Editor or Buttons): 75. Self-Hover: 100.
-    const ghost = "transition-opacity duration-300 delay-75 opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 group-data-[focused=true]:opacity-75 hover:!opacity-100";
-    const ghostText = "transition-opacity duration-300 delay-75 opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 group-data-[focused=true]:opacity-75"; // Text stats
+    // Speed: 200ms fade (Faster than collapse)
+    const ghost = "transition-opacity duration-200 delay-75 opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 group-data-[focused=true]:opacity-75 hover:!opacity-100";
+    const ghostText = "transition-opacity duration-200 delay-75 opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 group-data-[focused=true]:opacity-75"; // Text stats
 
     return (
         <EditorFrame
