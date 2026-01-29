@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
+import { getListPrefix, incrementListPrefix, stripFormatting } from "@/lib/smart-text";
 import { Copy, Type, Link, Unlink, Quote, Clipboard as ClipboardIcon, Eraser } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { UsTitleCaseIcon, UkSentenceCaseIcon } from "@/components/ui/custom-icons";
@@ -141,10 +142,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         setTimeout(() => setIsCopied(false), 2000);
     };
 
-    import { getListPrefix, incrementListPrefix, stripFormatting } from "@/lib/smart-text";
-    // ... (imports)
-
-    // ... (in component)
+    // ... (imports moved to top)
 
     const handleClear = () => {
         if (!text) return;
