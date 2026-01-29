@@ -12,6 +12,7 @@ interface EditorFrameProps {
     footerRight?: React.ReactNode;
     isCompact?: boolean;
     isFocused?: boolean;
+    hasContent?: boolean;
     className?: string;
 }
 
@@ -24,6 +25,7 @@ export function EditorFrame({
     footerRight,
     isCompact = false,
     isFocused = false,
+    hasContent = false,
     className
 }: EditorFrameProps) {
     return (
@@ -31,6 +33,7 @@ export function EditorFrame({
             data-pattern="editor-frame"
             data-compact={isCompact}
             data-focused={isFocused}
+            data-has-content={hasContent}
             className={cn(
                 "flex flex-col shrink-0 relative transition-all duration-500 ease-spring sticky z-40 mx-auto left-0 right-0 w-[90%] max-w-3xl rounded-2xl border overflow-hidden group",
                 // Compact Mode Styles
@@ -43,8 +46,8 @@ export function EditorFrame({
             {/* --- Header Tier --- */}
             <div className={cn(
                 "absolute top-0 left-0 w-full z-30 flex items-center justify-between px-3 py-1 transition-all duration-500 overflow-hidden",
-                // Expansion Animation (Hidden by default, reveals on hover/focus)
-                "max-h-0 group-hover:max-h-12 group-focus-within:max-h-12",
+                // Expansion Animation: Reveal on hover, focus, OR if content exists
+                "max-h-0 group-hover:max-h-12 group-focus-within:max-h-12 group-data-[has-content=true]:max-h-12",
                 isCompact
                     ? "bg-surface/80 backdrop-blur-xl border-b border-border-subtle/50"
                     : "bg-transparent"
@@ -82,7 +85,7 @@ export function EditorFrame({
             <div className={cn(
                 "absolute bottom-0 left-0 w-full z-30 px-6 flex items-center justify-between select-none transition-all duration-500 overflow-hidden rounded-b-2xl",
                 // Expansion: 0 -> 10 (40px)
-                "max-h-0 group-hover:max-h-10 group-focus-within:max-h-10",
+                "max-h-0 group-hover:max-h-10 group-focus-within:max-h-10 group-data-[has-content=true]:max-h-10",
                 isCompact
                     ? "h-0 opacity-0"
                     : "h-8 bg-transparent"

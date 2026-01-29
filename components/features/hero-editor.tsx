@@ -39,8 +39,16 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
     const adjustHeight = () => {
         const el = textareaRef.current;
         if (el) {
-            el.style.height = 'auto';
-            el.style.height = `${Math.min(el.scrollHeight, window.innerHeight * 0.6)}px`;
+            el.style.height = 'auto'; // Reset to recalculate
+            const newHeight = Math.min(el.scrollHeight, 400); // Cap at ~15 lines (approx 400px)
+            el.style.height = `${newHeight}px`;
+
+            // Enable scroll if content exceeds cap
+            if (el.scrollHeight > 400) {
+                el.style.overflowY = 'auto';
+            } else {
+                el.style.overflowY = 'hidden';
+            }
         }
     };
 
@@ -91,10 +99,14 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
 
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         let val = e.target.value;
-        adjustHeight();
+        // Text processing happening before set...
         if (activeStyle === 'uk') val = toSentenceCase(val);
         else if (activeStyle === 'us') val = toTitleCase(val);
+
         setText(val);
+        // Defer height adjustment slightly to allow React render? 
+        // No, direct ref manipulation works best immediately often, but with state update rerender might override styles.
+        // Actually, setText triggers render. `useEffect` [text] triggers adjustHeight.
     };
 
     const copyToClipboard = async () => {
@@ -250,6 +262,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         <EditorFrame
             isCompact={isCompact}
             isFocused={isFocused}
+            hasContent={text.length > 0}
             headerLeft={
                 <>
                     <button

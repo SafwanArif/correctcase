@@ -91,10 +91,11 @@ export function toSentenceCase(text: string): string {
             const splitPunctuation = (str: string) => {
                 // Safe Regex for "Cleaning" word for lookup:
                 // We assume dictionary keys ALWAYS have trimmed punctuation.
-                // This grabs everything from first Alphanum to last Alphanum.
-                // e.g. "Levi's" -> matches. "post-Covid" -> matches. "('Hello')" -> "Hello".
+                // This grabs everything from first Alphanum to last Alphanum (including & and + for brands).
+                // e.g. "Levi's" -> matches. "post-Covid" -> matches. "Marks & Spencer" -> "&" is valid.
+                // "Disney+" -> "+" is valid.
 
-                const match = str.match(/^([^a-zA-Z0-9]*)([a-zA-Z0-9].*[a-zA-Z0-9]|[a-zA-Z0-9])([^a-zA-Z0-9]*)$/);
+                const match = str.match(/^([^a-zA-Z0-9&+\-_]*)([a-zA-Z0-9&+\-_].*[a-zA-Z0-9&+\-_]|[a-zA-Z0-9&+\-_])([^a-zA-Z0-9&+\-_]*)$/);
 
                 if (!match) {
                     // If no textual content (e.g. "...")
