@@ -19,8 +19,8 @@ export const processUnits: HeuristicProcessor = (currentWord, i, words, splitPun
     }
 
     // 2. Attached Unit Check (e.g. "100kg" -> "100 kg")
-    // Regex matches: Numbers (int/float) + Letters
-    const match = lowerKey.match(/^(\d+(?:\.\d+)?)([a-z]+)$/);
+    // Regex matches: Numbers (int/float) + Letters/Slashes
+    const match = lowerKey.match(/^(\d+(?:\.\d+)?)([a-z/]+)$/);
     if (match) {
         const numberPart = match[1];
         const unitPart = match[2];
