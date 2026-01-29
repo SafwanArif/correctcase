@@ -50,30 +50,17 @@ export function EditorFrame({
                     : "bg-transparent"
             )}>
                 {/* Left Slot */}
-                <div className={cn(
-                    "flex-1 flex items-center justify-start gap-2 transition-opacity duration-500 delay-100",
-                    // Opacity Logic: 0 (Hidden) -> 50 (Hover Frame) -> 75 (Typing) -> 100 (Direct Hover)
-                    isFocused ? "opacity-75" : "opacity-0 group-hover:opacity-50 group-focus-within:opacity-75",
-                    "hover:!opacity-100"
-                )}>
+                <div className="flex-1 flex items-center justify-start gap-2">
                     {headerLeft}
                 </div>
 
                 {/* Center Slot */}
-                <div className={cn(
-                    "flex items-center gap-1 transition-opacity duration-500 delay-100",
-                    isFocused ? "opacity-75" : "opacity-0 group-hover:opacity-50 group-focus-within:opacity-75",
-                    "hover:!opacity-100"
-                )}>
+                <div className="flex items-center gap-1">
                     {headerCenter}
                 </div>
 
                 {/* Right Slot */}
-                <div className={cn(
-                    "flex-1 flex justify-end transition-opacity duration-500 delay-100",
-                    isFocused ? "opacity-75" : "opacity-0 group-hover:opacity-50 group-focus-within:opacity-75",
-                    "hover:!opacity-100"
-                )}>
+                <div className="flex-1 flex justify-end">
                     {headerRight}
                 </div>
             </div>
@@ -101,20 +88,12 @@ export function EditorFrame({
                     : "h-8 bg-transparent"
             )}>
                 {/* Left Slot */}
-                <div className={cn(
-                    "flex items-center transition-opacity duration-500 delay-100",
-                    isFocused ? "opacity-75" : "opacity-0 group-hover:opacity-50 group-focus-within:opacity-75",
-                    "hover:!opacity-100"
-                )}>
+                <div className="flex items-center">
                     {footerLeft}
                 </div>
 
                 {/* Right Slot */}
-                <div className={cn(
-                    "flex items-center transition-opacity duration-500 delay-100",
-                    isFocused ? "opacity-75" : "opacity-0 group-hover:opacity-50 group-focus-within:opacity-75",
-                    "hover:!opacity-100"
-                )}>
+                <div className="flex items-center">
                     {footerRight}
                 </div>
             </div>
