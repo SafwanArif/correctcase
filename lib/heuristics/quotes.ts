@@ -48,6 +48,23 @@ export const processQuotes: HeuristicProcessor = (currentWord, i, words, splitPu
         };
     }
 
+    // 3. Title Context (Smart Quotes)
+    // "The song 'yesterday'" -> Capitalize 'Yesterday'
+    // "The book 'harry potter'" -> Capitalize 'Harry'
+    const titleIndicators = new Set(['song', 'book', 'album', 'movie', 'film', 'poem', 'play', 'track', 'single', 'novel', 'called', 'titled', 'entitled', 'named']);
+
+    // Clean punctuation from previous word to check matches
+    // "The song," -> "song"
+    const cleanPrev = prev.replace(/[^\w\s]/g, '').toLowerCase();
+
+    if (titleIndicators.has(cleanPrev)) {
+        const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
+        return {
+            consumed: 1,
+            processedWords: [`${p.prefix}${capitalized}${p.suffix}`]
+        };
+    }
+
     // Explicitly Lowercase inline quotes?
     // "I call it 'the end'." -> "the" should be lower.
     // If we return NULL, default logic might capitalize it if it's a Proper Noun (good).
