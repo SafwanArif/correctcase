@@ -321,13 +321,13 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         <div className={cn(
             "flex flex-col shrink-0 relative transition-all duration-500 ease-spring sticky z-40 mx-auto left-0 right-0 w-[90%] max-w-3xl rounded-2xl border overflow-hidden group",
             isCompact
-                ? "top-4 bg-surface/90 backdrop-blur-xl border-border-subtle shadow-2xl"
-                : "top-4 bg-surface border-border-subtle/40 shadow-sm mt-6 mb-12"
+                ? "top-2 bg-surface/90 backdrop-blur-xl border-border-subtle shadow-2xl"
+                : "top-2 bg-surface border-border-subtle/40 shadow-sm my-2"
         )}>
 
             {/* Internal Editor Header - Action Tier (Floating) */}
             <div className={cn(
-                "absolute top-0 left-0 w-full z-30 flex items-center justify-between px-3 py-2 transition-all duration-500 opacity-0 group-hover:opacity-100 focus-within:opacity-100",
+                "absolute top-0 left-0 w-full z-30 flex items-center justify-between px-3 py-1 transition-all duration-500 opacity-0 group-hover:opacity-100 focus-within:opacity-100",
                 isCompact
                     ? "bg-surface/80 backdrop-blur-xl border-b border-border-subtle/50"
                     : "bg-transparent"
@@ -405,8 +405,8 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                     className={cn(
                         "w-full bg-transparent border-none outline-none resize-none text-body font-sans select-text relative z-10 transition-all duration-500 scrollbar-hide",
                         isCompact
-                            ? "px-4 py-3 pt-14 text-base leading-normal h-24 whitespace-nowrap overflow-hidden"
-                            : "px-6 pb-16 pt-14 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[5rem]"
+                            ? "px-4 py-3 pt-8 text-base leading-normal h-16 whitespace-nowrap overflow-hidden"
+                            : "px-6 pb-9 pt-9 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[4rem]"
                     )}
                     spellCheck={false}
                     rows={1}
@@ -418,7 +418,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 "absolute bottom-0 left-0 w-full z-30 px-6 flex items-center justify-between select-none transition-all duration-500 overflow-hidden rounded-b-2xl",
                 isCompact
                     ? "h-0 opacity-0"
-                    : "h-10 bg-transparent opacity-0 group-hover:opacity-100 focus-within:opacity-100"
+                    : "h-8 bg-transparent opacity-0 group-hover:opacity-100 focus-within:opacity-100"
             )}>
 
                 {/* Left Side Group */}
