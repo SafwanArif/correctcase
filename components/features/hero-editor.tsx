@@ -210,7 +210,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 />
 
                 {/* Floating Copy Button - Modern Ghost Style */}
-                <div className="absolute top-0 right-6 z-10">
+                <div className="absolute top-0 right-4 z-10">
                     <button
                         onClick={copyToClipboard}
                         className={cn(
