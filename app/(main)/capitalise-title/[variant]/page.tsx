@@ -1,6 +1,6 @@
 
 import { HeroEditor } from "@/components/features/hero-editor";
-import { WorkstationLayout } from "@/components/layout/workstation-layout";
+
 import { Metadata } from "next";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
@@ -55,10 +55,10 @@ export default async function CapitaliseTitleVariantPage({ params }: { params: P
     }
 
     return (
-        <WorkstationLayout activeTab="text">
-            <Suspense>
-                <HeroEditor defaultTools={["case"]} forcedStyle={data.toolMode as 'us' | 'uk'} />
-            </Suspense>
-        </WorkstationLayout>
+    return (
+        <Suspense>
+            <HeroEditor defaultTools={["case"]} forcedStyle={data.toolMode as 'us' | 'uk'} />
+        </Suspense>
+    );
     );
 }

@@ -1,5 +1,5 @@
 import { HeroEditor } from "@/components/features/hero-editor";
-import { WorkstationLayout } from "@/components/layout/workstation-layout";
+
 import { Metadata } from "next";
 import { Suspense } from "react";
 
@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 
 export default function CapitaliseTitlePage() {
     return (
-        <WorkstationLayout activeTab="text">
-            <Suspense>
-                <HeroEditor defaultTools={["case"]} />
-            </Suspense>
-        </WorkstationLayout>
+    return (
+        <Suspense>
+            <HeroEditor defaultTools={["case"]} />
+        </Suspense>
+    );
     );
 }

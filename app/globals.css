@@ -21,12 +21,6 @@ body {
   overflow: hidden;
 }
 
-/* GLOBAL RESET & ACCESSIBILITY */
-
-
-/* PREVENT UI SELECTION (Ghost Text Fix - Global Aggressive) */
-
-
 /* 
   CUSTOM UTILITIES (The Visual Physics)
 */
@@ -38,8 +32,6 @@ body {
     0 2px 4px -1px oklch(0 0 0 / 0.03),
     0 10px 15px -3px oklch(0 0 0 / 0.02);
 }
-
-
 
 /* Custom Scrollbar */
 .custom-scrollbar {
@@ -68,19 +60,6 @@ body {
 /* Toggle Animation */
 .toggle-spring {
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Animation Utils */
-
-
-/* Animation Utils - Cleaned */
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
 }
 
 /* Ghost Text Fix: Only style selection on authorized elements, hiding extension mirrors */

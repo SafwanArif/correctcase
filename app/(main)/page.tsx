@@ -1,5 +1,5 @@
 import { HeroEditor } from "@/components/features/hero-editor";
-import { WorkstationLayout } from "@/components/layout/workstation-layout";
+
 import { Metadata } from "next";
 import { Suspense } from "react";
 
@@ -35,11 +35,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <WorkstationLayout activeTab="text">
-        <Suspense>
-          <HeroEditor />
-        </Suspense>
-      </WorkstationLayout>
+      <Suspense>
+        <HeroEditor />
+      </Suspense>
     </>
   );
 }
