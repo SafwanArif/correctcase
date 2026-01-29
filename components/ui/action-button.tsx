@@ -23,8 +23,8 @@ export function ActionButton({ onClick, icon, label, isActive, variant = "primar
                 "flex items-center font-medium rounded-lg transition-all duration-200 active:scale-95 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]",
 
                 // Size Variants
-                size === "sm" && "px-3 py-1.5 text-xs gap-1.5",
-                size === "md" && "px-4 py-1.5 text-sm gap-2",
+                size === "sm" && "h-7 px-3 text-xs gap-1.5",
+                size === "md" && "h-9 px-4 text-sm gap-2",
 
                 // Primary Variant
                 variant === "primary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm hover:shadow",
@@ -35,7 +35,10 @@ export function ActionButton({ onClick, icon, label, isActive, variant = "primar
                 variant === "secondary" && isActive && "bg-[oklch(var(--brand-secondary)/0.1)] text-[oklch(var(--brand-secondary))] border-[oklch(var(--brand-secondary)/0.3)] border shadow-sm",
 
                 // Toolbar Item (Borderless, Small, Uniform)
-                variant === "toolbar-item" && "h-9 px-3 border-none shadow-none text-xs",
+                // Toolbar items will respect the 'size' prop if passed, defaulting to their own h-9 if not driven by size. 
+                // But for consistency we should let size drive it if possible. 
+                // If variant is toolbar-item, we remove shadow/border.
+                variant === "toolbar-item" && "border-none shadow-none",
                 variant === "toolbar-item" && !isActive && "bg-elevated/50 hover:bg-elevated text-muted hover:text-body",
                 // Active State: Semantic High Contrast
                 variant === "toolbar-item" && isActive && "bg-[oklch(var(--action-active))] text-primary-fg font-medium shadow-sm",

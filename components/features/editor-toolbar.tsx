@@ -83,7 +83,7 @@ export function EditorToolbar({ className, defaultTools }: EditorToolbarProps) {
                 <div className="flex items-center gap-2">
                     <ActionButton
                         onClick={() => router.push("/capitalise-title")}
-                        icon={<Type className="w-4 h-4" />}
+                        icon={<Type className="w-3.5 h-3.5" />}
                         label="Capitalise Title"
                         isActive={isCaseMode}
                         variant="primary"
