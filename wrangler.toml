@@ -1,0 +1,48 @@
+name = "correct-case"
+pages_build_output_dir = "out"
+compatibility_date = "2026-01-29"
+
+# ------------------------------------------------------------------------------
+# ROUTING & HEADERS (The "Gold Standard" for Static Exports)
+# ------------------------------------------------------------------------------
+
+# 1. Immutable Assets (Hashed JS/CSS)
+# These files contain hashes in their filenames. If content changes, the name changes.
+# Therefore, we can cache them FOREVER (1 year).
+[[headers]]
+  pattern = "/_next/static/*"
+  headers = { Cache-Control = "public, max-age=31536000, immutable" }
+
+# 2. HTML Pages (The Entry Points)
+# We NEVER want to cache these longer than 0s on the edge without revalidation.
+# This ensures a redeploy is seen instantly by users.
+[[headers]]
+  pattern = "/*.html"
+  headers = { Cache-Control = "public, max-age=0, must-revalidate" }
+
+# 3. Root Path (Home Page)
+[[headers]]
+  pattern = "/"
+  headers = { Cache-Control = "public, max-age=0, must-revalidate" }
+
+# 4. Standard Static Assets (Images, Icons in /public)
+# Cache for 1 hour, then check for updates.
+[[headers]]
+  pattern = "/*.ico"
+  headers = { Cache-Control = "public, max-age=3600, must-revalidate" }
+
+[[headers]]
+  pattern = "/*.png"
+  headers = { Cache-Control = "public, max-age=3600, must-revalidate" }
+
+[[headers]]
+  pattern = "/*.svg"
+  headers = { Cache-Control = "public, max-age=3600, must-revalidate" }
+
+[[headers]]
+  pattern = "/robots.txt"
+  headers = { Cache-Control = "public, max-age=3600, must-revalidate" }
+
+[[headers]]
+  pattern = "/sitemap.xml"
+  headers = { Cache-Control = "public, max-age=3600, must-revalidate" }
