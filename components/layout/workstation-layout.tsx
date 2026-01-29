@@ -25,6 +25,9 @@ function WorkstationInternal({ children, activeTab }: WorkstationLayoutProps) {
                 activeTab={activeTab}
             />
 
+            {/* Contextual Toolbar */}
+            <EditorToolbar />
+
             {/* Scrollable Content Area (Editor + SEO Tail) */}
             <div
                 className="flex-1 overflow-y-auto custom-scrollbar relative flex flex-col scroll-smooth"
