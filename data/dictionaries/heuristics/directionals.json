@@ -1,0 +1,21 @@
+{
+    "classifiers": [
+        "north",
+        "south",
+        "east",
+        "west",
+        "northern",
+        "southern",
+        "eastern",
+        "western",
+        "river",
+        "mount",
+        "lake",
+        "isle",
+        "cape",
+        "fort",
+        "port",
+        "upper",
+        "lower"
+    ]
+}
