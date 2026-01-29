@@ -13,10 +13,16 @@ export const metadata: Metadata = {
     }
 };
 
+import { SeoContent } from "@/components/features/seo-content";
+import { SEO_CONTENT } from "@/data/seo-content";
+
 export default function HyphenateTextPage() {
     return (
-        <Suspense>
-            <HeroEditor defaultTools={["hyphenation"]} />
-        </Suspense>
+        <>
+            <Suspense>
+                <HeroEditor defaultTools={["hyphenation"]} />
+            </Suspense>
+            <SeoContent data={SEO_CONTENT['hyphenate']} />
+        </>
     );
 }

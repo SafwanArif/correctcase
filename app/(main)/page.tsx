@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   }
 };
 
+import { SeoContent } from "@/components/features/seo-content";
+import { SEO_CONTENT } from "@/data/seo-content";
+
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -38,6 +41,7 @@ export default function Home() {
       <Suspense>
         <HeroEditor />
       </Suspense>
+      <SeoContent data={SEO_CONTENT['us-title-case']} />
     </>
   );
 }

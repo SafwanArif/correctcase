@@ -24,8 +24,10 @@ export function WorkstationLayout({ children, activeTab = 'text' }: WorkstationL
                     activeTab={activeTab}
                 />
 
-                {/* Content Area (Editor) */}
-                {children}
+                {/* Scrollable Content Area (Editor + SEO Tail) */}
+                <div className="flex-1 overflow-y-auto custom-scrollbar relative flex flex-col">
+                    {children}
+                </div>
 
             </div>
 

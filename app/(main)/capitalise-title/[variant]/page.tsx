@@ -45,18 +45,25 @@ export async function generateMetadata({ params }: { params: Promise<{ variant: 
     };
 }
 
+import { SeoContent } from "@/components/features/seo-content";
+import { SEO_CONTENT } from "@/data/seo-content";
+
 export default async function CapitaliseTitleVariantPage({ params }: { params: Promise<{ variant: string }> }) {
     const { variant } = await params;
     const variantKey = variant as VariantKey;
     const data = VARIANTS[variantKey];
+    const seoData = SEO_CONTENT[variantKey];
 
     if (!data) {
         notFound();
     }
 
     return (
-        <Suspense>
-            <HeroEditor defaultTools={["case"]} forcedStyle={data.toolMode as 'us' | 'uk'} />
-        </Suspense>
+        <>
+            <Suspense>
+                <HeroEditor defaultTools={["case"]} forcedStyle={data.toolMode as 'us' | 'uk'} />
+            </Suspense>
+            {seoData && <SeoContent data={seoData} />}
+        </>
     );
 }

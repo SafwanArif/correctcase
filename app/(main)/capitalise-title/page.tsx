@@ -10,10 +10,16 @@ export const metadata: Metadata = {
     description: "Convert text to US Title Case or UK Sentence Case instantly. Free, privacy-first tool.",
 };
 
+import { SeoContent } from "@/components/features/seo-content";
+import { SEO_CONTENT } from "@/data/seo-content";
+
 export default function CapitaliseTitlePage() {
     return (
-        <Suspense>
-            <HeroEditor defaultTools={["case"]} />
-        </Suspense>
+        <>
+            <Suspense>
+                <HeroEditor defaultTools={["case"]} />
+            </Suspense>
+            <SeoContent data={SEO_CONTENT['us-title-case']} />
+        </>
     );
 }
