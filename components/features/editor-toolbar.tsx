@@ -24,7 +24,10 @@ export function EditorToolbar({ className, defaultTools }: EditorToolbarProps) {
     const [preservePunctuation, setPreservePunctuation] = useState(false);
 
     // Determines active mode from URL
-    const activeStyle = searchParams.get('style');
+    // Determines active mode from URL (Query or Path)
+    const activeStyle = searchParams.get('style') ||
+        (pathname?.includes("us-title-case") ? "us" :
+            pathname?.includes("uk-sentence-case") ? "uk" : null);
     const isCaseMode = pathname?.includes("/capitalise-title");
     const isHyphenateMode = pathname === "/hyphenate-text";
     const isTextHyphenated = isHyphenated(text);
