@@ -87,6 +87,7 @@ export function EditorToolbar({ className, defaultTools }: EditorToolbarProps) {
                         label="Capitalise Title"
                         isActive={isCaseMode}
                         variant="primary"
+                        size="sm"
                     />
                 </div>
             )}
@@ -99,6 +100,7 @@ export function EditorToolbar({ className, defaultTools }: EditorToolbarProps) {
                         label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
                         isActive={isTextHyphenated}
                         variant="primary"
+                        size="sm"
                     />
                 </div>
             )}
