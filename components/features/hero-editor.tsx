@@ -141,6 +141,39 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         setTimeout(() => setIsCopied(false), 2000);
     };
 
+    const handlePaste = async () => {
+        try {
+            const clipboardText = await navigator.clipboard.readText();
+            if (!clipboardText) return;
+
+            const el = textareaRef.current;
+            if (el) {
+                const start = el.selectionStart;
+                const end = el.selectionEnd;
+                const currentText = text;
+
+                const newText = currentText.substring(0, start) + clipboardText + currentText.substring(end);
+
+                setText(newText);
+                addToHistory(newText, "paste");
+
+                // Restore focus and cursor position after render
+                setTimeout(() => {
+                    el.focus();
+                    el.setSelectionRange(start + clipboardText.length, start + clipboardText.length);
+                    adjustHeight();
+                }, 0);
+            } else {
+                // Fallback if ref missing
+                setText(clipboardText);
+                addToHistory(clipboardText, "paste");
+            }
+        } catch (err) {
+            console.error("Failed to read clipboard:", err);
+            // Optionally notify user about permissions
+        }
+    };
+
     // const isCompact = useScroll().scrollTop > 10; // REMOVED DUPLICATE
 
     return (
@@ -156,8 +189,16 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 "flex items-center justify-between px-3 py-2 border-b border-border-subtle/50 transition-all duration-500",
                 isCompact ? "bg-surface/50" : "bg-surface/30"
             )}>
-                {/* Left Spacer for Balance */}
-                <div className="flex-1" />
+                {/* Left - Paste Button */}
+                <div className="flex-1 flex justify-start">
+                    <button
+                        onClick={handlePaste}
+                        className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md transition-all duration-200 select-none focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))]"
+                        title="Paste from Clipboard"
+                    >
+                        <Clipboard className="w-3.5 h-3.5" /> Paste
+                    </button>
+                </div>
 
                 {/* Center - Undo/Redo Controls */}
                 <div className="flex items-center gap-1">
