@@ -1,8 +1,19 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
+import { getListPrefix, incrementListPrefix, stripFormatting } from "@/lib/smart-text";
+import { Copy, Clipboard as ClipboardIcon, Eraser } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useScroll } from "@/components/providers/scroll-provider";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useEditor } from "@/components/providers/editor-provider";
+import { EditorFrame } from "@/components/ui/editor-frame";
 
-// ... (imports remain same)
+interface HeroEditorProps {
+    defaultTools?: ('case' | 'hyphenation')[];
+    forcedStyle?: 'us' | 'uk';
+}
 
 export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
     const [isCopied, setIsCopied] = useState(false);
@@ -17,7 +28,40 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
 
     const { text, setText, undo, redo, canUndo, canRedo, addToHistory } = useEditor();
 
-    // ... (Scroll Context and Derived Logic remain same) ...
+    // Scroll Context
+    const { scrollTop } = useScroll();
+    const isCompact = scrollTop > 10;
+
+    // Derived Logic
+    const activeStyle = forcedStyle || searchParams.get('style');
+    const isTextHyphenated = isHyphenated(text);
+
+    const adjustHeight = () => {
+        const el = textareaRef.current;
+        if (el) {
+            el.style.height = 'auto'; // Reset to recalculate
+            const newHeight = Math.min(el.scrollHeight, 400); // Cap at ~15 lines (approx 400px)
+            el.style.height = `${newHeight}px`;
+
+            // Enable scroll if content exceeds cap
+            if (el.scrollHeight > 400) {
+                el.style.overflowY = 'auto';
+            } else {
+                el.style.overflowY = 'hidden';
+            }
+        }
+    };
+
+    // Effects
+    useEffect(() => {
+        if (textareaRef.current) adjustHeight();
+
+        // Client-Side SEO
+        if (!forcedStyle) {
+            if (activeStyle === 'us') document.title = "US Title Case Converter | CorrectCase";
+            else if (activeStyle === 'uk') document.title = "UK Sentence Case Converter | CorrectCase";
+        }
+    }, [activeStyle, forcedStyle, text]);
 
     // Restore cursor position after render if tracked
     useLayoutEffect(() => {
@@ -27,19 +71,48 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         }
     }, [text]);
 
-    // ... (adjustHeight and SEO Effects remain same) ...
+    // Global Paste Handler (Ctrl+V anywhere)
+    useEffect(() => {
+        const handleGlobalPaste = (e: ClipboardEvent) => {
+            // Ignore if user is focused on an input/textarea (native behavior applies)
+            const target = e.target as HTMLElement;
+            if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+                return;
+            }
 
-    // ... (Global Paste Handler remains same) ...
+            // Capture pasted text
+            const clipboardText = e.clipboardData?.getData('text');
+            if (!clipboardText) return;
+
+            e.preventDefault();
+
+            // Append to end. Using functional state implicitly via closure variable 'text'
+            const newText = text + clipboardText;
+
+            setText(newText);
+            addToHistory(newText, "paste");
+
+            // Focus and Scroll
+            if (textareaRef.current) {
+                textareaRef.current.focus();
+                // Move cursor to end
+                textareaRef.current.setSelectionRange(newText.length, newText.length);
+                setTimeout(adjustHeight, 0);
+            }
+        };
+
+        window.addEventListener('paste', handleGlobalPaste);
+        return () => window.removeEventListener('paste', handleGlobalPaste);
+    }, [text, setText, addToHistory]);
 
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const cursorPosition = e.target.selectionStart; // Capture cursor before processing
+        const cursorPosition = e.target.selectionStart;
         let val = e.target.value;
-
         // Text processing happening before set...
         if (activeStyle === 'uk') val = toSentenceCase(val);
         else if (activeStyle === 'us') val = toTitleCase(val);
 
-        cursorOffsetRef.current = cursorPosition; // Queue cursor restoration
+        cursorOffsetRef.current = cursorPosition;
         setText(val);
     };
 
