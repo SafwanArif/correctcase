@@ -6,6 +6,7 @@ import { HistorySheet } from "@/components/features/history-sheet";
 import { useState } from "react";
 import { ScrollProvider, useScroll } from "@/components/providers/scroll-provider";
 import { cn } from "@/lib/utils";
+import { EditorToolbar } from "@/components/features/editor-toolbar";
 
 interface WorkstationLayoutProps {
     children: React.ReactNode;
