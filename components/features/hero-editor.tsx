@@ -334,7 +334,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                     : "bg-transparent"
             )}>
                 {/* Left - Paste & Clear */}
-                <div className="flex-1 flex items-center justify-start gap-2 opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 transition-opacity duration-500 delay-100">
+                <div className="flex-1 flex items-center justify-start gap-2 opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 hover:!opacity-100 transition-opacity duration-500 delay-100">
                     <button
                         onClick={handlePaste}
                         className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md transition-all duration-200 select-none focus:outline-none focus:ring-2 focus:ring-[oklch(var(--brand-core))] hover:!opacity-100"
@@ -355,7 +355,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 </div>
 
                 {/* Center - Undo/Redo Controls */}
-                <div className="flex items-center gap-1 opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 transition-opacity duration-500 delay-100">
+                <div className="flex items-center gap-1 opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 hover:!opacity-100 transition-opacity duration-500 delay-100">
                     <button
                         onClick={undo}
                         disabled={!canUndo}
@@ -376,7 +376,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 </div>
 
                 {/* Right - Copy Button */}
-                <div className="flex-1 flex justify-end opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 transition-opacity duration-500 delay-100">
+                <div className="flex-1 flex justify-end opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 hover:!opacity-100 transition-opacity duration-500 delay-100">
                     <button
                         onClick={copyToClipboard}
                         className={cn(
@@ -425,7 +425,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
             )}>
 
                 {/* Left Side Group */}
-                <div className="flex items-center opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 transition-opacity duration-500 delay-100">
+                <div className="flex items-center opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 hover:!opacity-100 transition-opacity duration-500 delay-100">
                     {/* Desktop Stats: Combined */}
                     <div className="hidden sm:flex items-center gap-4 text-[10px] font-mono font-medium text-muted">
                         <span>{countWords(text)} WORDS</span>
@@ -440,7 +440,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 </div>
 
                 {/* Right Side Group */}
-                <div className="flex items-center opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 transition-opacity duration-500 delay-100">
+                <div className="flex items-center opacity-0 group-hover:opacity-50 group-focus-within:opacity-75 hover:!opacity-100 transition-opacity duration-500 delay-100">
                     {/* Mobile Stats: Chars Only (Right) */}
                     <div className="flex sm:hidden items-center text-[10px] font-mono font-medium text-muted">
                         <span>{countCharacters(text)} CHARS</span>
