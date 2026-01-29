@@ -86,7 +86,7 @@ export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: Workspace
                     title="History"
                     aria-label="View History"
                 >
-                    <History className="w-[18px] h-[18px]" />
+                    <History className="w-7 h-7" />
                 </button>
 
                 {/* Divider */}
