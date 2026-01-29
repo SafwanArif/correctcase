@@ -12,10 +12,8 @@ export const metadata: Metadata = {
 
 export default function CapitaliseTitlePage() {
     return (
-    return (
         <Suspense>
             <HeroEditor defaultTools={["case"]} />
         </Suspense>
-    );
     );
 }

@@ -55,10 +55,8 @@ export default async function CapitaliseTitleVariantPage({ params }: { params: P
     }
 
     return (
-    return (
         <Suspense>
             <HeroEditor defaultTools={["case"]} forcedStyle={data.toolMode as 'us' | 'uk'} />
         </Suspense>
-    );
     );
 }

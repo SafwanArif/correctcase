@@ -15,10 +15,8 @@ export const metadata: Metadata = {
 
 export default function HyphenateTextPage() {
     return (
-    return (
         <Suspense>
             <HeroEditor defaultTools={["hyphenation"]} />
         </Suspense>
-    );
     );
 }
