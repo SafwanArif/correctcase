@@ -208,14 +208,13 @@
             "rpm",
             "rpm"
         ],
-    ],
-    [
-        "ohm",
-        "ohm"
-    ],
-    [
-        "nits",
-        "nits"
+        [
+            "ohm",
+            "ohm"
+        ],
+        [
+            "nits",
+            "nits"
+        ]
     ]
-]
 }

@@ -41,7 +41,7 @@ export const processDirectionals: HeuristicProcessor = (currentWord, i, words, s
             // Check "Direction of the Proper"
             else if (targetKey === 'the' && i < words.length - 3) {
                 const deepTargetP = splitPunctuation(words[i + 3]);
-                let deepKey = deepTargetP.word.toLowerCase();
+                const deepKey = deepTargetP.word.toLowerCase();
                 if (SENTENCE_CASE_EXCEPTIONS_MAP.has(deepKey)) {
                     shouldCapitalize = true;
                 }
