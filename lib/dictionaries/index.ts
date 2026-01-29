@@ -40,3 +40,10 @@ export const GLOBAL_COMPOUND_WORDS = new Set([
     ...UK_COMPOUNDS,
     ...US_COMPOUNDS
 ]);
+
+// Case-Insensitive Lookup for Compounds (lowercase -> original)
+// This enables "smart led" input to match "Smart LED" dictionary entry.
+export const COMPOUNDS_LOOKUP_MAP = new Map<string, string>();
+for (const word of GLOBAL_COMPOUND_WORDS) {
+    COMPOUNDS_LOOKUP_MAP.set(word.toLowerCase(), word);
+}

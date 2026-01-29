@@ -11,6 +11,7 @@ import { processDirectionals } from './heuristics/directionals';
 import { processExceptions } from './heuristics/exceptions';
 import { processQuotes } from './heuristics/quotes';
 import { processStructure } from './heuristics/structure';
+import { processCompounds } from './heuristics/compounds';
 import { processUnits } from './heuristics/units';
 import { processHyphens } from './heuristics/hyphens';
 import { processPronouns } from './heuristics/pronouns';
@@ -51,6 +52,15 @@ export function toSentenceCase(text: string): string {
                 const current = words[i];
                 const p = splitPunctuation(current);
                 const lowerKey = p.word.toLowerCase();
+
+                // --- 0. COMPOUNDS & LOOKAHEAD (Smart LED, North-East) ---
+                // Must run first to "eat" multi-word tokens before other rules break them.
+                const compoundResult = processCompounds(current, i, words, splitPunctuation);
+                if (compoundResult) {
+                    processedWords.push(...compoundResult.processedWords);
+                    i += compoundResult.consumed;
+                    continue;
+                }
 
                 // --- 1. HONORIFICS HEURISTICS (Priority: High - affects Structure) ---
                 // "Aunt Sarah" -> Must run before Exceptions/FirstWord consumes "Aunt".
