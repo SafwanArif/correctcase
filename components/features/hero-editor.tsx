@@ -406,17 +406,19 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                         "w-full bg-transparent border-none outline-none resize-none text-body font-sans select-text relative z-10 transition-all duration-500 scrollbar-hide",
                         isCompact
                             ? "px-4 py-3 pt-14 text-base leading-normal h-24 whitespace-nowrap overflow-hidden"
-                            : "px-6 pb-6 pt-14 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[5rem]"
+                            : "px-6 pb-16 pt-14 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[5rem]"
                     )}
                     spellCheck={false}
                     rows={1}
                 />
             </div>
 
-            {/* Dedicated Footer - Stats & Trust (Collapsible) */}
+            {/* Dedicated Footer - Stats & Trust (Collapsible Floating) */}
             <div className={cn(
-                "relative border-t border-border-subtle bg-focus backdrop-blur-sm px-6 flex items-center justify-between select-none transition-all duration-500 overflow-hidden",
-                isCompact ? "h-0 opacity-0 border-none" : "h-10 opacity-100"
+                "absolute bottom-0 left-0 w-full z-30 px-6 flex items-center justify-between select-none transition-all duration-500 overflow-hidden rounded-b-2xl",
+                isCompact
+                    ? "h-0 opacity-0"
+                    : "h-10 opacity-100 bg-surface/80 backdrop-blur-md"
             )}>
 
                 {/* Left Side Group */}
