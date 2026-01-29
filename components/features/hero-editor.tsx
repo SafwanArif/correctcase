@@ -407,7 +407,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                         "w-full bg-transparent border-none outline-none resize-none text-body font-sans select-text relative z-10 transition-all duration-500 scrollbar-hide",
                         isCompact
                             ? "px-4 py-3 pt-8 text-base leading-normal h-16 whitespace-nowrap overflow-hidden"
-                            : "px-6 py-4 group-hover:pt-9 group-hover:pb-9 group-focus-within:pt-9 group-focus-within:pb-9 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[3rem] group-hover:min-h-[7rem] group-focus-within:min-h-[7rem] overflow-hidden"
+                            : "px-6 py-4 group-hover:pt-10 group-hover:pb-9 group-focus-within:pt-10 group-focus-within:pb-9 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[3rem] group-hover:min-h-[7rem] group-focus-within:min-h-[7rem] overflow-hidden"
                     )}
                     spellCheck={false}
                     rows={1}
