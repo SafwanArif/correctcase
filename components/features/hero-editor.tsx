@@ -19,29 +19,43 @@ interface HeroEditorProps {
 export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
     const [isCopied, setIsCopied] = useState(false);
     const [preservePunctuation, setPreservePunctuation] = useState(false);
-    const [isFocused, setIsFocused] = useState(false); // Track focus state
+    const [isFocused, setIsFocused] = useState(false);
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+
     const { text, setText, undo, redo, canUndo, canRedo, addToHistory } = useEditor();
+
+    // Scroll Context
     const { scrollTop } = useScroll();
     const isCompact = scrollTop > 10;
 
-    // ... (Keep existing Helper Functions: adjustHeight, handleTextChange, etc.)
-    // For brevity in this tool call, I will include them if I replace the whole file. 
-    // But to minimize risk, I will focus on replacing the RETURN statement and inserting the import/state.
-    
-    // I need access to the helper functions reference.
-    // I will use `replace_file_content` for the Render Block + State.
+    // Derived Logic
+    const activeStyle = forcedStyle || searchParams.get('style');
+    const isTextHyphenated = isHyphenated(text);
 
     const adjustHeight = () => {
         const el = textareaRef.current;
         if (el) {
-            el.style.height = 'auto'; // Reset
+            el.style.height = 'auto';
             el.style.height = `${Math.min(el.scrollHeight, window.innerHeight * 0.6)}px`;
         }
     };
 
+    // Effects
+    useEffect(() => {
+        if (textareaRef.current) adjustHeight();
+
+        // Client-Side SEO
+        if (!forcedStyle) {
+            if (activeStyle === 'us') document.title = "US Title Case Converter | CorrectCase";
+            else if (activeStyle === 'uk') document.title = "UK Sentence Case Converter | CorrectCase";
+        }
+    }, [activeStyle, forcedStyle, text]);
+
+    // Handlers
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         let val = e.target.value;
         adjustHeight();
@@ -50,21 +64,148 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         setText(val);
     };
 
-    // ... (rest of logic assumed unchanged for now) ...
-    // Wait, I need to know where to cut.
-    // I'll assume lines 1-32 are imports/setup.
-    // I'll replace the entire file content with the cleaned version. Use `write_to_file`? No, `write_to_file` overwrites.
-    // `overwrite: true` is an option!
-    // Yes, this is the safest way to ensure "Cleanest 2026 CSS" is to rewrite the file cleanly.
-    // I will read the file one more time to copy the logic functions? 
-    // I have them in the context from `view_file` (Step 8339).
-    // I will re-assemble `HeroEditor.tsx` using the `EditorFrame`.
+    const copyToClipboard = async () => {
+        await navigator.clipboard.writeText(text);
+        setIsCopied(true);
+        addToHistory(text, "copy");
+        setTimeout(() => setIsCopied(false), 2000);
+    };
 
-    // Logic to preserve:
-    // - adjustHeight, handleTextChange, handleConversion, copyToClipboard, handleClear, handleKeyDown, handlePaste.
-    // - useEffects.
-    
-    // Let's do it.
+    const handleClear = () => {
+        if (!text) return;
+        const plainText = stripFormatting(text);
+        setText(plainText);
+        addToHistory(plainText, "clear-formatting");
+        if (textareaRef.current) {
+            textareaRef.current.focus();
+            adjustHeight();
+        }
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        const el = textareaRef.current;
+        if (!el) return;
+
+        // Shortcuts
+        if ((e.ctrlKey || e.metaKey)) {
+            const start = el.selectionStart;
+            const end = el.selectionEnd;
+            const hasSelection = start !== end;
+            const val = el.value;
+
+            const toggleFormat = (marker: string) => {
+                e.preventDefault();
+                let insertion = marker;
+                let newText;
+                let newCursorPos;
+
+                if (hasSelection) {
+                    const selected = val.substring(start, end);
+                    // Check if already wrapped
+                    const isWrapped = val.substring(start - marker.length, start) === marker &&
+                        val.substring(end, end + marker.length) === marker;
+
+                    if (isWrapped) {
+                        // Unwrap
+                        newText = val.substring(0, start - marker.length) + selected + val.substring(end + marker.length);
+                        newCursorPos = end - marker.length;
+                        // Keep selection logic simplified for now
+                        newText = val.substring(0, start) + marker + selected + marker + val.substring(end);
+                        newCursorPos = end + marker.length;
+                    } else {
+                        // Wrap
+                        newText = val.substring(0, start) + marker + selected + marker + val.substring(end);
+                        newCursorPos = end + marker.length;
+                    }
+                } else {
+                    // No selection
+                    newText = val.substring(0, start) + marker + marker + val.substring(end);
+                    newCursorPos = start + marker.length;
+                }
+
+                setText(newText);
+                addToHistory(newText, "format");
+                setTimeout(() => {
+                    el.focus();
+                    el.setSelectionRange(newCursorPos, newCursorPos);
+                    adjustHeight();
+                }, 0);
+            };
+
+            if (e.key === 'b') toggleFormat('**');
+            if (e.key === 'i') toggleFormat('*');
+            if (e.key === 's' && e.shiftKey) toggleFormat('~~');
+        }
+
+        // Smart Lists
+        if (e.key === 'Enter') {
+            const start = el.selectionStart;
+            const value = el.value;
+
+            if (e.shiftKey) return;
+
+            const lineStart = value.lastIndexOf('\n', start - 1) + 1;
+            const lineEndSearch = value.indexOf('\n', start);
+            const lineEnd = lineEndSearch === -1 ? value.length : lineEndSearch;
+            const line = value.substring(lineStart, lineEnd);
+
+            const prefix = getListPrefix(line);
+            if (prefix) {
+                e.preventDefault();
+                if (line.trim() === prefix.trim()) {
+                    // Remove prefix if empty line
+                    const newVal = value.substring(0, start) + '\n' + value.substring(start);
+                    setText(newVal);
+                    setTimeout(() => {
+                        el.selectionStart = el.selectionEnd = start + 1;
+                        adjustHeight();
+                    }, 0);
+                    return;
+                }
+
+                const nextPrefix = incrementListPrefix(prefix);
+                const insertion = `\n${nextPrefix}`;
+                const newValue = value.substring(0, start) + insertion + value.substring(start);
+
+                setText(newValue);
+                addToHistory(newValue, "smart-list");
+
+                setTimeout(() => {
+                    el.selectionStart = el.selectionEnd = start + insertion.length;
+                    el.scrollTop = el.scrollHeight;
+                    adjustHeight();
+                }, 0);
+            }
+        }
+    };
+
+    const handlePaste = async () => {
+        try {
+            const clipboardText = await navigator.clipboard.readText();
+            if (!clipboardText) return;
+
+            const el = textareaRef.current;
+            if (el) {
+                const start = el.selectionStart;
+                const end = el.selectionEnd;
+                const currentText = text;
+                const newText = currentText.substring(0, start) + clipboardText + currentText.substring(end);
+
+                setText(newText);
+                addToHistory(newText, "paste");
+                setTimeout(() => {
+                    el.focus();
+                    el.setSelectionRange(start + clipboardText.length, start + clipboardText.length);
+                    adjustHeight();
+                }, 0);
+            } else {
+                setText(clipboardText);
+                addToHistory(clipboardText, "paste");
+            }
+        } catch (err) {
+            console.error("Failed to read clipboard:", err);
+        }
+    };
 
     return (
         <EditorFrame
@@ -154,19 +295,4 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
             />
         </EditorFrame>
     );
-
-    // I will write the FULL file to be safe.
-    
-    // Reconstructing the logic block...
-    // I need to be careful not to lose `activeStyle`, `pathname` etc.
-    // I'll grab them from the viewed file.
-    
-    // Logic dump:
-    // ...
-    // activeStyle = forcedStyle || searchParams.get('style');
-    // ...
-    
-    // Okay, I'll generate the full file content locally in the tool.
-
-
-
+}
