@@ -231,7 +231,7 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
             {/* Editor Area - "Paper" Feel */}
             <div className={cn(
                 "relative group bg-focus transition-all duration-500 ease-spring overflow-hidden",
-                isCompact ? "h-auto bg-transparent" : "flex-1 min-h-[120px]"
+                isCompact ? "h-auto bg-transparent" : "h-auto"
             )}>
                 <textarea
                     ref={textareaRef}
