@@ -238,11 +238,11 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
             }
             headerCenter={
                 <>
-                    <button onClick={undo} disabled={!canUndo} className={cn(ghost, "p-1.5 text-muted hover:text-body disabled:opacity-30 rounded-md focus:ring-2 focus:ring-[oklch(var(--brand-core))]")}>
+                    <button onClick={undo} disabled={!canUndo} className={cn(ghost, "p-1.5 text-muted hover:text-body disabled:opacity-0 group-hover:disabled:opacity-30 group-focus-within:disabled:opacity-30 rounded-md focus:ring-2 focus:ring-[oklch(var(--brand-core))]")}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7v6h6" /><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" /></svg>
                     </button>
                     <div className={cn(ghostText, "w-px h-3 bg-border-subtle mx-1")} />
-                    <button onClick={redo} disabled={!canRedo} className={cn(ghost, "p-1.5 text-muted hover:text-body disabled:opacity-30 rounded-md focus:ring-2 focus:ring-[oklch(var(--brand-core))]")}>
+                    <button onClick={redo} disabled={!canRedo} className={cn(ghost, "p-1.5 text-muted hover:text-body disabled:opacity-0 group-hover:disabled:opacity-30 group-focus-within:disabled:opacity-30 rounded-md focus:ring-2 focus:ring-[oklch(var(--brand-core))]")}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 7v6h-6" /><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13" /></svg>
                     </button>
                 </>
