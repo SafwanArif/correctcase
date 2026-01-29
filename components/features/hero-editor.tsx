@@ -127,11 +127,13 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
         setTimeout(() => setIsCopied(false), 2000);
     };
 
+    const isCompact = useScroll().scrollTop > 10; // Lower threshold
+
     return (
         <div className={cn(
-            "flex flex-col relative transition-all duration-500 ease-spring sticky z-30 mx-auto",
+            "flex flex-col relative transition-all duration-500 ease-spring sticky z-30 mx-auto left-0 right-0",
             isCompact
-                ? "top-4 w-[94%] max-w-3xl bg-surface/80 backdrop-blur-xl border border-[oklch(var(--border-subtle)/0.6)] shadow-2xl rounded-2xl overflow-hidden"
+                ? "top-4 w-[90%] max-w-3xl bg-surface/80 backdrop-blur-xl border border-[oklch(var(--border-subtle)/0.6)] shadow-2xl rounded-2xl overflow-hidden"
                 : "top-0 w-full bg-transparent border-b border-transparent rounded-none shadow-none flex-1"
         )}>
 
