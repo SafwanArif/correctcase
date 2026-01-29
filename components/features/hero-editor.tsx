@@ -327,10 +327,12 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                 : "top-4 bg-surface border-border-subtle/40 shadow-sm mt-6 mb-12"
         )}>
 
-            {/* Internal Editor Header - Action Tier */}
+            {/* Internal Editor Header - Action Tier (Floating) */}
             <div className={cn(
-                "flex items-center justify-between px-3 py-2 border-b border-border-subtle/50 transition-all duration-500",
-                isCompact ? "bg-surface/50" : "bg-surface/30"
+                "absolute top-0 left-0 w-full z-30 flex items-center justify-between px-3 py-2 transition-all duration-500",
+                isCompact
+                    ? "bg-surface/80 backdrop-blur-xl border-b border-border-subtle/50"
+                    : "bg-gradient-to-b from-surface/80 to-transparent backdrop-blur-[2px]"
             )}>
                 {/* Left - Paste & Clear */}
                 <div className="flex-1 flex items-center justify-start gap-2">
@@ -404,7 +406,9 @@ export function HeroEditor({ defaultTools, forcedStyle }: HeroEditorProps) {
                     placeholder="Type or paste your text to analyse..."
                     className={cn(
                         "w-full bg-transparent border-none outline-none resize-none text-body font-sans select-text relative z-10 transition-all duration-500 scrollbar-hide",
-                        isCompact ? "px-4 py-3 text-base leading-normal h-14 whitespace-nowrap overflow-hidden" : "p-6 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[3.5rem]"
+                        isCompact
+                            ? "px-4 py-3 pt-14 text-base leading-normal h-24 whitespace-nowrap overflow-hidden"
+                            : "px-6 pb-6 pt-14 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[5rem]"
                     )}
                     spellCheck={false}
                     rows={1}
