@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
-import { Copy, Type, Link, Unlink, Quote } from "lucide-react";
+import { Copy, Type, Link, Unlink, Quote, Clipboard as ClipboardIcon, Eraser } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { UsTitleCaseIcon, UkSentenceCaseIcon } from "@/components/ui/custom-icons";
 import { useScroll } from "@/components/providers/scroll-provider";
