@@ -20,11 +20,11 @@ export function ActionButton({ onClick, icon, label, isActive, variant = "primar
             type={type}
             onClick={onClick}
             className={cn(
-                "flex items-center gap-2 font-medium rounded-lg transition-all duration-200 active:scale-95 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]",
+                "flex items-center font-medium rounded-lg transition-all duration-200 active:scale-95 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]",
 
                 // Size Variants
-                size === "sm" && "px-3 py-1.5 text-xs",
-                size === "md" && "px-4 py-1.5 text-sm",
+                size === "sm" && "px-3 py-1.5 text-xs gap-1.5",
+                size === "md" && "px-4 py-1.5 text-sm gap-2",
 
                 // Primary Variant
                 variant === "primary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm hover:shadow",
