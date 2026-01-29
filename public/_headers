@@ -1,0 +1,27 @@
+# Cloudflare Pages Headers
+# The "2026 Gold Standard" for Static Exports
+
+# 1. Immutable Assets (Hashed JS/CSS)
+# These files contain hashes. Cache FOREVER.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 2. HTML Pages & Root
+# Never cache purely. Always revalidate (0s).
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 3. Standard Static Assets (Images, Icons)
+# Cache for 1 hour.
+/*.ico
+  Cache-Control: public, max-age=3600, must-revalidate
+/*.png
+  Cache-Control: public, max-age=3600, must-revalidate
+/*.svg
+  Cache-Control: public, max-age=3600, must-revalidate
+/robots.txt
+  Cache-Control: public, max-age=3600, must-revalidate
+/sitemap.xml
+  Cache-Control: public, max-age=3600, must-revalidate
