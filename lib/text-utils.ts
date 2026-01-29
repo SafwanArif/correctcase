@@ -275,6 +275,24 @@ export function toSentenceCase(text: string): string {
                     continue;
                 }
 
+                // 4. Direction/Classifier Heuristic (UK Geography)
+                // Capitalize 'North', 'West', 'River', etc. if followed immediately by a Proper Noun.
+                const classifiers = new Set(['north', 'south', 'east', 'west', 'northern', 'southern', 'eastern', 'western', 'river', 'mount', 'lake', 'isle', 'cape', 'fort', 'port', 'upper', 'lower']);
+
+                if (classifiers.has(lowerKey) && i < words.length - 1) {
+                    const nextP = splitPunctuation(words[i + 1]);
+                    let nextKey = nextP.word.toLowerCase();
+                    // Strip possessive for check
+                    if (nextKey.endsWith("'s")) nextKey = nextKey.slice(0, -2);
+
+                    if (SENTENCE_CASE_EXCEPTIONS_MAP.has(nextKey)) {
+                        const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
+                        processedWords.push(`${p.prefix}${capitalized}${p.suffix}`);
+                        i++;
+                        continue;
+                    }
+                }
+
                 // Default Lowercase
                 processedWords.push(`${p.prefix}${p.word.toLowerCase()}${p.suffix}`);
                 i++;
