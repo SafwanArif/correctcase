@@ -50,7 +50,7 @@ export function ActionButton({ onClick, icon, label, isActive, variant = "primar
             )}
         >
             {icon}
-            <span className={cn("text-center leading-none", variant === "primary" ? "min-w-16" : "")}>{label}</span>
+            <span className={cn("text-center leading-none -mt-[1px]", variant === "primary" ? "min-w-16" : "")}>{label}</span>
         </button>
     );
 }
