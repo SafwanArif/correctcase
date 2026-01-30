@@ -51,13 +51,7 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
     // Effects
     useEffect(() => {
         if (textareaRef.current) adjustHeight();
-
-        // Client-Side SEO
-        if (!forcedStyle) {
-            if (activeStyle === 'us') document.title = "US Title Case Converter | CorrectCase";
-            else if (activeStyle === 'uk') document.title = "UK Sentence Case Converter | CorrectCase";
-        }
-    }, [activeStyle, forcedStyle, text]);
+    }, [text]);
 
     // Restore cursor position after render if tracked
     useLayoutEffect(() => {
@@ -66,6 +60,55 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
             cursorOffsetRef.current = null;
         }
     }, [text]);
+
+    // State Ref to prevent Effect thrashing
+    const textRef = useRef(text);
+    useLayoutEffect(() => {
+        textRef.current = text;
+    }, [text]);
+
+    // Unified Text Insertion Logic
+    const insertText = (content: string, atCursor: boolean) => {
+        const el = textareaRef.current;
+        let newText = "";
+
+        if (atCursor && el) {
+            const start = el.selectionStart;
+            const end = el.selectionEnd;
+            const currentText = textRef.current; // Use Ref for fresh state
+            newText = currentText.substring(0, start) + content + currentText.substring(end);
+
+            setText(newText);
+            addToHistory(newText, "paste");
+
+            // Restore cursor
+            // We need to wait for render to set selection effectively sometimes, 
+            // but setting it on the ref/state flow usually works if we track it.
+            // Simplified: Focus and set range.
+            setTimeout(() => {
+                if (el) {
+                    el.focus();
+                    el.setSelectionRange(start + content.length, start + content.length);
+                    adjustHeight();
+                }
+            }, 0);
+
+        } else {
+            // Append Mode
+            newText = textRef.current + content;
+            setText(newText);
+            addToHistory(newText, "paste");
+
+            setTimeout(() => {
+                if (el) {
+                    el.focus();
+                    // Move to end
+                    el.setSelectionRange(newText.length, newText.length);
+                    adjustHeight();
+                }
+            }, 0);
+        }
+    };
 
     // Global Paste Handler (Ctrl+V anywhere)
     useEffect(() => {
@@ -81,25 +124,12 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
             if (!clipboardText) return;
 
             e.preventDefault();
-
-            // Append to end. Using functional state implicitly via closure variable 'text'
-            const newText = text + clipboardText;
-
-            setText(newText);
-            addToHistory(newText, "paste");
-
-            // Focus and Scroll
-            if (textareaRef.current) {
-                textareaRef.current.focus();
-                // Move cursor to end
-                textareaRef.current.setSelectionRange(newText.length, newText.length);
-                setTimeout(adjustHeight, 0);
-            }
+            insertText(clipboardText, false); // Append
         };
 
         window.addEventListener('paste', handleGlobalPaste);
         return () => window.removeEventListener('paste', handleGlobalPaste);
-    }, [text, setText, addToHistory]);
+    }, [setText, addToHistory]); // Stable dependencies
 
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const cursorPosition = e.target.selectionStart;
@@ -231,25 +261,7 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
         try {
             const clipboardText = await navigator.clipboard.readText();
             if (!clipboardText) return;
-
-            const el = textareaRef.current;
-            if (el) {
-                const start = el.selectionStart;
-                const end = el.selectionEnd;
-                const currentText = text;
-                const newText = currentText.substring(0, start) + clipboardText + currentText.substring(end);
-
-                setText(newText);
-                addToHistory(newText, "paste");
-                setTimeout(() => {
-                    el.focus();
-                    el.setSelectionRange(start + clipboardText.length, start + clipboardText.length);
-                    adjustHeight();
-                }, 0);
-            } else {
-                setText(clipboardText);
-                addToHistory(clipboardText, "paste");
-            }
+            insertText(clipboardText, true); // Insert at cursor
         } catch (err) {
             console.error("Failed to read clipboard:", err);
         }

@@ -41,8 +41,10 @@ export function toSentenceCase(text: string): string {
             const words = part.split(/\s+/);
             const processedWords: string[] = [];
 
+            const PUNCTUATION_SPLIT_REGEX = /^([^a-zA-Z0-9&+\-_]*)([a-zA-Z0-9&+\-_].*[a-zA-Z0-9&+\-_]|[a-zA-Z0-9&+\-_])([^a-zA-Z0-9&+\-_]*)$/;
+
             const splitPunctuation = (str: string) => {
-                const match = str.match(/^([^a-zA-Z0-9&+\-_]*)([a-zA-Z0-9&+\-_].*[a-zA-Z0-9&+\-_]|[a-zA-Z0-9&+\-_])([^a-zA-Z0-9&+\-_]*)$/);
+                const match = str.match(PUNCTUATION_SPLIT_REGEX);
                 if (!match) return { prefix: str, word: '', suffix: '' };
                 return { prefix: match[1], word: match[2], suffix: match[3] };
             };
