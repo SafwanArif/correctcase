@@ -27,8 +27,9 @@ export function FloatingCommandBar({ isVisible, onScrollToTop }: FloatingCommand
                         {/* Scroll to Top Trigger / Logo */}
                         <button
                             onClick={onScrollToTop}
-                            className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-all group-hover:scale-110 active:scale-95"
+                            className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-all group-hover:scale-110 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                             title="Back to Top"
+                            aria-label="Back to Top"
                         >
                             <BrandLogo className="w-6 h-6" />
                         </button>
@@ -40,7 +41,8 @@ export function FloatingCommandBar({ isVisible, onScrollToTop }: FloatingCommand
                                 value={text}
                                 onChange={(e) => setText(e.target.value)}
                                 placeholder="Type or paste to analyse instantly..."
-                                className="w-full bg-transparent border-none outline-none text-sm text-body placeholder:text-muted/60 py-2"
+                                className="w-full bg-transparent border-none outline-none text-sm text-body placeholder:text-muted/60 py-2 focus:ring-0"
+                                aria-label="Quick analysis input"
                             />
                         </div>
 
