@@ -51,10 +51,10 @@ export function LandingHero() {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center mb-16 max-w-5xl z-20 relative"
             >
-                <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-12 leading-[0.85]">
-                    The Clinical <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">Standard</span> for Text.
-                </h2>
+                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-12 leading-[0.85]">
+                    Convert Text to <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">Title Case</span> & Hyphenate
+                </h1>
 
                 {/* 2. The Hero Editor (Product Showcase) - MOVED UP */}
                 <motion.div

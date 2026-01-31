@@ -2,6 +2,7 @@ import { BrandLogo } from "@/components/ui/brand-logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ToolsMenu } from "@/components/ui/tools-menu";
 import { History } from "lucide-react";
+import Link from "next/link";
 
 interface ShellProps {
     children: React.ReactNode;
@@ -16,17 +17,17 @@ export function Shell({ children, onOpenHistory }: ShellProps) {
             <header className="fixed top-0 left-0 w-full z-50 flex items-center px-4 sm:px-8 py-6 pointer-events-none">
                 {/* Left: Logo */}
                 <div className="flex-1 flex items-center">
-                    <div className="flex items-center gap-3 group pointer-events-auto">
+                    <Link href="/" className="flex items-center gap-2 group pointer-events-auto hover:opacity-80 transition-opacity">
                         <BrandLogo className="w-8 h-8 sm:w-9 sm:h-9 transition-transform duration-500 group-hover:rotate-12" />
                         <div className="flex flex-col">
-                            <h1 className="text-lg sm:text-xl font-bold tracking-tighter text-body leading-none">
+                            <h6 className="text-lg sm:text-xl font-bold tracking-tighter text-body leading-none">
                                 CorrectCase
-                            </h1>
-                            <span className="text-[9px] font-mono font-bold text-muted uppercase tracking-widest opacity-60">
-                                Supreme Authority • 2026
+                            </h6>
+                            <span className="text-[9px] font-mono font-medium text-muted uppercase tracking-widest opacity-60">
+                                Title Case • Hyphenation • Grammar
                             </span>
                         </div>
-                    </div>
+                    </Link>
                 </div>
 
                 {/* Center: Privacy Badge & Tools */}
