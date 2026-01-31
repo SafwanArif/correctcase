@@ -1,11 +1,14 @@
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { ToolsMenu } from "@/components/ui/tools-menu";
+import { History } from "lucide-react";
 
 interface ShellProps {
     children: React.ReactNode;
+    onOpenHistory?: () => void;
 }
 
-export function Shell({ children }: ShellProps) {
+export function Shell({ children, onOpenHistory }: ShellProps) {
     return (
         <main className="min-h-screen bg-canvas relative flex flex-col items-center">
             {/* 1. BRAND LANDMARK (0ms LCP) - Floating for Synergy */}
@@ -26,12 +29,23 @@ export function Shell({ children }: ShellProps) {
                     </div>
                 </div>
 
-                {/* Center: Privacy Badge */}
-                <div className="flex-1 flex justify-center pointer-events-auto">
+                {/* Center: Privacy Badge & Tools */}
+                <div className="flex-1 flex justify-center gap-3 pointer-events-auto">
                     <div className="flex items-center gap-2 px-3 py-1 bg-surface/70 backdrop-blur-2xl rounded-full border border-border-subtle/30 shadow-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-victory-emerald animate-pulse" />
                         <span className="text-[10px] font-mono font-medium text-muted uppercase tracking-wider">100% PRIVATE</span>
                     </div>
+                    <ToolsMenu />
+                    {onOpenHistory && (
+                        <button
+                            onClick={onOpenHistory}
+                            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface/60 backdrop-blur-md border border-border-subtle/40 text-[11px] font-medium text-body hover:bg-surface/80 hover:border-border-subtle/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                            aria-label="View history"
+                        >
+                            <History className="w-3.5 h-3.5" />
+                            <span className="hidden sm:inline">History</span>
+                        </button>
+                    )}
                 </div>
 
                 {/* Right: Toggle */}
