@@ -75,6 +75,24 @@ export function HomeClient() {
                                 <p className="text-sm text-muted">We don't use cookies, analytics, or tracking pixels. CorrectCase is a tool, not a data harvesting operation.</p>
                             </div>
                         </div>
+
+                        {/* CTA - Ready to Standardise */}
+                        <div className="mt-12 p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-obsidian-cobalt to-intelligence-indigo text-white flex flex-col sm:flex-row items-center justify-between gap-8 shadow-depth overflow-hidden relative">
+                            <div className="relative z-10">
+                                <h4 className="text-2xl sm:text-3xl font-black mb-2 tracking-tight">Ready to standardise?</h4>
+                                <p className="text-white/70 font-medium">Start using the S-Tier conversion suite now.</p>
+                            </div>
+                            <a
+                                href="/capitalise-title"
+                                className="relative z-10 px-8 py-4 bg-white text-obsidian-cobalt font-bold rounded-xl hover:scale-105 transition-transform active:scale-95 shadow-lg"
+                            >
+                                Launch Suite
+                            </a>
+
+                            {/* Decorative Background Glows */}
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-radiant-cyan/20 blur-[80px] -z-0"></div>
+                            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 blur-[60px] -z-0"></div>
+                        </div>
                     </div>
                 </div>
             </div>

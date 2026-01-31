@@ -31,9 +31,9 @@ export function BenefitSection() {
         <section className="w-full py-24 sm:py-32 px-4 flex flex-col items-center bg-transparent">
             <div className="max-w-5xl w-full">
                 <header className="mb-12 text-center sm:text-left">
-                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-body mb-6 leading-tight pb-1">
+                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-body mb-6 leading-tight relative">
                         Engineered for <br className="hidden sm:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt to-intelligence-indigo inline-block">Architectural Authority</span>.
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt to-intelligence-indigo inline-block relative z-10">Architectural Authority</span><span className="relative z-0">.</span>
                     </h2>
                     <p className="text-muted text-lg max-w-xl mb-8">
                         We don't just format text. We ensure your presence is authoritative,
@@ -65,24 +65,6 @@ export function BenefitSection() {
                             </Link>
                         </motion.div>
                     ))}
-                </div>
-
-                {/* Conversion Path */}
-                <div className="mt-20 p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-obsidian-cobalt to-intelligence-indigo text-white flex flex-col sm:flex-row items-center justify-between gap-8 shadow-depth overflow-hidden relative">
-                    <div className="relative z-10">
-                        <h4 className="text-2xl sm:text-3xl font-black mb-2 tracking-tight">Ready to standardise?</h4>
-                        <p className="text-white/70 font-medium">Start using the S-Tier conversion suite now.</p>
-                    </div>
-                    <Link
-                        href="/capitalise-title"
-                        className="relative z-10 px-8 py-4 bg-white text-obsidian-cobalt font-bold rounded-xl hover:scale-105 transition-transform active:scale-95 shadow-lg"
-                    >
-                        Launch Suite
-                    </Link>
-
-                    {/* Decorative Background Glows */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-radiant-cyan/20 blur-[80px] -z-0"></div>
-                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 blur-[60px] -z-0"></div>
                 </div>
             </div>
         </section>
