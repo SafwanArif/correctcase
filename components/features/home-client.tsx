@@ -3,6 +3,8 @@
 import { useRef, useState, useEffect } from "react";
 import { LandingHero } from "@/components/ui/landing-hero";
 import { BenefitSection } from "@/components/ui/benefit-section";
+import { ComplianceBadges } from "@/components/ui/compliance-badges";
+import { EducationalSection } from "@/components/ui/educational-section";
 import { CinematicDots } from "@/components/ui/cinematic-dots";
 import { FloatingCommandBar } from "@/components/ui/floating-command-bar";
 import { motion } from "framer-motion";
@@ -33,7 +35,7 @@ export function HomeClient() {
     return (
         <div className="w-full h-full sm:h-auto sm:overflow-visible">
             {/* CINEMATIC NAV (DOTS) */}
-            <CinematicDots total={3} active={activeSegment} />
+            <CinematicDots total={4} active={activeSegment} />
 
             {/* ANCHOR EDITOR (FLOATING COMMAND BAR) */}
             <FloatingCommandBar isVisible={activeSegment > 0} onScrollToTop={scrollToTop} />
@@ -46,6 +48,12 @@ export function HomeClient() {
                 {/* HERO LAND */}
                 <div className="sm:snap-start sm:min-h-screen flex items-center justify-center pt-20 pb-12 sm:py-0">
                     <LandingHero />
+                </div>
+
+                {/* COMPLIANCE & EDUCATIONAL LAND */}
+                <div className="sm:snap-start sm:min-h-screen flex flex-col items-center justify-center py-16 px-4 bg-surface/30">
+                    <ComplianceBadges />
+                    <EducationalSection />
                 </div>
 
                 {/* BENEFIT LAND */}

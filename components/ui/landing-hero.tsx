@@ -82,13 +82,7 @@ export function LandingHero() {
                 </motion.div>
 
                 {/* 3. Contextual Tool Selector */}
-                <ToolSelector text={editorText} className="mb-8" />
-
-                {/* 4. Compliance & Trust Badges */}
-                <ComplianceBadges />
-
-                {/* 5. Educational Content - UK vs US Gap */}
-                <EducationalSection />
+                <ToolSelector text={editorText} className="mb-12" />
             </motion.div>
 
             {/* Hint for Scroll */}
