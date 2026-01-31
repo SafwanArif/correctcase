@@ -20,7 +20,7 @@ const TOOLS: Tool[] = [
         id: "uk-sentence-case",
         name: "UK Sentence Case",
         icon: Type,
-        path: "/uk-sentence-case",
+        path: "/capitalise-title/uk-sentence-case",
         color: "hover:bg-radiant-cyan/10 hover:text-radiant-cyan",
         description: "BBC • Guardian style"
     },
@@ -28,7 +28,7 @@ const TOOLS: Tool[] = [
         id: "us-title-case",
         name: "US Title Case",
         icon: Type,
-        path: "/us-title-case",
+        path: "/capitalise-title/us-title-case",
         color: "hover:bg-obsidian-cobalt/10 hover:text-obsidian-cobalt",
         description: "AP • Chicago style"
     },

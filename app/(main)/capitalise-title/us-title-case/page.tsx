@@ -31,7 +31,7 @@ export default function UsTitleCasePage() {
                         <p className="text-xs text-body font-medium leading-relaxed text-left">
                             Need British English? <strong className="text-primary">BBC & Guardian</strong> standards use sentence case.
                         </p>
-                        <Link href="/uk-sentence-case" className="whitespace-nowrap text-xs font-black text-primary uppercase tracking-tighter hover:scale-105 active:scale-95 transition-all">
+                        <Link href="/capitalise-title/uk-sentence-case" className="whitespace-nowrap text-xs font-black text-primary uppercase tracking-tighter hover:scale-105 active:scale-95 transition-all">
                             Switch to UK →
                         </Link>
                     </div>

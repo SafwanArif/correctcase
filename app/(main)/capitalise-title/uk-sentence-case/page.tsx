@@ -31,7 +31,7 @@ export default function UkSentenceCasePage() {
                         <p className="text-xs text-body font-medium leading-relaxed text-left">
                             Need American English? <strong className="text-primary">AP & Chicago</strong> standards use title case.
                         </p>
-                        <Link href="/us-title-case" className="whitespace-nowrap text-xs font-black text-primary uppercase tracking-tighter hover:scale-105 active:scale-95 transition-all">
+                        <Link href="/capitalise-title/us-title-case" className="whitespace-nowrap text-xs font-black text-primary uppercase tracking-tighter hover:scale-105 active:scale-95 transition-all">
                             Switch to US →
                         </Link>
                     </div>

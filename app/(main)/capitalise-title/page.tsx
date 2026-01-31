@@ -10,7 +10,7 @@ const HUB_TOOLS = [
         id: "uk-sentence-case",
         name: "UK sentence case",
         description: "Standard for British publications like the BBC and The Guardian.",
-        path: "/uk-sentence-case",
+        path: "/capitalise-title/uk-sentence-case",
         icon: Type,
         badge: "BBC • Guardian",
         color: "from-radiant-cyan to-victory-emerald"
@@ -19,7 +19,7 @@ const HUB_TOOLS = [
         id: "us-title-case",
         name: "US title case",
         description: "Academic and journalistic standard for American publications.",
-        path: "/us-title-case",
+        path: "/capitalise-title/us-title-case",
         icon: Type,
         badge: "AP • Chicago • MLA",
         color: "from-obsidian-cobalt to-intelligence-indigo"
