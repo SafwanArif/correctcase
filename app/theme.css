@@ -47,31 +47,35 @@
 :root {
     color-scheme: light dark;
 
-    /* 2026 NEUTRAL SCALE (Clinical precision) */
-    --neutral-0: 100% 0 0;
-    --neutral-50: 98% 0.01 255;
-    --neutral-100: 94% 0.02 255;
+    /* 2026 CHROMATIC LIGHT SCALE (Frosted Iris) */
+    --neutral-0: 99% 0.005 255;
+    /* Not pure white, slightly tinted */
+    --neutral-50: 97.5% 0.01 255;
+    /* Subtle Depth */
+    --neutral-100: 95% 0.02 255;
+    /* Surface Separation */
     --neutral-900: 15% 0.05 255;
     --neutral-950: 8% 0.04 255;
 
-    /* QUAD-LUMINOUS AAA PRIMITIVES (Clinical Basis) */
-    --l-obsidian: 25% 0.15 255;
-    --l-radiant: 50% 0.18 195;
-    --l-victory: 45% 0.18 150;
-    --l-insight: 40% 0.20 285;
+    /* QUAD-LUMINOUS AAA PRIMITIVES (High-End Clarity) */
+    --l-obsidian: 28% 0.18 255;
+    --l-radiant: 52% 0.20 195;
+    --l-victory: 48% 0.18 150;
+    --l-insight: 42% 0.22 285;
 
-    /* Default Theme (LIGHT MODE) */
+    /* RADIANT LIGHT THEME */
     --bg-canvas: var(--neutral-0);
-    --bg-surface: var(--neutral-50);
-    --bg-elevated: var(--neutral-100);
+    --bg-surface: oklch(98% 0.01 255 / 0.7);
+    /* Frosted by default */
+    --bg-elevated: oklch(96% 0.02 255 / 0.8);
 
-    --text-primary: oklch(15% 0.05 255);
-    --text-muted: oklch(50% 0.03 255);
-    --text-on-primary: oklch(99% 0 0);
+    --text-primary: oklch(20% 0.06 255);
+    --text-muted: oklch(55% 0.04 255);
+    --text-on-primary: oklch(100% 0 0);
 
-    --border-subtle: oklch(92% 0.01 255);
+    --border-subtle: oklch(90% 0.03 255 / 0.5);
 
-    /* QUAD-LUMINOUS ACTIVE SEMANTICS (Light) */
+    /* QUAD-LUMINOUS ACTIVE SEMANTICS (Vibrant Light) */
     --obsidian-cobalt: var(--l-obsidian);
     --radiant-cyan: var(--l-radiant);
     --victory-emerald: var(--l-victory);
@@ -81,9 +85,9 @@
     --action-secondary: var(--radiant-cyan);
     --action-victory: var(--victory-emerald);
 
-    --bg-focus: oklch(var(--radiant-cyan) / 0.05);
+    --bg-focus: oklch(var(--radiant-cyan) / 0.08);
 
-    /* DNA Aliases (Component Support) */
+    /* DNA Aliases */
     --brand-cobalt: var(--obsidian-cobalt);
     --brand-cyan: var(--radiant-cyan);
     --brand-victory: var(--victory-emerald);
@@ -92,21 +96,21 @@
 
 .dark {
     /* DARK MODE NEBULA PRIMITIVES (High-Voltage) */
-    --d-obsidian: 88% 0.12 255;
-    --d-radiant: 85% 0.15 195;
-    --d-victory: 85% 0.12 150;
-    --d-insight: 84% 0.14 285;
+    --d-obsidian: 90% 0.10 255;
+    --d-radiant: 85% 0.14 195;
+    --d-victory: 88% 0.10 150;
+    --d-insight: 86% 0.12 285;
 
-    /* Dark Mode Overrides */
+    /* NEBULA DARK THEME */
     --bg-canvas: var(--neutral-950);
-    --bg-surface: oklch(14% 0.04 255);
-    --bg-elevated: oklch(20% 0.04 255);
+    --bg-surface: oklch(12% 0.04 255 / 0.6);
+    --bg-elevated: oklch(16% 0.04 255 / 0.7);
 
-    --text-primary: oklch(99% 0.01 255);
-    --text-muted: oklch(75% 0.03 255);
+    --text-primary: oklch(99.5% 0.005 255);
+    --text-muted: oklch(80% 0.02 255);
     --text-on-primary: oklch(10% 0.05 255);
 
-    --border-subtle: oklch(25% 0.05 255);
+    --border-subtle: oklch(24% 0.05 255 / 0.4);
 
     /* QUAD-LUMINOUS ACTIVE SEMANTICS (Dark) */
     --obsidian-cobalt: var(--d-obsidian);
@@ -118,5 +122,5 @@
     --action-secondary: var(--radiant-cyan);
     --action-victory: var(--victory-emerald);
 
-    --bg-focus: oklch(var(--radiant-cyan) / 0.15);
+    --bg-focus: oklch(var(--radiant-cyan) / 0.18);
 }

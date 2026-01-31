@@ -28,7 +28,7 @@ export function Shell({ children }: ShellProps) {
 
                 {/* Center: Privacy Badge */}
                 <div className="flex-1 flex justify-center pointer-events-auto">
-                    <div className="flex items-center gap-2 px-3 py-1 bg-surface/50 backdrop-blur-md rounded-full border border-border-subtle/40 shadow-sm">
+                    <div className="flex items-center gap-2 px-3 py-1 bg-surface/70 backdrop-blur-2xl rounded-full border border-border-subtle/30 shadow-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-victory-emerald animate-pulse" />
                         <span className="text-[10px] font-mono font-medium text-muted uppercase tracking-wider">100% PRIVATE</span>
                     </div>
