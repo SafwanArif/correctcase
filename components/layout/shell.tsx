@@ -1,14 +1,8 @@
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { ToolsMenu } from "@/components/ui/tools-menu";
 import Link from "next/link";
 
-interface ShellProps {
-    children: React.ReactNode;
-    onOpenHistory?: () => void;
-}
-
-export function Shell({ children, onOpenHistory }: ShellProps) {
+export function Shell({ children }: { children: React.ReactNode }) {
     return (
         <main className="min-h-screen bg-canvas relative flex flex-col items-center">
             {/* 1. BRAND LANDMARK (0ms LCP) - Floating for Synergy */}
@@ -33,13 +27,12 @@ export function Shell({ children, onOpenHistory }: ShellProps) {
                     </Link>
                 </div>
 
-                {/* Center: Privacy Badge & Tools */}
+                {/* Center: Privacy Badge */}
                 <div className="flex-1 flex justify-center gap-3 pointer-events-auto">
                     <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-surface/70 backdrop-blur-2xl rounded-full border border-border-subtle/30 shadow-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-victory-emerald animate-pulse" />
                         <span className="text-[10px] font-mono font-medium text-muted uppercase tracking-wider">100% PRIVATE</span>
                     </div>
-                    <ToolsMenu onHistoryClick={onOpenHistory} />
                 </div>
 
                 {/* Right: Toggle */}

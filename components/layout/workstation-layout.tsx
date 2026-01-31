@@ -2,15 +2,15 @@
 
 import { Shell } from "@/components/layout/shell";
 import { HistorySheet } from "@/components/features/history-sheet";
-import { useState } from "react";
 import { ScrollProvider, useScroll } from "@/components/providers/scroll-provider";
+import { useUI } from "@/components/providers/ui-provider";
 
 interface WorkstationLayoutProps {
     children: React.ReactNode;
 }
 
 function WorkstationInternal({ children }: WorkstationLayoutProps) {
-    const [historyOpen, setHistoryOpen] = useState(false);
+    const { isHistoryOpen, closeHistory } = useUI();
     const { setScrollTop } = useScroll();
 
     return (
@@ -24,20 +24,17 @@ function WorkstationInternal({ children }: WorkstationLayoutProps) {
             </div>
 
             {/* Slide-over History */}
-            <HistorySheet isOpen={historyOpen} onClose={() => setHistoryOpen(false)} />
+            <HistorySheet isOpen={isHistoryOpen} onClose={closeHistory} />
         </div>
     );
 }
 
 export function WorkstationLayout(props: WorkstationLayoutProps) {
-    const [historyOpen, setHistoryOpen] = useState(false);
-
     return (
-        <Shell onOpenHistory={() => setHistoryOpen(true)}>
+        <Shell>
             <ScrollProvider>
                 <WorkstationInternal {...props} />
             </ScrollProvider>
-            <HistorySheet isOpen={historyOpen} onClose={() => setHistoryOpen(false)} />
         </Shell>
     );
 }

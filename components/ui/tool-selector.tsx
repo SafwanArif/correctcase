@@ -3,14 +3,16 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Type, Link, Sparkles } from "lucide-react";
+import { Type, Link, Sparkles, History } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useUI } from "@/components/providers/ui-provider";
 
 interface Tool {
     id: string;
     name: string;
     icon: React.ElementType;
-    path: string;
+    path?: string;
+    onClick?: () => void;
     color: string;
     description?: string;
 }
@@ -39,6 +41,13 @@ const TOOLS: Tool[] = [
         path: "/hyphenate-text",
         color: "hover:bg-victory-emerald/10 hover:text-victory-emerald",
     },
+    {
+        id: "history",
+        name: "History",
+        icon: History,
+        color: "hover:bg-intelligence-indigo/10 hover:text-intelligence-indigo",
+        description: "View recent activity"
+    },
 ];
 
 interface ToolSelectorProps {
@@ -47,27 +56,41 @@ interface ToolSelectorProps {
 }
 
 export function ToolSelector({ text, className }: ToolSelectorProps) {
+    const { openHistory } = useUI();
     const [isVisible, setIsVisible] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const router = useRouter();
 
     useEffect(() => {
-        // Show selector when text is entered
-        setIsVisible(text.length > 5); // Require at least 5 chars to show
-    }, [text]);
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    useEffect(() => {
+        // Show selector when text is entered OR if on mobile
+        setIsVisible(text.length > 5 || isMobile);
+    }, [text, isMobile]);
 
     const handleToolSelect = (tool: Tool) => {
-        if (tool.path === "#coming-soon") {
-            // TODO: Show "Coming Soon" toast
+        if (tool.id === "history") {
+            openHistory();
             return;
         }
+
+        if (tool.path === "#coming-soon") return;
 
         // Save text to sessionStorage for the target page to pick up
         if (text) {
             sessionStorage.setItem("pendingText", text);
         }
 
-        // Navigate to tool page
-        router.push(tool.path);
+        if (tool.path) {
+            router.push(tool.path);
+        }
     };
 
     return (
