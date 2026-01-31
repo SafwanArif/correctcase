@@ -12,30 +12,33 @@ export const contentType = "image/png";
 
 // Image generation
 export default function Icon() {
-    // 2026 "Sweet Spot" Geometry
-    // Scale: 32x32 is small, so we render at 100x100 and let Next.js downscale/serve nicely, 
-    // OR we render at 32x32 directly. 
-    // Rendering at 32x32 with 100x100 viewBox is standard for SVGs.
-    // But ImageResponse outputs PNG. So we should probably render a high-res version 
-    // and let the browser scale it or export multiple sizes.
-    // Actually, let's make the native size 48x48 or 100x100 for better quality on retina.
-    // But export const size controls the output file size header.
-    // Let's stick to standard 32x32 for 'favicon.ico' equivalent behavior, 
-    // or maybe 48x48.
-    // Ideally we define size = { width: 32, height: 32 } but render high DPI? 
-    // No, standard is to match.
-    // Let's use 100% dimensions in the SVG with viewBox.
+    // 2026 Adaptive Favicon Strategy:
+    // Since Next.js static generation doesn't have access to runtime color-scheme,
+    // we generate TWO versions and browsers pick the right one via manifest/link media queries.
+    // However, for the default icon.tsx, browsers typically use a single version.
+    // 
+    // Best practice: Generate a NEUTRAL version that works in both modes,
+    // OR use SVG with embedded media queries (not supported by Next.js icon.tsx yet).
+    //
+    // For now, we'll generate a version optimized for DARK MODE (most common),
+    // but with sufficient contrast to work in light mode too.
+    //
+    // Alternative: Create icon-light.tsx and icon-dark.tsx and use HTML link tags
+    // with media queries. Let's do that approach.
 
-    // Colors (OKLCH -> Hex fallback for maximum compatibility)
-    // Core: oklch(45% 0.24 260) -> #0055ff (Approx Vivid Blue)
-    // Secondary: oklch(60% 0.2 240) -> #4d88ff (Approx Lighter Blue)
-    // We'll use the OKLCH strings directly as they are widely supported in modern rendering,
-    // but ImageResponse uses Satori which supports a subset of CSS.
-    // Satori supports linear-gradient.
-    // Let's use Hex for Satori safety.
+    // DARK MODE COLORS (for dark browser chrome - need LIGHT logo)
+    const darkModeC1 = "#b3c2ff"; // High-Voltage Obsidian (L90)
+    const darkModeC2 = "#0ce4e4"; // High-Voltage Radiant (L85)
 
-    const c1 = "#b3c2ff"; // High-Voltage Obsidian (L90)
-    const c2 = "#0ce4e4"; // High-Voltage Radiant (L85)
+    // LIGHT MODE COLORS (for light browser chrome - need DARK logo)
+    // Using our light mode brand tokens: darker obsidian + victory emerald
+    const lightModeC1 = "#2a4fab"; // Dark Obsidian (L28) - oklch(28% 0.18 255)
+    const lightModeC2 = "#3d8f5a"; // Victory Emerald (L48) - oklch(48% 0.18 150)
+
+    // For static generation, we default to DARK MODE version (light colors)
+    // This works best on most browsers' dark tabs
+    const c1 = darkModeC1;
+    const c2 = darkModeC2;
 
     const strokeWidth = 10;
     const outerRadius = 35;
@@ -51,7 +54,6 @@ export default function Icon() {
                     alignItems: "center",
                     justifyContent: "center",
                     background: "transparent",
-                    // Reset defaults
                 }}
             >
                 <svg

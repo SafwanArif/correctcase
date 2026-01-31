@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <style>
+        @media (prefers-color-scheme: dark) {
+            .logo-gradient-start { stop-color: #b3c2ff; }
+            .logo-gradient-end { stop-color: #0ce4e4; }
+        }
+        @media (prefers-color-scheme: light) {
+            .logo-gradient-start { stop-color: #2a4fab; }
+            .logo-gradient-end { stop-color: #3d8f5a; }
+        }
+    </style>
+    <defs>
+        <linearGradient id="brand-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" class="logo-gradient-start" />
+            <stop offset="100%" class="logo-gradient-end" />
+        </linearGradient>
+    </defs>
+    <g transform="rotate(-90 50 50)">
+        <!-- Outer Capital C -->
+        <circle
+            cx="50"
+            cy="50"
+            r="35"
+            stroke="url(#brand-gradient)"
+            stroke-width="10"
+            stroke-dasharray="165 220"
+            transform="rotate(135 50 50)"
+            stroke-linecap="round"
+            fill="none"
+        />
+        <!-- Inner Lowercase c -->
+        <circle
+            cx="50"
+            cy="50"
+            r="17"
+            stroke="url(#brand-gradient)"
+            stroke-width="10"
+            stroke-dasharray="80 107"
+            transform="rotate(135 50 50)"
+            stroke-linecap="round"
+            fill="none"
+        />
+    </g>
+</svg>

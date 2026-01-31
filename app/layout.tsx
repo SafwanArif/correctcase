@@ -80,6 +80,7 @@ export default function RootLayout({
             }),
           }}
         />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} selection:bg-[oklch(var(--primary)/0.2)]`}
