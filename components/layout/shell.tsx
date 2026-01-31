@@ -17,16 +17,16 @@ export function Shell({ children, onOpenHistory }: ShellProps) {
             <header className="fixed top-0 left-0 w-full z-50 flex items-center px-4 sm:px-8 py-6 pointer-events-none">
                 {/* Left: Logo */}
                 <div className="flex-1 flex items-center">
-                    <Link href="/" className="flex flex-col group pointer-events-auto hover:opacity-80 transition-opacity">
-                        <div className="flex items-center gap-2 mb-1">
-                            <BrandLogo className="w-8 h-8 sm:w-9 sm:h-9 transition-transform duration-500 group-hover:rotate-12" />
-                            <h6 className="text-lg sm:text-xl font-bold tracking-tighter text-body leading-none">
+                    <Link href="/" className="flex items-center gap-2 group pointer-events-auto hover:opacity-80 transition-opacity">
+                        <BrandLogo className="w-8 h-8 sm:w-9 sm:h-9 transition-transform duration-500 group-hover:rotate-12" />
+                        <div className="flex flex-col">
+                            <h6 className="text-lg sm:text-xl font-bold tracking-tighter text-body leading-none mb-1">
                                 CorrectCase
                             </h6>
+                            <span className="text-[9px] font-mono font-medium text-muted uppercase tracking-widest opacity-80 leading-tight">
+                                British English and American Standards
+                            </span>
                         </div>
-                        <span className="text-[9px] font-mono font-medium text-muted uppercase tracking-widest opacity-80 leading-tight">
-                            British English & American Standards • Professional Case Converter
-                        </span>
                     </Link>
                 </div>
 
