@@ -1,7 +1,6 @@
 "use client";
 
 import { Shell } from "@/components/layout/shell";
-import { WorkspaceHeader } from "@/components/layout/workspace-header";
 import { HistorySheet } from "@/components/features/history-sheet";
 import { useState } from "react";
 import { ScrollProvider, useScroll } from "@/components/providers/scroll-provider";
@@ -16,15 +15,10 @@ function WorkstationInternal({ children }: WorkstationLayoutProps) {
     const { setScrollTop } = useScroll();
 
     return (
-        <div className="flex flex-col w-full max-w-5xl h-[85vh] bg-surface rounded-3xl border border-border-subtle shadow-depth dark:shadow-none overflow-hidden">
+        <div className="flex flex-col w-full max-w-5xl h-[85vh] bg-surface/80 backdrop-blur-3xl rounded-3xl border border-border-subtle shadow-depth dark:shadow-none overflow-hidden mt-20">
 
-            {/* Integrated Header */}
-            <WorkspaceHeader
-                onOpenHistory={() => setHistoryOpen(true)}
-            />
-
-            {/* Contextual Toolbar */}
-            <EditorToolbar />
+            {/* Contextual Toolbar with History Trigger */}
+            <EditorToolbar onOpenHistory={() => setHistoryOpen(true)} />
 
             {/* Scrollable Content Area (Editor + SEO Tail) */}
             <div

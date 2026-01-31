@@ -1,4 +1,5 @@
 import { BrandLogo } from "@/components/ui/brand-logo";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 interface ShellProps {
     children: React.ReactNode;
@@ -21,10 +22,12 @@ export function Shell({ children }: ShellProps) {
                     </div>
                 </div>
 
-                <div className="hidden sm:flex items-center gap-4 pointer-events-auto">
+                <div className="hidden sm:flex items-center gap-3 pointer-events-auto">
+                    <ThemeToggle />
+                    <div className="w-px h-4 bg-border-subtle/40" />
                     <div className="flex items-center gap-2 px-3 py-1 bg-surface/50 backdrop-blur-md rounded-full border border-border-subtle/40 shadow-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-victory-emerald animate-pulse" />
-                        <span className="text-[10px] font-mono font-medium text-muted">100% PRIVATE</span>
+                        <span className="text-[10px] font-mono font-medium text-muted uppercase">100% PRIVATE</span>
                     </div>
                 </div>
             </header>

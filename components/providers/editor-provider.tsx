@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, ReactNode } from "react";
-import { useHistory } from "@/lib/use-history";
+import { useHistory } from "@/hooks/use-history";
 
 interface EditorContextType {
     text: string;

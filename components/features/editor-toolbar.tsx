@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { Type, Link, Unlink, Quote } from "lucide-react";
+import { Type, Link, Unlink, Quote, History } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEditor } from "@/components/providers/editor-provider";
 import { toSentenceCase, toTitleCase, toHyphenated, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
@@ -12,9 +12,10 @@ import { ActionButton } from "@/components/ui/action-button";
 interface EditorToolbarProps {
     className?: string;
     defaultTools?: ('case' | 'hyphenation')[];
+    onOpenHistory?: () => void;
 }
 
-export function EditorToolbar({ className, defaultTools }: EditorToolbarProps) {
+export function EditorToolbar({ className, defaultTools, onOpenHistory }: EditorToolbarProps) {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -140,6 +141,15 @@ export function EditorToolbar({ className, defaultTools }: EditorToolbarProps) {
                         className="hidden sm:flex"
                     />
                 )}
+
+                <div className="w-px h-4 bg-border-subtle mx-1" />
+
+                <ActionButton
+                    onClick={() => onOpenHistory?.()}
+                    icon={<History className="w-3.5 h-3.5" />}
+                    label="History"
+                    variant="toolbar-item"
+                />
             </div>
         </div>
     );
