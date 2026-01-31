@@ -33,11 +33,9 @@ export default function Icon() {
     // but ImageResponse uses Satori which supports a subset of CSS.
     // Satori supports linear-gradient.
     // Let's use Hex for Satori safety.
-    const brandCore = "#3b82f6"; // Tailwind Blue-500 approx
-    const brandLight = "#60a5fa"; // Tailwind Blue-400 approx
-    // Actually our brand is more Vivid/Purple-ish.
-    const c1 = "#2045e6"; // Deep Vivid Blue
-    const c2 = "#4d73ff"; // Lighter Blue
+
+    const c1 = "#0d2678"; // Obsidian Cobalt (L35)
+    const c2 = "#008080"; // Radiant Cyan (L50)
 
     const strokeWidth = 10;
     const outerRadius = 35;

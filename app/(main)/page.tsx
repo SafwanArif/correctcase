@@ -17,26 +17,60 @@ import { SeoContent } from "@/components/features/seo-content";
 import { SEO_CONTENT } from "@/data/seo-content";
 
 export default function Home() {
-  const jsonLd = {
+  const graphLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "CorrectCase",
-    "applicationCategory": "Utility",
-    "operatingSystem": "Browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "GBP"
-    },
-    "featureList": "Sentence Case, Title Case, Hyphenation Removal, Grammar Check",
-    "screenshot": "https://correctcase.co.uk/screenshot.png"
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://correctcase.co.uk/#app",
+        "name": "CorrectCase",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "GBP"
+        },
+        "featureList": [
+          "British English Sentence Case",
+          "AP/Chicago Title Case",
+          "Smart PDF Unhyphenation",
+          "100% Privacy Floor"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to Convert Case in British English",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "text": "Paste your text into the CorrectCase S-Tier editor."
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Select 'British Sentence Case' for local Gov.uk standards."
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Copy the result with 0ms latency - 100% private."
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://correctcase.co.uk/#webpage",
+        "url": "https://correctcase.co.uk",
+        "name": "CorrectCase | Supreme Text Utilities",
+        "about": { "@id": "https://correctcase.co.uk/#app" }
+      }
+    ]
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graphLd) }}
       />
       <Suspense>
         <HeroEditor />

@@ -1,100 +1,91 @@
 /* 
-  THE SOURCE OF TRUTH
-  Modular CSS Architecture for AI Scalability
+  CorrectCase Supreme Theme Engine (2026)
+  Single Source of Truth - Single File Architecture
 */
 
 @theme {
-    /* TAILWIND MAPPING */
-    /* Maps Semantic Variables to Utility Classes */
+    /* 1. TYPOGRAPHY FLOW */
+    --font-sans: var(--font-geist-sans), "Inter", system-ui, sans-serif;
+    --font-mono: var(--font-geist-mono), "Geist Mono", monospace;
+
+    /* 2. TAILWIND SEMANTIC MAPPING */
     --color-canvas: oklch(var(--bg-canvas));
-    --color-surface: oklch(var(--bg-surface) / 0.2);
-    --color-elevated: oklch(var(--bg-elevated) / 0.2);
+    --color-surface: oklch(var(--bg-surface));
+    --color-elevated: oklch(var(--bg-elevated));
 
     --color-primary: oklch(var(--action-primary));
     --color-primary-fg: oklch(var(--text-on-primary));
-    --color-active-item: oklch(var(--action-active));
+
+    --color-secondary: oklch(var(--radiant-cyan));
+    --color-active-item: oklch(var(--radiant-cyan));
+    --color-victory: oklch(var(--victory-emerald));
+    --color-insight: oklch(var(--intelligence-indigo));
 
     --color-body: oklch(var(--text-primary));
     --color-muted: oklch(var(--text-muted));
-
     --color-border-subtle: oklch(var(--border-subtle));
 
-    /* Semantic Focus Tint */
     --color-focus: var(--bg-focus);
+
+    /* 3. MOTION & DEPTH PHYSICS */
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --shadow-depth: 0 10px 30px -10px oklch(0% 0 0 / 0.1), 0 4px 6px -2px oklch(0% 0 0 / 0.05);
+    --shadow-success: 0 0 40px -10px oklch(var(--victory-emerald) / 0.3);
+    --shadow-insight: 0 0 30px -5px oklch(var(--intelligence-indigo) / 0.2);
+    --shadow-action: 0 0 30px -5px oklch(var(--radiant-cyan) / 0.2);
+}
+
+/* 4. TYPE-SAFE ANIMATION TOKENS (2026 Standard) */
+@property --shadow-spread {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0px;
 }
 
 :root {
-    /* 1. PRIMITIVES (The Raw Palette) */
-    /* Neutral Scale (OKLCH) */
+    color-scheme: light dark;
+
+    /* NEUTRAL SCALE (Pruned for Efficiency) */
     --neutral-0: 100% 0 0;
-    /* Pure White */
-    --neutral-50: 98.5% 0 0;
-    /* Faint Grey (Medical Surface) */
-    --neutral-100: 96% 0 0;
-    --neutral-200: 92% 0 0;
-    --neutral-300: 87% 0 0;
-    --neutral-400: 70% 0 0;
-    --neutral-500: 55% 0 0;
-    --neutral-800: 30% 0 0;
-    --neutral-900: 20% 0 0;
-    /* Deep Grey */
-    --neutral-950: 15% 0 0;
-    /* Void */
+    --neutral-950: 12% 0.05 255;
 
-    /* Brand Core (Acid - Electric Blue/Teal/Lime) */
-    --brand-core: 45% 0.24 260;
-    /* Electric Blue */
-    --brand-secondary: 70% 0.18 170;
-    /* Teal/Cyan */
-    --brand-tertiary: 85% 0.20 130;
-    /* Lime Green */
+    /* QUAD-LUMINOUS AAA PRIMITIVES (Light Basis) */
+    --l-obsidian: 35% 0.25 255;
+    --l-radiant: 50% 0.20 195;
+    --l-victory: 45% 0.22 150;
+    --l-insight: 40% 0.24 285;
 
-    --brand-fg: 99% 0 0;
-    /* Text on Brand */
+    /* DARK MODE NEBULA PRIMITIVES (High-Voltage) */
+    --d-obsidian: 85% 0.10 255;
+    --d-radiant: 80% 0.15 195;
+    --d-victory: 85% 0.12 150;
+    --d-insight: 82% 0.14 285;
 
-    /* 2. SEMANTIC LIST (The Logic Switch) */
-    /* Light Mode Defaults */
-    --bg-canvas: var(--neutral-0);
-    --bg-surface: var(--neutral-0);
-    /* Pure white surface for crispness */
-    --bg-elevated: var(--neutral-50);
+    /* 2026 PERCEPTUAL SWITCHER (Zero-Class) */
+    --bg-canvas: light-dark(var(--neutral-0), var(--neutral-950));
+    --bg-surface: light-dark(var(--neutral-0), oklch(18% 0.04 255));
+    --bg-elevated: light-dark(oklch(98.5% 0.01 255), oklch(24% 0.04 255));
 
-    --text-primary: var(--neutral-950);
-    --text-muted: var(--neutral-500);
-    --text-on-primary: var(--brand-fg);
-    --border-subtle: var(--neutral-200);
+    --text-primary: light-dark(oklch(13% 0.05 255), oklch(99% 0.01 255));
+    --text-muted: light-dark(oklch(45% 0.02 255), oklch(75% 0.03 255));
+    --text-on-primary: oklch(99% 0 0);
 
-    --action-primary: var(--brand-core);
-    --action-active: 60% 0.24 260;
-    /* Vivid Electric Blue */
+    --border-subtle: light-dark(oklch(92% 0.01 255), oklch(24% 0.04 255));
 
-    /* Focused Editor/Footer Tint (Pure White 25% for Light Mode) */
-    --bg-focus: oklch(var(--neutral-0) / 0.25);
-}
+    /* QUAD-LUMINOUS ACTIVE SEMANTICS */
+    --obsidian-cobalt: light-dark(var(--l-obsidian), var(--d-obsidian));
+    --radiant-cyan: light-dark(var(--l-radiant), var(--d-radiant));
+    --victory-emerald: light-dark(var(--l-victory), var(--d-victory));
+    --intelligence-indigo: light-dark(var(--l-insight), var(--d-insight));
 
-.dark {
-    /* Dark Mode: Nebula (Indigo + Purple + Pink) - Deep & Rich */
-    --brand-core: 45% 0.24 280;
-    /* Deep Indigo */
-    --brand-secondary: 55% 0.22 320;
-    /* Bright Pink/Purple */
-    --brand-tertiary: 60% 0.20 340;
-    /* Magenta */
-    /* Dark Mode Overrides */
-    --bg-canvas: var(--neutral-950);
-    --bg-surface: var(--neutral-900);
-    --bg-elevated: var(--neutral-800);
+    /* DNA Aliases (Component Support) */
+    --brand-cobalt: var(--obsidian-cobalt);
+    --brand-cyan: var(--radiant-cyan);
+    --brand-victory: var(--victory-emerald);
+    --brand-intelligence: var(--intelligence-indigo);
 
-    --text-primary: var(--neutral-50);
-    --text-muted: var(--neutral-400);
-
-    --border-subtle: var(--neutral-800);
-
-    /* Slightly adjusted action for dark mode contrast if needed, or keep core */
-    --action-primary: 60% 0.15 260;
-    --action-active: 65% 0.22 280;
-    /* Vivid Indigo/Purple */
-
-    /* Focused Editor/Footer Tint (2026 Black 25% for Dark Mode) */
-    --bg-focus: oklch(var(--neutral-950) / 0.25);
+    --action-primary: light-dark(var(--obsidian-cobalt), var(--radiant-cyan));
+    --bg-focus: oklch(var(--radiant-cyan) / light-dark(0.04, 0.15));
 }

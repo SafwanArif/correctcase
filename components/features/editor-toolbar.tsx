@@ -79,7 +79,7 @@ export function EditorToolbar({ className, defaultTools }: EditorToolbarProps) {
     };
 
     return (
-        <div className={cn("flex flex-wrap items-center gap-3 px-4 py-2 border-b border-border-subtle bg-surface/50 backdrop-blur-sm z-20", className)}>
+        <div className={cn("toolbar-layout border-b border-border-subtle/40 bg-surface/30 backdrop-blur-md z-20 relative specular-border @container", className)}>
 
             {/* Primary Tools */}
             {showCaseTools && (
@@ -136,7 +136,7 @@ export function EditorToolbar({ className, defaultTools }: EditorToolbarProps) {
                         icon={<Quote className="w-3.5 h-3.5" />}
                         label="Keep Punctuation"
                         isActive={preservePunctuation}
-                        variant="toolbar-item" // Smaller variant for options
+                        variant="insight" // High-value contextual toggle
                         className="hidden sm:flex"
                     />
                 )}

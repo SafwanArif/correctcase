@@ -16,6 +16,16 @@ import { processUnits } from './heuristics/units';
 import { processHyphens } from './heuristics/hyphens';
 import { processPronouns } from './heuristics/pronouns';
 
+// --- CONSTANTS & REGEX (Hoisted for Performance) ---
+const PUNCTUATION_REGEX = /^([^a-zA-Z0-9&+\-_]*)([a-zA-Z0-9&+\-_].*[a-zA-Z0-9&+\-_]|[a-zA-Z0-9&+\-_])([^a-zA-Z0-9&+\-_]*)$/;
+const SENTENCE_SPLIT_REGEX = /([.!?]+[\s]+)/;
+
+const splitPunctuation = (str: string) => {
+    const match = str.match(PUNCTUATION_REGEX);
+    if (!match) return { prefix: str, word: '', suffix: '' };
+    return { prefix: match[1], word: match[2], suffix: match[3] };
+};
+
 // Helper: Process text line-by-line
 function processByLine(text: string, processor: (line: string) => string): string {
     if (!text) return '';
@@ -32,7 +42,7 @@ function processByLine(text: string, processor: (line: string) => string): strin
  */
 export function toSentenceCase(text: string): string {
     return processByLine(text, (line) => {
-        const sentences = line.split(/([.!?]+[\s]+)/);
+        const sentences = line.split(SENTENCE_SPLIT_REGEX);
 
         return sentences.map(part => {
             if (/^[.!?]+[\s]+$/.test(part)) return part;
@@ -40,14 +50,6 @@ export function toSentenceCase(text: string): string {
 
             const words = part.split(/\s+/);
             const processedWords: string[] = [];
-
-            const PUNCTUATION_SPLIT_REGEX = /^([^a-zA-Z0-9&+\-_]*)([a-zA-Z0-9&+\-_].*[a-zA-Z0-9&+\-_]|[a-zA-Z0-9&+\-_])([^a-zA-Z0-9&+\-_]*)$/;
-
-            const splitPunctuation = (str: string) => {
-                const match = str.match(PUNCTUATION_SPLIT_REGEX);
-                if (!match) return { prefix: str, word: '', suffix: '' };
-                return { prefix: match[1], word: match[2], suffix: match[3] };
-            };
 
             let i = 0;
             while (i < words.length) {

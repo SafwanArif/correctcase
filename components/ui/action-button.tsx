@@ -8,7 +8,7 @@ export interface ActionButtonProps {
     icon: React.ReactNode;
     label: string;
     isActive?: boolean;
-    variant?: "primary" | "secondary" | "ghost" | "toolbar-item";
+    variant?: "primary" | "secondary" | "ghost" | "toolbar-item" | "insight";
     size?: "sm" | "md";
     className?: string;
     type?: "button" | "submit" | "reset";
@@ -20,7 +20,7 @@ export function ActionButton({ onClick, icon, label, isActive, variant = "primar
             type={type}
             onClick={onClick}
             className={cn(
-                "flex items-center font-medium rounded-lg transition-all duration-200 active:scale-95 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))]",
+                "flex items-center font-medium rounded-lg transition-all duration-300 ease-out-expo active:scale-95 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary action-gravity",
 
                 // Size Variants
                 size === "sm" && "h-7 px-3 text-xs gap-1.5",
@@ -28,11 +28,11 @@ export function ActionButton({ onClick, icon, label, isActive, variant = "primar
 
                 // Primary Variant
                 variant === "primary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm hover:shadow",
-                variant === "primary" && isActive && "bg-[oklch(var(--brand-core)/0.1)] text-primary border border-[oklch(var(--brand-core)/0.2)] shadow-sm",
+                variant === "primary" && isActive && "bg-primary/15 text-primary border border-primary/30 shadow-action",
 
                 // Secondary Variant (Teal/Accent)
                 variant === "secondary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
-                variant === "secondary" && isActive && "bg-[oklch(var(--brand-secondary)/0.1)] text-[oklch(var(--brand-secondary))] border-[oklch(var(--brand-secondary)/0.3)] border shadow-sm",
+                variant === "secondary" && isActive && "bg-secondary/10 text-secondary border-secondary/30 border shadow-sm",
 
                 // Toolbar Item (Borderless, Small, Uniform)
                 // Toolbar items will respect the 'size' prop if passed, defaulting to their own h-9 if not driven by size. 
@@ -41,7 +41,11 @@ export function ActionButton({ onClick, icon, label, isActive, variant = "primar
                 variant === "toolbar-item" && "border-none shadow-none",
                 variant === "toolbar-item" && !isActive && "bg-elevated/50 hover:bg-elevated text-muted hover:text-body",
                 // Active State: Semantic High Contrast
-                variant === "toolbar-item" && isActive && "bg-[oklch(var(--action-active))] text-primary-fg font-medium shadow-sm",
+                // Insight Variant (Intelligence Indigo / AI)
+                variant === "insight" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
+                variant === "insight" && isActive && "bg-insight/15 text-insight border border-insight/30 shadow-insight",
+
+                variant === "toolbar-item" && isActive && "bg-active-item text-primary-fg font-medium shadow-sm",
 
                 // Ghost
                 variant === "ghost" && "hover:bg-surface text-muted hover:text-body",

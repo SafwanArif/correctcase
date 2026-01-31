@@ -35,26 +35,16 @@ export function incrementListPrefix(prefix: string): string {
 }
 
 // Strip Markdown/Rich-Text artifacts
+// 2026 Optimization: Consolidating multiple passes where possible.
 export function stripFormatting(text: string): string {
-    let clean = text;
+    if (!text) return "";
 
-    // Remove List Markers (Bullets/Numbers) at start of lines
-    clean = clean.replace(/^[\s]*[-*+][\s]+/gm, ""); // Bullets
-    clean = clean.replace(/^[\s]*\d+[.)][\s]+/gm, ""); // Numbers
-
-    // Remove Blockquotes
-    clean = clean.replace(/^[\s]*>[\s]*/gm, "");
-
-    // Remove Bold/Italic/Strike markers (*, **, _, __, ~~)
-    clean = clean.replace(/(\*\*|__)(.*?)\1/g, "$2"); // Bold
-    clean = clean.replace(/(\*|_)(.*?)\1/g, "$2");   // Italic
-    clean = clean.replace(/(~~)(.*?)\1/g, "$2");     // Strikethrough
-
-    // Remove Code Backticks
-    clean = clean.replace(/`([^`]+)`/g, "$1");
-
-    // Remove Links [text](url) -> text
-    clean = clean.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
-
-    return clean;
+    return text
+        // 1. Block cleanup (Lists & Quotes)
+        .replace(/^[\s]*([-*+]|\d+[.)]|>)[\s]+/gm, "")
+        // 2. Inline Formatting (Bold/Italic/Strike)
+        .replace(/(\*\*|__|~~|\*|_)(.*?)\1/g, "$2")
+        // 3. Code & Links
+        .replace(/`([^`]+)`/g, "$1")
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
 }

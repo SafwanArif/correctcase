@@ -5,15 +5,13 @@ import { WorkspaceHeader } from "@/components/layout/workspace-header";
 import { HistorySheet } from "@/components/features/history-sheet";
 import { useState } from "react";
 import { ScrollProvider, useScroll } from "@/components/providers/scroll-provider";
-import { cn } from "@/lib/utils";
 import { EditorToolbar } from "@/components/features/editor-toolbar";
 
 interface WorkstationLayoutProps {
     children: React.ReactNode;
-    activeTab?: 'text' | 'seo' | 'settings';
 }
 
-function WorkstationInternal({ children, activeTab }: WorkstationLayoutProps) {
+function WorkstationInternal({ children }: WorkstationLayoutProps) {
     const [historyOpen, setHistoryOpen] = useState(false);
     const { setScrollTop } = useScroll();
 
@@ -23,7 +21,6 @@ function WorkstationInternal({ children, activeTab }: WorkstationLayoutProps) {
             {/* Integrated Header */}
             <WorkspaceHeader
                 onOpenHistory={() => setHistoryOpen(true)}
-                activeTab={activeTab}
             />
 
             {/* Contextual Toolbar */}

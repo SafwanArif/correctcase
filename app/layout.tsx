@@ -18,22 +18,23 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     template: "%s | CorrectCase",
-    default: "CorrectCase | Privacy-First Text Utilities",
+    default: "CorrectCase | Supreme British English Text Utilities",
   },
-  description: "Free, privacy-first text tools for British English. Convert Case, formatting, and grammar locally in your browser. No data leaves your device.",
+  description: "Elite, privacy-first text tools for British English. 100% Client-Side. Convert Case, Clean Hyphenation, and Fix Grammar locally. No data leaves your hardware.",
   applicationName: "CorrectCase",
   authors: [{ name: "Safwan", url: "https://correctcase.co.uk" }],
-  keywords: ["text converter", "sentence case", "title case", "british english", "privacy first", "offline tool"],
+  keywords: ["british english converter", "sentence case gov uk", "title case capitalization", "privacy secure text tool", "offline text editor", "clean hyphenation"],
   metadataBase: new URL("https://correctcase.co.uk"),
   alternates: {
     canonical: "/",
     languages: {
       'en-GB': '/',
+      'en-US': '/us',
     },
   },
   openGraph: {
-    title: "CorrectCase | Privacy-First Text Utilities",
-    description: "Instant text conversion tool. 100% Client-Side. No servers, no tracking, just utility.",
+    title: "CorrectCase | Supreme Privacy Text Utilities",
+    description: "Instant text conversion tool. 100% Local. Zero tracking. Zero servers.",
     url: "https://correctcase.co.uk",
     siteName: "CorrectCase",
     locale: "en_GB",
@@ -41,21 +42,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CorrectCase",
-    description: "Privacy-first text tools. Zero server data.",
+    title: "CorrectCase Supreme Presence",
+    description: "Elite British English text tools. 100% Privacy Floor.",
     creator: "@SafwanArif",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  category: "productivity",
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+  }
 };
 
 export default function RootLayout({

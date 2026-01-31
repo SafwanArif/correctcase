@@ -19,5 +19,22 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ]
+  ],
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
+  "shortcuts": [
+    {
+      "name": "Capitalise Title",
+      "url": "/capitalise-title",
+      "description": "Convert text to Sentence or Title Case"
+    },
+    {
+      "name": "Hyphenate Text",
+      "url": "/hyphenate-text",
+      "description": "Clean or add hyphens to text"
+    }
+  ],
+  "orientation": "portrait-primary"
 }

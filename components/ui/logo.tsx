@@ -33,8 +33,8 @@ export function Logo({ className = "w-8 h-8" }: { className?: string }) {
         >
             <defs>
                 <linearGradient id="brand-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-                    <stop offset="0%" stopColor="oklch(var(--brand-core))" />
-                    <stop offset="100%" stopColor="oklch(60% 0.2 240)" />
+                    <stop offset="0%" stopColor="oklch(var(--brand-cobalt))" />
+                    <stop offset="100%" stopColor="oklch(var(--brand-cyan))" />
                 </linearGradient>
             </defs>
             <g transform="rotate(-90 50 50)">

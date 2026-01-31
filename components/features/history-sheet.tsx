@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "@/lib/db";
-import { History, Clock, X, Trash2 } from "lucide-react";
+import { History, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface HistorySheetProps {

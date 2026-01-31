@@ -2,24 +2,22 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { History, Moon, Sun } from "lucide-react";
+import { History } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { cn } from "@/lib/utils";
 
 interface WorkspaceHeaderProps {
     onOpenHistory: () => void;
-    activeTab?: 'text' | 'seo' | 'settings';
 }
 
-export function WorkspaceHeader({ onOpenHistory, activeTab = 'text' }: WorkspaceHeaderProps) {
+export function WorkspaceHeader({ onOpenHistory }: WorkspaceHeaderProps) {
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const style = searchParams.get('style');
 
     // Determine Active Tool Name
     let activeToolName: string | null = null;
-    let isHome = pathname === "/" && !style; // Pure home
+
 
     // Logic mirroring HeroEditor state
     if (pathname?.includes("/capitalise-title")) {

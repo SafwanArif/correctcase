@@ -1,5 +1,5 @@
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 
 interface HistoryState<T> {
     past: T[];
@@ -49,14 +49,24 @@ export function useHistory<T>(initialPresent: T) {
         });
     }, []);
 
+    const lastPushTimeRef = useRef<number>(0);
+
     const set = useCallback((newPresent: T) => {
         setState((currentState) => {
             const { past, present } = currentState;
             if (newPresent === present) return currentState;
 
-            const MAX_HISTORY = 50;
-            const newPast = [...past, present];
+            // 2026 Optimization: Temporal History Debouncing
+            const now = Date.now();
+            const DEBOUNCE_MS = 2000;
 
+            let newPast = past;
+            if (now - lastPushTimeRef.current > DEBOUNCE_MS) {
+                newPast = [...past, present];
+                lastPushTimeRef.current = now;
+            }
+
+            const MAX_HISTORY = 50;
             // Cap the history stack
             if (newPast.length > MAX_HISTORY) {
                 newPast.splice(0, newPast.length - MAX_HISTORY);

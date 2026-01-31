@@ -32,7 +32,7 @@ export const processDirectionals: HeuristicProcessor = (currentWord, i, words, s
         const nextP = splitPunctuation(words[i + 1]);
         if (nextP.word.toLowerCase() === 'of') {
             const targetP = splitPunctuation(words[i + 2]);
-            let targetKey = targetP.word.toLowerCase();
+            const targetKey = targetP.word.toLowerCase();
 
             // Check "Direction of Proper"
             if (SENTENCE_CASE_EXCEPTIONS_MAP.has(targetKey)) {

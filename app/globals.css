@@ -1,75 +1,124 @@
 @import "tailwindcss";
 @import "./theme.css";
 
-@theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 1. GLOBAL RESET & BASE */
+@layer base {
+  body {
+    @apply antialiased font-sans;
+    background-color: var(--color-canvas);
+    background-image:
+      radial-gradient(at 0% 0%, oklch(var(--obsidian-cobalt) / 0.06) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, oklch(var(--radiant-cyan) / 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, oklch(var(--intelligence-indigo) / 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, oklch(var(--victory-emerald) / 0.04) 0px, transparent 50%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-blend-mode: normal, normal, normal, normal, overlay;
+    color: var(--color-body);
+    height: 100dvh;
+    width: 100%;
+    overflow: hidden;
+    transition: background-color 0.8s var(--ease-out-expo), color 0.8s var(--ease-out-expo);
+  }
+
+  /* Universal Selection logic with RCS */
+  ::selection {
+    background-color: oklch(from var(--color-primary) l c h / 0.2);
+    color: var(--color-body);
+  }
 }
 
-body {
-  @apply antialiased;
-  background-color: oklch(var(--bg-canvas));
-  background-image:
-    radial-gradient(at 0% 0%, oklch(var(--brand-core) / 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, oklch(var(--brand-secondary) / 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, oklch(var(--brand-tertiary) / 0.15) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, oklch(var(--brand-secondary) / 0.1) 0px, transparent 50%);
-  color: oklch(var(--text-primary));
-  font-family: var(--font-sans);
-  height: 100dvh;
-  width: 100%;
-  overflow: hidden;
+/* 2. TAILWIND 4 SUPREME UTILITIES */
+@utility action-gravity {
+  transition: all 0.4s var(--ease-out-expo);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-action);
+    border-color: oklch(from var(--color-secondary) l c h / 0.4);
+  }
 }
 
-/* 
-  CUSTOM UTILITIES (The Visual Physics)
-*/
+@utility specular-border {
+  position: relative;
 
-.shadow-depth {
-  /* Layered shadow for depth in Light Mode */
-  box-shadow:
-    0 4px 6px -1px oklch(0 0 0 / 0.05),
-    0 2px 4px -1px oklch(0 0 0 / 0.03),
-    0 10px 15px -3px oklch(0 0 0 / 0.02);
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(135deg, oklch(100% 0 0 / 0.1), transparent 40%, oklch(100% 0 0 / 0.05) 100%);
+    box-shadow: inset 0 1px 0 0 oklch(100% 0 0 / 0.05);
+  }
 }
 
-/* Custom Scrollbar */
-.custom-scrollbar {
+@utility custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: oklch(var(--text-muted) / 0.3) transparent;
+  scrollbar-color: oklch(from var(--color-muted) l c h / 0.3) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: oklch(from var(--color-muted) l c h / 0.3);
+    border-radius: 10px;
+
+    &:hover {
+      background: oklch(from var(--color-muted) l c h / 0.5);
+    }
+  }
 }
 
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* 3. PERCEPTUAL GHOST SYSTEM (JS-less Visibility) */
+@utility ghost-expansion {
+  @apply transition-opacity duration-300 delay-75 opacity-0;
+  transition-timing-function: var(--ease-out-expo);
+
+  /* Using :has() for 2026 Native interaction tracking */
+  :is(.group:hover, .group:focus-within, .group[data-has-content="true"]) & {
+    @apply opacity-50;
+  }
+
+  &:hover {
+    @apply !opacity-100;
+  }
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+/* Chrome Field Sizing for 2026 Auto-Grow */
+@utility auto-grow {
+  field-sizing: content;
+  min-height: 3rem;
+  max-height: 400px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: oklch(var(--text-muted) / 0.3);
-  border-radius: 10px;
+/* 2026 Context-Aware Layouts (@container) */
+@utility toolbar-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+
+  @container (max-width: 500px) {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: oklch(var(--text-muted) / 0.5);
-}
+/* 2026 INCLUSIVE STANDARDS */
+@media (prefers-reduced-motion: reduce) {
 
-/* Toggle Animation */
-.toggle-spring {
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Ghost Text Fix: Only style selection on authorized elements, hiding extension mirrors */
-::selection {
-  background: transparent;
-}
-
-textarea::selection,
-input::selection,
-.select-text::selection {
-  background-color: oklch(var(--brand-core) / 0.2);
-  color: oklch(var(--text-primary));
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
 export function ThemeToggle() {
-    const { theme, setTheme, resolvedTheme } = useTheme();
+    const { setTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = React.useState(false);
 
     React.useEffect(() => {
@@ -25,7 +25,7 @@ export function ThemeToggle() {
         <button
             type="button"
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="relative w-[52px] h-[28px] rounded-full transition-colors duration-300 focus:outline-none focus:visible:ring-2 focus-visible:ring-[oklch(var(--brand-core))] shadow-inner overflow-hidden flex items-center bg-surface border border-border-subtle"
+            className="relative w-[52px] h-[28px] rounded-full transition-colors duration-500 ease-out-expo focus:outline-none focus:visible:ring-2 focus-visible:ring-primary shadow-inner overflow-hidden flex items-center bg-surface border border-border-subtle"
             aria-label="Toggle Theme"
         >
             {/* Background Track Status Indicator */}

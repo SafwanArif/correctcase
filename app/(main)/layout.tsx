@@ -10,7 +10,7 @@ export default function MainLayout({
     // Note: WorkstationLayout now acts as the persistent shell.
     // Pages inside will strictly be valid children.
     return (
-        <WorkstationLayout activeTab="text">
+        <WorkstationLayout>
             {children}
         </WorkstationLayout>
     );

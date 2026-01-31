@@ -1,25 +1,21 @@
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 import { useEditor } from "@/components/providers/editor-provider";
 import { useScroll } from "@/components/providers/scroll-provider";
-import { toSentenceCase, toTitleCase, toHyphenated, countWords, countCharacters, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
+import { toSentenceCase, toTitleCase } from "@/lib/text-utils";
 import { getListPrefix, incrementListPrefix, stripFormatting } from "@/lib/smart-text";
-import { cn } from "@/lib/utils";
 
 export interface UseHeroEditorProps {
     defaultTools?: ('case' | 'hyphenation')[];
     forcedStyle?: 'us' | 'uk';
 }
 
-export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps) {
+export function useHeroEditor({ forcedStyle }: UseHeroEditorProps) {
     const [isCopied, setIsCopied] = useState(false);
-    const [preservePunctuation, setPreservePunctuation] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const cursorOffsetRef = useRef<number | null>(null); // Track cursor position
-    const router = useRouter();
-    const pathname = usePathname();
     const searchParams = useSearchParams();
 
     const { text, setText, undo, redo, canUndo, canRedo, addToHistory } = useEditor();
@@ -30,28 +26,36 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
 
     // Derived Logic
     const activeStyle = forcedStyle || searchParams.get('style');
-    // const isTextHyphenated = isHyphenated(text); // Unused in main logic, but maybe useful for UI?
 
-    const adjustHeight = () => {
+    // --- Actions ---
+    const insertTextAtCursor = useCallback((insertedText: string, label: string = "paste") => {
         const el = textareaRef.current;
-        if (el) {
-            el.style.height = 'auto'; // Reset to recalculate
-            const newHeight = Math.min(el.scrollHeight, 400); // Cap at ~15 lines (approx 400px)
-            el.style.height = `${newHeight}px`;
-
-            // Enable scroll if content exceeds cap
-            if (el.scrollHeight > 400) {
-                el.style.overflowY = 'auto';
-            } else {
-                el.style.overflowY = 'hidden';
-            }
+        if (!el) {
+            const combined = text + insertedText;
+            setText(combined);
+            addToHistory(combined, label);
+            return;
         }
-    };
+
+        const start = el.selectionStart;
+        const end = el.selectionEnd;
+        const newText = text.substring(0, start) + insertedText + text.substring(end);
+
+        setText(newText);
+        addToHistory(newText, label);
+
+        // Queue focus and selection
+        setTimeout(() => {
+            el.focus();
+            const newPos = start + insertedText.length;
+            el.setSelectionRange(newPos, newPos);
+        }, 0);
+    }, [text, setText, addToHistory]);
 
     // Effects
     useEffect(() => {
-        if (textareaRef.current) adjustHeight();
-    }, [text]);
+        // Handlers no longer need to call adjustHeight manually due to CSS field-sizing
+    }, []);
 
     // Restore cursor position after render if tracked
     useLayoutEffect(() => {
@@ -61,80 +65,26 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
         }
     }, [text]);
 
-    // State Ref to prevent Effect thrashing
-    const textRef = useRef(text);
-    useLayoutEffect(() => {
-        textRef.current = text;
-    }, [text]);
-
-    // Unified Text Insertion Logic
-    const insertText = (content: string, atCursor: boolean) => {
-        const el = textareaRef.current;
-        let newText = "";
-
-        if (atCursor && el) {
-            const start = el.selectionStart;
-            const end = el.selectionEnd;
-            const currentText = textRef.current; // Use Ref for fresh state
-            newText = currentText.substring(0, start) + content + currentText.substring(end);
-
-            setText(newText);
-            addToHistory(newText, "paste");
-
-            // Restore cursor
-            // We need to wait for render to set selection effectively sometimes, 
-            // but setting it on the ref/state flow usually works if we track it.
-            // Simplified: Focus and set range.
-            setTimeout(() => {
-                if (el) {
-                    el.focus();
-                    el.setSelectionRange(start + content.length, start + content.length);
-                    adjustHeight();
-                }
-            }, 0);
-
-        } else {
-            // Append Mode
-            newText = textRef.current + content;
-            setText(newText);
-            addToHistory(newText, "paste");
-
-            setTimeout(() => {
-                if (el) {
-                    el.focus();
-                    // Move to end
-                    el.setSelectionRange(newText.length, newText.length);
-                    adjustHeight();
-                }
-            }, 0);
-        }
-    };
-
     // Global Paste Handler (Ctrl+V anywhere)
     useEffect(() => {
         const handleGlobalPaste = (e: ClipboardEvent) => {
-            // Ignore if user is focused on an input/textarea (native behavior applies)
             const target = e.target as HTMLElement;
-            if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
-                return;
-            }
+            if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) return;
 
-            // Capture pasted text
             const clipboardText = e.clipboardData?.getData('text');
             if (!clipboardText) return;
 
             e.preventDefault();
-            insertText(clipboardText, false); // Append
+            insertTextAtCursor(clipboardText, "global-paste");
         };
 
         window.addEventListener('paste', handleGlobalPaste);
         return () => window.removeEventListener('paste', handleGlobalPaste);
-    }, [setText, addToHistory]); // Stable dependencies
+    }, [insertTextAtCursor]); // Much more stable: insertTextAtCursor is memoized
 
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const cursorPosition = e.target.selectionStart;
         let val = e.target.value;
-        // Text processing happening before set...
         if (activeStyle === 'uk') val = toSentenceCase(val);
         else if (activeStyle === 'us') val = toTitleCase(val);
 
@@ -156,7 +106,6 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
         addToHistory(plainText, "clear-formatting");
         if (textareaRef.current) {
             textareaRef.current.focus();
-            adjustHeight();
         }
     };
 
@@ -173,28 +122,14 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
 
             const toggleFormat = (marker: string) => {
                 e.preventDefault();
-                let insertion = marker;
                 let newText;
                 let newCursorPos;
 
                 if (hasSelection) {
                     const selected = val.substring(start, end);
-                    // Check if already wrapped
-                    const isWrapped = val.substring(start - marker.length, start) === marker &&
-                        val.substring(end, end + marker.length) === marker;
-
-                    if (isWrapped) {
-                        // Unwrap
-                        newText = val.substring(0, start - marker.length) + selected + val.substring(end + marker.length);
-                        newCursorPos = end - marker.length;
-                        // Keep selection logic simplified for now
-                        newText = val.substring(0, start) + marker + selected + marker + val.substring(end);
-                        newCursorPos = end + marker.length;
-                    } else {
-                        // Wrap
-                        newText = val.substring(0, start) + marker + selected + marker + val.substring(end);
-                        newCursorPos = end + marker.length;
-                    }
+                    // Wrap with marker
+                    newText = val.substring(0, start) + marker + selected + marker + val.substring(end);
+                    newCursorPos = end + marker.length;
                 } else {
                     // No selection
                     newText = val.substring(0, start) + marker + marker + val.substring(end);
@@ -206,7 +141,6 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
                 setTimeout(() => {
                     el.focus();
                     el.setSelectionRange(newCursorPos, newCursorPos);
-                    adjustHeight();
                 }, 0);
             };
 
@@ -236,7 +170,6 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
                     setText(newVal);
                     setTimeout(() => {
                         el.selectionStart = el.selectionEnd = start + 1;
-                        adjustHeight();
                     }, 0);
                     return;
                 }
@@ -251,7 +184,6 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
                 setTimeout(() => {
                     el.selectionStart = el.selectionEnd = start + insertion.length;
                     el.scrollTop = el.scrollHeight;
-                    adjustHeight();
                 }, 0);
             }
         }
@@ -260,8 +192,7 @@ export function useHeroEditor({ defaultTools, forcedStyle }: UseHeroEditorProps)
     const handlePaste = async () => {
         try {
             const clipboardText = await navigator.clipboard.readText();
-            if (!clipboardText) return;
-            insertText(clipboardText, true); // Insert at cursor
+            if (clipboardText) insertTextAtCursor(clipboardText, "paste-button");
         } catch (err) {
             console.error("Failed to read clipboard:", err);
         }

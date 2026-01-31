@@ -35,10 +35,10 @@ export function EditorFrame({
             data-focused={isFocused}
             data-has-content={hasContent}
             className={cn(
-                "flex flex-col shrink-0 relative transition-all duration-500 ease-spring sticky z-40 mx-auto left-0 right-0 w-[90%] max-w-3xl rounded-2xl border overflow-hidden group",
+                "flex flex-col shrink-0 relative transition-all duration-500 ease-spring sticky z-40 mx-auto left-0 right-0 w-[90%] max-w-3xl rounded-2xl border overflow-hidden group specular-border",
                 // Compact Mode Styles
                 isCompact
-                    ? "top-2 bg-surface/90 backdrop-blur-xl border-border-subtle shadow-2xl"
+                    ? "top-2 bg-surface/90 backdrop-blur-xl border-border-subtle shadow-depth"
                     : "top-2 bg-surface border-border-subtle/40 shadow-sm my-2",
                 className
             )}
