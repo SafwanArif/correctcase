@@ -5,7 +5,7 @@ import { ChevronDown, Type, Link, History } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-export function ToolsMenu() {
+export function ToolsMenu({ onHistoryClick }: { onHistoryClick?: () => void }) {
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
     const pathname = usePathname();
@@ -27,6 +27,11 @@ export function ToolsMenu() {
 
     const handleToolClick = (path: string) => {
         router.push(path);
+        setIsOpen(false);
+    };
+
+    const handleHistoryClick = () => {
+        onHistoryClick?.();
         setIsOpen(false);
     };
 
@@ -82,6 +87,18 @@ export function ToolsMenu() {
                                     <span>{tool.name}</span>
                                 </button>
                             ))}
+                            {onHistoryClick && (
+                                <>
+                                    <div className="border-t border-border-subtle/30" />
+                                    <button
+                                        onClick={handleHistoryClick}
+                                        className="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-left text-body hover:bg-primary/10 transition-colors duration-150"
+                                    >
+                                        <History className="w-4 h-4" />
+                                        <span>View History</span>
+                                    </button>
+                                </>
+                            )}
                         </div>
                     </div>
                 </>

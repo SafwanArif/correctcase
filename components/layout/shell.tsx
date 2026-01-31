@@ -1,7 +1,6 @@
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ToolsMenu } from "@/components/ui/tools-menu";
-import { History } from "lucide-react";
 import Link from "next/link";
 
 interface ShellProps {
@@ -40,17 +39,7 @@ export function Shell({ children, onOpenHistory }: ShellProps) {
                         <div className="w-1.5 h-1.5 rounded-full bg-victory-emerald animate-pulse" />
                         <span className="text-[10px] font-mono font-medium text-muted uppercase tracking-wider">100% PRIVATE</span>
                     </div>
-                    <ToolsMenu />
-                    {onOpenHistory && (
-                        <button
-                            onClick={onOpenHistory}
-                            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface/60 backdrop-blur-md border border-border-subtle/40 text-[11px] font-medium text-body hover:bg-surface/80 hover:border-border-subtle/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40"
-                            aria-label="View history"
-                        >
-                            <History className="w-3.5 h-3.5" />
-                            <span className="hidden sm:inline">History</span>
-                        </button>
-                    )}
+                    <ToolsMenu onHistoryClick={onOpenHistory} />
                 </div>
 
                 {/* Right: Toggle */}
