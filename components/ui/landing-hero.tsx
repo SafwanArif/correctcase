@@ -4,6 +4,8 @@ import { useState, Suspense, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { HeroEditor } from "@/components/features/hero-editor";
 import { ToolSelector } from "@/components/ui/tool-selector";
+import { ComplianceBadges } from "@/components/ui/compliance-badges";
+import { EducationalSection } from "@/components/ui/educational-section";
 import { ShieldCheck, Zap, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -54,13 +56,13 @@ export function LandingHero() {
                 className="text-center mb-16 max-w-5xl z-20 relative"
             >
                 <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-8 leading-[0.85]">
-                    Transform Your Text. <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">Perfectly British.</span>
+                    Convert Text Between <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">UK & US English</span> Styles
                 </h1>
 
                 <p className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-90 mb-12">
-                    Professional text tools for British English standards.<br className="hidden sm:block" />
-                    Title case, hyphenation, grammar—all client-side, zero tracking.
+                    Professional British English text tools for international copywriters.<br className="hidden sm:block" />
+                    Sentence case, title case, hyphenation—all client-side, zero tracking.
                 </p>
 
                 {/* 2. The Hero Editor (Product Showcase) - MOVED UP */}
@@ -80,12 +82,13 @@ export function LandingHero() {
                 </motion.div>
 
                 {/* 3. Contextual Tool Selector */}
-                <ToolSelector text={editorText} className="mb-12" />
+                <ToolSelector text={editorText} className="mb-8" />
 
-                <p className="text-lg sm:text-2xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-85">
-                    Privacy-first casing, grammar, and hyphenation conversion.
-                    100% Client-side. Zero server data. Absolute authority.
-                </p>
+                {/* 4. Compliance & Trust Badges */}
+                <ComplianceBadges />
+
+                {/* 5. Educational Content - UK vs US Gap */}
+                <EducationalSection />
             </motion.div>
 
             {/* Hint for Scroll */}
