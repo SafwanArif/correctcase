@@ -16,10 +16,14 @@
     --color-primary: oklch(var(--action-primary));
     --color-primary-fg: oklch(var(--text-on-primary));
 
+    --color-obsidian-cobalt: oklch(var(--obsidian-cobalt));
+    --color-radiant-cyan: oklch(var(--radiant-cyan));
     --color-secondary: oklch(var(--radiant-cyan));
     --color-active-item: oklch(var(--radiant-cyan));
     --color-victory: oklch(var(--victory-emerald));
+    --color-victory-emerald: oklch(var(--victory-emerald));
     --color-insight: oklch(var(--intelligence-indigo));
+    --color-intelligence-indigo: oklch(var(--intelligence-indigo));
 
     --color-body: oklch(var(--text-primary));
     --color-muted: oklch(var(--text-muted));

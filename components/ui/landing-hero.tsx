@@ -51,14 +51,6 @@ export function LandingHero() {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center mb-16 max-w-5xl z-20 relative"
             >
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface/80 backdrop-blur-md border border-border-subtle/50 text-[10px] font-bold tracking-widest text-primary uppercase mb-8 shadow-sm">
-                    <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                    </span>
-                    2026 S-Tier Authority
-                </div>
-
                 <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-12 leading-[0.85]">
                     The Clinical <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">Standard</span> for Text.
