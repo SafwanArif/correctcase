@@ -9,8 +9,10 @@ export function BrandLogo({ className }: { className?: string }) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={className}
-            aria-label="CorrectCase Logo"
+            aria-label="CorrectCase: British English and American Standards. Professional Text Converter Suite."
         >
+            <title>CorrectCase Logo</title>
+            <desc>British English and American Standards Text Converter. 100% Client-Side Privacy-First Tool.</desc>
             <defs>
                 <linearGradient id="logo-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
                     <stop offset="0%" stopColor="oklch(var(--obsidian-cobalt))" />

@@ -23,8 +23,12 @@ export function Shell({ children, onOpenHistory }: ShellProps) {
                             <h6 className="text-lg sm:text-xl font-bold tracking-tighter text-body leading-none mb-1">
                                 CorrectCase
                             </h6>
-                            <span className="text-[9px] font-mono font-medium text-muted uppercase tracking-widest opacity-80 leading-tight">
+                            <span className="hidden sm:block text-[9px] font-mono font-medium text-muted uppercase tracking-widest opacity-80 leading-tight">
                                 British English and American Standards
+                            </span>
+                            {/* SEO AUTHORITY (Visually Hidden) */}
+                            <span className="sr-only">
+                                British English and American Standards • Professional Case Converter Suite
                             </span>
                         </div>
                     </Link>
