@@ -55,17 +55,12 @@ export function LandingHero() {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center mb-16 max-w-5xl z-20 relative"
             >
-                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-8 leading-[0.85]">
+                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-12 leading-[0.85]">
                     Convert Text Between <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">UK & US English</span> Styles
                 </h1>
 
-                <p className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-90 mb-12">
-                    Professional British English text tools for international copywriters.<br className="hidden sm:block" />
-                    Sentence case, title case, hyphenation—all client-side, zero tracking.
-                </p>
-
-                {/* 2. The Hero Editor (Product Showcase) - MOVED UP */}
+                {/* 2. The Hero Editor (Product Showcase) - IMMEDIATE CTA */}
                 <motion.div
                     style={{ scale }}
                     initial={{ opacity: 0, scale: 0.98, y: 30 }}
@@ -82,7 +77,12 @@ export function LandingHero() {
                 </motion.div>
 
                 {/* 3. Contextual Tool Selector */}
-                <ToolSelector text={editorText} className="mb-12" />
+                <ToolSelector text={editorText} className="mb-8" />
+
+                <p className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-90 mb-12">
+                    Professional British English text tools for international copywriters.<br className="hidden sm:block" />
+                    Sentence case, title case, hyphenation—all client-side, zero tracking.
+                </p>
             </motion.div>
 
             {/* Hint for Scroll */}
