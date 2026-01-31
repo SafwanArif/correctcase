@@ -40,9 +40,9 @@ export function ThemeToggle() {
                 )}
             >
                 {isDark ? (
-                    <Moon className="w-4 h-4 text-indigo-300 relative z-10" />
+                    <Moon className="w-4 h-4 text-secondary relative z-10" />
                 ) : (
-                    <Sun className="w-4 h-4 text-amber-500 relative z-10" />
+                    <Sun className="w-4 h-4 text-victory relative z-10" />
                 )}
             </div>
         </button >
