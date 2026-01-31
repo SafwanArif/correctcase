@@ -9,11 +9,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // these might come from a list of supported conversions.
     const routes = [
         '',
-        '/sentence-case',
-        '/title-case',
-        '/slug-generator',
+        '/capitalise-title',
+        '/capitalise-title/uk-sentence-case',
+        '/capitalise-title/us-title-case',
         '/hyphenate-text',
-        // Add other planned routes
     ];
 
     return routes.map((route) => ({
