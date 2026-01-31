@@ -4,8 +4,8 @@ import { Metadata } from "next";
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: "CorrectCase | Professional British Text Tools",
-  description: "Transform your text with professional British English tools. Title case, hyphenation, grammar—all client-side, zero tracking. Privacy-first text conversion.",
+  title: "CorrectCase | Convert Text Between UK & US English Styles",
+  description: "Professional British English text tools for international copywriters. Convert between UK sentence case and US title case with proper capitalisation, hyphenation, and grammar—client-side only.",
 };
 
 export default function Home() {
