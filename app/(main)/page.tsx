@@ -4,8 +4,8 @@ import { Metadata } from "next";
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: "CorrectCase | The Clinical British Standard for Text",
-  description: "Privacy-first casing, grammar, and hyphenation conversion. 100% Client-side. Zero server data. Absolute authority.",
+  title: "CorrectCase | Professional British Text Tools",
+  description: "Transform your text with professional British English tools. Title case, hyphenation, grammar—all client-side, zero tracking. Privacy-first text conversion.",
 };
 
 export default function Home() {
