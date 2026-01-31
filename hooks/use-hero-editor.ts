@@ -8,9 +8,10 @@ import { getListPrefix, incrementListPrefix, stripFormatting } from "@/lib/smart
 export interface UseHeroEditorProps {
     defaultTools?: ('case' | 'hyphenation')[];
     forcedStyle?: 'us' | 'uk';
+    onTextChange?: (text: string) => void;
 }
 
-export function useHeroEditor({ forcedStyle }: UseHeroEditorProps) {
+export function useHeroEditor({ forcedStyle, onTextChange }: UseHeroEditorProps) {
     const [isCopied, setIsCopied] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
 
@@ -26,6 +27,22 @@ export function useHeroEditor({ forcedStyle }: UseHeroEditorProps) {
 
     // Derived Logic
     const activeStyle = forcedStyle || searchParams.get('style');
+
+    // Notify parent of text changes
+    useEffect(() => {
+        if (onTextChange) {
+            onTextChange(text);
+        }
+    }, [text, onTextChange]);
+
+    // Load pending text from sessionStorage (homepage → tool navigation)
+    useEffect(() => {
+        const pendingText = sessionStorage.getItem("pendingText");
+        if (pendingText) {
+            setText(pendingText);
+            sessionStorage.removeItem("pendingText");
+        }
+    }, []); // Only run on mount
 
     // --- Actions ---
     const insertTextAtCursor = useCallback((insertedText: string, label: string = "paste") => {

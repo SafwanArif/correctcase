@@ -1,12 +1,14 @@
 "use client";
 
+import { useState, Suspense, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { HeroEditor } from "@/components/features/hero-editor";
-import { Suspense, useRef } from "react";
+import { ToolSelector } from "@/components/ui/tool-selector";
 import { ShieldCheck, Zap, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function LandingHero() {
+    const [editorText, setEditorText] = useState("");
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -51,10 +53,15 @@ export function LandingHero() {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center mb-16 max-w-5xl z-20 relative"
             >
-                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-12 leading-[0.85]">
-                    Convert Text to <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">Title Case</span> & Hyphenate
+                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-8 leading-[0.85]">
+                    Transform Your Text. <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">Perfectly British.</span>
                 </h1>
+
+                <p className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-90 mb-12">
+                    Professional text tools for British English standards.<br className="hidden sm:block" />
+                    Title case, hyphenation, grammar—all client-side, zero tracking.
+                </p>
 
                 {/* 2. The Hero Editor (Product Showcase) - MOVED UP */}
                 <motion.div
@@ -62,13 +69,18 @@ export function LandingHero() {
                     initial={{ opacity: 0, scale: 0.98, y: 30 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full max-w-4xl mx-auto relative z-10 mb-12"
+                    className="w-full max-w-4xl mx-auto relative z-10 mb-6"
                 >
                     <div className="absolute inset-x-0 -top-20 -bottom-20 bg-primary/5 blur-[160px] -z-10 rounded-full opacity-30"></div>
                     <Suspense>
-                        <HeroEditor />
+                        <HeroEditor
+                            onTextChange={setEditorText}
+                        />
                     </Suspense>
                 </motion.div>
+
+                {/* 3. Contextual Tool Selector */}
+                <ToolSelector text={editorText} className="mb-12" />
 
                 <p className="text-lg sm:text-2xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-85">
                     Privacy-first casing, grammar, and hyphenation conversion.
