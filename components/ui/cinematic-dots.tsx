@@ -16,12 +16,12 @@ export function CinematicDots({ total, active, className }: CinematicDotsProps) 
                 <div key={i} className="relative flex items-center justify-center">
                     <motion.div
                         animate={{
-                            scale: active === i ? 1.5 : 1,
-                            backgroundColor: active === i ? "oklch(var(--brand-core))" : "oklch(var(--muted) / 0.3)",
-                            boxShadow: active === i ? "0 0 15px oklch(var(--brand-core) / 0.5)" : "none"
+                            scale: active === i ? 1.6 : 1,
+                            backgroundColor: active === i ? "oklch(var(--radiant-cyan))" : "oklch(var(--text-muted) / 0.4)",
+                            boxShadow: active === i ? "0 0 20px oklch(var(--radiant-cyan) / 0.5)" : "none"
                         }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="w-1.5 h-1.5 rounded-full"
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        className="w-2 h-2 rounded-full border border-border-subtle/20"
                     />
                     {active === i && (
                         <motion.div

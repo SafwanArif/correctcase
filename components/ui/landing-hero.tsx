@@ -49,7 +49,7 @@ export function LandingHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center mb-16 max-w-5xl z-20 relative pointer-events-none"
+                className="text-center mb-16 max-w-5xl z-20 relative"
             >
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface/80 backdrop-blur-md border border-border-subtle/50 text-[10px] font-bold tracking-widest text-primary uppercase mb-8 shadow-sm">
                     <span className="relative flex h-2 w-2">
@@ -59,29 +59,29 @@ export function LandingHero() {
                     2026 S-Tier Authority
                 </div>
 
-                <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-8 leading-[0.85] text-glow-primary">
+                <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-12 leading-[0.85]">
                     The Clinical <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">Standard</span> for Text.
                 </h2>
 
-                <p className="text-lg sm:text-2xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-80">
+                {/* 2. The Hero Editor (Product Showcase) - MOVED UP */}
+                <motion.div
+                    style={{ scale }}
+                    initial={{ opacity: 0, scale: 0.98, y: 30 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="w-full max-w-4xl mx-auto relative z-10 mb-12"
+                >
+                    <div className="absolute inset-x-0 -top-20 -bottom-20 bg-primary/5 blur-[160px] -z-10 rounded-full opacity-30"></div>
+                    <Suspense>
+                        <HeroEditor />
+                    </Suspense>
+                </motion.div>
+
+                <p className="text-lg sm:text-2xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-85">
                     Privacy-first casing, grammar, and hyphenation conversion.
                     100% Client-side. Zero server data. Absolute authority.
                 </p>
-            </motion.div>
-
-            {/* 2. The Hero Editor (Product Showcase) */}
-            <motion.div
-                style={{ scale }}
-                initial={{ opacity: 0, scale: 0.98, y: 60 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-5xl relative z-10"
-            >
-                <div className="absolute inset-x-0 -top-20 -bottom-20 bg-primary/5 blur-[160px] -z-10 rounded-full opacity-30"></div>
-                <Suspense>
-                    <HeroEditor />
-                </Suspense>
             </motion.div>
 
             {/* Hint for Scroll */}
