@@ -35,11 +35,11 @@ export function EditorFrame({
             data-focused={isFocused}
             data-has-content={hasContent}
             className={cn(
-                "flex flex-col shrink-0 relative transition-all duration-500 ease-spring sticky z-40 mx-auto left-0 right-0 w-[90%] max-w-3xl rounded-2xl border overflow-hidden group specular-border",
-                // Compact Mode Styles
+                "flex flex-col shrink-0 relative transition-all duration-500 ease-spring sticky z-40 mx-auto left-0 right-0 w-[90%] max-w-3xl rounded-3xl border overflow-hidden group specular-border",
+                // Cinematic Refinement: Moving from "Card" to "Integrated Surface"
                 isCompact
-                    ? "top-2 bg-surface/90 backdrop-blur-xl border-border-subtle shadow-depth"
-                    : "top-2 bg-surface border-border-subtle/40 shadow-sm my-2",
+                    ? "top-2 bg-surface/90 backdrop-blur-2xl border-border-subtle shadow-depth"
+                    : "top-2 bg-surface/40 backdrop-blur-md border-border-subtle/30 shadow-none my-2 hover:bg-surface/50 transition-colors",
                 className
             )}
         >

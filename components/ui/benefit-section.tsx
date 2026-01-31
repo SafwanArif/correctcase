@@ -27,7 +27,7 @@ const PILLARS = [
 
 export function BenefitSection() {
     return (
-        <section className="w-full py-24 sm:py-32 px-4 flex flex-col items-center bg-surface/50 backdrop-blur-3xl border-t border-border-subtle/20">
+        <section className="w-full py-24 sm:py-32 px-4 flex flex-col items-center bg-transparent">
             <div className="max-w-5xl w-full">
                 <header className="mb-20 text-center sm:text-left">
                     <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-body mb-6">

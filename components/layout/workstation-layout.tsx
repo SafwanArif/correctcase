@@ -15,14 +15,21 @@ function WorkstationInternal({ children }: WorkstationLayoutProps) {
     const { setScrollTop } = useScroll();
 
     return (
-        <div className="flex flex-col w-full max-w-5xl h-[85vh] bg-surface/80 backdrop-blur-3xl rounded-3xl border border-border-subtle shadow-depth dark:shadow-none overflow-hidden mt-20">
+        <div className="flex flex-col w-full min-h-screen relative">
 
-            {/* Contextual Toolbar with History Trigger */}
-            <EditorToolbar onOpenHistory={() => setHistoryOpen(true)} />
+            {/* Contextual Toolbar - Floating/Integrated */}
+            <div className="fixed top-24 left-0 w-full z-40 px-4 sm:px-8 pointer-events-none">
+                <div className="max-w-5xl mx-auto w-full pointer-events-auto">
+                    <EditorToolbar
+                        onOpenHistory={() => setHistoryOpen(true)}
+                        className="rounded-2xl border border-border-subtle/40 shadow-lg"
+                    />
+                </div>
+            </div>
 
-            {/* Scrollable Content Area (Editor + SEO Tail) */}
+            {/* Full-width Integrated Content Area */}
             <div
-                className="flex-1 overflow-y-auto custom-scrollbar relative flex flex-col scroll-smooth"
+                className="flex-1 w-full relative flex flex-col scroll-smooth"
                 onScroll={(e) => setScrollTop(e.currentTarget.scrollTop)}
             >
                 {children}

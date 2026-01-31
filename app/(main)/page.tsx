@@ -1,15 +1,11 @@
-import { LandingHero } from "@/components/ui/landing-hero";
-import { BenefitSection } from "@/components/ui/benefit-section";
+import { HomeClient } from "@/components/features/home-client";
 import { Metadata } from "next";
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: "CorrectCase | Supreme British English Text Authority",
-  description: "Elite text conversion for professionals. Sentence Case, Title Case, and Smart Hyphenation. 100% Client-side. Privacy as a Standard.",
-  alternates: {
-    canonical: "https://correctcase.co.uk",
-  }
+  title: "CorrectCase | The Clinical British Standard for Text",
+  description: "Privacy-first casing, grammar, and hyphenation conversion. 100% Client-side. Zero server data. Absolute authority.",
 };
 
 export default function Home() {
@@ -45,25 +41,15 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full h-full sm:h-auto sm:overflow-visible">
+    <>
       {/* 1. KNOWLEDGE GRAPH */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(graphLd) }}
       />
 
-      {/* 2. CINEMATIC SCROLL CONTAINER */}
-      <div className="w-full sm:snap-y sm:snap-mandatory sm:h-screen sm:overflow-y-auto scroll-smooth no-scrollbar">
-        {/* HERO LAND */}
-        <div className="sm:snap-start sm:min-h-screen flex items-center justify-center pt-20 pb-12 sm:py-0">
-          <LandingHero />
-        </div>
-
-        {/* BENEFIT LAND */}
-        <div className="sm:snap-start sm:min-h-screen flex items-start justify-center">
-          <BenefitSection />
-        </div>
-      </div>
-    </div>
+      {/* 2. CINEMATIC CLIENT EXPERIENCE */}
+      <HomeClient />
+    </>
   );
 }

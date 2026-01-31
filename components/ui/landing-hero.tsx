@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { HeroEditor } from "@/components/features/hero-editor";
 import { Suspense, useRef } from "react";
 import { ShieldCheck, Zap, Globe } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function LandingHero() {
     const containerRef = useRef<HTMLDivElement>(null);
