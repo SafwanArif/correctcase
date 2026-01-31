@@ -11,13 +11,13 @@ export function EducationalSection() {
                     </span>
                 </div>
                 <h2 className="text-3xl sm:text-5xl font-black text-body mb-6 tracking-tight">
-                    The UK vs US{" "}
+                    The British English vs American English{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-radiant-cyan to-victory-emerald">
-                        Capitalisation Gap
+                        capitalisation gap
                     </span>
                 </h2>
                 <p className="text-lg text-muted max-w-3xl mx-auto leading-relaxed">
-                    Most text tools blindly apply US title case rules. But British publications like the{" "}
+                    Most text tools blindly apply American title case rules. But British publications like the{" "}
                     <strong className="text-body">BBC</strong> and <strong className="text-body">The Guardian</strong>{" "}
                     use sentence case—a fundamentally different standard.
                 </p>
@@ -32,8 +32,8 @@ export function EducationalSection() {
                             <span className="text-xl">🇬🇧</span>
                         </div>
                         <div>
-                            <h3 className="font-bold text-body text-sm">BBC Style</h3>
-                            <p className="text-xs text-muted">UK Sentence Case</p>
+                            <h3 className="font-bold text-body text-sm">BBC style</h3>
+                            <p className="text-xs text-muted">British English sentence case</p>
                         </div>
                     </div>
                     <div className="bg-elevated/50 p-4 rounded-lg border border-border-subtle/30">
@@ -53,8 +53,8 @@ export function EducationalSection() {
                             <span className="text-xl">🇺🇸</span>
                         </div>
                         <div>
-                            <h3 className="font-bold text-body text-sm">New York Times Style</h3>
-                            <p className="text-xs text-muted">US Title Case</p>
+                            <h3 className="font-bold text-body text-sm">New York Times style</h3>
+                            <p className="text-xs text-muted">American English title case</p>
                         </div>
                     </div>
                     <div className="bg-elevated/50 p-4 rounded-lg border border-border-subtle/30">
@@ -73,10 +73,10 @@ export function EducationalSection() {
                 <div className="flex items-start gap-4">
                     <BookOpen className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                     <div>
-                        <h3 className="font-bold text-body text-lg mb-3">The Problem</h3>
+                        <h3 className="font-bold text-body text-lg mb-3">The problem</h3>
                         <p className="text-sm text-muted leading-relaxed mb-4">
-                            Existing tools were built for US audiences and fail to recognise British English conventions.
-                            International copywriters working with UK clients need accurate sentence case conversion—not
+                            Existing tools were built for American audiences and fail to recognise British English conventions.
+                            International copywriters working with British clients need accurate sentence case conversion—not
                             approximations or manual corrections.
                         </p>
                         <p className="text-sm text-body font-medium">

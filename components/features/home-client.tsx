@@ -63,15 +63,15 @@ export function HomeClient() {
                 <div className="sm:snap-start sm:min-h-screen flex items-center justify-center px-4 bg-obsidian-cobalt/5">
                     <div className="max-w-4xl text-center">
                         <h3 className="text-3xl sm:text-5xl font-black text-body mb-8 tracking-tighter">
-                            A Clinical <span className="text-glow-primary text-transparent bg-clip-text bg-gradient-to-r from-radiant-cyan to-victory-emerald">Trust Model</span>.
+                            A clinical <span className="text-glow-primary text-transparent bg-clip-text bg-gradient-to-r from-radiant-cyan to-victory-emerald">trust model</span>.
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
                             <div className="p-6 rounded-2xl bg-surface/30 border border-border-subtle/50 backdrop-blur-sm">
-                                <h4 className="font-bold text-primary mb-2 tracking-widest text-[10px] uppercase">Client-Side Logic</h4>
+                                <h4 className="font-bold text-primary mb-2 tracking-widest text-[10px] uppercase">Client-side logic</h4>
                                 <p className="text-sm text-muted">All transformations happen in your browser's memory. No text ever touches our servers. Period.</p>
                             </div>
                             <div className="p-6 rounded-2xl bg-surface/30 border border-border-subtle/50 backdrop-blur-sm">
-                                <h4 className="font-bold text-primary mb-2 tracking-widest text-[10px] uppercase">Zero Tracking</h4>
+                                <h4 className="font-bold text-primary mb-2 tracking-widest text-[10px] uppercase">Zero tracking</h4>
                                 <p className="text-sm text-muted">We don't use cookies, analytics, or tracking pixels. CorrectCase is a tool, not a data harvesting operation.</p>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ export function HomeClient() {
                                 href="/capitalise-title"
                                 className="relative z-10 px-8 py-4 bg-white text-obsidian-cobalt font-bold rounded-xl hover:scale-105 transition-transform active:scale-95 shadow-lg"
                             >
-                                Launch Suite
+                                Launch suite
                             </a>
 
                             {/* Decorative Background Glows */}

@@ -33,7 +33,7 @@ export function BenefitSection() {
                 <header className="mb-12 text-center sm:text-left">
                     <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-body mb-6 leading-tight relative">
                         Engineered for <br className="hidden sm:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt to-intelligence-indigo inline-block relative z-10">Architectural Authority</span><span className="relative z-0">.</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt to-intelligence-indigo inline-block relative z-10">architectural authority</span><span className="relative z-0">.</span>
                     </h2>
                     <p className="text-muted text-lg max-w-xl mb-8">
                         We don't just format text. We ensure your presence is authoritative,
@@ -61,7 +61,7 @@ export function BenefitSection() {
                                 {pillar.desc}
                             </p>
                             <Link href="/capitalise-title" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                                Explore Tool <ArrowRight className="w-3 h-3" />
+                                Explore tool <ArrowRight className="w-3 h-3" />
                             </Link>
                         </motion.div>
                     ))}

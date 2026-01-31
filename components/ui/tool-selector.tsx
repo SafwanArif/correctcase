@@ -12,15 +12,25 @@ interface Tool {
     icon: React.ElementType;
     path: string;
     color: string;
+    description?: string;
 }
 
 const TOOLS: Tool[] = [
     {
-        id: "title-case",
-        name: "Title Case",
+        id: "uk-sentence-case",
+        name: "UK Sentence Case",
         icon: Type,
-        path: "/capitalise-title",
+        path: "/uk-sentence-case",
         color: "hover:bg-radiant-cyan/10 hover:text-radiant-cyan",
+        description: "BBC • Guardian style"
+    },
+    {
+        id: "us-title-case",
+        name: "US Title Case",
+        icon: Type,
+        path: "/us-title-case",
+        color: "hover:bg-obsidian-cobalt/10 hover:text-obsidian-cobalt",
+        description: "AP • Chicago style"
     },
     {
         id: "hyphenate",
@@ -28,13 +38,6 @@ const TOOLS: Tool[] = [
         icon: Link,
         path: "/hyphenate-text",
         color: "hover:bg-victory-emerald/10 hover:text-victory-emerald",
-    },
-    {
-        id: "grammar",
-        name: "Grammar",
-        icon: Sparkles,
-        path: "#coming-soon",
-        color: "hover:bg-intelligence-indigo/10 hover:text-intelligence-indigo",
     },
 ];
 
@@ -94,23 +97,29 @@ export function ToolSelector({ text, className }: ToolSelectorProps) {
                                     key={tool.id}
                                     onClick={() => handleToolSelect(tool)}
                                     className={cn(
-                                        "flex items-center gap-2",
-                                        "px-4 py-2.5",
+                                        "flex flex-col items-start gap-1",
+                                        "px-4 py-3",
                                         "bg-elevated/40 backdrop-blur-sm",
                                         "border border-border-subtle/30",
                                         "rounded-lg",
-                                        "text-sm font-medium text-body",
-                                        "transition-all duration-200",
+                                        "transition-all duration-200 text-left",
                                         tool.color,
                                         "focus:outline-none focus:ring-2 focus:ring-primary/40",
                                         tool.path === "#coming-soon" && "opacity-60 cursor-not-allowed"
                                     )}
                                     disabled={tool.path === "#coming-soon"}
                                 >
-                                    <tool.icon className="w-4 h-4" />
-                                    <span>{tool.name}</span>
-                                    {tool.path === "#coming-soon" && (
-                                        <span className="text-[10px] opacity-60">Soon</span>
+                                    <div className="flex items-center gap-2">
+                                        <tool.icon className="w-4 h-4" />
+                                        <span className="text-sm font-bold text-body">{tool.name}</span>
+                                        {tool.path === "#coming-soon" && (
+                                            <span className="text-[10px] opacity-60">Soon</span>
+                                        )}
+                                    </div>
+                                    {tool.description && (
+                                        <span className="text-[10px] opacity-70 font-medium ml-6">
+                                            {tool.description}
+                                        </span>
                                     )}
                                 </button>
                             ))}
