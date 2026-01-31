@@ -110,6 +110,24 @@
   }
 }
 
+@utility text-glow-primary {
+  text-shadow: 0 0 20px oklch(var(--radiant-cyan) / 0.3);
+}
+
+@utility shadow-depth {
+  box-shadow: 0 20px 50px -12px oklch(0% 0 0 / 0.15);
+}
+
+/* Custom Scroll Handling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* 2026 INCLUSIVE STANDARDS */
 @media (prefers-reduced-motion: reduce) {
 

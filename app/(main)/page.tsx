@@ -1,20 +1,16 @@
-import { HeroEditor } from "@/components/features/hero-editor";
-
+import { LandingHero } from "@/components/features/landing-hero";
+import { BenefitSection } from "@/components/features/benefit-section";
 import { Metadata } from "next";
-import { Suspense } from "react";
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: "CorrectCase | British English Text Converter & Grammar Tool",
-  description: "Free local text tool. Convert Sentence Case, Title Case, and fix grammar instantly in your browser. Privacy-first, no servers attached.",
+  title: "CorrectCase | Supreme British English Text Authority",
+  description: "Elite text conversion for professionals. Sentence Case, Title Case, and Smart Hyphenation. 100% Client-side. Privacy as a Standard.",
   alternates: {
     canonical: "https://correctcase.co.uk",
   }
 };
-
-import { SeoContent } from "@/components/features/seo-content";
-import { SEO_CONTENT } from "@/data/seo-content";
 
 export default function Home() {
   const graphLd = {
@@ -39,43 +35,35 @@ export default function Home() {
         ]
       },
       {
-        "@type": "HowTo",
-        "name": "How to Convert Case in British English",
-        "step": [
-          {
-            "@type": "HowToStep",
-            "text": "Paste your text into the CorrectCase S-Tier editor."
-          },
-          {
-            "@type": "HowToStep",
-            "text": "Select 'British Sentence Case' for local Gov.uk standards."
-          },
-          {
-            "@type": "HowToStep",
-            "text": "Copy the result with 0ms latency - 100% private."
-          }
-        ]
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://correctcase.co.uk/#webpage",
+        "@type": "WebSite",
+        "@id": "https://correctcase.co.uk/#website",
         "url": "https://correctcase.co.uk",
-        "name": "CorrectCase | Supreme Text Utilities",
-        "about": { "@id": "https://correctcase.co.uk/#app" }
+        "name": "CorrectCase",
+        "publisher": { "@id": "https://correctcase.co.uk/#app" }
       }
     ]
   };
 
   return (
-    <>
+    <div className="w-full h-full sm:h-auto sm:overflow-visible">
+      {/* 1. KNOWLEDGE GRAPH */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(graphLd) }}
       />
-      <Suspense>
-        <HeroEditor />
-      </Suspense>
-      <SeoContent data={SEO_CONTENT['us-title-case']} />
-    </>
+
+      {/* 2. CINEMATIC SCROLL CONTAINER */}
+      <div className="w-full sm:snap-y sm:snap-mandatory sm:h-screen sm:overflow-y-auto scroll-smooth no-scrollbar">
+        {/* HERO LAND */}
+        <div className="sm:snap-start sm:min-h-screen flex items-center justify-center pt-20 pb-12 sm:py-0">
+          <LandingHero />
+        </div>
+
+        {/* BENEFIT LAND */}
+        <div className="sm:snap-start sm:min-h-screen flex items-start justify-center">
+          <BenefitSection />
+        </div>
+      </div>
+    </div>
   );
 }
