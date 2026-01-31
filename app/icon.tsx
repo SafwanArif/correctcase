@@ -34,8 +34,8 @@ export default function Icon() {
     // Satori supports linear-gradient.
     // Let's use Hex for Satori safety.
 
-    const c1 = "#0d2678"; // Obsidian Cobalt (L35)
-    const c2 = "#008080"; // Radiant Cyan (L50)
+    const c1 = "#b3c2ff"; // High-Voltage Obsidian (L90)
+    const c2 = "#0ce4e4"; // High-Voltage Radiant (L85)
 
     const strokeWidth = 10;
     const outerRadius = 35;
