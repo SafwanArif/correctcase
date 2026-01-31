@@ -63,7 +63,7 @@ export function GenericPageClient({ heroProps, sections }: GenericPageClientProp
                 {sections.map((section, idx) => (
                     <div
                         key={idx}
-                        className="sm:snap-start sm:min-h-screen flex flex-col items-center justify-center py-16 px-4 odd:bg-surface/30 even:bg-white"
+                        className="sm:snap-start sm:min-h-screen flex flex-col items-center justify-center py-16 px-4 even:bg-surface/40 odd:bg-transparent transition-colors duration-700"
                     >
                         <div className="w-full max-w-5xl mx-auto">
                             {section}
