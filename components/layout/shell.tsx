@@ -17,10 +17,10 @@ export function Shell({ children, onOpenHistory }: ShellProps) {
             <header className="fixed top-0 left-0 w-full z-50 flex items-center px-4 sm:px-8 py-6 pointer-events-none">
                 {/* Left: Logo */}
                 <div className="flex-1 flex items-center">
-                    <Link href="/" className="flex items-center gap-2 group pointer-events-auto hover:opacity-80 transition-opacity">
+                    <Link href="/" className="flex items-center gap-1.5 sm:gap-2 group pointer-events-auto hover:opacity-80 transition-opacity">
                         <BrandLogo className="w-8 h-8 sm:w-9 sm:h-9 transition-transform duration-500 group-hover:rotate-12" />
                         <div className="flex flex-col">
-                            <h6 className="text-lg sm:text-xl font-bold tracking-tighter text-body leading-none mb-1">
+                            <h6 className="text-lg sm:text-xl font-bold tracking-tighter text-body leading-none mb-0 sm:mb-1">
                                 CorrectCase
                             </h6>
                             <span className="hidden sm:block text-[9px] font-mono font-medium text-muted uppercase tracking-widest opacity-80 leading-tight">
@@ -36,7 +36,7 @@ export function Shell({ children, onOpenHistory }: ShellProps) {
 
                 {/* Center: Privacy Badge & Tools */}
                 <div className="flex-1 flex justify-center gap-3 pointer-events-auto">
-                    <div className="flex items-center gap-2 px-3 py-1 bg-surface/70 backdrop-blur-2xl rounded-full border border-border-subtle/30 shadow-sm">
+                    <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-surface/70 backdrop-blur-2xl rounded-full border border-border-subtle/30 shadow-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-victory-emerald animate-pulse" />
                         <span className="text-[10px] font-mono font-medium text-muted uppercase tracking-wider">100% PRIVATE</span>
                     </div>
