@@ -1,5 +1,5 @@
-import { LandingHero } from "@/components/features/landing-hero";
-import { BenefitSection } from "@/components/features/benefit-section";
+import { LandingHero } from "@/components/ui/landing-hero";
+import { BenefitSection } from "@/components/ui/benefit-section";
 import { Metadata } from "next";
 
 export const dynamic = 'force-static';
