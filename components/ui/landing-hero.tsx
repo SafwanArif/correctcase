@@ -9,7 +9,25 @@ import { EducationalSection } from "@/components/ui/educational-section";
 import { ShieldCheck, Zap, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function LandingHero() {
+interface LandingHeroProps {
+    title?: React.ReactNode;
+    subtitle?: React.ReactNode;
+    description?: React.ReactNode;
+    breadcrumbs?: React.ReactNode;
+    showToolSelector?: boolean;
+    defaultTools?: ("case" | "hyphenation")[];
+    onEditorTextChange?: (text: string) => void;
+}
+
+export function LandingHero({
+    title,
+    subtitle,
+    description,
+    breadcrumbs,
+    showToolSelector = true,
+    defaultTools,
+    onEditorTextChange
+}: LandingHeroProps) {
     const [editorText, setEditorText] = useState("");
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
@@ -21,8 +39,13 @@ export function LandingHero() {
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
     const yParallax = useTransform(scrollYProgress, [0, 1], [0, -120]);
 
+    const handleTextChange = (text: string) => {
+        setEditorText(text);
+        onEditorTextChange?.(text);
+    };
+
     return (
-        <section ref={containerRef} className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+        <section ref={containerRef} className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden pt-20">
             {/* 0. Ambient Juice (Particles) */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 {[...Array(8)].map((_, i) => (
@@ -53,11 +76,22 @@ export function LandingHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center mb-16 max-w-5xl z-20 relative"
+                className="text-center mb-16 max-w-5xl z-20 relative w-full"
             >
-                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-12 leading-[0.85]">
-                    Convert Text Between <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">UK & US English</span> Styles
+                {/* Optional Breadcrumbs */}
+                {breadcrumbs && (
+                    <div className="mb-8 flex justify-center">
+                        {breadcrumbs}
+                    </div>
+                )}
+
+                <h1 className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-12 leading-[0.85]">
+                    {title || (
+                        <>
+                            Convert text between <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">British & American</span> standards
+                        </>
+                    )}
                 </h1>
 
                 {/* 2. The Hero Editor (Product Showcase) - IMMEDIATE CTA */}
@@ -71,18 +105,32 @@ export function LandingHero() {
                     <div className="absolute inset-x-0 -top-20 -bottom-20 bg-primary/5 blur-[160px] -z-10 rounded-full opacity-30"></div>
                     <Suspense>
                         <HeroEditor
-                            onTextChange={setEditorText}
+                            onTextChange={handleTextChange}
+                            defaultTools={defaultTools}
                         />
                     </Suspense>
                 </motion.div>
 
-                {/* 3. Contextual Tool Selector */}
-                <ToolSelector text={editorText} className="mb-8" />
+                {/* 3. Subtitle / Description (Moved below editor) */}
+                <div className="min-h-[140px]">
+                    {subtitle && (
+                        <div className="mb-6">
+                            {subtitle}
+                        </div>
+                    )}
 
-                <p className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-90 mb-12">
-                    Professional British English text tools for international copywriters.<br className="hidden sm:block" />
-                    Sentence case, title case, hyphenation—all client-side, zero tracking.
-                </p>
+                    {/* 4. Contextual Tool Selector (Optional) */}
+                    {showToolSelector && <ToolSelector text={editorText} className="mb-8" />}
+
+                    <div className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-90 mb-12">
+                        {description || (
+                            <>
+                                Professional British English text tools for international copywriters.<br className="hidden sm:block" />
+                                Sentence case, title case, hyphenation—all client-side, zero tracking.
+                            </>
+                        )}
+                    </div>
+                </div>
             </motion.div>
 
             {/* Hint for Scroll */}
@@ -92,7 +140,7 @@ export function LandingHero() {
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-40"
             >
-                <span className="text-[10px] font-bold uppercase tracking-widest text-muted">Scroll to Explore</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-muted">Scroll to explore</span>
                 <div className="w-px h-12 bg-gradient-to-b from-primary/40 to-transparent"></div>
             </motion.div>
         </section>
