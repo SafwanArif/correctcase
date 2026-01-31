@@ -3,7 +3,6 @@
 import { useRef, useState, useEffect } from "react";
 import { LandingHero } from "@/components/ui/landing-hero";
 import { BenefitSection } from "@/components/ui/benefit-section";
-import { ComplianceBadges } from "@/components/ui/compliance-badges";
 import { EducationalSection } from "@/components/ui/educational-section";
 import { CinematicDots } from "@/components/ui/cinematic-dots";
 import { FloatingCommandBar } from "@/components/ui/floating-command-bar";
@@ -52,7 +51,6 @@ export function HomeClient() {
 
                 {/* COMPLIANCE & EDUCATIONAL LAND */}
                 <div className="sm:snap-start sm:min-h-screen flex flex-col items-center justify-center py-16 px-4 bg-surface/30">
-                    <ComplianceBadges />
                     <EducationalSection />
                 </div>
 

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Shield, Zap, Target, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { ComplianceBadges } from "@/components/ui/compliance-badges";
 
 const PILLARS = [
     {
@@ -29,16 +30,21 @@ export function BenefitSection() {
     return (
         <section className="w-full py-24 sm:py-32 px-4 flex flex-col items-center bg-transparent">
             <div className="max-w-5xl w-full">
-                <header className="mb-20 text-center sm:text-left">
-                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-body mb-6">
+                <header className="mb-12 text-center sm:text-left">
+                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-body mb-6 leading-tight">
                         Engineered for <br className="hidden sm:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt to-intelligence-indigo">Architectural Authority</span>.
                     </h2>
-                    <p className="text-muted text-lg max-w-xl">
+                    <p className="text-muted text-lg max-w-xl mb-8">
                         We don't just format text. We ensure your presence is authoritative,
                         consistent, and professional across all platforms.
                     </p>
                 </header>
+
+                {/* Compliance Badges */}
+                <div className="mb-16">
+                    <ComplianceBadges />
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {PILLARS.map((pillar, idx) => (
