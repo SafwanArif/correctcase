@@ -31,7 +31,7 @@ export function BenefitSection() {
         <section className="w-full py-24 sm:py-32 px-4 flex flex-col items-center bg-transparent">
             <div className="max-w-5xl w-full">
                 <header className="mb-12 text-center sm:text-left">
-                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-body mb-6 leading-tight">
+                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-body mb-6 leading-tight pb-2">
                         Engineered for <br className="hidden sm:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt to-intelligence-indigo">Architectural Authority</span>.
                     </h2>
@@ -51,13 +51,13 @@ export function BenefitSection() {
                         <motion.div
                             key={idx}
                             whileHover={{ y: -8 }}
-                            className="p-8 rounded-2xl border border-border-subtle/40 bg-elevated/30 hover:bg-elevated transition-colors group"
+                            className="p-6 sm:p-8 rounded-2xl border border-border-subtle/40 bg-surface/30 backdrop-blur-sm hover:bg-elevated/40 hover:border-border-subtle/60 transition-all duration-200 group min-h-[240px] flex flex-col"
                         >
                             <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${pillar.color} border border-white/10`}>
                                 {pillar.icon}
                             </div>
                             <h3 className="text-xl font-bold text-body mb-3">{pillar.title}</h3>
-                            <p className="text-sm text-muted leading-relaxed mb-6">
+                            <p className="text-sm text-muted leading-relaxed mb-6 flex-grow">
                                 {pillar.desc}
                             </p>
                             <Link href="/capitalise-title" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-opacity">
