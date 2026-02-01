@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, Suspense } from "react";
 import { LandingHero } from "@/components/ui/landing-hero";
 import { CinematicDots } from "@/components/ui/cinematic-dots";
 import { FloatingCommandBar } from "@/components/ui/floating-command-bar";
+import { useScroll } from "@/components/providers/scroll-provider";
 import { motion } from "framer-motion";
 
 interface GenericPageClientProps {
@@ -12,6 +13,7 @@ interface GenericPageClientProps {
         subtitle?: React.ReactNode;
         description?: React.ReactNode;
         breadcrumbs?: React.ReactNode;
+        badge?: React.ReactNode;
         showToolSelector?: boolean;
         defaultTools?: ("case" | "hyphenation")[];
     };
@@ -21,6 +23,7 @@ interface GenericPageClientProps {
 export function GenericPageClient({ heroProps, sections }: GenericPageClientProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [activeSegment, setActiveSegment] = useState(0);
+    const { setScrollTop } = useScroll();
 
     const scrollToTop = () => {
         containerRef.current?.scrollTo({ top: 0, behavior: "smooth" });
@@ -31,7 +34,10 @@ export function GenericPageClient({ heroProps, sections }: GenericPageClientProp
         if (!el) return;
 
         const handleScroll = () => {
-            const index = Math.round(el.scrollTop / (window.innerHeight || 800));
+            const st = el.scrollTop;
+            setScrollTop(st); // Report to global provider for header/editor compaction
+
+            const index = Math.round(st / (window.innerHeight || 800));
             if (index !== activeSegment) {
                 setActiveSegment(index);
             }
@@ -50,27 +56,29 @@ export function GenericPageClient({ heroProps, sections }: GenericPageClientProp
             <FloatingCommandBar isVisible={activeSegment > 0} onScrollToTop={scrollToTop} />
 
             {/* CINEMATIC SCROLL CONTAINER */}
-            <div
-                ref={containerRef}
-                className="w-full sm:snap-y sm:snap-mandatory sm:h-screen sm:overflow-y-auto scroll-smooth no-scrollbar"
-            >
-                {/* HERO LAND */}
-                <div className="sm:snap-start sm:min-h-screen block sm:flex sm:items-center sm:justify-center pt-0 pb-12 sm:py-0">
-                    <LandingHero {...heroProps} />
-                </div>
-
-                {/* ADDITIONAL SECTIONS */}
-                {sections.map((section, idx) => (
-                    <div
-                        key={idx}
-                        className="sm:snap-start sm:min-h-screen flex flex-col items-center justify-center py-16 px-4 even:bg-surface/40 odd:bg-transparent transition-colors duration-700"
-                    >
-                        <div className="w-full max-w-5xl mx-auto">
-                            {section}
-                        </div>
+            <Suspense fallback={null}>
+                <div
+                    ref={containerRef}
+                    className="w-full sm:snap-y sm:snap-mandatory sm:h-screen sm:overflow-y-auto scroll-smooth no-scrollbar"
+                >
+                    {/* HERO LAND */}
+                    <div className="sm:snap-start sm:min-h-screen block sm:flex sm:items-center sm:justify-center pt-0 pb-12 sm:py-0">
+                        <LandingHero {...heroProps} />
                     </div>
-                ))}
-            </div>
+
+                    {/* ADDITIONAL SECTIONS */}
+                    {sections.map((section, idx) => (
+                        <div
+                            key={idx}
+                            className="sm:snap-start sm:min-h-screen flex flex-col items-center justify-center py-16 px-4 even:bg-surface/5 odd:bg-transparent transition-colors duration-700"
+                        >
+                            <div className="w-full max-w-5xl mx-auto">
+                                {section}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Suspense>
         </div>
     );
 }

@@ -80,7 +80,7 @@ export function EditorToolbar({ className, defaultTools, onOpenHistory }: Editor
     };
 
     return (
-        <div className={cn("toolbar-layout px-4 border-b border-border-subtle/40 bg-surface/30 backdrop-blur-md z-20 relative specular-border @container", className)}>
+        <div className={cn("toolbar-layout px-4 border-b border-border-subtle/20 bg-surface/30 backdrop-blur-md z-20 relative specular-border @container", className)}>
 
             {/* Primary Tools */}
             {showCaseTools && (

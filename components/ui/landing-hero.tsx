@@ -3,10 +3,12 @@
 import { useState, Suspense, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { HeroEditor } from "@/components/features/hero-editor";
+import { EditorToolbar } from "@/components/features/editor-toolbar";
 import { ToolSelector } from "@/components/ui/tool-selector";
 import { ComplianceBadges } from "@/components/ui/compliance-badges";
 import { EducationalSection } from "@/components/ui/educational-section";
 import { ShieldCheck, Zap, Globe } from "lucide-react";
+import { useUI } from "@/components/providers/ui-provider";
 import { cn } from "@/lib/utils";
 
 interface LandingHeroProps {
@@ -14,6 +16,7 @@ interface LandingHeroProps {
     subtitle?: React.ReactNode;
     description?: React.ReactNode;
     breadcrumbs?: React.ReactNode;
+    badge?: React.ReactNode;
     showToolSelector?: boolean;
     defaultTools?: ("case" | "hyphenation")[];
     onEditorTextChange?: (text: string) => void;
@@ -24,10 +27,12 @@ export function LandingHero({
     subtitle,
     description,
     breadcrumbs,
+    badge,
     showToolSelector = true,
     defaultTools,
     onEditorTextChange
 }: LandingHeroProps) {
+    const { openHistory } = useUI();
     const [editorText, setEditorText] = useState("");
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
@@ -78,9 +83,16 @@ export function LandingHero({
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center mb-8 sm:mb-16 max-w-5xl z-20 relative w-full will-change-transform"
             >
+                {/* Optional Badge (Mobile First - e.g. "100% Private") */}
+                {badge && (
+                    <div className="mb-6 flex justify-center w-full sm:hidden animate-in fade-in slide-in-from-bottom-2 duration-700 delay-100">
+                        {badge}
+                    </div>
+                )}
+
                 {/* Optional Breadcrumbs */}
                 {breadcrumbs && (
-                    <div className="mb-[15px] flex justify-center">
+                    <div className="mb-[15px] flex justify-center items-center w-full">
                         {breadcrumbs}
                     </div>
                 )}
@@ -103,6 +115,15 @@ export function LandingHero({
                     className="w-full max-w-4xl mx-auto relative z-10 mb-6 will-change-transform"
                 >
                     <div className="absolute inset-x-0 -top-20 -bottom-20 bg-primary/5 blur-[120px] -z-10 rounded-full opacity-30"></div>
+
+                    <div className="mb-1">
+                        <EditorToolbar
+                            defaultTools={defaultTools}
+                            onOpenHistory={openHistory}
+                            className="rounded-t-2xl border-x border-t border-b-0"
+                        />
+                    </div>
+
                     <Suspense>
                         <HeroEditor
                             onTextChange={handleTextChange}
