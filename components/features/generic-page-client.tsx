@@ -55,7 +55,7 @@ export function GenericPageClient({ heroProps, sections }: GenericPageClientProp
                 className="w-full sm:snap-y sm:snap-mandatory sm:h-screen sm:overflow-y-auto scroll-smooth no-scrollbar"
             >
                 {/* HERO LAND */}
-                <div className="sm:snap-start sm:min-h-screen flex items-center justify-center pt-20 pb-12 sm:py-0">
+                <div className="sm:snap-start sm:min-h-screen block sm:flex sm:items-center sm:justify-center pt-0 pb-12 sm:py-0">
                     <LandingHero {...heroProps} />
                 </div>
 
