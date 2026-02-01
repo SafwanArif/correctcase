@@ -7,7 +7,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
         <main className="min-h-screen bg-canvas relative flex flex-col items-center">
             {/* 1. BRAND LANDMARK (0ms LCP) - Floating for Synergy */}
             {/* 1. BRAND LANDMARK (0ms LCP) - Floating for Synergy */}
-            <header className="fixed top-0 left-0 w-full z-50 flex items-center px-4 sm:px-8 py-6 pointer-events-none">
+            <header className="fixed top-0 left-0 w-full z-50 flex items-center px-4 sm:px-8 py-4 sm:py-6 pointer-events-none">
                 {/* Left: Logo */}
                 <div className="flex-1 flex items-center">
                     <Link href="/" className="flex items-center gap-1 sm:gap-2 group pointer-events-auto hover:opacity-80 transition-opacity">

@@ -36,7 +36,7 @@ export function ThemeToggle() {
                 className={cn(
                     "w-[24px] h-[24px] rounded-full shadow-sm flex items-center justify-center relative z-10",
                     "bg-elevated border border-border-subtle toggle-spring transform",
-                    isDark ? "translate-x-[24px]" : "translate-x-[2px]"
+                    isDark ? "translate-x-[24.5px]" : "translate-x-[1.5px]"
                 )}
             >
                 {isDark ? (

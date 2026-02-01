@@ -45,7 +45,7 @@ export function LandingHero({
     };
 
     return (
-        <section ref={containerRef} className="relative w-full min-h-screen flex flex-col items-center sm:justify-center justify-start px-4 overflow-hidden pt-28 sm:pt-20">
+        <section ref={containerRef} className="relative w-full min-h-screen flex flex-col items-center sm:justify-center justify-start px-4 overflow-hidden pt-20">
             {/* 0. Ambient Juice (Particles) */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 {[...Array(4)].map((_, i) => (
