@@ -14,10 +14,10 @@ function WorkstationInternal({ children }: WorkstationLayoutProps) {
     const { setScrollTop } = useScroll();
 
     return (
-        <div className="flex flex-col w-full min-h-screen relative">
+        <div className="flex flex-col w-full sm:min-h-screen relative">
             {/* Full-width Integrated Content Area */}
             <div
-                className="flex-1 w-full relative flex flex-col scroll-smooth"
+                className="flex-1 w-full relative block sm:flex sm:flex-col scroll-smooth"
                 onScroll={(e) => setScrollTop(e.currentTarget.scrollTop)}
             >
                 {children}

@@ -4,8 +4,7 @@ import Link from "next/link";
 
 export function Shell({ children }: { children: React.ReactNode }) {
     return (
-        <main className="min-h-screen bg-canvas relative flex flex-col items-center">
-            {/* 1. BRAND LANDMARK (0ms LCP) - Floating for Synergy */}
+        <main className="sm:min-h-screen bg-canvas relative flex flex-col items-center">
             {/* 1. BRAND LANDMARK (0ms LCP) - Floating for Synergy */}
             <header className="fixed top-0 left-0 w-full z-50 flex items-center px-4 sm:px-8 py-3 sm:py-6 pointer-events-none">
                 {/* Left: Logo */}
