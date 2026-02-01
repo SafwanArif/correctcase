@@ -45,10 +45,10 @@ export function LandingHero({
     };
 
     return (
-        <section ref={containerRef} className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden pt-20">
+        <section ref={containerRef} className="relative w-full min-h-screen flex flex-col items-center sm:justify-center justify-start px-4 overflow-hidden pt-28 sm:pt-20">
             {/* 0. Ambient Juice (Particles) */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                {[...Array(8)].map((_, i) => (
+                {[...Array(4)].map((_, i) => (
                     <motion.div
                         key={i}
                         animate={{
@@ -76,11 +76,11 @@ export function LandingHero({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center mb-16 max-w-5xl z-20 relative w-full"
+                className="text-center mb-16 max-w-5xl z-20 relative w-full will-change-transform"
             >
                 {/* Optional Breadcrumbs */}
                 {breadcrumbs && (
-                    <div className="mb-8 flex justify-center">
+                    <div className="mb-6 flex justify-center">
                         {breadcrumbs}
                     </div>
                 )}
@@ -100,9 +100,9 @@ export function LandingHero({
                     initial={{ opacity: 0, scale: 0.98, y: 30 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full max-w-4xl mx-auto relative z-10 mb-6"
+                    className="w-full max-w-4xl mx-auto relative z-10 mb-6 will-change-transform"
                 >
-                    <div className="absolute inset-x-0 -top-20 -bottom-20 bg-primary/5 blur-[160px] -z-10 rounded-full opacity-30"></div>
+                    <div className="absolute inset-x-0 -top-20 -bottom-20 bg-primary/5 blur-[120px] -z-10 rounded-full opacity-30"></div>
                     <Suspense>
                         <HeroEditor
                             onTextChange={handleTextChange}
@@ -120,7 +120,7 @@ export function LandingHero({
                     )}
 
                     {/* 4. Contextual Tool Selector (Optional) */}
-                    {showToolSelector && <ToolSelector text={editorText} className="mb-8" />}
+                    {showToolSelector && <ToolSelector text={editorText} className="mb-10" />}
 
                     <div className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-90 mb-12">
                         {description || (

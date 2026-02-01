@@ -103,10 +103,10 @@ export function ToolSelector({ text, className }: ToolSelectorProps) {
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className={cn(
                         "w-full max-w-4xl mx-auto",
-                        "bg-surface/95 backdrop-blur-2xl",
+                        "bg-surface/95 backdrop-blur-xl",
                         "border border-border-subtle/40",
                         "rounded-2xl shadow-2xl",
-                        "p-4",
+                        "p-4 will-change-transform",
                         className
                     )}
                 >

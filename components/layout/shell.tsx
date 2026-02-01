@@ -29,12 +29,11 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
                 {/* Center: Privacy Badge */}
                 <div className="flex-1 flex justify-center gap-3 pointer-events-auto">
-                    <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-surface/70 backdrop-blur-2xl rounded-full border border-border-subtle/30 shadow-sm">
+                    <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-surface/70 backdrop-blur-xl rounded-full border border-border-subtle/30 shadow-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-victory-emerald animate-pulse" />
                         <span className="text-[10px] font-mono font-medium text-muted uppercase tracking-wider">100% PRIVATE</span>
                     </div>
                 </div>
-
                 {/* Right: Toggle */}
                 <div className="flex-1 flex justify-end pointer-events-auto">
                     <ThemeToggle />
@@ -58,7 +57,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             </footer>
 
             {/* Ambient Ambient Layers (Controlled for Emission) */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[50vh] bg-primary/3 filter blur-[120px] pointer-events-none opacity-40"></div>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[50vh] bg-[radial-gradient(circle_at_center,var(--color-primary),transparent_70%)] pointer-events-none opacity-5"></div>
         </main>
     );
 }
