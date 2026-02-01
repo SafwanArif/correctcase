@@ -45,7 +45,7 @@ export function LandingHero({
     };
 
     return (
-        <section ref={containerRef} className="relative w-full min-h-screen flex flex-col items-center sm:justify-center justify-start px-4 overflow-hidden pt-14 sm:pt-20">
+        <section ref={containerRef} className="relative w-full flex flex-col items-center sm:justify-center justify-start px-4 overflow-hidden pt-16 sm:pt-20 sm:min-h-screen">
             {/* 0. Ambient Juice (Particles) */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 {[...Array(4)].map((_, i) => (
@@ -73,19 +73,19 @@ export function LandingHero({
             {/* 1. Cinematic Entry Text */}
             <motion.div
                 style={{ opacity, y: yParallax }}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center mb-16 max-w-5xl z-20 relative w-full will-change-transform"
+                className="text-center mb-12 sm:mb-16 max-w-5xl z-20 relative w-full will-change-transform"
             >
                 {/* Optional Breadcrumbs */}
                 {breadcrumbs && (
-                    <div className="mb-6 flex justify-center">
+                    <div className="mb-4 flex justify-center">
                         {breadcrumbs}
                     </div>
                 )}
 
-                <h1 className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-12 leading-[0.85]">
+                <h1 className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-8 sm:mb-12 leading-[0.85]">
                     {title || (
                         <>
                             Convert text between <br />
