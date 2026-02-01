@@ -45,7 +45,7 @@ export function LandingHero({
     };
 
     return (
-        <section ref={containerRef} className="relative w-full flex flex-col items-center sm:justify-center justify-start px-4 overflow-hidden pt-10 sm:pt-20 sm:min-h-screen">
+        <section ref={containerRef} className="relative w-full flex flex-col items-center sm:justify-center justify-start px-4 overflow-hidden pt-[45px] sm:pt-20 sm:min-h-screen">
             {/* 0. Ambient Juice (Particles) */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 {[...Array(4)].map((_, i) => (
@@ -80,12 +80,12 @@ export function LandingHero({
             >
                 {/* Optional Breadcrumbs */}
                 {breadcrumbs && (
-                    <div className="mb-2 flex justify-center">
+                    <div className="mb-[15px] flex justify-center">
                         {breadcrumbs}
                     </div>
                 )}
 
-                <h1 className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-6 sm:mb-12 leading-[0.85]">
+                <h1 className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tight text-body mb-[25px] sm:mb-12 leading-[0.85]">
                     {title || (
                         <>
                             Convert text between <br />
