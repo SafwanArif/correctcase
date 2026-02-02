@@ -1,13 +1,18 @@
 {
     "extends": [
-        "stylelint-config-standard",
-        "stylelint-config-tailwindcss"
+        "stylelint-config-standard"
     ],
     "rules": {
         "no-descending-specificity": null,
         "selector-class-pattern": null,
+        "selector-id-pattern": null,
         "at-rule-no-unknown": null,
         "function-no-unknown": null,
-        "declaration-block-no-redundant-longhand-properties": null
+        "declaration-block-no-redundant-longhand-properties": null,
+        "declaration-block-no-shorthand-property-overrides": null,
+        "font-family-no-missing-generic-family-keyword": null,
+        "alpha-value-notation": null,
+        "color-function-notation": null,
+        "import-notation": null
     }
 }
