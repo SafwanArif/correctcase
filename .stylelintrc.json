@@ -10,9 +10,13 @@
         "function-no-unknown": null,
         "declaration-block-no-redundant-longhand-properties": null,
         "declaration-block-no-shorthand-property-overrides": null,
+        "declaration-block-no-duplicate-custom-properties": null,
         "font-family-no-missing-generic-family-keyword": null,
         "alpha-value-notation": null,
         "color-function-notation": null,
-        "import-notation": null
+        "import-notation": null,
+        "no-invalid-position-at-import-rule": null,
+        "nesting-selector-no-missing-scoping-root": null,
+        "no-invalid-position-declaration": null
     }
 }

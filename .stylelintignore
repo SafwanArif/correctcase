@@ -1,0 +1,12 @@
+# Auto-generated and build artifacts
+report/**/*.css
+coverage/**/*.css
+.next/**/*.css
+out/**/*.css
+node_modules/**/*.css
+
+# Storybook demo files (not production code)
+stories/**/*.css
+
+# Test report CSS
+*.report.css
