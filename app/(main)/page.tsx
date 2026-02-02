@@ -60,7 +60,7 @@ export default function Home(): JSX.Element {
                     title: (
                         <>
                             Convert text between <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-radiant-cyan to-victory-emerald lowercase">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-radiant-cyan via-intelligence-indigo to-victory-emerald bg-[length:200%_auto] animate-gradient text-glow-primary">
                                 British & American standards
                             </span>
                         </>

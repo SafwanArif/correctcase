@@ -10,11 +10,9 @@
         background-image:
             radial-gradient(at 0% 0%, oklch(var(--obsidian-cobalt) / 0.15) 0, transparent 55%),
             radial-gradient(at 100% 0%, oklch(var(--radiant-cyan) / 0.18) 0, transparent 60%),
-            radial-gradient(
-                at 100% 100%,
+            radial-gradient(at 100% 100%,
                 oklch(var(--intelligence-indigo) / 0.12) 0,
-                transparent 50%
-            ),
+                transparent 50%),
             radial-gradient(at 0% 100%, oklch(var(--victory-emerald) / 0.1) 0, transparent 50%),
             url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         background-blend-mode: normal, normal, normal, normal, overlay;
@@ -37,11 +35,32 @@
 /* 2. TAILWIND 4 SUPREME UTILITIES */
 @utility action-gravity {
     transition: all 0.4s var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, oklch(100% 0 0deg / 0.1), transparent 70%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
 
     &:hover:not(:disabled) {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-action);
-        border-color: oklch(from var(--color-secondary) l c h / 0.4);
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 10px 20px -5px oklch(from var(--color-primary) l c h / 0.2);
+        border-color: oklch(from var(--color-primary) l c h / 0.3);
+        text-shadow: 0 0 10px oklch(from var(--color-primary) l c h / 0.4);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0) scale(0.98);
+        box-shadow: 0 2px 5px -2px oklch(from var(--color-primary) l c h / 0.2);
     }
 }
 
@@ -54,12 +73,10 @@
         inset: 0;
         border-radius: inherit;
         pointer-events: none;
-        background: linear-gradient(
-            135deg,
-            oklch(100% 0 0deg / 0.1),
-            transparent 40%,
-            oklch(100% 0 0deg / 0.05) 100%
-        );
+        background: linear-gradient(135deg,
+                oklch(100% 0 0deg / 0.1),
+                transparent 40%,
+                oklch(100% 0 0deg / 0.05) 100%);
         box-shadow: inset 0 1px 0 0 oklch(100% 0 0deg / 0.05);
     }
 }
@@ -143,6 +160,7 @@
 
 /* 2026 INCLUSIVE STANDARDS */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     ::before,
     ::after {

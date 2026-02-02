@@ -19,6 +19,8 @@ export interface EditorFrameProps {
     footerLeft?: ReactNode;
     footerCenter?: ReactNode;
     footerRight?: ReactNode;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
 }
 
 /**
@@ -36,6 +38,8 @@ export function EditorFrame({
     footerLeft,
     footerCenter,
     footerRight,
+    onMouseEnter,
+    onMouseLeave,
 }: EditorFrameProps): JSX.Element {
     // Suppress warning for hydration mismatch check
     /* eslint-disable react-you-might-not-need-an-effect/no-initialize-state */
@@ -65,6 +69,8 @@ export function EditorFrame({
                 isFocused ? "border-primary/40 shadow-primary/10" : "hover:border-primary/20",
                 className
             )}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
         >
             {/* Ambient Background Glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-victory-emerald/5 pointer-events-none rounded-3xl" />

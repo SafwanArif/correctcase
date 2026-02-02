@@ -1,0 +1,24 @@
+{
+    "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+    "_comment": "Elite 2026 Mutation Testing Configuration",
+    "mutator": {
+        "plugins": [
+            "@stryker-mutator/typescript"
+        ]
+    },
+    "packageManager": "npm",
+    "reporters": [
+        "html",
+        "clear-text",
+        "progress"
+    ],
+    "testRunner": "vitest",
+    "coverageAnalysis": "perTest",
+    "tsconfigFile": "tsconfig.json",
+    "mutate": [
+        "lib/**/*.ts",
+        "components/features/seo-content.tsx",
+        "!lib/**/*.test.ts",
+        "!lib/schemas/**/*.ts"
+    ]
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Clipboard, Copy, RemoveFormatting } from "lucide-react";
-import { type JSX,useMemo } from "react";
+import { type JSX, useMemo } from "react";
 import { EditorFrame } from "@/components/ui/editor-frame";
 import { useHeroEditor, type UseHeroEditorProps } from "@/hooks/use-hero-editor";
 import { countCharacters, countWords } from "@/lib/text-utils";
@@ -27,6 +27,7 @@ export function HeroEditor(props: UseHeroEditorProps): JSX.Element {
         redo,
         canUndo,
         canRedo,
+        setIsHovered,
     } = useHeroEditor(props);
 
     // 2026 Metric Memoization (Prevents O(N) thrashing on every re-render)
@@ -175,6 +176,8 @@ export function HeroEditor(props: UseHeroEditorProps): JSX.Element {
                     </div>
                 </>
             }
+            onMouseEnter={() => { setIsHovered(true); }}
+            onMouseLeave={() => { setIsHovered(false); }}
         >
             <textarea
                 ref={textareaRef}

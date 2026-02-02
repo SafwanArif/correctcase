@@ -2,7 +2,6 @@
 
 import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useScroll } from "@/components/providers/scroll-provider";
 import { useEditor } from "@/hooks/use-editor";
 import { useEventListener } from "@/hooks/use-event-listener";
 import { getListPrefix, incrementListPrefix, stripFormatting } from "@/lib/smart-text";
@@ -33,11 +32,13 @@ export interface UseHeroEditorReturn {
     redo: () => void;
     canUndo: boolean;
     canRedo: boolean;
+    setIsHovered: (isHovered: boolean) => void;
 }
 
 export const useHeroEditor = ({ forcedStyle, onTextChange }: UseHeroEditorProps): UseHeroEditorReturn => {
     const [isCopied, setIsCopied] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     /**
@@ -48,9 +49,16 @@ export const useHeroEditor = ({ forcedStyle, onTextChange }: UseHeroEditorProps)
 
     const { text, setText, undo, redo, canUndo, canRedo, addToHistory } = useEditor();
 
-    // Scroll Context (Used for UI compaction, but we can return it)
-    const { scrollTop } = useScroll();
-    const isCompact = scrollTop > 10;
+
+
+    // 2026 Smart Collapse Logic:
+    // - Default: Compact
+    // - Expanded if: Has Text OR Is Focused OR Is Hovered
+    // - (Optional: scrollTop logic is superseded by this "always compact until interaction" model, 
+    //   but we could re-introduce scroll-based compaction for content later if requested.
+    //   For now, "collapsed-by-default" takes precedence).
+    const hasContent = text.length > 0;
+    const isCompact = !hasContent && !isFocused && !isHovered;
 
     // Derived Logic
     const activeStyle = forcedStyle || searchParams.get("style");
@@ -298,5 +306,6 @@ export const useHeroEditor = ({ forcedStyle, onTextChange }: UseHeroEditorProps)
         redo,
         canUndo,
         canRedo,
+        setIsHovered,
     };
 }

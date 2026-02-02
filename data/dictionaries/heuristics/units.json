@@ -1,58 +1,216 @@
 {
     "units": [
-        ["ph", "pH"],
-        ["hz", "Hz"],
-        ["khz", "kHz"],
-        ["mhz", "MHz"],
-        ["ghz", "GHz"],
-        ["thz", "THz"],
-        ["db", "dB"],
-        ["kwh", "kWh"],
-        ["mwh", "MWh"],
-        ["gwh", "GWh"],
-        ["twh", "TWh"],
-        ["kv", "kV"],
-        ["mv", "mV"],
-        ["ma", "mA"],
-        ["ka", "kA"],
-        ["mw", "mW"],
-        ["gw", "GW"],
-        ["kb", "kB"],
-        ["mb", "MB"],
-        ["gb", "GB"],
-        ["tb", "TB"],
-        ["pb", "PB"],
-        ["eb", "EB"],
-        ["kbps", "Kbps"],
-        ["mbps", "Mbps"],
-        ["gbps", "Gbps"],
-        ["hpa", "hPa"],
-        ["kpa", "kPa"],
-        ["mpa", "MPa"],
-        ["ml", "mL"],
-        ["kg", "kg"],
-        ["g", "g"],
-        ["mg", "mg"],
-        ["km", "km"],
-        ["m", "m"],
-        ["cm", "cm"],
-        ["mm", "mm"],
-        ["nm", "nm"],
-        ["l", "L"],
-        ["v", "V"],
-        ["w", "W"],
-        ["j", "J"],
-        ["hz", "Hz"],
-        ["c", "C"],
-        ["k", "K"],
-        ["n", "N"],
-        ["pa", "Pa"],
-        ["kw", "kW"],
-        ["mah", "mAh"],
-        ["mph", "mph"],
-        ["km/h", "km/h"],
-        ["rpm", "rpm"],
-        ["ohm", "ohm"],
-        ["nits", "nits"]
+        [
+            "c",
+            "C"
+        ],
+        [
+            "cm",
+            "cm"
+        ],
+        [
+            "db",
+            "dB"
+        ],
+        [
+            "eb",
+            "EB"
+        ],
+        [
+            "g",
+            "g"
+        ],
+        [
+            "gb",
+            "GB"
+        ],
+        [
+            "gbps",
+            "Gbps"
+        ],
+        [
+            "ghz",
+            "GHz"
+        ],
+        [
+            "gw",
+            "GW"
+        ],
+        [
+            "gwh",
+            "GWh"
+        ],
+        [
+            "hpa",
+            "hPa"
+        ],
+        [
+            "hz",
+            "Hz"
+        ],
+        [
+            "j",
+            "J"
+        ],
+        [
+            "k",
+            "K"
+        ],
+        [
+            "ka",
+            "kA"
+        ],
+        [
+            "kb",
+            "kB"
+        ],
+        [
+            "kbps",
+            "Kbps"
+        ],
+        [
+            "kg",
+            "kg"
+        ],
+        [
+            "khz",
+            "kHz"
+        ],
+        [
+            "km",
+            "km"
+        ],
+        [
+            "km/h",
+            "km/h"
+        ],
+        [
+            "kpa",
+            "kPa"
+        ],
+        [
+            "kv",
+            "kV"
+        ],
+        [
+            "kw",
+            "kW"
+        ],
+        [
+            "kwh",
+            "kWh"
+        ],
+        [
+            "l",
+            "L"
+        ],
+        [
+            "m",
+            "m"
+        ],
+        [
+            "ma",
+            "mA"
+        ],
+        [
+            "mah",
+            "mAh"
+        ],
+        [
+            "mb",
+            "MB"
+        ],
+        [
+            "mbps",
+            "Mbps"
+        ],
+        [
+            "mg",
+            "mg"
+        ],
+        [
+            "mhz",
+            "MHz"
+        ],
+        [
+            "ml",
+            "mL"
+        ],
+        [
+            "mm",
+            "mm"
+        ],
+        [
+            "mpa",
+            "MPa"
+        ],
+        [
+            "mph",
+            "mph"
+        ],
+        [
+            "mv",
+            "mV"
+        ],
+        [
+            "mw",
+            "mW"
+        ],
+        [
+            "mwh",
+            "MWh"
+        ],
+        [
+            "n",
+            "N"
+        ],
+        [
+            "nits",
+            "nits"
+        ],
+        [
+            "nm",
+            "nm"
+        ],
+        [
+            "ohm",
+            "ohm"
+        ],
+        [
+            "pa",
+            "Pa"
+        ],
+        [
+            "pb",
+            "PB"
+        ],
+        [
+            "ph",
+            "pH"
+        ],
+        [
+            "rpm",
+            "rpm"
+        ],
+        [
+            "tb",
+            "TB"
+        ],
+        [
+            "thz",
+            "THz"
+        ],
+        [
+            "twh",
+            "TWh"
+        ],
+        [
+            "v",
+            "V"
+        ],
+        [
+            "w",
+            "W"
+        ]
     ]
 }
