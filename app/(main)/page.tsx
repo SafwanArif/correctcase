@@ -57,6 +57,14 @@ export default function Home(): JSX.Element {
             <GenericPageClient
                 heroProps={{
                     showToolSelector: true,
+                    title: (
+                        <>
+                            Convert text between <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-radiant-cyan to-victory-emerald lowercase">
+                                British & American standards
+                            </span>
+                        </>
+                    ),
                     badge: (
                         <div className="inline-flex sm:hidden items-center gap-1.5 px-3 py-1 rounded-full bg-surface/50 border border-border-subtle/40 backdrop-blur-md shadow-sm">
                             <span className="relative flex h-2 w-2">
