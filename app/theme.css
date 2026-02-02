@@ -30,11 +30,10 @@
     /* 3. MOTION & DEPTH PHYSICS */
     --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --shadow-depth: 0 10px 30px -10px oklch(0% 0 0deg / 10%), 0 4px 6px -2px oklch(0% 0 0deg / 5%);
-    --shadow-success: 0 0 40px -10px oklch(var(--victory-emerald) / 30%);
-    --shadow-insight: 0 0 30px -5px oklch(var(--intelligence-indigo) / 20%);
-    --shadow-insight: 0 0 30px -5px oklch(var(--intelligence-indigo) / 20%);
-    --shadow-action: 0 0 30px -5px oklch(var(--radiant-cyan) / 20%);
+    --shadow-depth: 0 10px 30px -10px oklch(0% 0 0deg / 0.1), 0 4px 6px -2px oklch(0% 0 0deg / 0.05);
+    --shadow-success: 0 0 40px -10px oklch(var(--victory-emerald) / 0.3);
+    --shadow-insight: 0 0 30px -5px oklch(var(--intelligence-indigo) / 0.2);
+    --shadow-action: 0 0 30px -5px oklch(var(--radiant-cyan) / 0.2);
 
     /* 4. SEMANTIC Z-INDEX ARCHITECTURE */
     --z-negative: -1;
@@ -83,7 +82,7 @@
     --text-primary: oklch(18% 0.06 255deg);
     --text-muted: oklch(45% 0.04 255deg);
     --text-on-primary: oklch(100% 0 0deg);
-    --border-subtle: oklch(90% 0.03 255deg / 50%);
+    --border-subtle: oklch(90% 0.03 255deg / 0.5);
 
     /* QUAD-LUMINOUS ACTIVE SEMANTICS (Vibrant Light) */
     --obsidian-cobalt: var(--l-obsidian);
@@ -93,7 +92,7 @@
     --action-primary: var(--obsidian-cobalt);
     --action-secondary: var(--radiant-cyan);
     --action-victory: var(--victory-emerald);
-    --bg-focus: oklch(var(--radiant-cyan) / 8%);
+    --bg-focus: oklch(var(--radiant-cyan) / 0.08);
 
     /* DNA Aliases */
     --brand-cobalt: var(--obsidian-cobalt);
@@ -116,7 +115,7 @@
     --text-primary: oklch(99.5% 0.005 255deg);
     --text-muted: oklch(80% 0.02 255deg);
     --text-on-primary: oklch(10% 0.05 255deg);
-    --border-subtle: oklch(24% 0.05 255deg / 40%);
+    --border-subtle: oklch(24% 0.05 255deg / 0.4);
 
     /* QUAD-LUMINOUS ACTIVE SEMANTICS (Dark) */
     --obsidian-cobalt: var(--d-obsidian);
@@ -126,5 +125,5 @@
     --action-primary: var(--radiant-cyan);
     --action-secondary: var(--radiant-cyan);
     --action-victory: var(--victory-emerald);
-    --bg-focus: oklch(var(--radiant-cyan) / 18%);
+    --bg-focus: oklch(var(--radiant-cyan) / 0.18);
 }
