@@ -19,6 +19,12 @@ export default defineFlatConfig([
             "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
         },
     },
+    {
+        files: ["app/**/{page,layout,metadata}.{ts,tsx}"],
+        rules: {
+            "react-refresh/only-export-components": "off",
+        },
+    },
     // Next.js specific ignores often needed
     {
         ignores: [".next/*", "out/*", "public/*", "node_modules/*"],

@@ -1,0 +1,9 @@
+﻿components/features/editor-toolbar.tsx(115,33): error TS2322: Type 'ComponentType<{ className?: string | undefined; }>' is not assignable to type 'ReactNode'.
+  Type 'ComponentClass<{ className?: string | undefined; }, any>' is not assignable to type 'ReactNode'.
+components/features/editor-toolbar.tsx(130,29): error TS2322: Type 'ComponentType<{ className?: string | undefined; }>' is not assignable to type 'ReactNode'.
+  Type 'ComponentClass<{ className?: string | undefined; }, any>' is not assignable to type 'ReactNode'.
+components/features/generic-page-client.tsx(28,26): error TS1361: 'useRef' cannot be used as a value because it was imported using 'import type'.
+components/features/generic-page-client.tsx(39,9): error TS2554: Expected 2-3 arguments, but got 4.
+components/features/generic-page-client.tsx(45,14): error TS1361: 'Suspense' cannot be used as a value because it was imported using 'import type'.
+components/features/generic-page-client.tsx(52,26): error TS2559: Type '{ title?: ReactNode; subtitle?: ReactNode; description?: ReactNode; breadcrumbs?: ReactNode; badge?: ReactNode; showToolSelector?: boolean | undefined; showToolbar?: boolean | undefined; defaultTools?: ("case" | "hyphenation")[] | undefined; forcedStyle?: "us" | ... 1 more ... | undefined; }' has no properties in common with type 'IntrinsicAttributes & LandingHeroProps'.
+components/features/generic-page-client.tsx(65,15): error TS1361: 'Suspense' cannot be used as a value because it was imported using 'import type'.

@@ -5,7 +5,6 @@ import { GenericPageClient } from "@/components/features/generic-page-client";
 import { BenefitSection } from "@/components/ui/benefit-section";
 import { EducationalSection } from "@/components/ui/educational-section";
 
-/* eslint-disable react-refresh/only-export-components */
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
@@ -13,7 +12,6 @@ export const metadata: Metadata = {
     description:
         "Professional British English text tools for international copywriters. Convert between UK sentence case and US title case with proper capitalisation, hyphenation, and grammar—client-side only.",
 };
-/* eslint-enable react-refresh/only-export-components */
 
 export default function Home(): JSX.Element {
     const graphLd = {

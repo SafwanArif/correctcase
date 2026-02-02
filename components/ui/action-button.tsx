@@ -12,6 +12,7 @@ export interface ActionButtonProps {
     size?: "sm" | "md";
     className?: string;
     type?: "button" | "submit" | "reset";
+    disabled?: boolean;
 }
 
 export function ActionButton({
@@ -23,10 +24,12 @@ export function ActionButton({
     size = "md",
     className,
     type = "button",
-}: ActionButtonProps): React.ReactElement {
+    disabled,
+}: ActionButtonProps): React.JSX.Element {
     return (
         <button
             type={type}
+            disabled={disabled}
             className={cn(
                 "flex items-center font-medium rounded-lg transition-all duration-300 ease-out-expo active:scale-95 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary action-gravity",
 

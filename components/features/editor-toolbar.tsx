@@ -112,7 +112,7 @@ export function EditorToolbar({
                         return (
                             <ActionButton
                                 key={action.id}
-                                icon={action.icon}
+                                icon={<action.icon className="w-4 h-4" />}
                                 disabled={action.disabled}
                                 label={action.label}
                                 onClick={action.action}
@@ -127,7 +127,7 @@ export function EditorToolbar({
                     return (
                         <ActionButton
                             key={action.id}
-                            icon={action.icon}
+                            icon={<action.icon className="w-4 h-4" />}
                             label={action.label}
                             variant={action.primary ? "primary" : "ghost"}
                             onClick={action.action}

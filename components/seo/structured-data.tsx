@@ -8,7 +8,7 @@ interface StructuredDataProps<T extends Thing> {
 /**
  * Structured Data component for JSON-LD.
  */
-export default function StructuredData<T extends Thing>({ data }: StructuredDataProps<T>): JSX.Element {
+export function StructuredData<T extends Thing>({ data }: StructuredDataProps<T>): JSX.Element {
     return (
         <script
             type="application/ld+json"

@@ -4,14 +4,27 @@ import { motion } from "framer-motion";
 import type React from "react";
 import { cn } from "@/lib/utils";
 
-interface LandingHeroProps {
+/**
+ * Props for LandingHero.
+ */
+export interface LandingHeroProps {
     className?: string;
+    title?: React.ReactNode;
+    subtitle?: React.ReactNode;
+    description?: React.ReactNode;
+    badge?: React.ReactNode;
+    showToolSelector?: boolean;
 }
 
 /**
  * Landing Hero Component with refined particles and typography.
  */
-export function LandingHero({ className }: LandingHeroProps): React.JSX.Element {
+export function LandingHero({
+    className,
+    title,
+    description,
+    badge
+}: LandingHeroProps): React.JSX.Element {
     return (
         <section
             className={cn(
@@ -53,15 +66,21 @@ export function LandingHero({ className }: LandingHeroProps): React.JSX.Element 
                 transition={{ duration: 0.8 }}
                 className="relative z-10 max-w-4xl"
             >
+                {Boolean(badge) && <div className="mb-6">{badge}</div>}
+
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-body mb-6 leading-tight">
-                    Text Casing with <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-radiant-cyan">
-                        Clinical Precision.
-                    </span>
+                    {title || (
+                        <>
+                            Text Casing with <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-radiant-cyan">
+                                Clinical Precision.
+                            </span>
+                        </>
+                    )}
                 </h1>
+
                 <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Convert between US Title Case (AP, Chicago) and UK Sentence Case (Gov.uk) with
-                    linguistic accuracy. Privacy-first, client-side processing.
+                    {description || "Convert between US Title Case (AP, Chicago) and UK Sentence Case (Gov.uk) with linguistic accuracy. Privacy-first, client-side processing."}
                 </p>
             </motion.div>
         </section>

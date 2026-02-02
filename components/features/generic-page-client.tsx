@@ -1,10 +1,9 @@
 "use client";
 
-import type { JSX , Suspense, useRef } from "react";
+import { type JSX,Suspense, useRef } from "react";
 import { useScroll } from "@/components/providers/scroll-provider";
 import { LandingHero } from "@/components/ui/landing-hero";
 import { useEventListener } from "@/hooks/use-event-listener";
-// import { motion } from "framer-motion";
 
 interface GenericPageClientProps {
     heroProps: {
@@ -35,8 +34,7 @@ export function GenericPageClient({ heroProps, sections }: GenericPageClientProp
                 setScrollTop(containerRef.current.scrollTop);
             }
         },
-        containerRef,
-        { passive: true }
+        { element: containerRef, options: { passive: true } }
     );
 
     return (
@@ -53,13 +51,14 @@ export function GenericPageClient({ heroProps, sections }: GenericPageClientProp
                     </div>
 
                     {/* ADDITIONAL SECTIONS */}
-                    {sections.map(({ id, content }) => 
-                        { return <div
+                    {sections.map(({ id, content }) => {
+                        return <div
                             key={id}
                             className="sm:snap-start sm:min-h-screen flex flex-col items-center justify-center py-16 px-4 even:bg-surface/5 odd:bg-transparent transition-colors duration-700"
                         >
                             <div className="w-full max-w-5xl mx-auto">{content}</div>
-                        </div> }
+                        </div>
+                    }
                     )}
                 </div>
             </Suspense>
