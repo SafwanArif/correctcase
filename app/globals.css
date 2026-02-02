@@ -7,11 +7,11 @@
     @apply antialiased font-sans;
     background-color: var(--color-canvas);
     background-image:
-      radial-gradient(at 0% 0%, oklch(var(--obsidian-cobalt) / 0.25) 0px, transparent 55%),
-      radial-gradient(at 100% 0%, oklch(var(--radiant-cyan) / 0.3) 0px, transparent 60%),
-      radial-gradient(at 100% 100%, oklch(var(--intelligence-indigo) / 0.2) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, oklch(var(--victory-emerald) / 0.15) 0px, transparent 50%),
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      radial-gradient(at 0% 0%, oklch(var(--obsidian-cobalt) / 0.15) 0px, transparent 55%),
+      radial-gradient(at 100% 0%, oklch(var(--radiant-cyan) / 0.18) 0px, transparent 60%),
+      radial-gradient(at 100% 100%, oklch(var(--intelligence-indigo) / 0.12) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, oklch(var(--victory-emerald) / 0.10) 0px, transparent 50%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     background-blend-mode: normal, normal, normal, normal, overlay;
     color: var(--color-body);
     height: 100dvh;

@@ -1,9 +1,7 @@
 "use client";
 
-import { useRef, useState, useEffect, Suspense } from "react";
+import { useRef, useEffect, Suspense } from "react";
 import { LandingHero } from "@/components/ui/landing-hero";
-import { CinematicDots } from "@/components/ui/cinematic-dots";
-import { FloatingCommandBar } from "@/components/ui/floating-command-bar";
 import { useScroll } from "@/components/providers/scroll-provider";
 import { motion } from "framer-motion";
 
@@ -22,39 +20,22 @@ interface GenericPageClientProps {
 
 export function GenericPageClient({ heroProps, sections }: GenericPageClientProps) {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [activeSegment, setActiveSegment] = useState(0);
     const { setScrollTop } = useScroll();
-
-    const scrollToTop = () => {
-        containerRef.current?.scrollTo({ top: 0, behavior: "smooth" });
-    };
 
     useEffect(() => {
         const el = containerRef.current;
         if (!el) return;
 
         const handleScroll = () => {
-            const st = el.scrollTop;
-            setScrollTop(st); // Report to global provider for header/editor compaction
-
-            const index = Math.round(st / (window.innerHeight || 800));
-            if (index !== activeSegment) {
-                setActiveSegment(index);
-            }
+            setScrollTop(el.scrollTop);
         };
 
         el.addEventListener('scroll', handleScroll, { passive: true });
         return () => el.removeEventListener('scroll', handleScroll);
-    }, [activeSegment]);
+    }, [setScrollTop]);
 
     return (
         <div className="w-full h-full sm:h-auto sm:overflow-visible">
-            {/* CINEMATIC NAV (DOTS) */}
-            <CinematicDots total={1 + sections.length} active={activeSegment} />
-
-            {/* ANCHOR EDITOR (FLOATING COMMAND BAR) */}
-            <FloatingCommandBar isVisible={activeSegment > 0} onScrollToTop={scrollToTop} />
-
             {/* CINEMATIC SCROLL CONTAINER */}
             <Suspense fallback={null}>
                 <div

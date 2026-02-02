@@ -38,7 +38,16 @@
     --shadow-depth: 0 10px 30px -10px oklch(0% 0 0 / 0.1), 0 4px 6px -2px oklch(0% 0 0 / 0.05);
     --shadow-success: 0 0 40px -10px oklch(var(--victory-emerald) / 0.3);
     --shadow-insight: 0 0 30px -5px oklch(var(--intelligence-indigo) / 0.2);
+    --shadow-insight: 0 0 30px -5px oklch(var(--intelligence-indigo) / 0.2);
     --shadow-action: 0 0 30px -5px oklch(var(--radiant-cyan) / 0.2);
+
+    /* 4. SEMANTIC Z-INDEX ARCHITECTURE */
+    --z-negative: -1;
+    --z-normal: 1;
+    --z-sticky: 50;
+    --z-toolbar: 100;
+    --z-overlay: 200;
+    --z-toast: 500;
 }
 
 /* 4. TYPE-SAFE ANIMATION TOKENS (2026 Standard) */
@@ -59,7 +68,7 @@
     --neutral-100: 95% 0.02 255;
     /* Surface Separation */
     --neutral-900: 15% 0.05 255;
-    --neutral-950: 8% 0.04 255;
+    --neutral-950: 4% 0.04 255;
 
     /* QUAD-LUMINOUS AAA PRIMITIVES (High-End Clarity) */
     --l-obsidian: 28% 0.18 255;
@@ -106,7 +115,7 @@
     --d-insight: 86% 0.12 285;
 
     /* NEBULA DARK THEME */
-    --bg-canvas: var(--neutral-950) / 0.96;
+    --bg-canvas: var(--neutral-950);
     --bg-surface: 12% 0.04 255 / 0.6;
     --bg-elevated: 16% 0.04 255 / 0.7;
 

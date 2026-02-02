@@ -81,7 +81,7 @@ export function LandingHero({
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center mb-8 sm:mb-16 max-w-5xl z-20 relative w-full will-change-transform"
+                className="text-center mb-8 sm:mb-16 max-w-5xl z-[var(--z-normal)] relative w-full will-change-transform"
             >
                 {/* Optional Badge (Mobile First - e.g. "100% Private") */}
                 {badge && (
@@ -116,13 +116,15 @@ export function LandingHero({
                 >
                     <div className="absolute inset-x-0 -top-20 -bottom-20 bg-primary/5 blur-[120px] -z-10 rounded-full opacity-30"></div>
 
-                    <div className="mb-1">
-                        <EditorToolbar
-                            defaultTools={defaultTools}
-                            onOpenHistory={openHistory}
-                            className="rounded-t-2xl border-x border-t border-b-0"
-                        />
-                    </div>
+                    {defaultTools && (
+                        <div className="mb-1">
+                            <EditorToolbar
+                                defaultTools={defaultTools}
+                                onOpenHistory={openHistory}
+                                className="rounded-t-2xl border-x border-t border-b-0"
+                            />
+                        </div>
+                    )}
 
                     <Suspense>
                         <HeroEditor

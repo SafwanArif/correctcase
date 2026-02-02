@@ -1,8 +1,7 @@
 "use client";
 
 import { GenericPageClient } from "@/components/features/generic-page-client";
-import { SeoContent } from "@/components/features/seo-content";
-import { SEO_CONTENT } from "@/data/seo-content";
+import { SEOContentSection } from "@/components/content/seo-content-section";
 import Link from "next/link";
 
 export default function UkSentenceCasePage() {
@@ -20,9 +19,9 @@ export default function UkSentenceCasePage() {
                 ),
                 title: (
                     <>
-                        Professional UK <br />
+                        Sentence Case: <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-radiant-cyan to-victory-emerald lowercase underline decoration-radiant-cyan/20 underline-offset-8">
-                            sentence case
+                            The British Standard
                         </span>.
                     </>
                 ),
@@ -36,13 +35,32 @@ export default function UkSentenceCasePage() {
                         </Link>
                     </div>
                 ),
-                description: "The British standard for government (Gov.uk), BBC, and Oxford academic writing. Automatically converts any text to pristine British sentence case.",
+                description: "The British standard for government (Gov.uk), BBC, and Oxford academic writing. Automatically converts text to pristine British sentence case.",
                 defaultTools: ["case"]
             }}
             sections={[
-                <div key="seo" className="py-20">
-                    <SeoContent data={SEO_CONTENT['uk-sentence-case']} />
-                </div>
+                <SEOContentSection
+                    key="authority-guide"
+                    title="Why do British institutions prefer Sentence case?"
+                    subtitle="Learn the rules of the NHS and Oxford Style Guide."
+                >
+                    <blockquote>
+                        In the United Kingdom, readability is paramount. From the <strong>NHS Digital Service Manual</strong> to the <strong>GOV.UK design system</strong>, sentence case is the standard for digital communication. Why? Because it is 20% faster to scan than Title Case.
+                    </blockquote>
+
+                    <h3>The Rules of British Sentence Case:</h3>
+                    <ul className="list-decimal pl-5 space-y-2 marker:text-brand-cyan">
+                        <li>
+                            <strong>Capitalise the first word</strong>: Just like a standard sentence.
+                        </li>
+                        <li>
+                            <strong>Capitalise proper nouns</strong>: Names (London), Organisations (BBC), and Acronyms (NASA) remain uppercase.
+                        </li>
+                        <li>
+                            <strong>Lowercase the rest</strong>: Minor words, important words—it doesn't matter. If it's not a name, keep it down.
+                        </li>
+                    </ul>
+                </SEOContentSection>
             ]}
         />
     );

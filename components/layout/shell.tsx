@@ -6,7 +6,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
     return (
         <main className="sm:min-h-screen relative flex flex-col items-center">
             {/* 1. BRAND LANDMARK (0ms LCP) - Floating for Synergy */}
-            <header className="fixed top-0 left-0 w-full z-50 flex items-center px-4 sm:px-8 py-1 sm:py-6 pointer-events-none bg-surface/80 backdrop-blur-xl border-b border-border-subtle/20 sm:bg-transparent sm:backdrop-blur-none sm:border-none">
+            <header className="fixed top-0 left-0 w-full z-[var(--z-sticky)] flex items-center px-4 sm:px-8 py-1 sm:py-6 pointer-events-none bg-surface/80 backdrop-blur-xl border-b border-border-subtle/20 sm:bg-transparent sm:backdrop-blur-none sm:border-none">
                 {/* Left: Logo */}
                 <div className="flex-1 flex items-center">
                     <Link href="/" className="flex items-center gap-0.5 sm:gap-2 group pointer-events-auto hover:opacity-80 transition-opacity">

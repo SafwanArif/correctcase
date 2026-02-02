@@ -1,8 +1,7 @@
 "use client";
 
 import { GenericPageClient } from "@/components/features/generic-page-client";
-import { SeoContent } from "@/components/features/seo-content";
-import { SEO_CONTENT } from "@/data/seo-content";
+import { SEOContentSection } from "@/components/content/seo-content-section";
 import Link from "next/link";
 
 export default function UsTitleCasePage() {
@@ -20,10 +19,10 @@ export default function UsTitleCasePage() {
                 ),
                 title: (
                     <>
-                        Professional US <br />
+                        Title Case Converter <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt to-intelligence-indigo lowercase underline decoration-obsidian-cobalt/20 underline-offset-8">
-                            title case
-                        </span>.
+                            (AP & Chicago Style)
+                        </span>
                     </>
                 ),
                 subtitle: (
@@ -40,9 +39,31 @@ export default function UsTitleCasePage() {
                 defaultTools: ["case"]
             }}
             sections={[
-                <div key="seo" className="py-20">
-                    <SeoContent data={SEO_CONTENT['us-title-case']} />
-                </div>
+                <SEOContentSection
+                    key="utility-guide"
+                    title="Stop guessing which words to capitalise."
+                    subtitle="Adhere to the AP Stylebook and Chicago Manual of Style."
+                >
+                    <blockquote>
+                        Title capitalisation is complex. Does "is" get capitalised? (Yes, it's a verb). What about "after"? (It depends). Our <strong>smart converter</strong> follows the strict rules of the major American style guides so you don't have to memorise them.
+                    </blockquote>
+
+                    <h3>Supported Standards:</h3>
+                    <ul className="list-disc pl-5 space-y-2 marker:text-obsidian-cobalt">
+                        <li>
+                            <strong>AP Style</strong>: The gold standard for journalism and news.
+                        </li>
+                        <li>
+                            <strong>Chicago Manual</strong>: Perfect for book titles and long-form essays.
+                        </li>
+                        <li>
+                            <strong>APA Style</strong>: The requirement for academic papers and science journals.
+                        </li>
+                        <li>
+                            <strong>NYT Style</strong>: The classic, prestige headline format.
+                        </li>
+                    </ul>
+                </SEOContentSection>
             ]}
         />
     );
