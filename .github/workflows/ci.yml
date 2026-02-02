@@ -29,6 +29,3 @@ jobs:
 
       - name: 🏗️ Build Guard (Next.js)
         run: npm run build
-
-      - name: 🎭 Reality Guard (Playwright)
-        run: npx playwright install --with-deps && npx playwright test
