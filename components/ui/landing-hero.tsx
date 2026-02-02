@@ -7,7 +7,9 @@ import { EditorToolbar } from "@/components/features/editor-toolbar";
 import { ToolSelector } from "@/components/ui/tool-selector";
 import { ComplianceBadges } from "@/components/ui/compliance-badges";
 import { EducationalSection } from "@/components/ui/educational-section";
-import { ShieldCheck, Zap, Globe } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
+import { Zap } from "lucide-react";
+import { Globe } from "lucide-react";
 import { useUI } from "@/components/providers/ui-provider";
 import { cn } from "@/lib/utils";
 

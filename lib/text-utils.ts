@@ -29,6 +29,9 @@ const splitPunctuation = (str: string) => {
 // Helper: Process text line-by-line
 function processByLine(text: string, processor: (line: string) => string): string {
     if (!text) return '';
+    // 2026 Security: Cap input processing to prevent ReDoS on massive payloads
+    if (text.length > 500000) return text.slice(0, 500000) + '... (Truncated)';
+
     return text.split('\n').map(line => {
         if (!line.trim()) return line;
         return processor(line);

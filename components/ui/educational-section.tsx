@@ -1,4 +1,5 @@
-import { BookOpen, GraduationCap } from "lucide-react";
+import { BookOpen } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
 export function EducationalSection() {
     return (

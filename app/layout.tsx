@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google"; // Use Geist as requested/available
 import { Providers } from "@/app/providers";
+import { StructuredData } from "@/components/seo/structured-data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -61,23 +62,20 @@ export default function RootLayout({
   return (
     <html lang="en-GB" suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              "name": "CorrectCase",
-              "applicationCategory": "Utility",
-              "operatingSystem": "Browser",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "GBP"
-              },
-              "featureList": "Text Conversion, Smart Notepad, Local History",
-              "url": "https://correctcase.co.uk"
-            }),
+        <StructuredData
+          data={{
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "CorrectCase",
+            "applicationCategory": "Utility",
+            "operatingSystem": "Browser",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "GBP"
+            },
+            "featureList": "Text Conversion, Smart Notepad, Local History",
+            "url": "https://correctcase.co.uk"
           }}
         />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />

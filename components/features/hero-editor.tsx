@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-import { Copy, Clipboard as ClipboardIcon, Eraser } from "lucide-react";
+import { Copy } from "lucide-react";
+import { Clipboard } from "lucide-react";
+import { Eraser } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { EditorFrame } from "@/components/ui/editor-frame";
 import { countWords, countCharacters } from "@/lib/text-utils";
@@ -50,7 +52,7 @@ export function HeroEditor(props: UseHeroEditorProps) {
                         className="ghost-expansion flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md select-none focus:outline-none focus:ring-2 focus:ring-primary"
                         title="Paste from Clipboard"
                     >
-                        <ClipboardIcon className="w-3.5 h-3.5" /> Paste
+                        <Clipboard className="w-3.5 h-3.5" /> Paste
                     </button>
                     <div className="ghost-expansion w-px h-3 bg-border-subtle/50" />
                     <button
