@@ -94,7 +94,7 @@ export function LandingHero({
 
                 {/* Optional Breadcrumbs */}
                 {breadcrumbs && (
-                    <div className="mb-[15px] flex justify-center items-center w-full">
+                    <div className="mb-[15px] flex justify-center items-center w-full whitespace-nowrap">
                         {breadcrumbs}
                     </div>
                 )}
