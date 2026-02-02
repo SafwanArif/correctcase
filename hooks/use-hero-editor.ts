@@ -136,8 +136,9 @@ export const useHeroEditor = ({ forcedStyle, onTextChange }: UseHeroEditorProps)
     useEventListener("paste", handleGlobalPaste);
 
     const handleTextChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const cursorPosition = e.target.selectionStart;
-        let val = e.target.value;
+        const el = e.target;
+        const cursorPosition = el.selectionStart;
+        let val = el.value;
 
         if (activeStyle === "uk") { val = toSentenceCase(val); }
         else if (activeStyle === "us") { val = toTitleCase(val); }
@@ -145,7 +146,13 @@ export const useHeroEditor = ({ forcedStyle, onTextChange }: UseHeroEditorProps)
         cursorOffsetRef.current = cursorPosition;
         setText(val);
         if (onTextChange) { onTextChange(val); }
-    }, [activeStyle, setText, onTextChange]);
+
+        // 2026 Auto-Grow Logic (Cinematic Height Adjustment)
+        if (!isCompact) {
+            el.style.height = "auto";
+            el.style.height = `${String(el.scrollHeight)}px`;
+        }
+    }, [activeStyle, setText, onTextChange, isCompact]);
 
     const copyToClipboard = useCallback(async (): Promise<void> => {
         await navigator.clipboard.writeText(text);

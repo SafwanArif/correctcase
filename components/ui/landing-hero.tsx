@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { type JSX,Suspense } from "react";
+import { type JSX, Suspense } from "react";
 import { HeroEditor } from "@/components/features/hero-editor";
 import { ToolSelector } from "@/components/ui/tool-selector";
 import { useEditor } from "@/hooks/use-editor";
@@ -90,12 +90,14 @@ export function LandingHero({
                     )}
                 </h1>
 
-                <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
-                    {description || "Convert between US Title Case (AP, Chicago) and UK Sentence Case (Gov.uk) with linguistic accuracy. Privacy-first, client-side processing."}
-                </p>
-
                 {Boolean(showToolSelector) && (
-                    <div className="w-full mt-12 space-y-8">
+                    <motion.div
+                        layout
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        className="w-full mt-8 mb-12 space-y-6"
+                    >
                         <Suspense fallback={<div className="h-48 animate-pulse bg-surface/20 rounded-2xl" />}>
                             <HeroEditor
                                 defaultTools={defaultTools}
@@ -103,8 +105,12 @@ export function LandingHero({
                             />
                         </Suspense>
                         <ToolSelector text={text} />
-                    </div>
+                    </motion.div>
                 )}
+
+                <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
+                    {description || "Convert between US Title Case (AP, Chicago) and UK Sentence Case (Gov.uk) with linguistic accuracy. Privacy-first, client-side processing."}
+                </p>
             </motion.div>
         </section>
     );

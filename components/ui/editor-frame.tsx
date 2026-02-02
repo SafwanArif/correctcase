@@ -1,6 +1,7 @@
 "use client";
 
-import { type JSX,type ReactNode, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { type JSX, type ReactNode, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 /**
@@ -55,7 +56,9 @@ export function EditorFrame({
     }
 
     return (
-        <div
+        <motion.div
+            layout
+            initial={false}
             className={cn(
                 "w-full max-w-4xl mx-auto flex flex-col border border-border-subtle/30 rounded-3xl bg-surface/40 backdrop-blur-3xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)] relative transition-all duration-700 group",
                 isCompact ? "scale-95 opacity-90 shadow-none border-transparent py-2" : "py-4",
@@ -97,6 +100,6 @@ export function EditorFrame({
                     <div className="flex items-center gap-2">{footerRight}</div>
                 </div>
             )}
-        </div>
+        </motion.div>
     );
 }
