@@ -17,7 +17,9 @@ interface LandingHeroProps {
     breadcrumbs?: React.ReactNode;
     badge?: React.ReactNode;
     showToolSelector?: boolean;
+    showToolbar?: boolean;
     defaultTools?: ("case" | "hyphenation")[];
+    forcedStyle?: "us" | "uk";
     onEditorTextChange?: (text: string) => void;
 }
 
@@ -28,7 +30,9 @@ export function LandingHero({
     breadcrumbs,
     badge,
     showToolSelector = true,
+    showToolbar = true,
     defaultTools,
+    forcedStyle,
     onEditorTextChange,
 }: LandingHeroProps) {
     const { openHistory } = useUI();
@@ -121,7 +125,7 @@ export function LandingHero({
                 >
                     <div className="absolute inset-x-0 -top-20 -bottom-20 bg-primary/5 blur-[120px] -z-10 rounded-full opacity-30"></div>
 
-                    {defaultTools && (
+                    {defaultTools && showToolbar && (
                         <div className="mb-1">
                             <EditorToolbar
                                 defaultTools={defaultTools}
@@ -132,7 +136,11 @@ export function LandingHero({
                     )}
 
                     <Suspense>
-                        <HeroEditor onTextChange={handleTextChange} defaultTools={defaultTools} />
+                        <HeroEditor
+                            onTextChange={handleTextChange}
+                            defaultTools={defaultTools}
+                            forcedStyle={forcedStyle}
+                        />
                     </Suspense>
                 </motion.div>
 

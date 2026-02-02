@@ -49,8 +49,10 @@ export default function UkSentenceCasePage() {
                     </div>
                 ),
                 description:
-                    "The British standard for government (Gov.uk), BBC, and Oxford academic writing. Automatically converts text to pristine British sentence case.",
+                    "The BBC and Guardian standard. Modern, clean, and authoritative. Converts your text to standard sentence case instantly.",
                 defaultTools: ["case"],
+                showToolbar: false,
+                forcedStyle: "uk",
             }}
             sections={[
                 <SEOContentSection

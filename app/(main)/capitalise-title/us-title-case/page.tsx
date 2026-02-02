@@ -50,6 +50,8 @@ export default function UsTitleCasePage() {
                 description:
                     "The American industry standard for AP, APA, Chicago, and MLA styles. Adheres to strict capitalisation rules for journalistic and academic excellence.",
                 defaultTools: ["case"],
+                showToolbar: false,
+                forcedStyle: "us",
             }}
             sections={[
                 <SEOContentSection

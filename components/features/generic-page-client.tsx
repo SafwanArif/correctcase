@@ -13,7 +13,9 @@ interface GenericPageClientProps {
         breadcrumbs?: React.ReactNode;
         badge?: React.ReactNode;
         showToolSelector?: boolean;
+        showToolbar?: boolean;
         defaultTools?: ("case" | "hyphenation")[];
+        forcedStyle?: "us" | "uk";
     };
     sections: React.ReactNode[]; // Subsequent sections after the hero
 }
