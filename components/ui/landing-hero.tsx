@@ -79,7 +79,7 @@ export function LandingHero({
             >
                 {Boolean(badge) && <div className="mb-6">{badge}</div>}
 
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-body mb-6 leading-tight">
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-body mb-6 leading-none">
                     {title || (
                         <>
                             Text Casing with <br />
