@@ -9,6 +9,7 @@ interface EditorFrameProps {
     headerCenter?: React.ReactNode;
     headerRight?: React.ReactNode;
     footerLeft?: React.ReactNode;
+    footerCenter?: React.ReactNode;
     footerRight?: React.ReactNode;
     isCompact?: boolean;
     isFocused?: boolean;
@@ -22,6 +23,7 @@ export function EditorFrame({
     headerCenter,
     headerRight,
     footerLeft,
+    footerCenter,
     footerRight,
     isCompact = false,
     isFocused = false,
@@ -93,6 +95,11 @@ export function EditorFrame({
                 {/* Left Slot */}
                 <div className="flex items-center">
                     {footerLeft}
+                </div>
+
+                {/* Center Slot */}
+                <div className="flex items-center justify-center absolute left-1/2 -translate-x-1/2">
+                    {footerCenter}
                 </div>
 
                 {/* Right Slot */}

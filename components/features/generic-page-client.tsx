@@ -35,7 +35,7 @@ export function GenericPageClient({ heroProps, sections }: GenericPageClientProp
     }, [setScrollTop]);
 
     return (
-        <div className="w-full h-full sm:h-auto sm:overflow-visible">
+        <div className="w-full min-h-screen sm:h-auto sm:overflow-visible">
             {/* CINEMATIC SCROLL CONTAINER */}
             <Suspense fallback={null}>
                 <div

@@ -1,9 +1,8 @@
-"use client";
-
 import React from "react";
+
 import { Copy } from "lucide-react";
 import { Clipboard } from "lucide-react";
-import { Eraser } from "lucide-react";
+import { RemoveFormatting } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { EditorFrame } from "@/components/ui/editor-frame";
 import { countWords, countCharacters } from "@/lib/text-utils";
@@ -49,7 +48,7 @@ export function HeroEditor(props: UseHeroEditorProps) {
                 <>
                     <button
                         onClick={handlePaste}
-                        className="ghost-expansion flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md select-none focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="ghost-expansion flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md select-none focus:outline-none focus:ring-2 focus:ring-primary"
                         title="Paste from Clipboard"
                     >
                         <Clipboard className="w-3.5 h-3.5" /> Paste
@@ -57,24 +56,14 @@ export function HeroEditor(props: UseHeroEditorProps) {
                     <div className="ghost-expansion w-px h-3 bg-border-subtle/50" />
                     <button
                         onClick={handleClear}
-                        className="ghost-expansion flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md select-none focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="ghost-expansion flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md select-none focus:outline-none focus:ring-2 focus:ring-primary"
                         title="Clear Formatting"
                     >
-                        <Eraser className="w-3.5 h-3.5" /> Clear Format
+                        <RemoveFormatting className="w-3.5 h-3.5" /> Clear
                     </button>
                 </>
             }
-            headerCenter={
-                <>
-                    <button onClick={undo} disabled={!canUndo} className="ghost-expansion p-1.5 text-muted hover:text-body disabled:opacity-0 group-hover:disabled:opacity-30 group-focus-within:disabled:opacity-30 rounded-md focus:ring-2 focus:ring-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7v6h6" /><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" /></svg>
-                    </button>
-                    <div className="ghost-expansion w-px h-3 bg-border-subtle mx-1" />
-                    <button onClick={redo} disabled={!canRedo} className="ghost-expansion p-1.5 text-muted hover:text-body disabled:opacity-0 group-hover:disabled:opacity-30 group-focus-within:disabled:opacity-30 rounded-md focus:ring-2 focus:ring-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 7v6h-6" /><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13" /></svg>
-                    </button>
-                </>
-            }
+            headerCenter={null}
             headerRight={
                 <button
                     onClick={copyToClipboard}
@@ -99,6 +88,17 @@ export function HeroEditor(props: UseHeroEditorProps) {
                         <span>{metrics.words} WORDS</span>
                     </div>
                 </>
+            }
+            footerCenter={
+                <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300">
+                    <button onClick={undo} disabled={!canUndo} className="p-1 px-2 text-muted hover:text-body disabled:opacity-0 rounded-md focus:ring-2 focus:ring-primary transition-colors" aria-label="Undo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7v6h6" /><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" /></svg>
+                    </button>
+                    <div className="w-px h-3 bg-border-subtle/50" />
+                    <button onClick={redo} disabled={!canRedo} className="p-1 px-2 text-muted hover:text-body disabled:opacity-0 rounded-md focus:ring-2 focus:ring-primary transition-colors" aria-label="Redo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 7v6h-6" /><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13" /></svg>
+                    </button>
+                </div>
             }
             footerRight={
                 <>
