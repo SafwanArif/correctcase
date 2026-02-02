@@ -15,7 +15,7 @@
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
         "check-size": "size-limit",
-        "prepare": "husky"
+        "prepare": "husky || echo \"Husky not installed\""
     },
     "dependencies": {
         "clsx": "^2.1.1",
