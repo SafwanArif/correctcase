@@ -12,10 +12,8 @@
     --color-canvas: oklch(var(--bg-canvas));
     --color-surface: oklch(var(--bg-surface));
     --color-elevated: oklch(var(--bg-elevated));
-
     --color-primary: oklch(var(--action-primary));
     --color-primary-fg: oklch(var(--text-on-primary));
-
     --color-obsidian-cobalt: oklch(var(--obsidian-cobalt));
     --color-radiant-cyan: oklch(var(--radiant-cyan));
     --color-secondary: oklch(var(--radiant-cyan));
@@ -24,22 +22,19 @@
     --color-victory-emerald: oklch(var(--victory-emerald));
     --color-insight: oklch(var(--intelligence-indigo));
     --color-intelligence-indigo: oklch(var(--intelligence-indigo));
-
     --color-body: oklch(var(--text-primary));
     --color-muted: oklch(var(--text-muted));
     --color-border-subtle: oklch(var(--border-subtle));
-
     --color-focus: var(--bg-focus);
 
     /* 3. MOTION & DEPTH PHYSICS */
     --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-
-    --shadow-depth: 0 10px 30px -10px oklch(0% 0 0 / 0.1), 0 4px 6px -2px oklch(0% 0 0 / 0.05);
-    --shadow-success: 0 0 40px -10px oklch(var(--victory-emerald) / 0.3);
-    --shadow-insight: 0 0 30px -5px oklch(var(--intelligence-indigo) / 0.2);
-    --shadow-insight: 0 0 30px -5px oklch(var(--intelligence-indigo) / 0.2);
-    --shadow-action: 0 0 30px -5px oklch(var(--radiant-cyan) / 0.2);
+    --shadow-depth: 0 10px 30px -10px oklch(0% 0 0deg / 10%), 0 4px 6px -2px oklch(0% 0 0deg / 5%);
+    --shadow-success: 0 0 40px -10px oklch(var(--victory-emerald) / 30%);
+    --shadow-insight: 0 0 30px -5px oklch(var(--intelligence-indigo) / 20%);
+    --shadow-insight: 0 0 30px -5px oklch(var(--intelligence-indigo) / 20%);
+    --shadow-action: 0 0 30px -5px oklch(var(--radiant-cyan) / 20%);
 
     /* 4. SEMANTIC Z-INDEX ARCHITECTURE */
     --z-negative: -1;
@@ -54,7 +49,7 @@
 @property --shadow-spread {
     syntax: "<length>";
     inherits: false;
-    initial-value: 0px;
+    initial-value: 0;
 }
 
 :root {
@@ -62,10 +57,13 @@
 
     /* 2026 CHROMATIC LIGHT SCALE (Frosted Iris) */
     --neutral-0: 99% 0.005 255;
+
     /* Not pure white, slightly tinted */
     --neutral-50: 97.5% 0.01 255;
+
     /* Subtle Depth */
     --neutral-100: 95% 0.02 255;
+
     /* Surface Separation */
     --neutral-900: 15% 0.05 255;
     --neutral-950: 4% 0.04 255;
@@ -79,26 +77,23 @@
     /* RADIANT LIGHT THEME */
     --bg-canvas: var(--neutral-0) / 0.98;
     --bg-surface: 98% 0.01 255 / 0.7;
+
     /* Frosted by default */
     --bg-elevated: 96% 0.02 255 / 0.8;
-
-    --text-primary: oklch(18% 0.06 255);
-    --text-muted: oklch(45% 0.04 255);
-    --text-on-primary: oklch(100% 0 0);
-
-    --border-subtle: oklch(90% 0.03 255 / 0.5);
+    --text-primary: oklch(18% 0.06 255deg);
+    --text-muted: oklch(45% 0.04 255deg);
+    --text-on-primary: oklch(100% 0 0deg);
+    --border-subtle: oklch(90% 0.03 255deg / 50%);
 
     /* QUAD-LUMINOUS ACTIVE SEMANTICS (Vibrant Light) */
     --obsidian-cobalt: var(--l-obsidian);
     --radiant-cyan: var(--l-radiant);
     --victory-emerald: var(--l-victory);
     --intelligence-indigo: var(--l-insight);
-
     --action-primary: var(--obsidian-cobalt);
     --action-secondary: var(--radiant-cyan);
     --action-victory: var(--victory-emerald);
-
-    --bg-focus: oklch(var(--radiant-cyan) / 0.08);
+    --bg-focus: oklch(var(--radiant-cyan) / 8%);
 
     /* DNA Aliases */
     --brand-cobalt: var(--obsidian-cobalt);
@@ -118,22 +113,18 @@
     --bg-canvas: var(--neutral-950);
     --bg-surface: 12% 0.04 255 / 0.6;
     --bg-elevated: 16% 0.04 255 / 0.7;
-
-    --text-primary: oklch(99.5% 0.005 255);
-    --text-muted: oklch(80% 0.02 255);
-    --text-on-primary: oklch(10% 0.05 255);
-
-    --border-subtle: oklch(24% 0.05 255 / 0.4);
+    --text-primary: oklch(99.5% 0.005 255deg);
+    --text-muted: oklch(80% 0.02 255deg);
+    --text-on-primary: oklch(10% 0.05 255deg);
+    --border-subtle: oklch(24% 0.05 255deg / 40%);
 
     /* QUAD-LUMINOUS ACTIVE SEMANTICS (Dark) */
     --obsidian-cobalt: var(--d-obsidian);
     --radiant-cyan: var(--d-radiant);
     --victory-emerald: var(--d-victory);
     --intelligence-indigo: var(--d-insight);
-
     --action-primary: var(--radiant-cyan);
     --action-secondary: var(--radiant-cyan);
     --action-victory: var(--victory-emerald);
-
-    --bg-focus: oklch(var(--radiant-cyan) / 0.18);
+    --bg-focus: oklch(var(--radiant-cyan) / 18%);
 }
