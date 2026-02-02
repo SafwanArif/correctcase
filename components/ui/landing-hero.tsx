@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type React from "react";
+import { type JSX,Suspense } from "react";
+import { HeroEditor } from "@/components/features/hero-editor";
+import { ToolSelector } from "@/components/ui/tool-selector";
+import { useEditor } from "@/hooks/use-editor";
 import { cn } from "@/lib/utils";
 
 /**
@@ -14,6 +17,9 @@ export interface LandingHeroProps {
     description?: React.ReactNode;
     badge?: React.ReactNode;
     showToolSelector?: boolean;
+    showToolbar?: boolean;
+    defaultTools?: ("case" | "hyphenation")[];
+    forcedStyle?: "us" | "uk";
 }
 
 /**
@@ -23,8 +29,13 @@ export function LandingHero({
     className,
     title,
     description,
-    badge
-}: LandingHeroProps): React.JSX.Element {
+    badge,
+    showToolSelector,
+    defaultTools,
+    forcedStyle,
+}: LandingHeroProps): JSX.Element {
+    const { text } = useEditor();
+
     return (
         <section
             className={cn(
@@ -64,7 +75,7 @@ export function LandingHero({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="relative z-10 max-w-4xl"
+                className="relative z-10 max-w-4xl w-full"
             >
                 {Boolean(badge) && <div className="mb-6">{badge}</div>}
 
@@ -72,7 +83,7 @@ export function LandingHero({
                     {title || (
                         <>
                             Text Casing with <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-radiant-cyan">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-radiant-cyan to-victory-emerald lowercase">
                                 Clinical Precision.
                             </span>
                         </>
@@ -82,6 +93,18 @@ export function LandingHero({
                 <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
                     {description || "Convert between US Title Case (AP, Chicago) and UK Sentence Case (Gov.uk) with linguistic accuracy. Privacy-first, client-side processing."}
                 </p>
+
+                {Boolean(showToolSelector) && (
+                    <div className="w-full mt-12 space-y-8">
+                        <Suspense fallback={<div className="h-48 animate-pulse bg-surface/20 rounded-2xl" />}>
+                            <HeroEditor
+                                defaultTools={defaultTools}
+                                forcedStyle={forcedStyle}
+                            />
+                        </Suspense>
+                        <ToolSelector text={text} />
+                    </div>
+                )}
             </motion.div>
         </section>
     );
