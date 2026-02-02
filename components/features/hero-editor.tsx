@@ -1,8 +1,7 @@
-import React from "react";
+"use client";
 
-import { Copy } from "lucide-react";
-import { Clipboard } from "lucide-react";
-import { RemoveFormatting } from "lucide-react";
+import React from "react";
+import { Copy, Clipboard, RemoveFormatting } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { EditorFrame } from "@/components/ui/editor-frame";
 import { countWords, countCharacters } from "@/lib/text-utils";
