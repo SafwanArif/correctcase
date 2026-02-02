@@ -1,7 +1,5 @@
-import { HeroEditor } from "@/components/features/hero-editor";
-
 import { Metadata } from "next";
-import { Suspense } from "react";
+import { GenericPageClient } from "@/components/features/generic-page-client";
 
 export const dynamic = 'force-static';
 
@@ -18,11 +16,16 @@ import { SEO_CONTENT } from "@/data/seo-content";
 
 export default function HyphenateTextPage() {
     return (
-        <>
-            <Suspense>
-                <HeroEditor defaultTools={["hyphenation"]} />
-            </Suspense>
-            <SeoContent data={SEO_CONTENT['hyphenate']} />
-        </>
+        <GenericPageClient
+            heroProps={{
+                title: "Smart Hyphenation Removal Tool",
+                description: "Intelligently remove line-break hyphens from PDF text while preserving grammatical compounds.",
+                defaultTools: ["hyphenation"],
+                badge: <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-primary/10 text-primary rounded-full">PDF Cleanup</span>
+            }}
+            sections={[
+                <SeoContent key="content" data={SEO_CONTENT['hyphenate']} />
+            ]}
+        />
     );
 }
