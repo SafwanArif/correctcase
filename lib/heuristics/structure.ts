@@ -1,5 +1,5 @@
-import { HeuristicProcessor } from './types';
-import structureData from '@/data/dictionaries/heuristics/structure.json';
+import { HeuristicProcessor } from "./types";
+import structureData from "@/data/dictionaries/heuristics/structure.json";
 
 // Heuristic #9: Structure (Colons & Bullets)
 const bullets = new Set(structureData.bullets);
@@ -10,7 +10,7 @@ const bullets = new Set(structureData.bullets);
 // Let's just hardcode the Regex construction or store just the string pattern.
 // JSON has: "bulletRegex": ["^(\\d+|[a-zA-Z])(\\.|-|\\))$"]
 // We can iterate.
-const bulletPatterns = structureData.bulletRegex.map(p => new RegExp(p));
+const bulletPatterns = structureData.bulletRegex.map((p) => new RegExp(p));
 
 export const processStructure: HeuristicProcessor = (currentWord, i, words, splitPunctuation) => {
     if (i === 0) return null; // First word is handled by default rule
@@ -19,12 +19,12 @@ export const processStructure: HeuristicProcessor = (currentWord, i, words, spli
 
     // 1. Bullet Check
     // If previous word is a bullet marker
-    if (bullets.has(prev) || bulletPatterns.some(regex => regex.test(prev))) {
+    if (bullets.has(prev) || bulletPatterns.some((regex) => regex.test(prev))) {
         const p = splitPunctuation(currentWord);
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
         return {
             consumed: 1,
-            processedWords: [`${p.prefix}${capitalized}${p.suffix}`]
+            processedWords: [`${p.prefix}${capitalized}${p.suffix}`],
         };
     }
 
@@ -33,12 +33,12 @@ export const processStructure: HeuristicProcessor = (currentWord, i, words, spli
     // Trigger: Previous word ends in ':' AND (i === 1 OR prev word was capitalized?)
     // To be safe, we only enforce this at the START of a line (Label pattern).
     // i=1 means words[0] was the label.
-    if (i === 1 && prev.endsWith(':')) {
+    if (i === 1 && prev.endsWith(":")) {
         const p = splitPunctuation(currentWord);
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
         return {
             consumed: 1,
-            processedWords: [`${p.prefix}${capitalized}${p.suffix}`]
+            processedWords: [`${p.prefix}${capitalized}${p.suffix}`],
         };
     }
 

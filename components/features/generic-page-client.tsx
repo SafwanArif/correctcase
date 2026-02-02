@@ -3,7 +3,7 @@
 import { useRef, useEffect, Suspense } from "react";
 import { LandingHero } from "@/components/ui/landing-hero";
 import { useScroll } from "@/components/providers/scroll-provider";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 interface GenericPageClientProps {
     heroProps: {
@@ -30,8 +30,8 @@ export function GenericPageClient({ heroProps, sections }: GenericPageClientProp
             setScrollTop(el.scrollTop);
         };
 
-        el.addEventListener('scroll', handleScroll, { passive: true });
-        return () => el.removeEventListener('scroll', handleScroll);
+        el.addEventListener("scroll", handleScroll, { passive: true });
+        return () => el.removeEventListener("scroll", handleScroll);
     }, [setScrollTop]);
 
     return (
@@ -53,9 +53,7 @@ export function GenericPageClient({ heroProps, sections }: GenericPageClientProp
                             key={idx}
                             className="sm:snap-start sm:min-h-screen flex flex-col items-center justify-center py-16 px-4 even:bg-surface/5 odd:bg-transparent transition-colors duration-700"
                         >
-                            <div className="w-full max-w-5xl mx-auto">
-                                {section}
-                            </div>
+                            <div className="w-full max-w-5xl mx-auto">{section}</div>
                         </div>
                     ))}
                 </div>

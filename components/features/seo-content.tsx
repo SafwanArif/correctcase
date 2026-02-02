@@ -18,9 +18,7 @@ export function SeoContent({ data, className }: SeoContentProps) {
                 <h2 className="text-2xl font-bold tracking-tight text-body group-hover:text-[oklch(var(--brand-core))] transition-colors duration-300">
                     {data.h2}
                 </h2>
-                <p className="mt-4 text-base text-muted leading-relaxed">
-                    {data.intro}
-                </p>
+                <p className="mt-4 text-base text-muted leading-relaxed">{data.intro}</p>
             </header>
 
             {/* H3 Sections */}
@@ -31,9 +29,7 @@ export function SeoContent({ data, className }: SeoContentProps) {
                             <span className="w-1.5 h-1.5 rounded-full bg-[oklch(var(--brand-secondary))]" />
                             {section.h3}
                         </h3>
-                        <p className="text-muted leading-relaxed text-sm">
-                            {section.content}
-                        </p>
+                        <p className="text-muted leading-relaxed text-sm">{section.content}</p>
                     </section>
                 ))}
             </div>
@@ -46,13 +42,14 @@ export function SeoContent({ data, className }: SeoContentProps) {
                     </h4>
                     <div className="grid gap-6">
                         {data.faq.map((item, idx) => (
-                            <div key={idx} className="bg-elevated/30 rounded-lg p-5 border border-border-subtle/50">
+                            <div
+                                key={idx}
+                                className="bg-elevated/30 rounded-lg p-5 border border-border-subtle/50"
+                            >
                                 <h5 className="font-medium text-body mb-2 text-sm">
                                     {item.question}
                                 </h5>
-                                <p className="text-xs text-muted leading-relaxed">
-                                    {item.answer}
-                                </p>
+                                <p className="text-xs text-muted leading-relaxed">{item.answer}</p>
                             </div>
                         ))}
                     </div>

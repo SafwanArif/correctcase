@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { HeroEditor } from './hero-editor';
-import { EditorProvider } from '@/components/providers/editor-provider';
-import { ScrollProvider } from '@/components/providers/scroll-provider';
-import { UIProvider } from '@/components/providers/ui-provider';
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { HeroEditor } from "./hero-editor";
+import { EditorProvider } from "@/components/providers/editor-provider";
+import { ScrollProvider } from "@/components/providers/scroll-provider";
+import { UIProvider } from "@/components/providers/ui-provider";
 
 // Mock Provider Wrapper
 const MockProvider = ({ children }: { children: React.ReactNode }) => (
@@ -18,7 +18,7 @@ const MockProvider = ({ children }: { children: React.ReactNode }) => (
 );
 
 const meta = {
-    title: 'Features/HeroEditor',
+    title: "Features/HeroEditor",
     component: HeroEditor,
     decorators: [
         (Story) => (
@@ -27,9 +27,9 @@ const meta = {
             </MockProvider>
         ),
     ],
-    tags: ['autodocs'],
+    tags: ["autodocs"],
     parameters: {
-        layout: 'fullscreen',
+        layout: "fullscreen",
     },
 } satisfies Meta<typeof HeroEditor>;
 
@@ -38,12 +38,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        defaultTools: ['case', 'hyphenation'],
+        defaultTools: ["case", "hyphenation"],
     },
 };
 
 export const CompactMobile: Story = {
     parameters: {
-        viewport: { defaultViewport: 'mobile1' },
+        viewport: { defaultViewport: "mobile1" },
     },
 };

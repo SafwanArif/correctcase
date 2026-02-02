@@ -5,13 +5,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { HeroEditor } from "@/components/features/hero-editor";
 import { EditorToolbar } from "@/components/features/editor-toolbar";
 import { ToolSelector } from "@/components/ui/tool-selector";
-import { ComplianceBadges } from "@/components/ui/compliance-badges";
-import { EducationalSection } from "@/components/ui/educational-section";
-import { ShieldCheck } from "lucide-react";
-import { Zap } from "lucide-react";
-import { Globe } from "lucide-react";
+// import { ComplianceBadges } from "@/components/ui/compliance-badges";
+// import { EducationalSection } from "@/components/ui/educational-section";
 import { useUI } from "@/components/providers/ui-provider";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 
 interface LandingHeroProps {
     title?: React.ReactNode;
@@ -32,14 +29,14 @@ export function LandingHero({
     badge,
     showToolSelector = true,
     defaultTools,
-    onEditorTextChange
+    onEditorTextChange,
 }: LandingHeroProps) {
     const { openHistory } = useUI();
     const [editorText, setEditorText] = useState("");
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start start", "end start"]
+        offset: ["start start", "end start"],
     });
 
     const scale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
@@ -52,7 +49,10 @@ export function LandingHero({
     };
 
     return (
-        <section ref={containerRef} className="relative w-full flex flex-col items-center sm:justify-center justify-start px-4 overflow-hidden pt-[45px] sm:pt-20 sm:min-h-screen">
+        <section
+            ref={containerRef}
+            className="relative w-full flex flex-col items-center sm:justify-center justify-start px-4 overflow-hidden pt-[45px] sm:pt-20 sm:min-h-screen"
+        >
             {/* 0. Ambient Juice (Particles) */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 {[...Array(4)].map((_, i) => (
@@ -61,17 +61,17 @@ export function LandingHero({
                         animate={{
                             y: [0, -100, 0],
                             x: [0, Math.sin(i) * 30, 0],
-                            opacity: [0, 0.2, 0]
+                            opacity: [0, 0.2, 0],
                         }}
                         transition={{
                             duration: 15 + i * 3,
                             repeat: Infinity,
-                            ease: "linear"
+                            ease: "linear",
                         }}
                         className="absolute w-px h-40 bg-gradient-to-b from-primary/10 to-transparent"
                         style={{
                             left: `${10 + i * 12}%`,
-                            top: `${10 + (i % 4) * 20}%`
+                            top: `${10 + (i % 4) * 20}%`,
                         }}
                     />
                 ))}
@@ -103,7 +103,10 @@ export function LandingHero({
                     {title || (
                         <>
                             Convert text between <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">British & American</span> standards
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald">
+                                British & American
+                            </span>{" "}
+                            standards
                         </>
                     )}
                 </h1>
@@ -129,20 +132,13 @@ export function LandingHero({
                     )}
 
                     <Suspense>
-                        <HeroEditor
-                            onTextChange={handleTextChange}
-                            defaultTools={defaultTools}
-                        />
+                        <HeroEditor onTextChange={handleTextChange} defaultTools={defaultTools} />
                     </Suspense>
                 </motion.div>
 
                 {/* 3. Subtitle / Description (Moved below editor) */}
                 <div className="min-h-[140px]">
-                    {subtitle && (
-                        <div className="mb-6">
-                            {subtitle}
-                        </div>
-                    )}
+                    {subtitle && <div className="mb-6">{subtitle}</div>}
 
                     {/* 4. Contextual Tool Selector (Optional) */}
                     {showToolSelector && <ToolSelector text={editorText} className="mb-10" />}
@@ -150,8 +146,11 @@ export function LandingHero({
                     <div className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed font-medium opacity-90 mb-12">
                         {description || (
                             <>
-                                Professional British English text tools for international copywriters.<br className="hidden sm:block" />
-                                Sentence case, title case, hyphenation—all client-side, zero tracking.
+                                Professional British English text tools for international
+                                copywriters.
+                                <br className="hidden sm:block" />
+                                Sentence case, title case, hyphenation—all client-side, zero
+                                tracking.
                             </>
                         )}
                     </div>
@@ -165,7 +164,9 @@ export function LandingHero({
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-40"
             >
-                <span className="text-[10px] font-bold uppercase tracking-widest text-muted">Scroll to explore</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-muted">
+                    Scroll to explore
+                </span>
                 <div className="w-px h-12 bg-gradient-to-b from-primary/40 to-transparent"></div>
             </motion.div>
         </section>

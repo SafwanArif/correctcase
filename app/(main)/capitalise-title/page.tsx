@@ -13,7 +13,7 @@ const HUB_TOOLS = [
         path: "/capitalise-title/uk-sentence-case",
         icon: Type,
         badge: "BBC • Guardian",
-        color: "from-radiant-cyan to-victory-emerald"
+        color: "from-radiant-cyan to-victory-emerald",
     },
     {
         id: "us-title-case",
@@ -22,8 +22,8 @@ const HUB_TOOLS = [
         path: "/capitalise-title/us-title-case",
         icon: Type,
         badge: "AP • Chicago • MLA",
-        color: "from-obsidian-cobalt to-intelligence-indigo"
-    }
+        color: "from-obsidian-cobalt to-intelligence-indigo",
+    },
 ];
 
 export default function CapitaliseTitleHub() {
@@ -32,7 +32,9 @@ export default function CapitaliseTitleHub() {
             heroProps={{
                 breadcrumbs: (
                     <nav className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted/60">
-                        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-primary transition-colors">
+                            Home
+                        </Link>
                         <span>/</span>
                         <span className="text-primary/40">Capitalisation tools</span>
                     </nav>
@@ -42,10 +44,12 @@ export default function CapitaliseTitleHub() {
                         British & American English <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt via-radiant-cyan to-victory-emerald lowercase">
                             text tools
-                        </span>.
+                        </span>
+                        .
                     </>
                 ),
-                description: "Professional-grade text conversion tools built for architectural authority. Standardise your copy between British and American standards with zero server data."
+                description:
+                    "Professional-grade text conversion tools built for architectural authority. Standardise your copy between British and American standards with zero server data.",
             }}
             sections={[
                 <div key="grid" className="py-20">
@@ -57,7 +61,9 @@ export default function CapitaliseTitleHub() {
                                 className="group p-8 rounded-3xl border border-border-subtle/40 bg-surface/30 backdrop-blur-sm hover:bg-elevated/40 hover:border-border-subtle/60 transition-all duration-300 text-left flex flex-col min-h-[280px]"
                             >
                                 <div className="flex justify-between items-start mb-6">
-                                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${tool.color} flex items-center justify-center text-white shadow-lg`}>
+                                    <div
+                                        className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${tool.color} flex items-center justify-center text-white shadow-lg`}
+                                    >
                                         <tool.icon className="w-6 h-6" />
                                     </div>
                                     <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-primary/10 text-primary rounded-full">
@@ -101,7 +107,7 @@ export default function CapitaliseTitleHub() {
                     <div className="flex justify-center flex-col items-center gap-8">
                         <ComplianceBadges />
                     </div>
-                </div>
+                </div>,
             ]}
         />
     );

@@ -8,8 +8,8 @@ import { toSentenceCase, toTitleCase } from "@/lib/text-utils";
 import { getListPrefix, incrementListPrefix, stripFormatting } from "@/lib/smart-text";
 
 export interface UseHeroEditorProps {
-    defaultTools?: ('case' | 'hyphenation')[];
-    forcedStyle?: 'us' | 'uk';
+    defaultTools?: ("case" | "hyphenation")[];
+    forcedStyle?: "us" | "uk";
     onTextChange?: (text: string) => void;
 }
 
@@ -28,7 +28,7 @@ export function useHeroEditor({ forcedStyle, onTextChange }: UseHeroEditorProps)
     const isCompact = scrollTop > 10;
 
     // Derived Logic
-    const activeStyle = forcedStyle || searchParams.get('style');
+    const activeStyle = forcedStyle || searchParams.get("style");
 
     // Notify parent of text changes
     useEffect(() => {
@@ -44,32 +44,35 @@ export function useHeroEditor({ forcedStyle, onTextChange }: UseHeroEditorProps)
             setText(pendingText);
             sessionStorage.removeItem("pendingText");
         }
-    }, []); // Only run on mount
+    }, [setText]); // Only run on mount + setText reference (stable)
 
     // --- Actions ---
-    const insertTextAtCursor = useCallback((insertedText: string, label: string = "paste") => {
-        const el = textareaRef.current;
-        if (!el) {
-            const combined = text + insertedText;
-            setText(combined);
-            addToHistory(combined, label);
-            return;
-        }
+    const insertTextAtCursor = useCallback(
+        (insertedText: string, label: string = "paste") => {
+            const el = textareaRef.current;
+            if (!el) {
+                const combined = text + insertedText;
+                setText(combined);
+                addToHistory(combined, label);
+                return;
+            }
 
-        const start = el.selectionStart;
-        const end = el.selectionEnd;
-        const newText = text.substring(0, start) + insertedText + text.substring(end);
+            const start = el.selectionStart;
+            const end = el.selectionEnd;
+            const newText = text.substring(0, start) + insertedText + text.substring(end);
 
-        setText(newText);
-        addToHistory(newText, label);
+            setText(newText);
+            addToHistory(newText, label);
 
-        // Queue focus and selection
-        setTimeout(() => {
-            el.focus();
-            const newPos = start + insertedText.length;
-            el.setSelectionRange(newPos, newPos);
-        }, 0);
-    }, [text, setText, addToHistory]);
+            // Queue focus and selection
+            setTimeout(() => {
+                el.focus();
+                const newPos = start + insertedText.length;
+                el.setSelectionRange(newPos, newPos);
+            }, 0);
+        },
+        [text, setText, addToHistory]
+    );
 
     // Effects
     useEffect(() => {
@@ -88,24 +91,29 @@ export function useHeroEditor({ forcedStyle, onTextChange }: UseHeroEditorProps)
     useEffect(() => {
         const handleGlobalPaste = (e: ClipboardEvent) => {
             const target = e.target as HTMLElement;
-            if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) return;
+            if (
+                target.tagName === "INPUT" ||
+                target.tagName === "TEXTAREA" ||
+                target.isContentEditable
+            )
+                return;
 
-            const clipboardText = e.clipboardData?.getData('text');
+            const clipboardText = e.clipboardData?.getData("text");
             if (!clipboardText) return;
 
             e.preventDefault();
             insertTextAtCursor(clipboardText, "global-paste");
         };
 
-        window.addEventListener('paste', handleGlobalPaste);
-        return () => window.removeEventListener('paste', handleGlobalPaste);
+        window.addEventListener("paste", handleGlobalPaste);
+        return () => window.removeEventListener("paste", handleGlobalPaste);
     }, [insertTextAtCursor]); // Much more stable: insertTextAtCursor is memoized
 
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const cursorPosition = e.target.selectionStart;
         let val = e.target.value;
-        if (activeStyle === 'uk') val = toSentenceCase(val);
-        else if (activeStyle === 'us') val = toTitleCase(val);
+        if (activeStyle === "uk") val = toSentenceCase(val);
+        else if (activeStyle === "us") val = toTitleCase(val);
 
         cursorOffsetRef.current = cursorPosition;
         setText(val);
@@ -133,7 +141,7 @@ export function useHeroEditor({ forcedStyle, onTextChange }: UseHeroEditorProps)
         if (!el) return;
 
         // Shortcuts
-        if ((e.ctrlKey || e.metaKey)) {
+        if (e.ctrlKey || e.metaKey) {
             const start = el.selectionStart;
             const end = el.selectionEnd;
             const hasSelection = start !== end;
@@ -147,7 +155,8 @@ export function useHeroEditor({ forcedStyle, onTextChange }: UseHeroEditorProps)
                 if (hasSelection) {
                     const selected = val.substring(start, end);
                     // Wrap with marker
-                    newText = val.substring(0, start) + marker + selected + marker + val.substring(end);
+                    newText =
+                        val.substring(0, start) + marker + selected + marker + val.substring(end);
                     newCursorPos = end + marker.length;
                 } else {
                     // No selection
@@ -163,20 +172,20 @@ export function useHeroEditor({ forcedStyle, onTextChange }: UseHeroEditorProps)
                 }, 0);
             };
 
-            if (e.key === 'b') toggleFormat('**');
-            if (e.key === 'i') toggleFormat('*');
-            if (e.key === 's' && e.shiftKey) toggleFormat('~~');
+            if (e.key === "b") toggleFormat("**");
+            if (e.key === "i") toggleFormat("*");
+            if (e.key === "s" && e.shiftKey) toggleFormat("~~");
         }
 
         // Smart Lists
-        if (e.key === 'Enter') {
+        if (e.key === "Enter") {
             const start = el.selectionStart;
             const value = el.value;
 
             if (e.shiftKey) return;
 
-            const lineStart = value.lastIndexOf('\n', start - 1) + 1;
-            const lineEndSearch = value.indexOf('\n', start);
+            const lineStart = value.lastIndexOf("\n", start - 1) + 1;
+            const lineEndSearch = value.indexOf("\n", start);
             const lineEnd = lineEndSearch === -1 ? value.length : lineEndSearch;
             const line = value.substring(lineStart, lineEnd);
 
@@ -185,7 +194,7 @@ export function useHeroEditor({ forcedStyle, onTextChange }: UseHeroEditorProps)
                 e.preventDefault();
                 if (line.trim() === prefix.trim()) {
                     // Remove prefix if empty line
-                    const newVal = value.substring(0, start) + '\n' + value.substring(start);
+                    const newVal = value.substring(0, start) + "\n" + value.substring(start);
                     setText(newVal);
                     setTimeout(() => {
                         el.selectionStart = el.selectionEnd = start + 1;
@@ -237,6 +246,6 @@ export function useHeroEditor({ forcedStyle, onTextChange }: UseHeroEditorProps)
         undo,
         redo,
         canUndo,
-        canRedo
+        canRedo,
     };
 }

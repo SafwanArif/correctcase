@@ -16,7 +16,7 @@ export default function Icon() {
     // Since Next.js static generation doesn't have access to runtime color-scheme,
     // we generate TWO versions and browsers pick the right one via manifest/link media queries.
     // However, for the default icon.tsx, browsers typically use a single version.
-    // 
+    //
     // Best practice: Generate a NEUTRAL version that works in both modes,
     // OR use SVG with embedded media queries (not supported by Next.js icon.tsx yet).
     //
@@ -32,8 +32,8 @@ export default function Icon() {
 
     // LIGHT MODE COLORS (for light browser chrome - need DARK logo)
     // Using our light mode brand tokens: darker obsidian + victory emerald
-    const lightModeC1 = "#2a4fab"; // Dark Obsidian (L28) - oklch(28% 0.18 255)
-    const lightModeC2 = "#3d8f5a"; // Victory Emerald (L48) - oklch(48% 0.18 150)
+    // const lightModeC1 = "#2a4fab"; // Dark Obsidian (L28) - oklch(28% 0.18 255)
+    // const lightModeC2 = "#3d8f5a"; // Victory Emerald (L48) - oklch(48% 0.18 150)
 
     // For static generation, we default to DARK MODE version (light colors)
     // This works best on most browsers' dark tabs
@@ -45,32 +45,31 @@ export default function Icon() {
     const innerRadius = 17; // The Sweet Spot
 
     return new ImageResponse(
-        (
-            <div
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    background: "transparent",
-                }}
+        <div
+            style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "transparent",
+            }}
+        >
+            <svg
+                width="100%"
+                height="100%"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
             >
-                <svg
-                    width="100%"
-                    height="100%"
-                    viewBox="0 0 100 100"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <defs>
-                        <linearGradient id="brand-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-                            <stop offset="0%" stopColor={c1} />
-                            <stop offset="100%" stopColor={c2} />
-                        </linearGradient>
-                    </defs>
+                <defs>
+                    <linearGradient id="brand-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" stopColor={c1} />
+                        <stop offset="100%" stopColor={c2} />
+                    </linearGradient>
+                </defs>
 
-                    {/* 
+                {/* 
                       Satori/ImageResponse often lacks support for 'pathLength="1"'.
                       We must use absolute pixel values for strokeDasharray.
                       
@@ -84,34 +83,33 @@ export default function Icon() {
                       75% Visible: 80
                       DashArray: "80 107"
                     */}
-                    <g transform="rotate(-90 50 50)">
-                        {/* Outer Capital C */}
-                        <circle
-                            cx="50"
-                            cy="50"
-                            r={outerRadius}
-                            stroke="url(#brand-gradient)"
-                            strokeWidth={strokeWidth}
-                            strokeDasharray="165 220"
-                            transform="rotate(135 50 50)"
-                            strokeLinecap="round"
-                        />
+                <g transform="rotate(-90 50 50)">
+                    {/* Outer Capital C */}
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r={outerRadius}
+                        stroke="url(#brand-gradient)"
+                        strokeWidth={strokeWidth}
+                        strokeDasharray="165 220"
+                        transform="rotate(135 50 50)"
+                        strokeLinecap="round"
+                    />
 
-                        {/* Inner Lowercase c */}
-                        <circle
-                            cx="50"
-                            cy="50"
-                            r={innerRadius}
-                            stroke="url(#brand-gradient)"
-                            strokeWidth={strokeWidth}
-                            strokeDasharray="80 107"
-                            transform="rotate(135 50 50)"
-                            strokeLinecap="round"
-                        />
-                    </g>
-                </svg>
-            </div>
-        ),
+                    {/* Inner Lowercase c */}
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r={innerRadius}
+                        stroke="url(#brand-gradient)"
+                        strokeWidth={strokeWidth}
+                        strokeDasharray="80 107"
+                        transform="rotate(135 50 50)"
+                        strokeLinecap="round"
+                    />
+                </g>
+            </svg>
+        </div>,
         {
             ...size,
         }

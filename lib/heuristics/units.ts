@@ -1,5 +1,5 @@
-import { HeuristicProcessor } from './types';
-import unitsData from '@/data/dictionaries/heuristics/units.json';
+import { HeuristicProcessor } from "./types";
+import unitsData from "@/data/dictionaries/heuristics/units.json";
 
 // Heuristic #10: Scientific Units
 // We map lowercase keys to their Enforced Case.
@@ -14,7 +14,7 @@ export const processUnits: HeuristicProcessor = (currentWord, i, words, splitPun
         const correct = unitsMap.get(lowerKey)!;
         return {
             consumed: 1,
-            processedWords: [`${p.prefix}${correct}${p.suffix}`]
+            processedWords: [`${p.prefix}${correct}${p.suffix}`],
         };
     }
 
@@ -31,37 +31,31 @@ export const processUnits: HeuristicProcessor = (currentWord, i, words, splitPun
             // Attach prefix to number, suffix to unit.
             return {
                 consumed: 1,
-                processedWords: [
-                    `${p.prefix}${numberPart}`,
-                    `${correctUnit}${p.suffix}`
-                ]
+                processedWords: [`${p.prefix}${numberPart}`, `${correctUnit}${p.suffix}`],
             };
         }
     }
 
     // 3. Special Case: Amps ("13a" -> "13 A")
-    // We do NOT put "a" in the dictionary because "A" is the article "A" in titles, 
+    // We do NOT put "a" in the dictionary because "A" is the article "A" in titles,
     // but here we deal with *attached* units or numeric context.
     const attachedAmpsMatch = lowerKey.match(/^(\d+(?:\.\d+)?)(a)$/);
     if (attachedAmpsMatch) {
         const val = attachedAmpsMatch[1];
         return {
             consumed: 1,
-            processedWords: [
-                `${p.prefix}${val}`,
-                `A${p.suffix}`
-            ]
+            processedWords: [`${p.prefix}${val}`, `A${p.suffix}`],
         };
     }
 
     // Standalone "a" (13 a -> 13 A)
     // Only if previous word was a number
-    if (lowerKey === 'a' && i > 0) {
+    if (lowerKey === "a" && i > 0) {
         const prevP = splitPunctuation(words[i - 1]);
         if (/^\d+(?:\.\d+)?$/.test(prevP.word)) {
             return {
                 consumed: 1,
-                processedWords: [`${p.prefix}A${p.suffix}`]
+                processedWords: [`${p.prefix}A${p.suffix}`],
             };
         }
     }

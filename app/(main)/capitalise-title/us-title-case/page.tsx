@@ -10,9 +10,16 @@ export default function UsTitleCasePage() {
             heroProps={{
                 breadcrumbs: (
                     <nav className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted/60">
-                        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-primary transition-colors">
+                            Home
+                        </Link>
                         <span>/</span>
-                        <Link href="/capitalise-title" className="hover:text-primary transition-colors">Capitalisation Tools</Link>
+                        <Link
+                            href="/capitalise-title"
+                            className="hover:text-primary transition-colors"
+                        >
+                            Capitalisation Tools
+                        </Link>
                         <span>/</span>
                         <span className="text-primary/40">US Title Case</span>
                     </nav>
@@ -28,15 +35,21 @@ export default function UsTitleCasePage() {
                 subtitle: (
                     <div className="max-w-xl mx-auto py-4 px-6 rounded-2xl bg-obsidian-cobalt/5 border border-obsidian-cobalt/10 backdrop-blur-sm flex items-center justify-between gap-6 hover:bg-obsidian-cobalt/10 transition-colors duration-300">
                         <p className="text-xs text-body font-medium leading-relaxed text-left">
-                            Need British English? <strong className="text-primary">BBC & Guardian</strong> standards use sentence case.
+                            Need British English?{" "}
+                            <strong className="text-primary">BBC & Guardian</strong> standards use
+                            sentence case.
                         </p>
-                        <Link href="/capitalise-title/uk-sentence-case" className="whitespace-nowrap text-xs font-black text-primary uppercase tracking-tighter hover:scale-105 active:scale-95 transition-all">
+                        <Link
+                            href="/capitalise-title/uk-sentence-case"
+                            className="whitespace-nowrap text-xs font-black text-primary uppercase tracking-tighter hover:scale-105 active:scale-95 transition-all"
+                        >
                             Switch to UK →
                         </Link>
                     </div>
                 ),
-                description: "The American industry standard for AP, APA, Chicago, and MLA styles. Adheres to strict capitalisation rules for journalistic and academic excellence.",
-                defaultTools: ["case"]
+                description:
+                    "The American industry standard for AP, APA, Chicago, and MLA styles. Adheres to strict capitalisation rules for journalistic and academic excellence.",
+                defaultTools: ["case"],
             }}
             sections={[
                 <SEOContentSection
@@ -45,7 +58,10 @@ export default function UsTitleCasePage() {
                     subtitle="Adhere to the AP Stylebook and Chicago Manual of Style."
                 >
                     <blockquote>
-                        Title capitalisation is complex. Does "is" get capitalised? (Yes, it's a verb). What about "after"? (It depends). Our <strong>smart converter</strong> follows the strict rules of the major American style guides so you don't have to memorise them.
+                        Title capitalisation is complex. Does &quot;is&quot; get capitalised? (Yes, it&apos;s a
+                        verb). What about &quot;after&quot;? (It depends). Our{" "}
+                        <strong>smart converter</strong> follows the strict rules of the major
+                        American style guides so you don&apos;t have to memorise them.
                     </blockquote>
 
                     <h3>Supported Standards:</h3>
@@ -54,16 +70,18 @@ export default function UsTitleCasePage() {
                             <strong>AP Style</strong>: The gold standard for journalism and news.
                         </li>
                         <li>
-                            <strong>Chicago Manual</strong>: Perfect for book titles and long-form essays.
+                            <strong>Chicago Manual</strong>: Perfect for book titles and long-form
+                            essays.
                         </li>
                         <li>
-                            <strong>APA Style</strong>: The requirement for academic papers and science journals.
+                            <strong>APA Style</strong>: The requirement for academic papers and
+                            science journals.
                         </li>
                         <li>
                             <strong>NYT Style</strong>: The classic, prestige headline format.
                         </li>
                     </ul>
-                </SEOContentSection>
+                </SEOContentSection>,
             ]}
         />
     );

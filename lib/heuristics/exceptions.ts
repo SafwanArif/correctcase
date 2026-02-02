@@ -1,5 +1,5 @@
-import { SENTENCE_CASE_EXCEPTIONS_MAP } from '@/lib/dictionaries';
-import { HeuristicProcessor } from './types';
+import { SENTENCE_CASE_EXCEPTIONS_MAP } from "@/lib/dictionaries";
+import { HeuristicProcessor } from "./types";
 
 // Lookahead logic for Multi-word phrases, Possessives, and Dictionary matches
 export const processExceptions: HeuristicProcessor = (currentWord, i, words, splitPunctuation) => {
@@ -16,7 +16,7 @@ export const processExceptions: HeuristicProcessor = (currentWord, i, words, spl
             const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(key3)!;
             return {
                 consumed: 3,
-                processedWords: [`${p1.prefix}${correct}${p3.suffix}`]
+                processedWords: [`${p1.prefix}${correct}${p3.suffix}`],
             };
         }
 
@@ -28,7 +28,7 @@ export const processExceptions: HeuristicProcessor = (currentWord, i, words, spl
                 const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(key3Possessive)!;
                 return {
                     consumed: 3,
-                    processedWords: [`${p1.prefix}${correct}'s${p3.suffix}`]
+                    processedWords: [`${p1.prefix}${correct}'s${p3.suffix}`],
                 };
             }
         }
@@ -46,7 +46,7 @@ export const processExceptions: HeuristicProcessor = (currentWord, i, words, spl
             const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(key2)!;
             return {
                 consumed: 2,
-                processedWords: [`${p1.prefix}${correct}${p2.suffix}`]
+                processedWords: [`${p1.prefix}${correct}${p2.suffix}`],
             };
         }
 
@@ -58,7 +58,7 @@ export const processExceptions: HeuristicProcessor = (currentWord, i, words, spl
                 const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(key2Possessive)!;
                 return {
                     consumed: 2,
-                    processedWords: [`${p1.prefix}${correct}'s${p2.suffix}`]
+                    processedWords: [`${p1.prefix}${correct}'s${p2.suffix}`],
                 };
             }
         }
@@ -73,7 +73,7 @@ export const processExceptions: HeuristicProcessor = (currentWord, i, words, spl
         const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(lowerKey)!;
         return {
             consumed: 1,
-            processedWords: [`${p.prefix}${correct}${p.suffix}`]
+            processedWords: [`${p.prefix}${correct}${p.suffix}`],
         };
     }
 
@@ -84,17 +84,17 @@ export const processExceptions: HeuristicProcessor = (currentWord, i, words, spl
             const correct = SENTENCE_CASE_EXCEPTIONS_MAP.get(baseKey)!;
             return {
                 consumed: 1,
-                processedWords: [`${p.prefix}${correct}'s${p.suffix}`]
+                processedWords: [`${p.prefix}${correct}'s${p.suffix}`],
             };
         }
     }
 
     // 3. Hyphenated Part Check
-    if (lowerKey.includes('-')) {
-        const parts = lowerKey.split('-');
+    if (lowerKey.includes("-")) {
+        const parts = lowerKey.split("-");
         let wasModified = false;
 
-        const partsRecovered = parts.map(part => {
+        const partsRecovered = parts.map((part) => {
             if (SENTENCE_CASE_EXCEPTIONS_MAP.has(part)) {
                 wasModified = true;
                 return SENTENCE_CASE_EXCEPTIONS_MAP.get(part)!;
@@ -103,7 +103,7 @@ export const processExceptions: HeuristicProcessor = (currentWord, i, words, spl
         });
 
         if (wasModified || i === 0) {
-            const reconstructed = partsRecovered.join('-');
+            const reconstructed = partsRecovered.join("-");
             let final = reconstructed;
             // First word rule logic handled by orchestrator/start-check usually?
             // Actually, if we return it here, we consumed it.
@@ -122,7 +122,7 @@ export const processExceptions: HeuristicProcessor = (currentWord, i, words, spl
 
             return {
                 consumed: 1,
-                processedWords: [`${p.prefix}${final}${p.suffix}`]
+                processedWords: [`${p.prefix}${final}${p.suffix}`],
             };
         }
     }

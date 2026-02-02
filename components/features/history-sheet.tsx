@@ -15,7 +15,7 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
     const sheetRef = useRef<HTMLDivElement>(null);
 
     const history = useLiveQuery(() =>
-        db.history.orderBy('timestamp').reverse().limit(50).toArray()
+        db.history.orderBy("timestamp").reverse().limit(50).toArray()
     );
 
     // Close on click outside
@@ -65,7 +65,9 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
                 <div className="flex items-center justify-between p-4 border-b border-border-subtle bg-elevated">
                     <div className="flex items-center gap-2">
                         <History className="w-4 h-4 text-primary" />
-                        <h2 className="text-sm font-bold uppercase tracking-wider text-body">History</h2>
+                        <h2 className="text-sm font-bold uppercase tracking-wider text-body">
+                            History
+                        </h2>
                     </div>
                     <button
                         onClick={onClose}
@@ -78,7 +80,9 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
                 {/* Content */}
                 <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
                     {!history && (
-                        <div className="text-center p-8 text-muted animate-pulse text-sm">Loading history...</div>
+                        <div className="text-center p-8 text-muted animate-pulse text-sm">
+                            Loading history...
+                        </div>
                     )}
 
                     {history?.length === 0 && (
@@ -88,33 +92,43 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
                         </div>
                     )}
 
-                    {isOpen && history?.map((item) => (
-                        <div
-                            key={item.id}
-                            className="group relative p-3 bg-canvas border border-border-subtle rounded-xl hover:border-[oklch(var(--brand-core)/0.3)] hover:shadow-sm transition-all duration-200 cursor-pointer"
-                        >
-                            <div className="flex items-center justify-between mb-2">
-                                <span className={cn(
-                                    "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border",
-                                    item.mode === "hyphenate" ? "bg-blue-500/10 text-blue-600 border-blue-200 dark:border-blue-900" :
-                                        item.mode === "title" ? "bg-purple-500/10 text-purple-600 border-purple-200 dark:border-purple-900" :
-                                            "bg-emerald-500/10 text-emerald-600 border-emerald-200 dark:border-emerald-900"
-                                )}>
-                                    {item.mode}
-                                </span>
-                                <span className="text-[10px] text-muted font-mono flex items-center gap-1">
-                                    {item.timestamp.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}
-                                </span>
+                    {isOpen &&
+                        history?.map((item) => (
+                            <div
+                                key={item.id}
+                                className="group relative p-3 bg-canvas border border-border-subtle rounded-xl hover:border-[oklch(var(--brand-core)/0.3)] hover:shadow-sm transition-all duration-200 cursor-pointer"
+                            >
+                                <div className="flex items-center justify-between mb-2">
+                                    <span
+                                        className={cn(
+                                            "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border",
+                                            item.mode === "hyphenate"
+                                                ? "bg-blue-500/10 text-blue-600 border-blue-200 dark:border-blue-900"
+                                                : item.mode === "title"
+                                                  ? "bg-purple-500/10 text-purple-600 border-purple-200 dark:border-purple-900"
+                                                  : "bg-emerald-500/10 text-emerald-600 border-emerald-200 dark:border-emerald-900"
+                                        )}
+                                    >
+                                        {item.mode}
+                                    </span>
+                                    <span className="text-[10px] text-muted font-mono flex items-center gap-1">
+                                        {item.timestamp.toLocaleTimeString("en-GB", {
+                                            hour: "2-digit",
+                                            minute: "2-digit",
+                                        })}
+                                    </span>
+                                </div>
+                                <p className="text-sm text-body font-mono break-all leading-relaxed line-clamp-3">
+                                    {item.text}
+                                </p>
                             </div>
-                            <p className="text-sm text-body font-mono break-all leading-relaxed line-clamp-3">
-                                {item.text}
-                            </p>
-                        </div>
-                    ))}
+                        ))}
 
                     {history && history.length > 0 && (
                         <div className="pt-4 text-center">
-                            <span className="text-[10px] text-muted uppercase tracking-widest">Last 50 Items</span>
+                            <span className="text-[10px] text-muted uppercase tracking-widest">
+                                Last 50 Items
+                            </span>
                         </div>
                     )}
                 </div>

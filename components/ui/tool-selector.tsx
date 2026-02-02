@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Type, Link, Sparkles, History } from "lucide-react";
+import { Type, Link, History } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useUI } from "@/components/providers/ui-provider";
 
@@ -24,7 +24,7 @@ const TOOLS: Tool[] = [
         icon: Type,
         path: "/capitalise-title/uk-sentence-case",
         color: "hover:bg-radiant-cyan/10 hover:text-radiant-cyan",
-        description: "BBC • Guardian style"
+        description: "BBC • Guardian style",
     },
     {
         id: "us-title-case",
@@ -32,7 +32,7 @@ const TOOLS: Tool[] = [
         icon: Type,
         path: "/capitalise-title/us-title-case",
         color: "hover:bg-obsidian-cobalt/10 hover:text-obsidian-cobalt",
-        description: "AP • Chicago style"
+        description: "AP • Chicago style",
     },
     {
         id: "hyphenate",
@@ -46,7 +46,7 @@ const TOOLS: Tool[] = [
         name: "History",
         icon: History,
         color: "hover:bg-intelligence-indigo/10 hover:text-intelligence-indigo",
-        description: "View recent activity"
+        description: "View recent activity",
     },
 ];
 
@@ -57,7 +57,6 @@ interface ToolSelectorProps {
 
 export function ToolSelector({ text, className }: ToolSelectorProps) {
     const { openHistory } = useUI();
-    const [isVisible, setIsVisible] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const router = useRouter();
 
@@ -66,14 +65,12 @@ export function ToolSelector({ text, className }: ToolSelectorProps) {
             setIsMobile(window.innerWidth < 640);
         };
         checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
-    useEffect(() => {
-        // Show selector when text is entered OR if on mobile
-        setIsVisible(text.length > 5 || isMobile);
-    }, [text, isMobile]);
+    // Derived state (no need for effect)
+    const isVisible = text.length > 5 || isMobile;
 
     const handleToolSelect = (tool: Tool) => {
         if (tool.id === "history") {
@@ -128,13 +125,16 @@ export function ToolSelector({ text, className }: ToolSelectorProps) {
                                         "transition-all duration-200 text-left",
                                         tool.color,
                                         "focus:outline-none focus:ring-2 focus:ring-primary/40",
-                                        tool.path === "#coming-soon" && "opacity-60 cursor-not-allowed"
+                                        tool.path === "#coming-soon" &&
+                                        "opacity-60 cursor-not-allowed"
                                     )}
                                     disabled={tool.path === "#coming-soon"}
                                 >
                                     <div className="flex items-center gap-2">
                                         <tool.icon className="w-4 h-4" />
-                                        <span className="text-sm font-bold text-body">{tool.name}</span>
+                                        <span className="text-sm font-bold text-body">
+                                            {tool.name}
+                                        </span>
                                         {tool.path === "#coming-soon" && (
                                             <span className="text-[10px] opacity-60">Soon</span>
                                         )}

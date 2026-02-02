@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import * as React from "react";
 import { Moon } from "lucide-react";
@@ -46,6 +46,6 @@ export function ThemeToggle() {
                     <Sun className="w-4 h-4 text-victory relative z-10" />
                 )}
             </div>
-        </button >
+        </button>
     );
 }

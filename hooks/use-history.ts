@@ -1,6 +1,6 @@
 "use client";
 
-import { useReducer, useCallback, useRef } from 'react';
+import { useReducer, useCallback, useRef } from "react";
 
 // --- Types ---
 interface HistoryState<T> {
@@ -10,17 +10,17 @@ interface HistoryState<T> {
 }
 
 type Action<T> =
-    | { type: 'UNDO' }
-    | { type: 'REDO' }
-    | { type: 'SET'; newPresent: T; timestamp: number }
-    | { type: 'UPDATE'; newPresent: T }; // Sync without pushing history
+    | { type: "UNDO" }
+    | { type: "REDO" }
+    | { type: "SET"; newPresent: T; timestamp: number }
+    | { type: "UPDATE"; newPresent: T }; // Sync without pushing history
 
 // --- Reducer (Pure Logic) ---
 function historyReducer<T>(state: HistoryState<T>, action: Action<T>): HistoryState<T> {
     const { past, present, future } = state;
 
     switch (action.type) {
-        case 'UNDO':
+        case "UNDO":
             if (past.length === 0) return state;
             const previous = past[past.length - 1];
             const newPast = past.slice(0, past.length - 1);
@@ -30,7 +30,7 @@ function historyReducer<T>(state: HistoryState<T>, action: Action<T>): HistorySt
                 future: [present, ...future],
             };
 
-        case 'REDO':
+        case "REDO":
             if (future.length === 0) return state;
             const next = future[0];
             const newFuture = future.slice(1);
@@ -40,7 +40,7 @@ function historyReducer<T>(state: HistoryState<T>, action: Action<T>): HistorySt
                 future: newFuture,
             };
 
-        case 'SET':
+        case "SET":
             if (action.newPresent === present) return state;
             return {
                 past: [...past, present],
@@ -48,7 +48,7 @@ function historyReducer<T>(state: HistoryState<T>, action: Action<T>): HistorySt
                 future: [],
             };
 
-        case 'UPDATE':
+        case "UPDATE":
             return { ...state, present: action.newPresent };
 
         default:
@@ -67,8 +67,8 @@ export function useHistory<T>(initialPresent: T) {
     const canUndo = state.past.length > 0;
     const canRedo = state.future.length > 0;
 
-    const undo = useCallback(() => dispatch({ type: 'UNDO' }), []);
-    const redo = useCallback(() => dispatch({ type: 'REDO' }), []);
+    const undo = useCallback(() => dispatch({ type: "UNDO" }), []);
+    const redo = useCallback(() => dispatch({ type: "REDO" }), []);
 
     // 2026 Optimization: Temporal Debouncing
     const lastPushTimeRef = useRef<number>(0);
@@ -77,17 +77,17 @@ export function useHistory<T>(initialPresent: T) {
     const set = useCallback((newPresent: T) => {
         const now = Date.now();
         if (now - lastPushTimeRef.current > DEBOUNCE_MS) {
-            dispatch({ type: 'SET', newPresent, timestamp: now });
+            dispatch({ type: "SET", newPresent, timestamp: now });
             lastPushTimeRef.current = now;
         } else {
             // Just update the current state if within debounce window (merging typings)
-            dispatch({ type: 'UPDATE', newPresent });
+            dispatch({ type: "UPDATE", newPresent });
         }
     }, []);
 
     // Force explicit update/push if needed (bypassing debounce)
     const update = useCallback((newPresent: T) => {
-        dispatch({ type: 'SET', newPresent, timestamp: Date.now() });
+        dispatch({ type: "SET", newPresent, timestamp: Date.now() });
     }, []);
 
     return { state, set, undo, redo, canUndo, canRedo, update };

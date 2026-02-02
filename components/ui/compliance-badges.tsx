@@ -5,23 +5,23 @@ export function ComplianceBadges() {
         {
             icon: Lock,
             label: "GDPR+ Compliant",
-            description: "Full UK data protection"
+            description: "Full UK data protection",
         },
         {
             icon: FileCheck,
             label: "ISO 80000",
-            description: "International standards"
+            description: "International standards",
         },
         {
             icon: Shield,
             label: "SI Standards",
-            description: "British regulations"
+            description: "British regulations",
         },
         {
             icon: Globe,
             label: "100% Client-Side",
-            description: "Zero server processing"
-        }
+            description: "Zero server processing",
+        },
     ];
 
     return (

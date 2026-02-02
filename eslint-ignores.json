@@ -1,0 +1,13 @@
+[
+    {
+        "ignores": [
+            ".next/**",
+            "out/**",
+            "dist/**",
+            "node_modules/**",
+            "coverage/**",
+            "**/*.min.js",
+            "**/*.d.ts"
+        ]
+    }
+]

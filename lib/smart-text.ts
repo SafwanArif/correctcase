@@ -14,7 +14,7 @@ export function getListPrefix(line: string): string | null {
     const numberMatch = line.match(/^(\s*)(\d+)([.)])\s+/);
     if (numberMatch) {
         // We return the prefix structure, but we might need to increment the number dynamically
-        // checking the logic in the component is better for incrementing, 
+        // checking the logic in the component is better for incrementing,
         // but here we just identify the pattern.
         return line.substring(0, numberMatch[0].length);
     }
@@ -39,12 +39,14 @@ export function incrementListPrefix(prefix: string): string {
 export function stripFormatting(text: string): string {
     if (!text) return "";
 
-    return text
-        // 1. Block cleanup (Lists & Quotes)
-        .replace(/^[\s]*([-*+]|\d+[.)]|>)[\s]+/gm, "")
-        // 2. Inline Formatting (Bold/Italic/Strike)
-        .replace(/(\*\*|__|~~|\*|_)(.*?)\1/g, "$2")
-        // 3. Code & Links
-        .replace(/`([^`]+)`/g, "$1")
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+    return (
+        text
+            // 1. Block cleanup (Lists & Quotes)
+            .replace(/^[\s]*([-*+]|\d+[.)]|>)[\s]+/gm, "")
+            // 2. Inline Formatting (Bold/Italic/Strike)
+            .replace(/(\*\*|__|~~|\*|_)(.*?)\1/g, "$2")
+            // 3. Code & Links
+            .replace(/`([^`]+)`/g, "$1")
+            .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    );
 }

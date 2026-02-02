@@ -14,7 +14,16 @@ export interface ActionButtonProps {
     type?: "button" | "submit" | "reset";
 }
 
-export function ActionButton({ onClick, icon, label, isActive, variant = "primary", size = "md", className, type = "button" }: ActionButtonProps) {
+export function ActionButton({
+    onClick,
+    icon,
+    label,
+    isActive,
+    variant = "primary",
+    size = "md",
+    className,
+    type = "button",
+}: ActionButtonProps) {
     return (
         <button
             type={type}
@@ -27,25 +36,41 @@ export function ActionButton({ onClick, icon, label, isActive, variant = "primar
                 size === "md" && "h-9 px-4 text-sm gap-2",
 
                 // Primary Variant
-                variant === "primary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm hover:shadow",
-                variant === "primary" && isActive && "bg-primary/15 text-primary border border-primary/30 shadow-action",
+                variant === "primary" &&
+                    !isActive &&
+                    "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm hover:shadow",
+                variant === "primary" &&
+                    isActive &&
+                    "bg-primary/15 text-primary border border-primary/30 shadow-action",
 
                 // Secondary Variant (Teal/Accent)
-                variant === "secondary" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
-                variant === "secondary" && isActive && "bg-secondary/10 text-secondary border-secondary/30 border shadow-sm",
+                variant === "secondary" &&
+                    !isActive &&
+                    "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
+                variant === "secondary" &&
+                    isActive &&
+                    "bg-secondary/10 text-secondary border-secondary/30 border shadow-sm",
 
                 // Toolbar Item (Borderless, Small, Uniform)
-                // Toolbar items will respect the 'size' prop if passed, defaulting to their own h-9 if not driven by size. 
-                // But for consistency we should let size drive it if possible. 
+                // Toolbar items will respect the 'size' prop if passed, defaulting to their own h-9 if not driven by size.
+                // But for consistency we should let size drive it if possible.
                 // If variant is toolbar-item, we remove shadow/border.
                 variant === "toolbar-item" && "border-none shadow-none",
-                variant === "toolbar-item" && !isActive && "bg-elevated/50 hover:bg-elevated text-muted hover:text-body",
+                variant === "toolbar-item" &&
+                    !isActive &&
+                    "bg-elevated/50 hover:bg-elevated text-muted hover:text-body",
                 // Active State: Semantic High Contrast
                 // Insight Variant (Intelligence Indigo / AI)
-                variant === "insight" && !isActive && "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
-                variant === "insight" && isActive && "bg-insight/15 text-insight border border-insight/30 shadow-insight",
+                variant === "insight" &&
+                    !isActive &&
+                    "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
+                variant === "insight" &&
+                    isActive &&
+                    "bg-insight/15 text-insight border border-insight/30 shadow-insight",
 
-                variant === "toolbar-item" && isActive && "bg-active-item text-primary-fg font-medium shadow-sm",
+                variant === "toolbar-item" &&
+                    isActive &&
+                    "bg-active-item text-primary-fg font-medium shadow-sm",
 
                 // Ghost
                 variant === "ghost" && "hover:bg-surface text-muted hover:text-body",
@@ -54,7 +79,14 @@ export function ActionButton({ onClick, icon, label, isActive, variant = "primar
             )}
         >
             {icon}
-            <span className={cn("text-center leading-none -mt-[2px]", variant === "primary" ? "min-w-16" : "")}>{label}</span>
+            <span
+                className={cn(
+                    "text-center leading-none -mt-[2px]",
+                    variant === "primary" ? "min-w-16" : ""
+                )}
+            >
+                {label}
+            </span>
         </button>
     );
 }

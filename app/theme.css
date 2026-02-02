@@ -52,7 +52,7 @@
 
 /* 4. TYPE-SAFE ANIMATION TOKENS (2026 Standard) */
 @property --shadow-spread {
-    syntax: '<length>';
+    syntax: "<length>";
     inherits: false;
     initial-value: 0px;
 }
@@ -72,7 +72,7 @@
 
     /* QUAD-LUMINOUS AAA PRIMITIVES (High-End Clarity) */
     --l-obsidian: 28% 0.18 255;
-    --l-radiant: 52% 0.20 195;
+    --l-radiant: 52% 0.2 195;
     --l-victory: 48% 0.18 150;
     --l-insight: 42% 0.22 285;
 
@@ -109,9 +109,9 @@
 
 .dark {
     /* DARK MODE NEBULA PRIMITIVES (High-Voltage) */
-    --d-obsidian: 90% 0.10 255;
+    --d-obsidian: 90% 0.1 255;
     --d-radiant: 85% 0.14 195;
-    --d-victory: 88% 0.10 150;
+    --d-victory: 88% 0.1 150;
     --d-insight: 86% 0.12 285;
 
     /* NEBULA DARK THEME */

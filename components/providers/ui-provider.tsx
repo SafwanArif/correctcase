@@ -18,12 +18,14 @@ export function UIProvider({ children }: { children: ReactNode }) {
     const closeHistory = () => setIsHistoryOpen(false);
 
     return (
-        <UIContext.Provider value={{
-            isHistoryOpen,
-            setHistoryOpen: setIsHistoryOpen,
-            openHistory,
-            closeHistory
-        }}>
+        <UIContext.Provider
+            value={{
+                isHistoryOpen,
+                setHistoryOpen: setIsHistoryOpen,
+                openHistory,
+                closeHistory,
+            }}
+        >
             {children}
         </UIContext.Provider>
     );

@@ -1,5 +1,5 @@
-import { SENTENCE_CASE_EXCEPTIONS_MAP } from '@/lib/dictionaries';
-import { HeuristicProcessor } from './types';
+import { SENTENCE_CASE_EXCEPTIONS_MAP } from "@/lib/dictionaries";
+import { HeuristicProcessor } from "./types";
 
 // Heuristic #3: Hyphen Handshake
 // Logic: If a word is hyphenated, check each part against the dictionary.
@@ -10,15 +10,15 @@ export const processHyphens: HeuristicProcessor = (currentWord, i, words, splitP
     const p = splitPunctuation(currentWord);
     const lowerKey = p.word.toLowerCase();
 
-    if (!lowerKey.includes('-')) {
+    if (!lowerKey.includes("-")) {
         return null;
     }
 
-    const parts = lowerKey.split('-');
+    const parts = lowerKey.split("-");
     let wasModified = false;
 
     // Check each part against the Exception Map
-    const partsRecovered = parts.map(part => {
+    const partsRecovered = parts.map((part) => {
         if (SENTENCE_CASE_EXCEPTIONS_MAP.has(part)) {
             wasModified = true;
             return SENTENCE_CASE_EXCEPTIONS_MAP.get(part)!;
@@ -28,7 +28,7 @@ export const processHyphens: HeuristicProcessor = (currentWord, i, words, splitP
 
     if (wasModified || i === 0) {
         // Reconstruct
-        const reconstructed = partsRecovered.join('-');
+        const reconstructed = partsRecovered.join("-");
         let final = reconstructed;
 
         // If it's the start of the sentence (i=0), we MUST capitalize the first letter
@@ -39,7 +39,7 @@ export const processHyphens: HeuristicProcessor = (currentWord, i, words, splitP
 
         return {
             consumed: 1,
-            processedWords: [`${p.prefix}${final}${p.suffix}`]
+            processedWords: [`${p.prefix}${final}${p.suffix}`],
         };
     }
 

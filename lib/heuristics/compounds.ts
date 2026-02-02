@@ -1,5 +1,5 @@
-import { COMPOUNDS_LOOKUP_MAP } from '@/lib/dictionaries';
-import { HeuristicProcessor } from './types';
+import { COMPOUNDS_LOOKUP_MAP } from "@/lib/dictionaries";
+import { HeuristicProcessor } from "./types";
 
 // Heuristic #0: Compound Words & Lookahead
 // Checks if current + next words form a known compound (e.g., "Smart LED", "North-East").
@@ -38,9 +38,9 @@ export const processCompounds: HeuristicProcessor = (currentWord, i, words, spli
             // But we should probably use the raw words for the middle?
             // "Smart LED" -> ["Smart", "LED"]
 
-            const middle = slice.slice(1, len).map(w => w);
+            const middle = slice.slice(1, len).map((w) => w);
             // The last word also needs stripped punctuation
-            core += ' ' + middle.join(' ') + (middle.length > 0 ? ' ' : '') + lastP.word;
+            core += " " + middle.join(" ") + (middle.length > 0 ? " " : "") + lastP.word;
         }
 
         const lowerKey = core.toLowerCase();
@@ -57,7 +57,7 @@ export const processCompounds: HeuristicProcessor = (currentWord, i, words, spli
 
             bestMatch = {
                 consumed: len + 1, // Consumed N words
-                text: `${firstP.prefix}${definedCasing}${lastP.suffix}`
+                text: `${firstP.prefix}${definedCasing}${lastP.suffix}`,
             };
             // Keep searching for longer matches?
             // "New York" vs "New York City". "New York City" is longer and should win.
@@ -68,7 +68,7 @@ export const processCompounds: HeuristicProcessor = (currentWord, i, words, spli
     if (bestMatch) {
         return {
             consumed: bestMatch.consumed,
-            processedWords: [bestMatch.text]
+            processedWords: [bestMatch.text],
         };
     }
 

@@ -9,7 +9,7 @@ export type SplitPunctuationFn = (str: string) => PunctuationPart;
 
 export type HeuristicResult = {
     processedWords: string[]; // The output words (e.g. ["Ms", "Smith"])
-    consumed: number;         // How many input words were consumed (e.g. 2)
+    consumed: number; // How many input words were consumed (e.g. 2)
 } | null;
 
 export type HeuristicProcessor = (

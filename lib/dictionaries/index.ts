@@ -1,21 +1,21 @@
 /**
  * Dictionary Aggregator
- * 
+ *
  * The Single Source of Truth for all lexical assets.
  * Combines modular dictionaries into logical exports for the Text Engine.
  */
 
-import UNIVERSAL_COMPOUNDS from '@/data/dictionaries/universal/compounds.json';
-import UK_COMPOUNDS from '@/data/dictionaries/en-GB/compounds.json';
-import US_COMPOUNDS from '@/data/dictionaries/en-US/compounds.json';
+import UNIVERSAL_COMPOUNDS from "@/data/dictionaries/universal/compounds.json";
+import UK_COMPOUNDS from "@/data/dictionaries/en-GB/compounds.json";
+import US_COMPOUNDS from "@/data/dictionaries/en-US/compounds.json";
 
-import UNIVERSAL_ACRONYMS from '@/data/dictionaries/universal/acronyms.json';
-import UNIVERSAL_BRANDS from '@/data/dictionaries/universal/brands.json';
-import UNIVERSAL_LOCATIONS from '@/data/dictionaries/universal/locations.json';
-import UNIVERSAL_NAMES from '@/data/dictionaries/universal/names.json';
+import UNIVERSAL_ACRONYMS from "@/data/dictionaries/universal/acronyms.json";
+import UNIVERSAL_BRANDS from "@/data/dictionaries/universal/brands.json";
+import UNIVERSAL_LOCATIONS from "@/data/dictionaries/universal/locations.json";
+import UNIVERSAL_NAMES from "@/data/dictionaries/universal/names.json";
 
-import UNIVERSAL_MINOR_WORDS_LIST from '@/data/dictionaries/universal/function-words.json';
-import UNIVERSAL_PHRASAL_VERB_ROOTS from '@/data/dictionaries/universal/phrasal-verb-roots.json';
+import UNIVERSAL_MINOR_WORDS_LIST from "@/data/dictionaries/universal/function-words.json";
+import UNIVERSAL_PHRASAL_VERB_ROOTS from "@/data/dictionaries/universal/phrasal-verb-roots.json";
 
 // Re-export specific sets for targeted logic
 export const US_MINOR_WORDS = new Set(UNIVERSAL_MINOR_WORDS_LIST);
@@ -27,10 +27,10 @@ const ALL_EXCEPTIONS = [
     ...UNIVERSAL_ACRONYMS,
     ...UNIVERSAL_BRANDS,
     ...UNIVERSAL_LOCATIONS,
-    ...UNIVERSAL_NAMES
+    ...UNIVERSAL_NAMES,
 ];
 export const SENTENCE_CASE_EXCEPTIONS_MAP = new Map(
-    ALL_EXCEPTIONS.map(word => [word.toLowerCase(), word])
+    ALL_EXCEPTIONS.map((word) => [word.toLowerCase(), word])
 );
 
 // Global Compound List (The "Antigravity" Database)
@@ -38,7 +38,7 @@ export const SENTENCE_CASE_EXCEPTIONS_MAP = new Map(
 export const GLOBAL_COMPOUND_WORDS = new Set([
     ...UNIVERSAL_COMPOUNDS,
     ...UK_COMPOUNDS,
-    ...US_COMPOUNDS
+    ...US_COMPOUNDS,
 ]);
 
 // Case-Insensitive Lookup for Compounds (lowercase -> original)

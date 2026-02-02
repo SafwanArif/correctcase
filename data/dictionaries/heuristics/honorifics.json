@@ -52,12 +52,7 @@
         "inspector",
         "constable"
     ],
-    "riskyHonorifics": [
-        "will",
-        "mark",
-        "bill",
-        "major"
-    ],
+    "riskyHonorifics": ["will", "mark", "bill", "major"],
     "determiners": [
         "the",
         "a",
@@ -73,18 +68,7 @@
         "these",
         "those"
     ],
-    "missBlacklist": [
-        "you",
-        "me",
-        "us",
-        "him",
-        "her",
-        "it",
-        "them",
-        "out",
-        "off",
-        "on"
-    ],
+    "missBlacklist": ["you", "me", "us", "him", "her", "it", "them", "out", "off", "on"],
     "commonVerbs": [
         "is",
         "are",

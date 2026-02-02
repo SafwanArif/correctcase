@@ -13,20 +13,20 @@ const PILLARS = [
         icon: <Shield className="w-6 h-6 text-obsidian-cobalt" />,
         title: "Clinical Privacy",
         desc: "Military-grade data protection. Your text never leaves your device's hardware.",
-        color: "bg-obsidian-cobalt/5"
+        color: "bg-obsidian-cobalt/5",
     },
     {
         icon: <Zap className="w-6 h-6 text-radiant-cyan" />,
         title: "Zero Latency",
         desc: "Instant local processing. No round-trips to servers. 0ms execution on all conversions.",
-        color: "bg-radiant-cyan/5"
+        color: "bg-radiant-cyan/5",
     },
     {
         icon: <Target className="w-6 h-6 text-victory-emerald" />,
         title: "British Standards",
         desc: "Optimized for Gov.uk, BBC, and Oxford standards. True British English heuristics.",
-        color: "bg-victory-emerald/5"
-    }
+        color: "bg-victory-emerald/5",
+    },
 ];
 
 export function BenefitSection() {
@@ -36,10 +36,13 @@ export function BenefitSection() {
                 <header className="mb-12 text-center sm:text-left">
                     <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-body mb-6 leading-tight relative">
                         Engineered for <br className="hidden sm:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt to-intelligence-indigo inline-block relative z-10">architectural authority</span><span className="relative z-0">.</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-obsidian-cobalt to-intelligence-indigo inline-block relative z-10">
+                            architectural authority
+                        </span>
+                        <span className="relative z-0">.</span>
                     </h2>
                     <p className="text-muted text-lg max-w-xl mb-8">
-                        We don't just format text. We ensure your presence is authoritative,
+                        We don&apos;t just format text. We ensure your presence is authoritative,
                         consistent, and professional across all platforms.
                     </p>
                 </header>
@@ -56,14 +59,19 @@ export function BenefitSection() {
                             whileHover={{ y: -8 }}
                             className="p-6 sm:p-8 rounded-2xl border border-border-subtle/40 bg-surface/30 backdrop-blur-sm hover:bg-elevated/40 hover:border-border-subtle/60 transition-all duration-200 group min-h-[240px] flex flex-col"
                         >
-                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${pillar.color} border border-white/10`}>
+                            <div
+                                className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${pillar.color} border border-white/10`}
+                            >
                                 {pillar.icon}
                             </div>
                             <h3 className="text-xl font-bold text-body mb-3">{pillar.title}</h3>
                             <p className="text-sm text-muted leading-relaxed mb-6 flex-grow">
                                 {pillar.desc}
                             </p>
-                            <Link href="/capitalise-title" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                            <Link
+                                href="/capitalise-title"
+                                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-opacity"
+                            >
                                 Explore tool <ArrowRight className="w-3 h-3" />
                             </Link>
                         </motion.div>

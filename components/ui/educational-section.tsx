@@ -18,9 +18,10 @@ export function EducationalSection() {
                     </span>
                 </h2>
                 <p className="text-lg text-muted max-w-3xl mx-auto leading-relaxed">
-                    Most text tools blindly apply American title case rules. But British publications like the{" "}
-                    <strong className="text-body">BBC</strong> and <strong className="text-body">The Guardian</strong>{" "}
-                    use sentence case—a fundamentally different standard.
+                    Most text tools blindly apply American title case rules. But British
+                    publications like the <strong className="text-body">BBC</strong> and{" "}
+                    <strong className="text-body">The Guardian</strong> use sentence case—a
+                    fundamentally different standard.
                 </p>
             </div>
 
@@ -39,7 +40,7 @@ export function EducationalSection() {
                     </div>
                     <div className="bg-elevated/50 p-4 rounded-lg border border-border-subtle/30">
                         <p className="text-sm text-body font-medium leading-relaxed">
-                            "The prime minister announces new climate policies for the UK"
+                            &quot;The prime minister announces new climate policies for the UK&quot;
                         </p>
                     </div>
                     <p className="text-xs text-muted mt-3 italic">
@@ -60,7 +61,7 @@ export function EducationalSection() {
                     </div>
                     <div className="bg-elevated/50 p-4 rounded-lg border border-border-subtle/30">
                         <p className="text-sm text-body font-medium leading-relaxed">
-                            "The Prime Minister Announces New Climate Policies for the UK"
+                            &quot;The Prime Minister Announces New Climate Policies for the UK&quot;
                         </p>
                     </div>
                     <p className="text-xs text-muted mt-3 italic">
@@ -76,13 +77,15 @@ export function EducationalSection() {
                     <div>
                         <h3 className="font-bold text-body text-lg mb-3">The problem</h3>
                         <p className="text-sm text-muted leading-relaxed mb-4">
-                            Existing tools were built for American audiences and fail to recognise British English conventions.
-                            International copywriters working with British clients need accurate sentence case conversion—not
+                            Existing tools were built for American audiences and fail to recognise
+                            British English conventions. International copywriters working with
+                            British clients need accurate sentence case conversion—not
                             approximations or manual corrections.
                         </p>
                         <p className="text-sm text-body font-medium">
-                            CorrectCase is the first tool built from the ground up to handle both standards correctly,
-                            with awareness of British grammar, hyphenation rules, and SI unit formatting.
+                            CorrectCase is the first tool built from the ground up to handle both
+                            standards correctly, with awareness of British grammar, hyphenation
+                            rules, and SI unit formatting.
                         </p>
                     </div>
                 </div>

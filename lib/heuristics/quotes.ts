@@ -1,5 +1,5 @@
-import { HeuristicProcessor } from './types';
-import structureData from '@/data/dictionaries/heuristics/structure.json';
+import { HeuristicProcessor } from "./types";
+import structureData from "@/data/dictionaries/heuristics/structure.json";
 
 // Heuristic #8: Direct Speech (Quotes)
 const quoteChars = new Set(structureData.quoteChars);
@@ -24,12 +24,12 @@ export const processQuotes: HeuristicProcessor = (currentWord, i, words, splitPu
     // 2. Check Preceding Context
     // If i=0, it's the start of the file/line -> Capitalize (Default rule handles this usually, but we can force it).
     if (i === 0) {
-        // Let default first-word rule handle it? 
+        // Let default first-word rule handle it?
         // Or consume it here to be safe and explicit.
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
         return {
             consumed: 1,
-            processedWords: [`${p.prefix}${capitalized}${p.suffix}`]
+            processedWords: [`${p.prefix}${capitalized}${p.suffix}`],
         };
     }
 
@@ -44,24 +44,39 @@ export const processQuotes: HeuristicProcessor = (currentWord, i, words, splitPu
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
         return {
             consumed: 1,
-            processedWords: [`${p.prefix}${capitalized}${p.suffix}`]
+            processedWords: [`${p.prefix}${capitalized}${p.suffix}`],
         };
     }
 
     // 3. Title Context (Smart Quotes)
     // "The song 'yesterday'" -> Capitalize 'Yesterday'
     // "The book 'harry potter'" -> Capitalize 'Harry'
-    const titleIndicators = new Set(['song', 'book', 'album', 'movie', 'film', 'poem', 'play', 'track', 'single', 'novel', 'called', 'titled', 'entitled', 'named']);
+    const titleIndicators = new Set([
+        "song",
+        "book",
+        "album",
+        "movie",
+        "film",
+        "poem",
+        "play",
+        "track",
+        "single",
+        "novel",
+        "called",
+        "titled",
+        "entitled",
+        "named",
+    ]);
 
     // Clean punctuation from previous word to check matches
     // "The song," -> "song"
-    const cleanPrev = prev.replace(/[^\w\s]/g, '').toLowerCase();
+    const cleanPrev = prev.replace(/[^\w\s]/g, "").toLowerCase();
 
     if (titleIndicators.has(cleanPrev)) {
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
         return {
             consumed: 1,
-            processedWords: [`${p.prefix}${capitalized}${p.suffix}`]
+            processedWords: [`${p.prefix}${capitalized}${p.suffix}`],
         };
     }
 

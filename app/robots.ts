@@ -1,13 +1,13 @@
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next";
 
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
     return {
         rules: {
-            userAgent: '*',
-            allow: '/',
+            userAgent: "*",
+            allow: "/",
         },
-        sitemap: 'https://correctcase.co.uk/sitemap.xml',
-    }
+        sitemap: "https://correctcase.co.uk/sitemap.xml",
+    };
 }

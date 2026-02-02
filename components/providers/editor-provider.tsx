@@ -33,14 +33,10 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         redo,
         canUndo,
         canRedo,
-        addToHistory: addToHistoryWrapper
+        addToHistory: addToHistoryWrapper,
     };
 
-    return (
-        <EditorContext.Provider value={value}>
-            {children}
-        </EditorContext.Provider>
-    );
+    return <EditorContext.Provider value={value}>{children}</EditorContext.Provider>;
 }
 
 export function useEditor() {

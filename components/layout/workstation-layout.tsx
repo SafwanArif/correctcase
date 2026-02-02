@@ -38,4 +38,3 @@ export function WorkstationLayout(props: WorkstationLayoutProps) {
         </Shell>
     );
 }
-

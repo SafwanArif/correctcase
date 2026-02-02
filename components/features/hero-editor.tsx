@@ -28,15 +28,17 @@ export function HeroEditor(props: UseHeroEditorProps) {
         undo,
         redo,
         canUndo,
-        canRedo
+        canRedo,
     } = useHeroEditor(props);
 
     // 2026 Metric Memoization (Prevents O(N) thrashing on every re-render)
-    const metrics = React.useMemo(() => ({
-        words: countWords(text),
-        chars: countCharacters(text)
-    }), [text]);
-
+    const metrics = React.useMemo(
+        () => ({
+            words: countWords(text),
+            chars: countCharacters(text),
+        }),
+        [text]
+    );
 
     return (
         <EditorFrame
@@ -66,13 +68,22 @@ export function HeroEditor(props: UseHeroEditorProps) {
             headerRight={
                 <button
                     onClick={copyToClipboard}
-                    className={cn("ghost-expansion flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-md select-none transition-all duration-300 action-gravity",
-                        isCopied ? "bg-victory/20 text-victory shadow-success scale-105" : "text-muted hover:text-body hover:bg-elevated/50"
+                    className={cn(
+                        "ghost-expansion flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-md select-none transition-all duration-300 action-gravity",
+                        isCopied
+                            ? "bg-victory/20 text-victory shadow-success scale-105"
+                            : "text-muted hover:text-body hover:bg-elevated/50"
                     )}
                     aria-label={isCopied ? "Text copied to clipboard" : "Copy text to clipboard"}
                 >
                     <div role="status" aria-live="polite" className="flex items-center gap-2">
-                        {isCopied ? "Copied" : <><Copy className="w-3.5 h-3.5" /> Copy</>}
+                        {isCopied ? (
+                            "Copied"
+                        ) : (
+                            <>
+                                <Copy className="w-3.5 h-3.5" /> Copy
+                            </>
+                        )}
                     </div>
                 </button>
             }
@@ -90,12 +101,48 @@ export function HeroEditor(props: UseHeroEditorProps) {
             }
             footerCenter={
                 <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300">
-                    <button onClick={undo} disabled={!canUndo} className="p-1 px-2 text-muted hover:text-body disabled:opacity-0 rounded-md focus:ring-2 focus:ring-primary transition-colors" aria-label="Undo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7v6h6" /><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" /></svg>
+                    <button
+                        onClick={undo}
+                        disabled={!canUndo}
+                        className="p-1 px-2 text-muted hover:text-body disabled:opacity-0 rounded-md focus:ring-2 focus:ring-primary transition-colors"
+                        aria-label="Undo"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path d="M3 7v6h6" />
+                            <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" />
+                        </svg>
                     </button>
                     <div className="w-px h-3 bg-border-subtle/50" />
-                    <button onClick={redo} disabled={!canRedo} className="p-1 px-2 text-muted hover:text-body disabled:opacity-0 rounded-md focus:ring-2 focus:ring-primary transition-colors" aria-label="Redo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 7v6h-6" /><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13" /></svg>
+                    <button
+                        onClick={redo}
+                        disabled={!canRedo}
+                        className="p-1 px-2 text-muted hover:text-body disabled:opacity-0 rounded-md focus:ring-2 focus:ring-primary transition-colors"
+                        aria-label="Redo"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path d="M21 7v6h-6" />
+                            <path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13" />
+                        </svg>
                     </button>
                 </div>
             }
@@ -105,7 +152,20 @@ export function HeroEditor(props: UseHeroEditorProps) {
                         <span>{metrics.chars} CHARS</span>
                     </div>
                     <div className="ghost-expansion hidden sm:flex items-center gap-2 text-[10px] text-muted font-medium opacity-70">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-3 h-3"
+                        >
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <path d="M12 8v4" />
+                            <path d="M12 16h.01" />
+                        </svg>
                         <span>100% CLIENT-SIDE • PRIVACY FIRST</span>
                     </div>
                 </>

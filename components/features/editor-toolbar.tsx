@@ -5,13 +5,19 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Type, Link, Unlink, Quote, History } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEditor } from "@/components/providers/editor-provider";
-import { toSentenceCase, toTitleCase, toHyphenated, isHyphenated, smartUnhyphenate } from "@/lib/text-utils";
+import {
+    toSentenceCase,
+    toTitleCase,
+    toHyphenated,
+    isHyphenated,
+    smartUnhyphenate,
+} from "@/lib/text-utils";
 import { UsTitleCaseIcon, UkSentenceCaseIcon } from "@/components/ui/custom-icons";
 import { ActionButton } from "@/components/ui/action-button";
 
 interface EditorToolbarProps {
     className?: string;
-    defaultTools?: ('case' | 'hyphenation')[];
+    defaultTools?: ("case" | "hyphenation")[];
     onOpenHistory?: () => void;
 }
 
@@ -26,23 +32,27 @@ export function EditorToolbar({ className, defaultTools, onOpenHistory }: Editor
 
     // Determines active mode from URL
     // Determines active mode from URL (Query or Path)
-    const activeStyle = searchParams.get('style') ||
-        (pathname?.includes("us-title-case") ? "us" :
-            pathname?.includes("uk-sentence-case") ? "uk" : null);
+    const activeStyle =
+        searchParams.get("style") ||
+        (pathname?.includes("us-title-case")
+            ? "us"
+            : pathname?.includes("uk-sentence-case")
+              ? "uk"
+              : null);
     const isCaseMode = pathname?.includes("/capitalise-title");
     const isHyphenateMode = pathname === "/hyphenate-text";
     const isTextHyphenated = isHyphenated(text);
 
     // Visibilty Logic
-    const showCaseTools = !defaultTools || defaultTools.includes('case');
-    const showHyphenTools = !defaultTools || defaultTools.includes('hyphenation');
+    const showCaseTools = !defaultTools || defaultTools.includes("case");
+    const showHyphenTools = !defaultTools || defaultTools.includes("hyphenation");
 
     const handleConversion = async (mode: string) => {
         let newText = text;
         switch (mode) {
             case "sentence":
                 // Toggle Off if already active (Go back to root)
-                if (activeStyle === 'uk') {
+                if (activeStyle === "uk") {
                     router.push("/capitalise-title", { scroll: false });
                     return;
                 }
@@ -52,7 +62,7 @@ export function EditorToolbar({ className, defaultTools, onOpenHistory }: Editor
                 break;
             case "title":
                 // Toggle Off
-                if (activeStyle === 'us') {
+                if (activeStyle === "us") {
                     router.push("/capitalise-title", { scroll: false });
                     return;
                 }
@@ -80,8 +90,12 @@ export function EditorToolbar({ className, defaultTools, onOpenHistory }: Editor
     };
 
     return (
-        <div className={cn("toolbar-layout px-4 border-b border-border-subtle/20 bg-surface/30 backdrop-blur-md z-[var(--z-toolbar)] relative specular-border @container", className)}>
-
+        <div
+            className={cn(
+                "toolbar-layout px-4 border-b border-border-subtle/20 bg-surface/30 backdrop-blur-md z-[var(--z-toolbar)] relative specular-border @container",
+                className
+            )}
+        >
             {/* Primary Tools */}
             {showCaseTools && (
                 <div className="flex items-center gap-2">
@@ -100,7 +114,13 @@ export function EditorToolbar({ className, defaultTools, onOpenHistory }: Editor
                 <div className="flex items-center gap-2">
                     <ActionButton
                         onClick={() => handleConversion("hyphenate")}
-                        icon={isTextHyphenated ? <Unlink className="w-3.5 h-3.5" /> : <Link className="w-3.5 h-3.5" />}
+                        icon={
+                            isTextHyphenated ? (
+                                <Unlink className="w-3.5 h-3.5" />
+                            ) : (
+                                <Link className="w-3.5 h-3.5" />
+                            )
+                        }
                         label={isTextHyphenated ? "Unhyphenate" : "Hyphenate"}
                         isActive={isTextHyphenated}
                         variant="primary"
@@ -115,23 +135,27 @@ export function EditorToolbar({ className, defaultTools, onOpenHistory }: Editor
                     <>
                         <ActionButton
                             onClick={() => handleConversion("title")}
-                            icon={<UsTitleCaseIcon className="w-auto h-5 rounded-[2px] shadow-sm" />}
+                            icon={
+                                <UsTitleCaseIcon className="w-auto h-5 rounded-[2px] shadow-sm" />
+                            }
                             label="US Title Case"
-                            isActive={activeStyle === 'us'}
+                            isActive={activeStyle === "us"}
                             variant="toolbar-item"
                         />
                         <div className="w-px h-4 bg-border-subtle" />
                         <ActionButton
                             onClick={() => handleConversion("sentence")}
-                            icon={<UkSentenceCaseIcon className="w-auto h-5 rounded-[2px] shadow-sm" />}
+                            icon={
+                                <UkSentenceCaseIcon className="w-auto h-5 rounded-[2px] shadow-sm" />
+                            }
                             label="UK Sentence Case"
-                            isActive={activeStyle === 'uk'}
+                            isActive={activeStyle === "uk"}
                             variant="toolbar-item"
                         />
                     </>
                 )}
 
-                {(defaultTools?.includes('hyphenation') || isHyphenateMode) && (
+                {(defaultTools?.includes("hyphenation") || isHyphenateMode) && (
                     <ActionButton
                         onClick={() => setPreservePunctuation(!preservePunctuation)}
                         icon={<Quote className="w-3.5 h-3.5" />}

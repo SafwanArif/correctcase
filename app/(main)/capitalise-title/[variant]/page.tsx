@@ -1,24 +1,25 @@
-
 import { HeroEditor } from "@/components/features/hero-editor";
 
 import { Metadata } from "next";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 
 // Define the valid variants and their metadata
 const VARIANTS = {
-    'us-title-case': {
+    "us-title-case": {
         title: "US Title Case Converter | Capitalize My Title Tool",
-        description: "Free US Title Case converter (AP, APA, Chicago style). Instantly capitalize titles for headlines, blogs, and essays. Privacy-first.",
-        toolMode: 'us'
+        description:
+            "Free US Title Case converter (AP, APA, Chicago style). Instantly capitalize titles for headlines, blogs, and essays. Privacy-first.",
+        toolMode: "us",
     },
-    'uk-sentence-case': {
+    "uk-sentence-case": {
         title: "UK Sentence Case Converter | British English Tool",
-        description: "Free UK Sentence Case converter. Standard British English formatting for gov.uk, academic, and professional texts. Privacy-first.",
-        toolMode: 'uk'
-    }
+        description:
+            "Free UK Sentence Case converter. Standard British English formatting for gov.uk, academic, and professional texts. Privacy-first.",
+        toolMode: "uk",
+    },
 } as const;
 
 type VariantKey = keyof typeof VARIANTS;
@@ -29,7 +30,11 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ variant: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ variant: string }>;
+}): Promise<Metadata> {
     const { variant } = await params;
     const variantKey = variant as VariantKey;
     const data = VARIANTS[variantKey];
@@ -41,14 +46,18 @@ export async function generateMetadata({ params }: { params: Promise<{ variant: 
         description: data.description,
         alternates: {
             canonical: `https://correctcase.co.uk/capitalise-title/${variant}`,
-        }
+        },
     };
 }
 
 import { SeoContent } from "@/components/features/seo-content";
 import { SEO_CONTENT } from "@/data/seo-content";
 
-export default async function CapitaliseTitleVariantPage({ params }: { params: Promise<{ variant: string }> }) {
+export default async function CapitaliseTitleVariantPage({
+    params,
+}: {
+    params: Promise<{ variant: string }>;
+}) {
     const { variant } = await params;
     const variantKey = variant as VariantKey;
     const data = VARIANTS[variantKey];
@@ -61,7 +70,7 @@ export default async function CapitaliseTitleVariantPage({ params }: { params: P
     return (
         <>
             <Suspense>
-                <HeroEditor defaultTools={["case"]} forcedStyle={data.toolMode as 'us' | 'uk'} />
+                <HeroEditor defaultTools={["case"]} forcedStyle={data.toolMode as "us" | "uk"} />
             </Suspense>
             {seoData && <SeoContent data={seoData} />}
         </>

@@ -12,7 +12,10 @@ export function BrandLogo({ className }: { className?: string }) {
             aria-label="CorrectCase: British English and American Standards. Professional Text Converter Suite."
         >
             <title>CorrectCase Logo</title>
-            <desc>British English and American Standards Text Converter. 100% Client-Side Privacy-First Tool.</desc>
+            <desc>
+                British English and American Standards Text Converter. 100% Client-Side
+                Privacy-First Tool.
+            </desc>
             <defs>
                 <linearGradient id="logo-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
                     <stop offset="0%" stopColor="oklch(var(--obsidian-cobalt))" />

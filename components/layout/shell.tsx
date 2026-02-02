@@ -9,7 +9,10 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <header className="fixed top-0 left-0 w-full z-[var(--z-sticky)] flex items-center px-4 sm:px-8 py-1 sm:py-6 pointer-events-none bg-surface/80 backdrop-blur-xl border-b border-border-subtle/20 sm:bg-transparent sm:backdrop-blur-none sm:border-none">
                 {/* Left: Logo */}
                 <div className="flex-1 flex items-center">
-                    <Link href="/" className="flex items-center gap-0.5 sm:gap-2 group pointer-events-auto hover:opacity-80 transition-opacity">
+                    <Link
+                        href="/"
+                        className="flex items-center gap-0.5 sm:gap-2 group pointer-events-auto hover:opacity-80 transition-opacity"
+                    >
                         <BrandLogo className="w-8 h-8 sm:w-9 sm:h-9 transition-transform duration-500 group-hover:rotate-12" />
                         <div className="flex flex-col">
                             <h6 className="text-lg sm:text-xl font-bold tracking-tighter text-body leading-none mb-0 sm:mb-1">
@@ -20,7 +23,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
                             </span>
                             {/* SEO AUTHORITY (Visually Hidden) */}
                             <span className="sr-only">
-                                British English and American Standards • Professional Case Converter Suite
+                                British English and American Standards • Professional Case Converter
+                                Suite
                             </span>
                         </div>
                     </Link>
@@ -30,7 +34,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
                 <div className="flex-1 flex justify-center gap-3 pointer-events-auto">
                     <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-surface/70 backdrop-blur-xl rounded-full border border-border-subtle/30 shadow-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-victory-emerald animate-pulse" />
-                        <span className="text-[10px] font-mono font-medium text-muted uppercase tracking-wider">100% PRIVATE</span>
+                        <span className="text-[10px] font-mono font-medium text-muted uppercase tracking-wider">
+                            100% PRIVATE
+                        </span>
                     </div>
                 </div>
                 {/* Right: Toggle */}
@@ -40,17 +46,19 @@ export function Shell({ children }: { children: React.ReactNode }) {
             </header>
 
             {/* 2. CORE UTILITY LANDMARK */}
-            <div className="z-10 w-full flex-1 flex flex-col justify-start">
-                {children}
-            </div>
+            <div className="z-10 w-full flex-1 flex flex-col justify-start">{children}</div>
 
             {/* 3. AUTHORITY FOOTER LANDMARK */}
             <footer className="w-full max-w-5xl mx-auto text-center py-12 text-[10px] text-muted font-mono opacity-60 border-t border-border-subtle/20 mt-12 px-8">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p>&copy; {new Date().getFullYear()} CorrectCase. British English Standards.</p>
                     <div className="flex items-center gap-6">
-                        <span className="hover:text-body cursor-help transition-colors">SECURITY MANIFESTO</span>
-                        <span className="hover:text-body cursor-help transition-colors">SCHEMA GRAPH v24.0</span>
+                        <span className="hover:text-body cursor-help transition-colors">
+                            SECURITY MANIFESTO
+                        </span>
+                        <span className="hover:text-body cursor-help transition-colors">
+                            SCHEMA GRAPH v24.0
+                        </span>
                     </div>
                 </div>
             </footer>
