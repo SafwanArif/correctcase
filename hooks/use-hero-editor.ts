@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { useEditor } from "@/components/providers/editor-provider";
