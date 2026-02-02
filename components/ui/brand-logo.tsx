@@ -1,6 +1,10 @@
-import React from "react";
+import type React from "react";
 
-export function BrandLogo({ className }: { className?: string }) {
+interface BrandLogoProps {
+    className?: string;
+}
+
+export function BrandLogo({ className }: BrandLogoProps): React.JSX.Element {
     return (
         <svg
             width="40"

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 import { cn } from "@/lib/utils";
 
 export interface ActionButtonProps {
@@ -23,11 +23,10 @@ export function ActionButton({
     size = "md",
     className,
     type = "button",
-}: ActionButtonProps) {
+}: ActionButtonProps): React.ReactElement {
     return (
         <button
             type={type}
-            onClick={onClick}
             className={cn(
                 "flex items-center font-medium rounded-lg transition-all duration-300 ease-out-expo active:scale-95 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary action-gravity",
 
@@ -37,19 +36,19 @@ export function ActionButton({
 
                 // Primary Variant
                 variant === "primary" &&
-                    !isActive &&
-                    "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm hover:shadow",
+                !isActive &&
+                "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm hover:shadow",
                 variant === "primary" &&
-                    isActive &&
-                    "bg-primary/15 text-primary border border-primary/30 shadow-action",
+                isActive &&
+                "bg-primary/15 text-primary border border-primary/30 shadow-action",
 
                 // Secondary Variant (Teal/Accent)
                 variant === "secondary" &&
-                    !isActive &&
-                    "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
+                !isActive &&
+                "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
                 variant === "secondary" &&
-                    isActive &&
-                    "bg-secondary/10 text-secondary border-secondary/30 border shadow-sm",
+                isActive &&
+                "bg-secondary/10 text-secondary border-secondary/30 border shadow-sm",
 
                 // Toolbar Item (Borderless, Small, Uniform)
                 // Toolbar items will respect the 'size' prop if passed, defaulting to their own h-9 if not driven by size.
@@ -57,26 +56,27 @@ export function ActionButton({
                 // If variant is toolbar-item, we remove shadow/border.
                 variant === "toolbar-item" && "border-none shadow-none",
                 variant === "toolbar-item" &&
-                    !isActive &&
-                    "bg-elevated/50 hover:bg-elevated text-muted hover:text-body",
+                !isActive &&
+                "bg-elevated/50 hover:bg-elevated text-muted hover:text-body",
                 // Active State: Semantic High Contrast
                 // Insight Variant (Intelligence Indigo / AI)
                 variant === "insight" &&
-                    !isActive &&
-                    "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
+                !isActive &&
+                "text-muted hover:text-body bg-elevated hover:bg-surface border border-border-subtle shadow-sm",
                 variant === "insight" &&
-                    isActive &&
-                    "bg-insight/15 text-insight border border-insight/30 shadow-insight",
+                isActive &&
+                "bg-insight/15 text-insight border border-insight/30 shadow-insight",
 
                 variant === "toolbar-item" &&
-                    isActive &&
-                    "bg-active-item text-primary-fg font-medium shadow-sm",
+                isActive &&
+                "bg-active-item text-primary-fg font-medium shadow-sm",
 
                 // Ghost
                 variant === "ghost" && "hover:bg-surface text-muted hover:text-body",
 
                 className
             )}
+            onClick={onClick}
         >
             {icon}
             <span

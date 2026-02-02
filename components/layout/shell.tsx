@@ -1,8 +1,13 @@
+import Link from "next/link";
+import type { JSX } from "react";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import Link from "next/link";
 
-export function Shell({ children }: { children: React.ReactNode }) {
+interface ShellProps {
+    children: React.ReactNode;
+}
+
+export function Shell({ children }: ShellProps): JSX.Element {
     return (
         <main className="sm:min-h-screen relative flex flex-col items-center">
             {/* 1. BRAND LANDMARK (0ms LCP) - Floating for Synergy */}

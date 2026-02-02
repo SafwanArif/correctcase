@@ -1,6 +1,9 @@
 export interface SeoSection {
     title: string;
-    content: string[]; // Paradgrahs
+    /**
+     * Paradgrahs.
+     */
+    content: string[];
 }
 
 export interface SeoFaq {
@@ -9,16 +12,22 @@ export interface SeoFaq {
 }
 
 export interface SeoData {
-    h2: string; // Main Guide Title
+    /**
+     * Main Guide Title.
+     */
+    h2: string;
     intro: string;
     sections: {
         h3: string;
-        content: string; // HTML-safe string or markdown-lite
+        /**
+         * HTML-safe string or markdown-lite.
+         */
+        content: string;
     }[];
     faq: SeoFaq[];
 }
 
-export const SEO_CONTENT: Record<string, SeoData> = {
+export const seoContent: Record<string, SeoData> = {
     "us-title-case": {
         h2: "The Definitive Guide to US Title Case Capitalization",
         intro: "Converting text to Title Case for US publications requires adhering to specific style guides like AP, APA, Chicago, and MLA. Unlike sentence case, where only the first word is capitalized, US Title Case involves capitalizing all &apos;major&apos; words while keeping &apos;minor&apos; words lowercase.",

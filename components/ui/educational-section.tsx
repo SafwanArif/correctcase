@@ -1,7 +1,7 @@
-import { BookOpen } from "lucide-react";
-import { GraduationCap } from "lucide-react";
+import { BookOpen, GraduationCap } from "lucide-react";
+import type { JSX } from "react";
 
-export function EducationalSection() {
+export function EducationalSection(): JSX.Element {
     return (
         <div className="w-full max-w-5xl mx-auto px-4 py-16">
             <div className="text-center mb-12">

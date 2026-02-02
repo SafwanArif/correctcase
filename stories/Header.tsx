@@ -1,9 +1,10 @@
-import { Button } from "./Button";
 import "./header.css";
+import type { JSX } from "react";
+import { Button } from "./Button";
 
-type User = {
+interface User {
     name: string;
-};
+}
 
 export interface HeaderProps {
     user?: User;
@@ -12,8 +13,8 @@ export interface HeaderProps {
     onCreateAccount?: () => void;
 }
 
-export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps) => (
-    <header>
+export function Header({ user, onLogin, onLogout, onCreateAccount }: HeaderProps): JSX.Element {
+    return <header>
         <div className="storybook-header">
             <div>
                 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -40,15 +41,15 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
                         <span className="welcome">
                             Welcome, <b>{user.name}</b>!
                         </span>
-                        <Button size="small" onClick={onLogout} label="Log out" />
+                        <Button size="small" label="Log out" onClick={onLogout} />
                     </>
                 ) : (
                     <>
-                        <Button size="small" onClick={onLogin} label="Log in" />
-                        <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
+                        <Button size="small" label="Log in" onClick={onLogin} />
+                        <Button primary size="small" label="Sign up" onClick={onCreateAccount} />
                     </>
                 )}
             </div>
         </div>
     </header>
-);
+}

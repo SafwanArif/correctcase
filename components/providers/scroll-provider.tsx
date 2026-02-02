@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, type ReactNode,useContext, useState } from "react";
 
 interface ScrollContextType {
     scrollTop: number;
@@ -10,7 +10,11 @@ interface ScrollContextType {
 
 const ScrollContext = createContext<ScrollContextType | undefined>(undefined);
 
-export function ScrollProvider({ children }: { children: ReactNode }) {
+interface ScrollProviderProps {
+    children: ReactNode;
+}
+
+export function ScrollProvider({ children }: ScrollProviderProps): React.JSX.Element {
     const [scrollTop, setScrollTop] = useState(0);
 
     // Threshold for "Compact Mode" (e.g. 40px)
@@ -23,10 +27,13 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
     );
 }
 
-export function useScroll() {
+// eslint-disable-next-line react-refresh/only-export-components
+export function useScroll(): ScrollContextType {
     const context = useContext(ScrollContext);
+
     if (!context) {
         throw new Error("useScroll must be used within a ScrollProvider");
     }
+
     return context;
 }

@@ -1,35 +1,26 @@
-import { Metadata } from "next";
-import { GenericPageClient } from "@/components/features/generic-page-client";
+/* eslint-disable react-refresh/only-export-components */
+import { type JSX,Suspense } from "react";
+import { HeroEditor } from "@/components/features/hero-editor";
+import { SeoContent } from "@/components/features/seo-content";
+import { seoContent } from "@/data/seo-content";
 
+export { metadata } from "./metadata";
 export const dynamic = "force-static";
 
-export const metadata: Metadata = {
-    title: "Remove Hyphens from Text | Smart Unhyphenator Code & Tool",
-    description:
-        "Intelligently remove line-break hyphens while keeping grammatical ones (e.g. &apos;co-operate&apos;). Perfect for pasting PDF text. Privacy-first.",
-    alternates: {
-        canonical: "https://correctcase.co.uk/hyphenate-text",
-    },
-};
+/**
+ * Hyphenate Text Page.
+ */
+function HyphenateTextPage(): JSX.Element {
+    const data = seoContent.hyphenate;
 
-import { SeoContent } from "@/components/features/seo-content";
-import { SEO_CONTENT } from "@/data/seo-content";
-
-export default function HyphenateTextPage() {
     return (
-        <GenericPageClient
-            heroProps={{
-                title: "Smart Hyphenation Removal Tool",
-                description:
-                    "Intelligently remove line-break hyphens from PDF text while preserving grammatical compounds.",
-                defaultTools: ["hyphenation"],
-                badge: (
-                    <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-primary/10 text-primary rounded-full">
-                        PDF Cleanup
-                    </span>
-                ),
-            }}
-            sections={[<SeoContent key="content" data={SEO_CONTENT["hyphenate"]} />]}
-        />
+        <>
+            <Suspense>
+                <HeroEditor defaultTools={["hyphenation"]} />
+            </Suspense>
+            <SeoContent data={data} />
+        </>
     );
 }
+
+export default HyphenateTextPage;

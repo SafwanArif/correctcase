@@ -1,8 +1,9 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google"; // Use Geist as requested/available
+import type { JSX } from "react";
 import { Providers } from "@/app/providers";
 import { StructuredData } from "@/components/seo/structured-data";
-import "./globals.css";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -62,13 +63,13 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
-    children,
-}: Readonly<{
+interface RootLayoutProps {
     children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
     return (
-        <html lang="en-GB" suppressHydrationWarning>
+        <html suppressHydrationWarning lang="en-GB">
             <head>
                 <StructuredData
                     data={{

@@ -1,0 +1,362 @@
+
+> correct-case@0.1.0 lint
+> eslint app components lib hooks data stories lib app stories data --max-warnings 0
+
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\capitalise-title\[variant]\page.tsx
+   8:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  11:7   error  Variable name `VARIANTS` must match one of the following formats: camelCase, StrictPascalCase                                   @typescript-eslint/naming-convention
+  28:8   error  Expected a function expression                                                                                                  func-style
+  28:8   error  Async function 'generateStaticParams' has no 'await' expression                                                                 @typescript-eslint/require-await
+  28:8   error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+  34:8   error  Expected a function expression                                                                                                  func-style
+  36:4   error  Extract this inline object type into a named interface or type alias and reference it here                                      fsecond/no-inline-interfaces
+  43:9   error  Unnecessary conditional, value is always falsy                                                                                  @typescript-eslint/no-unnecessary-condition
+  54:16  error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+  56:4   error  Extract this inline object type into a named interface or type alias and reference it here                                      fsecond/no-inline-interfaces
+  64:9   error  Unnecessary conditional, value is always falsy                                                                                  @typescript-eslint/no-unnecessary-condition
+  73:14  error  Unnecessary conditional, value is always truthy                                                                                 @typescript-eslint/no-unnecessary-condition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\capitalise-title\layout.tsx
+  9:16  error  Missing return type on function                                                             @typescript-eslint/explicit-module-boundary-types
+  9:61  error  Extract this inline object type into a named interface or type alias and reference it here  fsecond/no-inline-interfaces
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\capitalise-title\page.tsx
+   8:7   error  Variable name `HUB_TOOLS` must match one of the following formats: camelCase, StrictPascalCase  @typescript-eslint/naming-convention
+  29:16  error  Missing return type on function                                                                 @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\capitalise-title\uk-sentence-case\layout.tsx
+  9:16  error  Missing return type on function                                                             @typescript-eslint/explicit-module-boundary-types
+  9:60  error  Extract this inline object type into a named interface or type alias and reference it here  fsecond/no-inline-interfaces
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\capitalise-title\uk-sentence-case\page.tsx
+  7:16  error  Missing return type on function  @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\capitalise-title\us-title-case\layout.tsx
+  9:16  error  Missing return type on function                                                             @typescript-eslint/explicit-module-boundary-types
+  9:57  error  Extract this inline object type into a named interface or type alias and reference it here  fsecond/no-inline-interfaces
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\capitalise-title\us-title-case\page.tsx
+  7:16  error  Missing return type on function  @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\hyphenate-text\page.tsx
+   6:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  17:16  error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\layout.tsx
+  5:16  error  Missing return type on function                                                             @typescript-eslint/explicit-module-boundary-types
+  5:50  error  Extract this inline object type into a named interface or type alias and reference it here  fsecond/no-inline-interfaces
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\page.tsx
+   7:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  15:16  error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\icon.tsx
+   4:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+   7:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  11:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  16:16  error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\layout.tsx
+  65:16  error  Missing return type on function  @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\providers.tsx
+  7:8   error  Expected a function expression                                                              func-style
+  7:8   error  Missing return type on function                                                             @typescript-eslint/explicit-module-boundary-types
+  7:41  error  Extract this inline object type into a named interface or type alias and reference it here  fsecond/no-inline-interfaces
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\robots.ts
+  5:16  error  Async function 'robots' has no 'await' expression  @typescript-eslint/require-await
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\sitemap.ts
+  5:16  error  Async function 'sitemap' has no 'await' expression  @typescript-eslint/require-await
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\content\seo-content-section.tsx
+  11:8   error  Expected a function expression                                                                          func-style
+  11:8   error  Missing return type on function                                                                         @typescript-eslint/explicit-module-boundary-types
+  11:17  error  Function name `SEOContentSection` must match one of the following formats: camelCase, StrictPascalCase  @typescript-eslint/naming-convention
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\features\editor-toolbar.tsx
+    3:1   error  Run autofix to sort these imports!                                                                                  simple-import-sort/imports
+    5:8   error  'React' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
+   24:30  error  Function component is not a function declaration                                                                    react/function-component-definition
+   37:10  error  Do not nest ternary expressions                                                                                     no-nested-ternary
+   37:18  error  Unnecessary optional chain on a non-nullish value                                                                   @typescript-eslint/no-unnecessary-condition
+   39:23  error  Unnecessary optional chain on a non-nullish value                                                                   @typescript-eslint/no-unnecessary-condition
+   42:32  error  Unnecessary optional chain on a non-nullish value                                                                   @typescript-eslint/no-unnecessary-condition
+  134:40  error  Returning a void expression from an arrow function shorthand is forbidden. Please add braces to the arrow function  @typescript-eslint/no-confusing-void-expression
+  150:44  error  Returning a void expression from an arrow function shorthand is forbidden. Please add braces to the arrow function  @typescript-eslint/no-confusing-void-expression
+  160:44  error  Returning a void expression from an arrow function shorthand is forbidden. Please add braces to the arrow function  @typescript-eslint/no-confusing-void-expression
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\features\generic-page-client.tsx
+  26:8   error  Expected a function expression                                                                                  func-style
+  26:8   error  Missing return type on function                                                                                 @typescript-eslint/explicit-module-boundary-types
+  30:5   error  Use a useEventListener hook from a React hooks library instead of manually adding and removing event listeners  fsecond/valid-event-listener
+  60:34  error  Do not use Array index in keys                                                                                  react/no-array-index-key
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\features\hero-editor.stories.tsx
+  10:1   error  Expected a function expression                                                              func-style
+  10:37  error  Extract this inline object type into a named interface or type alias and reference it here  fsecond/no-inline-interfaces
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\features\hero-editor.tsx
+  15:27  error  Function component is not a function declaration                                                        react/function-component-definition
+  56:42  error  Expected 'undefined' and instead saw 'void'                                                             no-void
+  56:42  error  void operator shouldn't be used on void; it should convey that a return value is being ignored          @typescript-eslint/no-meaningless-void-operator
+  56:47  error  Placing a void expression inside another expression is forbidden. Move it to its own statement instead  @typescript-eslint/no-confusing-void-expression
+  64:42  error  Expected 'undefined' and instead saw 'void'                                                             no-void
+  64:42  error  void operator shouldn't be used on void; it should convey that a return value is being ignored          @typescript-eslint/no-meaningless-void-operator
+  64:47  error  Placing a void expression inside another expression is forbidden. Move it to its own statement instead  @typescript-eslint/no-confusing-void-expression
+  79:38  error  Expected 'undefined' and instead saw 'void'                                                             no-void
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\features\history-sheet.tsx
+   3:1   error  Run autofix to sort these imports!                simple-import-sort/imports
+   5:8   error  'React' is defined but never used                 @typescript-eslint/no-unused-vars
+  15:29  error  Function component is not a function declaration  react/function-component-definition
+  52:24  error  Unexpected negated condition                      no-negated-condition
+  99:45  error  Do not nest ternary expressions                   no-nested-ternary
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\features\seo-content.tsx
+   3:1   error  TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   3:1   error  Run autofix to sort these imports!                                                                                                                                                               simple-import-sort/imports
+  13:27  error  Function component is not a function declaration                                                                                                                                                 react/function-component-definition
+  14:9   error  Unnecessary conditional, value is always falsy                                                                                                                                                   @typescript-eslint/no-unnecessary-condition
+  41:14  error  Unnecessary conditional, value is always truthy                                                                                                                                                  @typescript-eslint/no-unnecessary-condition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\layout\shell.tsx
+  5:8   error  Expected a function expression                                                              func-style
+  5:8   error  Missing return type on function                                                             @typescript-eslint/explicit-module-boundary-types
+  5:37  error  Extract this inline object type into a named interface or type alias and reference it here  fsecond/no-inline-interfaces
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\layout\workstation-layout.tsx
+  12:1  error  Expected a function expression             func-style
+  32:8  error  Expected a function expression             func-style
+  32:8  error  Missing return type on function            @typescript-eslint/explicit-module-boundary-types
+  32:8  error  Declare only one React component per file  react/no-multi-comp
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\providers\editor-provider.tsx
+  19:8   error  Expected a function expression                                                                                                  func-style
+  19:8   error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+  19:46  error  Extract this inline object type into a named interface or type alias and reference it here                                      fsecond/no-inline-interfaces
+  41:8   error  Expected a function expression                                                                                                  func-style
+  41:8   error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+  41:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\providers\scroll-provider.tsx
+   3:8   error  'React' is defined but never used                                                                                               @typescript-eslint/no-unused-vars
+  13:8   error  Expected a function expression                                                                                                  func-style
+  13:8   error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+  13:46  error  Extract this inline object type into a named interface or type alias and reference it here                                      fsecond/no-inline-interfaces
+  26:8   error  Expected a function expression                                                                                                  func-style
+  26:8   error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+  26:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\providers\ui-provider.tsx
+   3:8   error  'React' is defined but never used                                                                                               @typescript-eslint/no-unused-vars
+  12:7   error  Variable name `UIContext` must match one of the following formats: camelCase, StrictPascalCase                                  @typescript-eslint/naming-convention
+  14:8   error  Expected a function expression                                                                                                  func-style
+  14:8   error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+  14:17  error  Function name `UIProvider` must match one of the following formats: camelCase, StrictPascalCase                                 @typescript-eslint/naming-convention
+  14:42  error  Extract this inline object type into a named interface or type alias and reference it here                                      fsecond/no-inline-interfaces
+  34:8   error  Expected a function expression                                                                                                  func-style
+  34:8   error  Missing return type on function                                                                                                 @typescript-eslint/explicit-module-boundary-types
+  34:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\seo\structured-data.tsx
+  7:8  error  Expected a function expression   func-style
+  7:8  error  Missing return type on function  @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\ui\action-button.tsx
+  17:29  error  Function component is not a function declaration  react/function-component-definition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\ui\benefit-section.tsx
+   3:1   error  Run autofix to sort these imports!                                                                                                                                                               simple-import-sort/imports
+   7:1   error  TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  30:31  error  Function component is not a function declaration                                                                                                                                                 react/function-component-definition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\ui\brand-logo.tsx
+  1:1   error  All imports in the declaration are only used as types. Use `import type`                    @typescript-eslint/consistent-type-imports
+  3:26  error  Function component is not a function declaration                                            react/function-component-definition
+  3:42  error  Extract this inline object type into a named interface or type alias and reference it here  fsecond/no-inline-interfaces
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\ui\compliance-badges.tsx
+  1:1   error  Run autofix to sort these imports!                                                                                                                                                               simple-import-sort/imports
+  3:1   error  TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  5:33  error  Function component is not a function declaration                                                                                                                                                 react/function-component-definition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\ui\custom-icons.tsx
+   2:8   error  'React' is defined but never used                 @typescript-eslint/no-unused-vars
+   6:32  error  Function component is not a function declaration  react/function-component-definition
+  31:35  error  Function component is not a function declaration  react/function-component-definition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\ui\editor-frame.tsx
+   3:24  error  'C:\Users\safwa\.gemini\antigravity\scratch\correct-case\node_modules\@types\react\index.d.ts' imported multiple times                                                                           import/no-duplicates
+   4:1   error  TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   4:26  error  'C:\Users\safwa\.gemini\antigravity\scratch\correct-case\node_modules\@types\react\index.d.ts' imported multiple times                                                                           import/no-duplicates
+  21:28  error  Function component is not a function declaration                                                                                                                                                 react/function-component-definition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\ui\educational-section.tsx
+  2:1   error  TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  4:35  error  Function component is not a function declaration                                                                                                                                                 react/function-component-definition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\ui\landing-hero.tsx
+    3:1   error  Run autofix to sort these imports!                                                                        simple-import-sort/imports
+   26:28  error  Function component is not a function declaration                                                          react/function-component-definition
+   62:37  error  Parameter name `_` must not have a leading underscore                                                     @typescript-eslint/naming-convention
+   64:30  error  Do not use Array index in keys                                                                            react/no-array-index-key
+   77:38  error  Invalid type "number" of template literal expression                                                      @typescript-eslint/restrict-template-expressions
+   78:37  error  Invalid type "number" of template literal expression                                                      @typescript-eslint/restrict-template-expressions
+   94:18  error  Potential leaked value badge that might cause unintentionally rendered values or rendering crashes        @eslint-react/no-leaked-conditional-rendering
+  101:18  error  Potential leaked value breadcrumbs that might cause unintentionally rendered values or rendering crashes  @eslint-react/no-leaked-conditional-rendering
+  150:22  error  Potential leaked value subtitle that might cause unintentionally rendered values or rendering crashes     @eslint-react/no-leaked-conditional-rendering
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\ui\theme-toggle.tsx
+   8:28  error  Function component is not a function declaration                                            react/function-component-definition
+  10:12  error  Variable name `mounted` must have one of the following prefixes: is, are, has, should, can  @typescript-eslint/naming-convention
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\ui\tool-selector.tsx
+   3:1   error  Run autofix to sort these imports!                simple-import-sort/imports
+  59:29  error  Function component is not a function declaration  react/function-component-definition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\data\seo-content.ts
+  30:14  error  Variable name `SEO_CONTENT` must match one of the following formats: camelCase  @typescript-eslint/naming-convention
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\hooks\use-event-listener.ts
+   7:71  error  Type parameter T is used only once in the function signature                                                    @typescript-eslint/no-unnecessary-type-parameters
+  15:5   error  Convert this optional parameter to a destructured parameter                                                     fsecond/prefer-destructured-optionals
+  23:5   error  Use a useEventListener hook from a React hooks library instead of manually adding and removing event listeners  fsecond/valid-event-listener
+  24:68  error  Unexpected negated condition                                                                                    no-negated-condition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\hooks\use-hero-editor.ts
+   19:1   error    Line comments should be JSDoc-style                                                                                                jsdoc/convert-to-jsdoc-comments
+   19:1   error    Line comments should be JSDoc-style                                                                                                jsdoc/convert-to-jsdoc-comments
+   58:13  warning  Avoid passing data to parents in an effect. Instead, let the parent fetch the data itself and pass it down to the child as a prop  react-you-might-not-need-an-effect/no-pass-data-to-parent
+   74:32  error    Convert this optional parameter to a destructured parameter                                                                        fsecond/prefer-destructured-optionals
+  105:5   warning  This effect is empty and could be removed                                                                                          react-you-might-not-need-an-effect/no-empty-effect
+  110:27  error    Prefer an early return to a conditionally-wrapped function body                                                                    @regru/prefer-early-return/prefer-early-return
+  247:21  error    Expected blank line before this statement                                                                                          @stylistic/padding-line-between-statements
+  249:36  error    Use destructured variables over properties                                                                                         unicorn/consistent-destructuring
+  277:9   error    Promise-returning function provided to property where a void return was expected                                                   @typescript-eslint/no-misused-promises
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\hooks\use-history.test.ts
+  23:43  error  Use `toStrictEqual()` instead  vitest/prefer-strict-equal
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\lib\db.ts
+   1:8   error  Using exported name 'Dexie' as identifier for default import            import/no-named-as-default
+   1:8   error  Import name `Dexie` must match one of the following formats: camelCase  @typescript-eslint/naming-convention
+  32:8   error  Expected a function expression                                          func-style
+  32:50  error  Convert this optional parameter to a destructured parameter             fsecond/prefer-destructured-optionals
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\lib\dictionaries\index.ts
+   8:8   error  Import name `UK_COMPOUNDS` must match one of the following formats: camelCase                    @typescript-eslint/naming-convention
+   9:8   error  Import name `US_COMPOUNDS` must match one of the following formats: camelCase                    @typescript-eslint/naming-convention
+  10:8   error  Import name `UNIVERSAL_ACRONYMS` must match one of the following formats: camelCase              @typescript-eslint/naming-convention
+  11:8   error  Import name `UNIVERSAL_BRANDS` must match one of the following formats: camelCase                @typescript-eslint/naming-convention
+  12:8   error  Import name `UNIVERSAL_COMPOUNDS` must match one of the following formats: camelCase             @typescript-eslint/naming-convention
+  13:8   error  Import name `UNIVERSAL_MINOR_WORDS_LIST` must match one of the following formats: camelCase      @typescript-eslint/naming-convention
+  14:8   error  Import name `UNIVERSAL_LOCATIONS` must match one of the following formats: camelCase             @typescript-eslint/naming-convention
+  15:8   error  Import name `UNIVERSAL_NAMES` must match one of the following formats: camelCase                 @typescript-eslint/naming-convention
+  16:8   error  Import name `UNIVERSAL_PHRASAL_VERB_ROOTS` must match one of the following formats: camelCase    @typescript-eslint/naming-convention
+  19:14  error  Variable name `US_MINOR_WORDS` must match one of the following formats: camelCase                @typescript-eslint/naming-convention
+  20:14  error  Variable name `PHRASAL_VERB_ROOTS` must match one of the following formats: camelCase            @typescript-eslint/naming-convention
+  24:7   error  Variable name `ALL_EXCEPTIONS` must match one of the following formats: camelCase                @typescript-eslint/naming-convention
+  31:14  error  Variable name `SENTENCE_CASE_EXCEPTIONS_MAP` must match one of the following formats: camelCase  @typescript-eslint/naming-convention
+  37:14  error  Variable name `GLOBAL_COMPOUND_WORDS` must match one of the following formats: camelCase         @typescript-eslint/naming-convention
+  45:14  error  Variable name `COMPOUNDS_LOOKUP_MAP` must match one of the following formats: camelCase          @typescript-eslint/naming-convention
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\lib\heuristics\compounds.ts
+  16:20  error  Extract this inline object type into a named interface or type alias and reference it here  fsecond/no-inline-interfaces
+  19:44  error  Unary operator '++' used                                                                    no-plusplus
+  51:35  error  Forbidden non-null assertion                                                                @typescript-eslint/no-non-null-assertion
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\lib\heuristics\exceptions.ts
+   18:29  error  Forbidden non-null assertion                                                                    @typescript-eslint/no-non-null-assertion
+   32:33  error  Forbidden non-null assertion                                                                    @typescript-eslint/no-non-null-assertion
+   51:29  error  Forbidden non-null assertion                                                                    @typescript-eslint/no-non-null-assertion
+   65:33  error  Forbidden non-null assertion                                                                    @typescript-eslint/no-non-null-assertion
+   81:25  error  Forbidden non-null assertion                                                                    @typescript-eslint/no-non-null-assertion
+   94:29  error  Forbidden non-null assertion                                                                    @typescript-eslint/no-non-null-assertion
+  106:13  error  Variable name `wasModified` must have one of the following prefixes: is, are, has, should, can  @typescript-eslint/naming-convention
+  112:24  error  Forbidden non-null assertion                                                                    @typescript-eslint/no-non-null-assertion
+  118:13  error  Unnecessary conditional, value is always falsy                                                  @typescript-eslint/no-unnecessary-condition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\lib\heuristics\honorifics.ts
+  115:9  error  Variable name `precededByDeterminer` must have one of the following prefixes: is, are, has, should, can  @typescript-eslint/naming-convention
+  119:9  error  Variable name `precededByIn` must have one of the following prefixes: is, are, has, should, can          @typescript-eslint/naming-convention
+  157:9  error  Merge this if statement with the nested one                                                              sonarjs/no-collapsible-if
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\lib\heuristics\hyphens.ts
+  18:9   error  Variable name `wasModified` must have one of the following prefixes: is, are, has, should, can  @typescript-eslint/naming-convention
+  25:20  error  Forbidden non-null assertion                                                                    @typescript-eslint/no-non-null-assertion
+  31:9   error  Unnecessary conditional, value is always falsy                                                  @typescript-eslint/no-unnecessary-condition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\lib\heuristics\units.ts
+  14:25  error  Forbidden non-null assertion                        @typescript-eslint/no-non-null-assertion
+  31:33  error  Forbidden non-null assertion                        @typescript-eslint/no-non-null-assertion
+  45:63  error  Capturing group number 2 is defined but never used  regexp/no-unused-capturing-group
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\lib\smart-text.ts
+  10:8   error  Expected a function expression                                                                                        func-style
+  17:38  error  Capturing group number 1 is defined but never used                                                                    regexp/no-unused-capturing-group
+  17:43  error  Capturing group number 2 is defined but never used                                                                    regexp/no-unused-capturing-group
+  17:48  error  Capturing group number 3 is defined but never used                                                                    regexp/no-unused-capturing-group
+  30:47  error  tsdoc-escape-greater-than: The ">" character should be escaped using a backslash to avoid confusion with an HTML tag  tsdoc/syntax
+  32:8   error  Expected a function expression                                                                                        func-style
+  40:28  error  Invalid type "number" of template literal expression                                                                  @typescript-eslint/restrict-template-expressions
+  50:8   error  Expected a function expression                                                                                        func-style
+  56:30  error  Capturing group number 1 is defined but never used                                                                    regexp/no-unused-capturing-group
+  56:32  error  Unnecessary escape character: \-                                                                                      no-useless-escape
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\lib\text-utils.ts
+   25:7   error  Variable name `PUNCTUATION_REGEX` must match one of the following formats: camelCase     @typescript-eslint/naming-convention
+   26:14  error  Unnecessary escape character: \-                                                         no-useless-escape
+   26:25  error  Unnecessary escape character: \-                                                         no-useless-escape
+   26:35  error  Unnecessary escape character: \-                                                         no-useless-escape
+   26:44  error  Unnecessary escape character: \-                                                         no-useless-escape
+   26:55  error  Unnecessary escape character: \-                                                         no-useless-escape
+   27:7   error  Variable name `SENTENCE_SPLIT_REGEX` must match one of the following formats: camelCase  @typescript-eslint/naming-convention
+   40:1   error  Expected a function expression                                                           func-style
+   61:8   error  Expected a function expression                                                           func-style
+  151:25  error  Unexpected operator assignment (+=) shorthand                                            operator-assignment
+  180:21  error  Unary operator '++' used                                                                 no-plusplus
+  192:8   error  Expected a function expression                                                           func-style
+  201:74  error  Forbidden non-null assertion                                                             @typescript-eslint/no-non-null-assertion
+  235:8   error  Expected a function expression                                                           func-style
+  235:44  error  Convert this optional parameter to a destructured parameter                              fsecond/prefer-destructured-optionals
+  254:8   error  Expected a function expression                                                           func-style
+  260:8   error  Expected a function expression                                                           func-style
+  264:8   error  Expected a function expression                                                           func-style
+  273:8   error  Expected a function expression                                                           func-style
+  314:9   error  Unary operator '++' used                                                                 no-plusplus
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\lib\utils.ts
+  4:8  error  Expected a function expression   func-style
+  4:8  error  Missing return type on function  @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\stories\Button.stories.ts
+  27:14  error  Variable name `Primary` must match one of the following formats: camelCase    @typescript-eslint/naming-convention
+  34:14  error  Variable name `Secondary` must match one of the following formats: camelCase  @typescript-eslint/naming-convention
+  40:14  error  Variable name `Large` must match one of the following formats: camelCase      @typescript-eslint/naming-convention
+  47:14  error  Variable name `Small` must match one of the following formats: camelCase      @typescript-eslint/naming-convention
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\stories\Button.tsx
+  17:8  error  Expected a function expression   func-style
+  17:8  error  Missing return type on function  @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\stories\Header.stories.ts
+  24:14  error  Variable name `LoggedIn` must match one of the following formats: camelCase   @typescript-eslint/naming-convention
+  32:14  error  Variable name `LoggedOut` must match one of the following formats: camelCase  @typescript-eslint/naming-convention
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\stories\Header.tsx
+  15:8  error  Expected a function expression   func-style
+  15:8  error  Missing return type on function  @typescript-eslint/explicit-module-boundary-types
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\stories\Page.stories.ts
+  17:14  error  Variable name `LoggedOut` must match one of the following formats: camelCase  @typescript-eslint/naming-convention
+  20:14  error  Variable name `LoggedIn` must match one of the following formats: camelCase   @typescript-eslint/naming-convention
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\stories\Page.tsx
+  9:31  error  Function component is not a function declaration  react/function-component-definition
+
+??? 238 problems (236 errors, 2 warnings)
+  38 errors and 0 warnings potentially fixable with the `--fix` option.
+

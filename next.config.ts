@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import millionLint from "@million/lint";
 
 const nextConfig: NextConfig = {
     output: "export",
@@ -7,4 +8,4 @@ const nextConfig: NextConfig = {
     },
 };
 
-export default nextConfig;
+export default millionLint.next({ rsc: true })(nextConfig);

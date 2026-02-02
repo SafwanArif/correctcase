@@ -1,24 +1,28 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, type ReactNode,useContext, useState } from "react";
 
-interface UIContextType {
+interface UiContextType {
     isHistoryOpen: boolean;
     setHistoryOpen: (open: boolean) => void;
     openHistory: () => void;
     closeHistory: () => void;
 }
 
-const UIContext = createContext<UIContextType | undefined>(undefined);
+const UiContext = createContext<UiContextType | undefined>(undefined);
 
-export function UIProvider({ children }: { children: ReactNode }) {
+interface UiProviderProps {
+    children: ReactNode;
+}
+
+export function UiProvider({ children }: UiProviderProps): React.JSX.Element {
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);
 
-    const openHistory = () => setIsHistoryOpen(true);
-    const closeHistory = () => setIsHistoryOpen(false);
+    const openHistory = () => { setIsHistoryOpen(true); };
+    const closeHistory = () => { setIsHistoryOpen(false); };
 
     return (
-        <UIContext.Provider
+        <UiContext.Provider
             value={{
                 isHistoryOpen,
                 setHistoryOpen: setIsHistoryOpen,
@@ -27,14 +31,17 @@ export function UIProvider({ children }: { children: ReactNode }) {
             }}
         >
             {children}
-        </UIContext.Provider>
+        </UiContext.Provider>
     );
 }
 
-export function useUI() {
-    const context = useContext(UIContext);
+// eslint-disable-next-line react-refresh/only-export-components
+export function useUi(): UiContextType {
+    const context = useContext(UiContext);
+
     if (context === undefined) {
-        throw new Error("useUI must be used within a UIProvider");
+        throw new Error("useUi must be used within a UiProvider");
     }
+
     return context;
 }

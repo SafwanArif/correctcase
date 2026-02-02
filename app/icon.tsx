@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { ImageResponse } from "next/og";
 
 // Route segment config
@@ -10,8 +11,10 @@ export const size = {
 };
 export const contentType = "image/png";
 
-// Image generation
-export default function Icon() {
+/**
+ * Image generation.
+ */
+function Icon(): ImageResponse {
     // 2026 Adaptive Favicon Strategy:
     // Since Next.js static generation doesn't have access to runtime color-scheme,
     // we generate TWO versions and browsers pick the right one via manifest/link media queries.
@@ -27,8 +30,14 @@ export default function Icon() {
     // with media queries. Let's do that approach.
 
     // DARK MODE COLORS (for dark browser chrome - need LIGHT logo)
-    const darkModeC1 = "#b3c2ff"; // High-Voltage Obsidian (L90)
-    const darkModeC2 = "#0ce4e4"; // High-Voltage Radiant (L85)
+    /**
+     * High-Voltage Obsidian (L90).
+     */
+    const darkModeC1 = "#b3c2ff";
+    /**
+     * High-Voltage Radiant (L85).
+     */
+    const darkModeC2 = "#0ce4e4";
 
     // LIGHT MODE COLORS (for light browser chrome - need DARK logo)
     // Using our light mode brand tokens: darker obsidian + victory emerald
@@ -42,7 +51,10 @@ export default function Icon() {
 
     const strokeWidth = 10;
     const outerRadius = 35;
-    const innerRadius = 17; // The Sweet Spot
+    /**
+     * The Sweet Spot.
+     */
+    const innerRadius = 17;
 
     return new ImageResponse(
         <div
@@ -115,3 +127,5 @@ export default function Icon() {
         }
     );
 }
+
+export default Icon;

@@ -1,6 +1,7 @@
-import { Shield, FileCheck, Lock, Globe } from "lucide-react";
+import { FileCheck, Globe, Lock, Shield } from "lucide-react";
+import type { JSX } from "react";
 
-export function ComplianceBadges() {
+export function ComplianceBadges(): JSX.Element {
     const badges = [
         {
             icon: Lock,
@@ -27,8 +28,8 @@ export function ComplianceBadges() {
     return (
         <div className="w-full max-w-5xl mx-auto px-0">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                {badges.map((badge) => (
-                    <div
+                {badges.map((badge) => {
+                    return <div
                         key={badge.label}
                         className="flex flex-col items-center gap-3 p-4 sm:p-6 bg-surface/30 backdrop-blur-sm border border-border-subtle/40 rounded-2xl hover:bg-elevated/40 hover:border-border-subtle/60 transition-all duration-200 min-h-[120px] justify-center"
                     >
@@ -42,7 +43,8 @@ export function ComplianceBadges() {
                             </p>
                         </div>
                     </div>
-                ))}
+                }
+                )}
             </div>
         </div>
     );

@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { History, Link, Type } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { Type, Link, History } from "lucide-react";
+import { type JSX, useEffect, useState } from "react";
+import { useUi } from "@/components/providers/ui-provider";
+import { useEventListener } from "@/hooks/use-event-listener";
 import { cn } from "@/lib/utils";
-import { useUI } from "@/components/providers/ui-provider";
 
 interface Tool {
     id: string;
@@ -17,7 +18,7 @@ interface Tool {
     description?: string;
 }
 
-const TOOLS: Tool[] = [
+const tools: Tool[] = [
     {
         id: "uk-sentence-case",
         name: "UK Sentence Case",
@@ -55,19 +56,21 @@ interface ToolSelectorProps {
     className?: string;
 }
 
-export function ToolSelector({ text, className }: ToolSelectorProps) {
-    const { openHistory } = useUI();
+export function ToolSelector({ text, className }: ToolSelectorProps): JSX.Element {
+    const { openHistory } = useUi();
     const [isMobile, setIsMobile] = useState(false);
     const router = useRouter();
 
+    const checkMobile = () => {
+        setIsMobile(window.innerWidth < 640);
+    };
+
+    // Initial check
     useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 640);
-        };
         checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
     }, []);
+
+    useEventListener("resize", checkMobile);
 
     // Derived state (no need for effect)
     const isVisible = text.length > 5 || isMobile;
@@ -75,10 +78,11 @@ export function ToolSelector({ text, className }: ToolSelectorProps) {
     const handleToolSelect = (tool: Tool) => {
         if (tool.id === "history") {
             openHistory();
+
             return;
         }
 
-        if (tool.path === "#coming-soon") return;
+        if (tool.path === "#coming-soon") { return; }
 
         // Save text to sessionStorage for the target page to pick up
         if (text) {
@@ -112,10 +116,10 @@ export function ToolSelector({ text, className }: ToolSelectorProps) {
                             What would you like to do with this text?
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            {TOOLS.map((tool) => (
-                                <button
+                            {tools.map((tool) => {
+                                return <button
                                     key={tool.id}
-                                    onClick={() => handleToolSelect(tool)}
+                                    disabled={tool.path === "#coming-soon"}
                                     className={cn(
                                         "flex flex-col items-start gap-1",
                                         "px-4 py-3",
@@ -128,7 +132,7 @@ export function ToolSelector({ text, className }: ToolSelectorProps) {
                                         tool.path === "#coming-soon" &&
                                         "opacity-60 cursor-not-allowed"
                                     )}
-                                    disabled={tool.path === "#coming-soon"}
+                                    onClick={() => { handleToolSelect(tool); }}
                                 >
                                     <div className="flex items-center gap-2">
                                         <tool.icon className="w-4 h-4" />
@@ -145,7 +149,8 @@ export function ToolSelector({ text, className }: ToolSelectorProps) {
                                         </span>
                                     )}
                                 </button>
-                            ))}
+                            }
+                            )}
                         </div>
                     </div>
                 </motion.div>

@@ -1,20 +1,19 @@
 "use client"
 
-import * as React from "react";
-import { Moon } from "lucide-react";
-import { Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export function ThemeToggle() {
+export function ThemeToggle(): React.JSX.Element {
     const { setTheme, resolvedTheme } = useTheme();
-    const [mounted, setMounted] = React.useState(false);
+    const [isMounted, setIsMounted] = React.useState(false);
 
     React.useEffect(() => {
-        setMounted(true);
+        setIsMounted(true);
     }, []);
 
-    if (!mounted) {
+    if (!isMounted) {
         return (
             <div className="w-[52px] h-[28px] rounded-full bg-surface animate-pulse border border-border-subtle" />
         );
@@ -25,9 +24,9 @@ export function ThemeToggle() {
     return (
         <button
             type="button"
-            onClick={() => setTheme(isDark ? "light" : "dark")}
             className="relative w-[52px] h-[28px] rounded-full transition-colors duration-500 ease-out-expo focus:outline-none focus:visible:ring-2 focus-visible:ring-primary shadow-inner overflow-hidden flex items-center bg-surface border border-border-subtle"
             aria-label="Toggle Theme"
+            onClick={() => { setTheme(isDark ? "light" : "dark"); }}
         >
             {/* Background Track Status Indicator */}
             <div className="absolute inset-0 bg-gradient-to-tr from-surface to-elevated opacity-50 transition-opacity duration-300" />

@@ -1,45 +1,27 @@
+import type { Metadata } from "next";
+import { type JSX, Suspense } from "react";
 import { HeroEditor } from "@/components/features/hero-editor";
+import { SeoContent } from "@/components/features/seo-content";
+import { seoContent } from "@/data/seo-content";
+import { titleVariants } from "@/data/variants";
 
-import { Metadata } from "next";
-import { Suspense } from "react";
-import { notFound } from "next/navigation";
-
-export const dynamic = "force-static";
-
-// Define the valid variants and their metadata
-const VARIANTS = {
-    "us-title-case": {
-        title: "US Title Case Converter | Capitalize My Title Tool",
-        description:
-            "Free US Title Case converter (AP, APA, Chicago style). Instantly capitalize titles for headlines, blogs, and essays. Privacy-first.",
-        toolMode: "us",
-    },
-    "uk-sentence-case": {
-        title: "UK Sentence Case Converter | British English Tool",
-        description:
-            "Free UK Sentence Case converter. Standard British English formatting for gov.uk, academic, and professional texts. Privacy-first.",
-        toolMode: "uk",
-    },
-} as const;
-
-type VariantKey = keyof typeof VARIANTS;
-
-export async function generateStaticParams() {
-    return Object.keys(VARIANTS).map((variant) => ({
-        variant: variant,
-    }));
+interface PageParams {
+    variant: string;
 }
 
+interface GenerateMetadataProps {
+    params: Promise<PageParams>;
+}
+
+/**
+ * Generate Metadata for the variant page.
+ */
 export async function generateMetadata({
     params,
-}: {
-    params: Promise<{ variant: string }>;
-}): Promise<Metadata> {
+}: GenerateMetadataProps): Promise<Metadata> {
     const { variant } = await params;
-    const variantKey = variant as VariantKey;
-    const data = VARIANTS[variantKey];
-
-    if (!data) return {};
+    const variantKey = variant;
+    const data = titleVariants[variantKey];
 
     return {
         title: data.title,
@@ -50,29 +32,27 @@ export async function generateMetadata({
     };
 }
 
-import { SeoContent } from "@/components/features/seo-content";
-import { SEO_CONTENT } from "@/data/seo-content";
+interface CapitaliseTitleVariantPageProps {
+    params: Promise<PageParams>;
+}
 
+/**
+ * Capitalise Title Variant Page.
+ */
 export default async function CapitaliseTitleVariantPage({
     params,
-}: {
-    params: Promise<{ variant: string }>;
-}) {
+}: CapitaliseTitleVariantPageProps): Promise<JSX.Element> {
     const { variant } = await params;
-    const variantKey = variant as VariantKey;
-    const data = VARIANTS[variantKey];
-    const seoData = SEO_CONTENT[variantKey];
-
-    if (!data) {
-        notFound();
-    }
+    const variantKey = variant;
+    const data = titleVariants[variantKey];
+    const seoData = seoContent[variantKey];
 
     return (
         <>
             <Suspense>
-                <HeroEditor defaultTools={["case"]} forcedStyle={data.toolMode as "us" | "uk"} />
+                <HeroEditor defaultTools={["case"]} forcedStyle={data.toolMode} />
             </Suspense>
-            {seoData && <SeoContent data={seoData} />}
+            <SeoContent data={seoData} />
         </>
     );
 }

@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useEffect, Suspense } from "react";
-import { LandingHero } from "@/components/ui/landing-hero";
+import type { JSX , Suspense, useRef } from "react";
 import { useScroll } from "@/components/providers/scroll-provider";
+import { LandingHero } from "@/components/ui/landing-hero";
+import { useEventListener } from "@/hooks/use-event-listener";
 // import { motion } from "framer-motion";
 
 interface GenericPageClientProps {
@@ -17,24 +18,26 @@ interface GenericPageClientProps {
         defaultTools?: ("case" | "hyphenation")[];
         forcedStyle?: "us" | "uk";
     };
-    sections: React.ReactNode[]; // Subsequent sections after the hero
+    /**
+     * Subsequent sections after the hero.
+     */
+    sections: { id: string; content: React.ReactNode }[];
 }
 
-export function GenericPageClient({ heroProps, sections }: GenericPageClientProps) {
+export function GenericPageClient({ heroProps, sections }: GenericPageClientProps): JSX.Element {
     const containerRef = useRef<HTMLDivElement>(null);
     const { setScrollTop } = useScroll();
 
-    useEffect(() => {
-        const el = containerRef.current;
-        if (!el) return;
-
-        const handleScroll = () => {
-            setScrollTop(el.scrollTop);
-        };
-
-        el.addEventListener("scroll", handleScroll, { passive: true });
-        return () => el.removeEventListener("scroll", handleScroll);
-    }, [setScrollTop]);
+    useEventListener(
+        "scroll",
+        () => {
+            if (containerRef.current) {
+                setScrollTop(containerRef.current.scrollTop);
+            }
+        },
+        containerRef,
+        { passive: true }
+    );
 
     return (
         <div className="w-full min-h-screen sm:h-auto sm:overflow-visible">
@@ -50,16 +53,16 @@ export function GenericPageClient({ heroProps, sections }: GenericPageClientProp
                     </div>
 
                     {/* ADDITIONAL SECTIONS */}
-                    {sections.map((section, idx) => (
-                        <div
-                            key={idx}
+                    {sections.map(({ id, content }) => 
+                        { return <div
+                            key={id}
                             className="sm:snap-start sm:min-h-screen flex flex-col items-center justify-center py-16 px-4 even:bg-surface/5 odd:bg-transparent transition-colors duration-700"
                         >
-                            <div className="w-full max-w-5xl mx-auto">{section}</div>
-                        </div>
-                    ))}
+                            <div className="w-full max-w-5xl mx-auto">{content}</div>
+                        </div> }
+                    )}
                 </div>
             </Suspense>
         </div>
     );
-}
+};

@@ -2,16 +2,20 @@
 
 import { ThemeProvider } from "next-themes";
 import { EditorProvider } from "@/components/providers/editor-provider";
-import { UIProvider } from "@/components/providers/ui-provider";
+import { UiProvider } from "@/components/providers/ui-provider";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+interface ProvidersProps {
+    children: React.ReactNode;
+}
+
+export function Providers({ children }: ProvidersProps): React.JSX.Element {
     return (
         <EditorProvider>
-            <UIProvider>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <UiProvider>
+                <ThemeProvider enableSystem attribute="class" defaultTheme="system">
                     {children}
                 </ThemeProvider>
-            </UIProvider>
+            </UiProvider>
         </EditorProvider>
     );
 }

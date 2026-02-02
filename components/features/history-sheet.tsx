@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { db } from "@/lib/db";
 import { History, X } from "lucide-react";
+import { type JSX, useRef } from "react";
+import { useEventListener } from "@/hooks/use-event-listener";
+import { db } from "@/lib/db";
 import { cn } from "@/lib/utils";
 
 interface HistorySheetProps {
@@ -11,7 +12,7 @@ interface HistorySheetProps {
     onClose: () => void;
 }
 
-export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
+export function HistorySheet({ isOpen, onClose }: HistorySheetProps): JSX.Element {
     const sheetRef = useRef<HTMLDivElement>(null);
 
     const history = useLiveQuery(() =>
@@ -19,47 +20,40 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
     );
 
     // Close on click outside
-    useEffect(() => {
-        function handleClickOutside(event: MouseEvent) {
-            if (sheetRef.current && !sheetRef.current.contains(event.target as Node) && isOpen) {
-                onClose();
-            }
+    // Close on click outside
+    useEventListener("mousedown", (event) => {
+        if (sheetRef.current && !sheetRef.current.contains(event.target as Node) && isOpen) {
+            onClose();
         }
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, [isOpen, onClose]);
+    });
 
     // Close on Escape key
-    useEffect(() => {
-        function handleKeyDown(event: KeyboardEvent) {
-            if (event.key === "Escape" && isOpen) {
-                onClose();
-            }
+    useEventListener("keydown", (event) => {
+        if (event.key === "Escape" && isOpen) {
+            onClose();
         }
-        window.addEventListener("keydown", handleKeyDown);
-        return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [isOpen, onClose]);
+    });
 
     return (
         <>
             {/* Backdrop */}
             <div
+                aria-hidden="true"
                 className={cn(
                     "fixed inset-0 z-[60] bg-black/20 transition-opacity duration-300",
                     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                 )}
-                aria-hidden="true"
             />
 
             {/* Sheet Panel */}
             <div
                 ref={sheetRef}
+                aria-hidden={!isOpen}
+                inert={isOpen ? undefined : true}
                 className={cn(
                     "fixed inset-y-0 right-0 z-[70] w-full max-w-sm bg-surface border-l border-border-subtle shadow-2xl transition-transform duration-300 ease-in-out transform flex flex-col",
                     isOpen ? "translate-x-0 visible" : "translate-x-full invisible select-none"
                 )}
-                aria-hidden={!isOpen}
-                inert={!isOpen ? true : undefined}
             >
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-border-subtle bg-elevated">
@@ -70,8 +64,8 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
                         </h2>
                     </div>
                     <button
-                        onClick={onClose}
                         className="p-2 -mr-2 text-muted hover:text-body transition-colors rounded-full hover:bg-surface"
+                        onClick={onClose}
                     >
                         <X className="w-4 h-4" />
                     </button>
@@ -93,8 +87,8 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
                     )}
 
                     {isOpen &&
-                        history?.map((item) => (
-                            <div
+                        history?.map((item) => {
+                            return <div
                                 key={item.id}
                                 className="group relative p-3 bg-canvas border border-border-subtle rounded-xl hover:border-[oklch(var(--brand-core)/0.3)] hover:shadow-sm transition-all duration-200 cursor-pointer"
                             >
@@ -102,11 +96,9 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
                                     <span
                                         className={cn(
                                             "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border",
-                                            item.mode === "hyphenate"
-                                                ? "bg-blue-500/10 text-blue-600 border-blue-200 dark:border-blue-900"
-                                                : item.mode === "title"
-                                                  ? "bg-purple-500/10 text-purple-600 border-purple-200 dark:border-purple-900"
-                                                  : "bg-emerald-500/10 text-emerald-600 border-emerald-200 dark:border-emerald-900"
+                                            item.mode === "hyphenate" && "bg-blue-500/10 text-blue-600 border-blue-200 dark:border-blue-900",
+                                            item.mode === "title" && "bg-purple-500/10 text-purple-600 border-purple-200 dark:border-purple-900",
+                                            item.mode === "uk" && "bg-emerald-500/10 text-emerald-600 border-emerald-200 dark:border-emerald-900"
                                         )}
                                     >
                                         {item.mode}
@@ -122,7 +114,8 @@ export function HistorySheet({ isOpen, onClose }: HistorySheetProps) {
                                     {item.text}
                                 </p>
                             </div>
-                        ))}
+                        }
+                        )}
 
                     {history && history.length > 0 && (
                         <div className="pt-4 text-center">

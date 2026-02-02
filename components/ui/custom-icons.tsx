@@ -1,6 +1,9 @@
-import React from "react";
+/* eslint-disable react/no-multi-comp */
+import type { JSX } from "react";
 
-export function UsTitleCaseIcon({ className }: { className?: string }) {
+interface IconProps { className?: string }
+
+export function UsTitleCaseIcon({ className }: IconProps): JSX.Element {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +28,7 @@ export function UsTitleCaseIcon({ className }: { className?: string }) {
     );
 }
 
-export function UkSentenceCaseIcon({ className }: { className?: string }) {
+export function UkSentenceCaseIcon({ className }: IconProps): JSX.Element {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

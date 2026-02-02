@@ -1,18 +1,16 @@
 "use client";
 
-import React from "react";
-import { Copy, Clipboard, RemoveFormatting } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Clipboard, Copy, RemoveFormatting } from "lucide-react";
+import { type JSX,useMemo } from "react";
 import { EditorFrame } from "@/components/ui/editor-frame";
-import { countWords, countCharacters } from "@/lib/text-utils";
-import { useHeroEditor, UseHeroEditorProps } from "@/hooks/use-hero-editor";
+import { useHeroEditor, type UseHeroEditorProps } from "@/hooks/use-hero-editor";
+import { countCharacters, countWords } from "@/lib/text-utils";
+import { cn } from "@/lib/utils";
 
-// Retain export for compatibility if needed, or rely on import from hook file.
-// Ideally, we move the props interface to a shared location, but for now we import it.
-// Actually, let's keep it here if it was simpler, but the hook needs it.
-// We'll use the one from the hook.
-
-export function HeroEditor(props: UseHeroEditorProps) {
+/**
+ * Hero Editor component.
+ */
+export function HeroEditor(props: UseHeroEditorProps): JSX.Element {
     const {
         textareaRef,
         text,
@@ -32,11 +30,13 @@ export function HeroEditor(props: UseHeroEditorProps) {
     } = useHeroEditor(props);
 
     // 2026 Metric Memoization (Prevents O(N) thrashing on every re-render)
-    const metrics = React.useMemo(
-        () => ({
-            words: countWords(text),
-            chars: countCharacters(text),
-        }),
+    const metrics = useMemo(
+        () => {
+            return {
+                words: countWords(text),
+                chars: countCharacters(text),
+            };
+        },
         [text]
     );
 
@@ -45,36 +45,39 @@ export function HeroEditor(props: UseHeroEditorProps) {
             isCompact={isCompact}
             isFocused={isFocused}
             hasContent={text.length > 0}
+            headerCenter={null}
             headerLeft={
                 <>
                     <button
-                        onClick={handlePaste}
                         className="ghost-expansion flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md select-none focus:outline-none focus:ring-2 focus:ring-primary"
                         title="Paste from Clipboard"
+                        type="button"
+                        onClick={() => { handlePaste(); }}
                     >
                         <Clipboard className="w-3.5 h-3.5" /> Paste
                     </button>
                     <div className="ghost-expansion w-px h-3 bg-border-subtle/50" />
                     <button
-                        onClick={handleClear}
                         className="ghost-expansion flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-muted hover:text-body hover:bg-elevated/50 rounded-md select-none focus:outline-none focus:ring-2 focus:ring-primary"
                         title="Clear Formatting"
+                        type="button"
+                        onClick={() => { handleClear(); }}
                     >
                         <RemoveFormatting className="w-3.5 h-3.5" /> Clear
                     </button>
                 </>
             }
-            headerCenter={null}
             headerRight={
                 <button
-                    onClick={copyToClipboard}
+                    aria-label={isCopied ? "Text copied to clipboard" : "Copy text to clipboard"}
+                    type="button"
                     className={cn(
                         "ghost-expansion flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-md select-none transition-all duration-300 action-gravity",
                         isCopied
                             ? "bg-victory/20 text-victory shadow-success scale-105"
                             : "text-muted hover:text-body hover:bg-elevated/50"
                     )}
-                    aria-label={isCopied ? "Text copied to clipboard" : "Copy text to clipboard"}
+                    onClick={() => { copyToClipboard().catch((error: unknown) => { console.error("Copy failed", error); }); }}
                 >
                     <div role="status" aria-live="polite" className="flex items-center gap-2">
                         {isCopied ? (
@@ -102,10 +105,11 @@ export function HeroEditor(props: UseHeroEditorProps) {
             footerCenter={
                 <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300">
                     <button
-                        onClick={undo}
                         disabled={!canUndo}
                         className="p-1 px-2 text-muted hover:text-body disabled:opacity-0 rounded-md focus:ring-2 focus:ring-primary transition-colors"
                         aria-label="Undo"
+                        type="button"
+                        onClick={undo}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -124,10 +128,11 @@ export function HeroEditor(props: UseHeroEditorProps) {
                     </button>
                     <div className="w-px h-3 bg-border-subtle/50" />
                     <button
-                        onClick={redo}
                         disabled={!canRedo}
                         className="p-1 px-2 text-muted hover:text-body disabled:opacity-0 rounded-md focus:ring-2 focus:ring-primary transition-colors"
                         aria-label="Redo"
+                        type="button"
+                        onClick={redo}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -174,21 +179,21 @@ export function HeroEditor(props: UseHeroEditorProps) {
             <textarea
                 ref={textareaRef}
                 value={text}
-                onChange={handleTextChange}
-                onKeyDown={handleKeyDown}
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => setIsFocused(false)}
                 placeholder="Type or paste your text to analyse..."
                 aria-label="Text editor for case conversion and hyphenation"
                 aria-multiline="true"
+                spellCheck={false}
+                rows={1}
                 className={cn(
                     "w-full bg-transparent border-none outline-none resize-none text-body font-sans select-text relative z-10 transition-all duration-500 scrollbar-hide auto-grow",
                     isCompact
                         ? "px-4 py-3 pt-8 text-base leading-normal h-16 whitespace-nowrap overflow-hidden"
                         : "px-6 py-4 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[3rem] overflow-hidden"
                 )}
-                spellCheck={false}
-                rows={1}
+                onChange={handleTextChange}
+                onKeyDown={handleKeyDown}
+                onFocus={() => { setIsFocused(true); }}
+                onBlur={() => { setIsFocused(false); }}
             />
         </EditorFrame>
     );

@@ -1,14 +1,13 @@
-"use client";
-
 import { motion } from "framer-motion";
+import type { JSX } from "react";
 
-interface SEOContentSectionProps {
+interface SeoContentSectionProps {
     title: string;
     subtitle?: string;
     children: React.ReactNode;
 }
 
-export function SEOContentSection({ title, subtitle, children }: SEOContentSectionProps) {
+export function SeoContentSection({ title, subtitle, children }: SeoContentSectionProps): JSX.Element {
     return (
         <motion.article
             initial={{ opacity: 0, y: 20 }}

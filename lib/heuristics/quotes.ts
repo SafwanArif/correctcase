@@ -1,5 +1,5 @@
-import { HeuristicProcessor } from "./types";
 import structureData from "@/data/dictionaries/heuristics/structure.json";
+import type { HeuristicProcessor } from "./types";
 
 // Heuristic #8: Direct Speech (Quotes)
 const quoteChars = new Set(structureData.quoteChars);
@@ -12,6 +12,7 @@ export const processQuotes: HeuristicProcessor = (currentWord, i, words, splitPu
     // We need to check the raw prefix for quote marks
     // p.prefix might be `"` or `("` or `“`
     let hasQuote = false;
+
     for (const char of p.prefix) {
         if (quoteChars.has(char)) {
             hasQuote = true;
@@ -19,7 +20,7 @@ export const processQuotes: HeuristicProcessor = (currentWord, i, words, splitPu
         }
     }
 
-    if (!hasQuote) return null;
+    if (!hasQuote) {return null;}
 
     // 2. Check Preceding Context
     // If i=0, it's the start of the file/line -> Capitalize (Default rule handles this usually, but we can force it).
@@ -27,6 +28,7 @@ export const processQuotes: HeuristicProcessor = (currentWord, i, words, splitPu
         // Let default first-word rule handle it?
         // Or consume it here to be safe and explicit.
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
+
         return {
             consumed: 1,
             processedWords: [`${p.prefix}${capitalized}${p.suffix}`],
@@ -42,6 +44,7 @@ export const processQuotes: HeuristicProcessor = (currentWord, i, words, splitPu
     if (triggers.has(lastChar)) {
         // It is Direct Speech
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
+
         return {
             consumed: 1,
             processedWords: [`${p.prefix}${capitalized}${p.suffix}`],
@@ -70,10 +73,11 @@ export const processQuotes: HeuristicProcessor = (currentWord, i, words, splitPu
 
     // Clean punctuation from previous word to check matches
     // "The song," -> "song"
-    const cleanPrev = prev.replace(/[^\w\s]/g, "").toLowerCase();
+    const cleanPrev = prev.replaceAll(/[^\w\s]/g, "").toLowerCase();
 
     if (titleIndicators.has(cleanPrev)) {
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
+
         return {
             consumed: 1,
             processedWords: [`${p.prefix}${capitalized}${p.suffix}`],

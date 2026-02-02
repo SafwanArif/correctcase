@@ -1,15 +1,16 @@
-import { describe, it, expect } from "vitest";
-import { renderHook, act } from "@testing-library/react";
+import { describe, expect, test } from "vitest";
+import { act, renderHook } from "@testing-library/react";
 import { useHistory } from "./use-history";
 
-describe("Logic Core: History Reducer (useHistory)", () => {
-    it("should initialize with default state", () => {
+describe("logic Core: History Reducer (useHistory)", () => {
+    test("should initialize with default state", () => {
         const { result } = renderHook(() => useHistory("Initial"));
+
         expect(result.current.state.present).toBe("Initial");
-        expect(result.current.canUndo).toBe(false);
+        expect(result.current.canUndo).toBeFalsy();
     });
 
-    it("should push new state to history", () => {
+    test("should push new state to history", () => {
         const { result } = renderHook(() => useHistory("First"));
 
         act(() => {
@@ -18,28 +19,28 @@ describe("Logic Core: History Reducer (useHistory)", () => {
         });
 
         expect(result.current.state.present).toBe("Second");
-        expect(result.current.canUndo).toBe(true);
-        expect(result.current.state.past).toEqual(["First"]);
+        expect(result.current.canUndo).toBeTruthy();
+        expect(result.current.state.past).toStrictEqual(["First"]);
     });
 
-    it("should undo and redo correctly", () => {
+    test("should undo and redo correctly", () => {
         const { result } = renderHook(() => useHistory("A"));
 
-        act(() => result.current.update("B"));
-        act(() => result.current.update("C"));
+        act(() => { result.current.update("B"); });
+        act(() => { result.current.update("C"); });
 
         expect(result.current.state.present).toBe("C");
 
         // UNDO -> B
-        act(() => result.current.undo());
+        act(() => { result.current.undo(); });
         expect(result.current.state.present).toBe("B");
 
         // UNDO -> A
-        act(() => result.current.undo());
+        act(() => { result.current.undo(); });
         expect(result.current.state.present).toBe("A");
 
         // REDO -> B
-        act(() => result.current.redo());
+        act(() => { result.current.redo(); });
         expect(result.current.state.present).toBe("B");
     });
 });

@@ -1,5 +1,5 @@
-import { HeuristicProcessor } from "./types";
 import structureData from "@/data/dictionaries/heuristics/structure.json";
+import type { HeuristicProcessor } from "./types";
 
 // Heuristic #9: Structure (Colons & Bullets)
 const bullets = new Set(structureData.bullets);
@@ -13,7 +13,7 @@ const bullets = new Set(structureData.bullets);
 const bulletPatterns = structureData.bulletRegex.map((p) => new RegExp(p));
 
 export const processStructure: HeuristicProcessor = (currentWord, i, words, splitPunctuation) => {
-    if (i === 0) return null; // First word is handled by default rule
+    if (i === 0) {return null;} // First word is handled by default rule
 
     const prev = words[i - 1];
 
@@ -22,6 +22,7 @@ export const processStructure: HeuristicProcessor = (currentWord, i, words, spli
     if (bullets.has(prev) || bulletPatterns.some((regex) => regex.test(prev))) {
         const p = splitPunctuation(currentWord);
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
+
         return {
             consumed: 1,
             processedWords: [`${p.prefix}${capitalized}${p.suffix}`],
@@ -36,6 +37,7 @@ export const processStructure: HeuristicProcessor = (currentWord, i, words, spli
     if (i === 1 && prev.endsWith(":")) {
         const p = splitPunctuation(currentWord);
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
+
         return {
             consumed: 1,
             processedWords: [`${p.prefix}${capitalized}${p.suffix}`],

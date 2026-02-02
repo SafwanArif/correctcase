@@ -1,27 +1,35 @@
-import storybook from "eslint-plugin-storybook";
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import sheriff from "eslint-config-sheriff";
+import { defineFlatConfig } from "eslint-define-config"; // Recommended by Sheriff for TS support in JS
 
-const eslintConfig = defineConfig([
+export default defineFlatConfig([
+    ...sheriff({
+        react: true,
+        next: true,
+        lodash: false,
+        playwright: false,
+        jest: false,
+        vitest: true,
+    }),
     {
-        ignores: [
-            "**/.next/**",
-            "**/out/**",
-            "**/dist/**",
-            "**/node_modules/**",
-            "**/coverage/**",
-            "**/public/**",
-            "**/*.min.js",
-            "**/*.d.ts",
-            "**/scripts/**",
-            "lint-log.txt",
-            "lint.txt"
-        ],
+        files: ["**/*.{ts,tsx}"],
+        rules: {
+            "react/no-unescaped-entities": "error",
+            "react-hooks/exhaustive-deps": "warn",
+            "@next/next/no-page-custom-font": "off",
+            "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+        },
     },
-    ...nextVitals,
-    ...nextTs,
-    ...storybook.configs["flat/recommended"],
+    // Next.js specific ignores often needed
+    {
+        ignores: [".next/*", "out/*", "public/*", "node_modules/*"],
+    },
+    // Storybook overrides
+    {
+        files: ["stories/**/*"],
+        rules: {
+            "jsdoc/require-description-complete-sentence": "off",
+            "react/no-unknown-property": "off",
+            "@typescript-eslint/naming-convention": "off",
+        },
+    },
 ]);
-
-export default eslintConfig;

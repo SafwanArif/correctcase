@@ -1,7 +1,10 @@
-import { HeuristicProcessor } from "./types";
 import structureData from "@/data/dictionaries/heuristics/structure.json";
+import type { HeuristicProcessor } from "./types";
 
-const pronouns = new Set(structureData.pronouns); // "i"
+/**
+ * "i".
+ */
+const pronouns = new Set(structureData.pronouns); 
 
 export const processPronouns: HeuristicProcessor = (currentWord, i, words, splitPunctuation) => {
     const p = splitPunctuation(currentWord);

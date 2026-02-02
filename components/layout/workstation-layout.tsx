@@ -1,16 +1,18 @@
 "use client";
 
-import { Shell } from "@/components/layout/shell";
+/* eslint-disable react/no-multi-comp */
+import type { JSX } from "react";
 import { HistorySheet } from "@/components/features/history-sheet";
+import { Shell } from "@/components/layout/shell";
 import { ScrollProvider, useScroll } from "@/components/providers/scroll-provider";
-import { useUI } from "@/components/providers/ui-provider";
+import { useUi } from "@/components/providers/ui-provider";
 
 interface WorkstationLayoutProps {
     children: React.ReactNode;
 }
 
-function WorkstationInternal({ children }: WorkstationLayoutProps) {
-    const { isHistoryOpen, closeHistory } = useUI();
+function WorkstationInternal({ children }: WorkstationLayoutProps): JSX.Element {
+    const { isHistoryOpen, closeHistory } = useUi();
     const { setScrollTop } = useScroll();
 
     return (
@@ -18,7 +20,7 @@ function WorkstationInternal({ children }: WorkstationLayoutProps) {
             {/* Full-width Integrated Content Area */}
             <div
                 className="flex-1 w-full relative block sm:flex sm:flex-col scroll-smooth"
-                onScroll={(e) => setScrollTop(e.currentTarget.scrollTop)}
+                onScroll={(e) => { setScrollTop(e.currentTarget.scrollTop); }}
             >
                 {children}
             </div>
@@ -29,7 +31,7 @@ function WorkstationInternal({ children }: WorkstationLayoutProps) {
     );
 }
 
-export function WorkstationLayout(props: WorkstationLayoutProps) {
+export function WorkstationLayout(props: WorkstationLayoutProps): JSX.Element {
     return (
         <Shell>
             <ScrollProvider>
@@ -37,4 +39,4 @@ export function WorkstationLayout(props: WorkstationLayoutProps) {
             </ScrollProvider>
         </Shell>
     );
-}
+};

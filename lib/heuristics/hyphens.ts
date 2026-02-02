@@ -1,5 +1,5 @@
-import { SENTENCE_CASE_EXCEPTIONS_MAP } from "@/lib/dictionaries";
-import { HeuristicProcessor } from "./types";
+import { sentenceCaseExceptionsMap } from "@/lib/dictionaries";
+import type { HeuristicProcessor } from "./types";
 
 // Heuristic #3: Hyphen Handshake
 // Logic: If a word is hyphenated, check each part against the dictionary.
@@ -15,18 +15,20 @@ export const processHyphens: HeuristicProcessor = (currentWord, i, words, splitP
     }
 
     const parts = lowerKey.split("-");
-    let wasModified = false;
+    let isModified = false;
 
-    // Check each part against the Exception Map
-    const partsRecovered = parts.map((part) => {
-        if (SENTENCE_CASE_EXCEPTIONS_MAP.has(part)) {
-            wasModified = true;
-            return SENTENCE_CASE_EXCEPTIONS_MAP.get(part)!;
+    const partsRecovered = [];
+
+    for (const part of parts) {
+        if (sentenceCaseExceptionsMap.has(part)) {
+            isModified = true;
+            partsRecovered.push(sentenceCaseExceptionsMap.get(part) ?? part);
+        } else {
+            partsRecovered.push(part);
         }
-        return part;
-    });
+    }
 
-    if (wasModified || i === 0) {
+    if (isModified || i === 0) {
         // Reconstruct
         const reconstructed = partsRecovered.join("-");
         let final = reconstructed;

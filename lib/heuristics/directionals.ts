@@ -1,6 +1,6 @@
-import { SENTENCE_CASE_EXCEPTIONS_MAP } from "@/lib/dictionaries";
-import { HeuristicProcessor } from "./types";
 import directionalsData from "@/data/dictionaries/heuristics/directionals.json";
+import { sentenceCaseExceptionsMap } from "@/lib/dictionaries";
+import type { HeuristicProcessor } from "./types";
 
 // Capitalize 'North', 'West', 'River', etc. if followed immediately by a Proper Noun.
 const classifiers = new Set(directionalsData.classifiers);
@@ -24,9 +24,10 @@ export const processDirectionals: HeuristicProcessor = (
     if (i < words.length - 1) {
         const nextP = splitPunctuation(words[i + 1]);
         let nextKey = nextP.word.toLowerCase();
-        if (nextKey.endsWith("'s")) nextKey = nextKey.slice(0, -2);
 
-        if (SENTENCE_CASE_EXCEPTIONS_MAP.has(nextKey)) {
+        if (nextKey.endsWith("'s")) { nextKey = nextKey.slice(0, -2); }
+
+        if (sentenceCaseExceptionsMap.has(nextKey)) {
             shouldCapitalize = true;
         }
     }
@@ -35,19 +36,21 @@ export const processDirectionals: HeuristicProcessor = (
     // Capitalize direction if it refers to a specific Proper Noun region.
     if (!shouldCapitalize && i < words.length - 2) {
         const nextP = splitPunctuation(words[i + 1]);
+
         if (nextP.word.toLowerCase() === "of") {
             const targetP = splitPunctuation(words[i + 2]);
             const targetKey = targetP.word.toLowerCase();
 
             // Check "Direction of Proper"
-            if (SENTENCE_CASE_EXCEPTIONS_MAP.has(targetKey)) {
+            if (sentenceCaseExceptionsMap.has(targetKey)) {
                 shouldCapitalize = true;
             }
             // Check "Direction of the Proper"
             else if (targetKey === "the" && i < words.length - 3) {
                 const deepTargetP = splitPunctuation(words[i + 3]);
                 const deepKey = deepTargetP.word.toLowerCase();
-                if (SENTENCE_CASE_EXCEPTIONS_MAP.has(deepKey)) {
+
+                if (sentenceCaseExceptionsMap.has(deepKey)) {
                     shouldCapitalize = true;
                 }
             }
@@ -56,6 +59,7 @@ export const processDirectionals: HeuristicProcessor = (
 
     if (shouldCapitalize) {
         const capitalized = p.word.charAt(0).toUpperCase() + p.word.slice(1).toLowerCase();
+
         return {
             consumed: 1,
             processedWords: [`${p.prefix}${capitalized}${p.suffix}`],

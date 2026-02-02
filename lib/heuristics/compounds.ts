@@ -1,5 +1,5 @@
-import { COMPOUNDS_LOOKUP_MAP } from "@/lib/dictionaries";
-import { HeuristicProcessor } from "./types";
+import { compoundsLookupMap } from "@/lib/dictionaries";
+import type { HeuristicProcessor } from "./types";
 
 // Heuristic #0: Compound Words & Lookahead
 // Checks if current + next words form a known compound (e.g., "Smart LED", "North-East").
@@ -11,13 +11,12 @@ export const processCompounds: HeuristicProcessor = (currentWord, i, words, spli
     const MAX_LOOKAHEAD = 3;
 
     // Fast fail: if current word isn't the start of ANY compound (optimization todo)
-    // For now, we build the candidates on the fly.
-
-    let bestMatch: { consumed: number; text: string } | null = null;
+    interface BestMatch { consumed: number; text: string }
+    let bestMatch: BestMatch | null = null;
 
     // Try largest matches first (greedy)
-    for (let len = 0; len < MAX_LOOKAHEAD; len++) {
-        if (i + len >= words.length) break;
+    for (let len = 0; len < MAX_LOOKAHEAD; len = len + 1) {
+        if (i + len >= words.length) { break; }
 
         const slice = words.slice(i, i + len + 1);
 
@@ -33,20 +32,22 @@ export const processCompounds: HeuristicProcessor = (currentWord, i, words, spli
 
         // Construct the candidate core string
         let core = firstP.word;
+
         if (len > 0) {
             // Middle words are taken as-is (assuming no internal punctuation besides hyphens/spaces)
             // But we should probably use the raw words for the middle?
             // "Smart LED" -> ["Smart", "LED"]
 
             const middle = slice.slice(1, len).map((w) => w);
+
             // The last word also needs stripped punctuation
-            core += " " + middle.join(" ") + (middle.length > 0 ? " " : "") + lastP.word;
+            core = `${core} ${middle.join(" ")}${middle.length > 0 ? " " : ""}${lastP.word}`;
         }
 
         const lowerKey = core.toLowerCase();
 
-        if (COMPOUNDS_LOOKUP_MAP.has(lowerKey)) {
-            const definedCasing = COMPOUNDS_LOOKUP_MAP.get(lowerKey)!;
+        if (compoundsLookupMap.has(lowerKey)) {
+            const definedCasing = compoundsLookupMap.get(lowerKey) ?? "";
 
             // Re-assemble with punctuation
             // Note: If the dictionary entry is "North-East", we accept "north-east" or "North East" or "north east"

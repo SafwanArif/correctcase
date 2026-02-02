@@ -1,0 +1,16 @@
+﻿
+> correct-case@0.1.0 lint
+> eslint app components lib hooks data stories --max-warnings 0
+
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\app\(main)\capitalise-title\[variant]\page.tsx
+  55:14  error  Unnecessary conditional, value is always truthy  @typescript-eslint/no-unnecessary-condition
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\features\editor-toolbar.tsx
+  8:10  error  'useEditor' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\safwa\.gemini\antigravity\scratch\correct-case\components\features\hero-editor.tsx
+  4:8  error  'React' is defined but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 3 problems (3 errors, 0 warnings)
+

@@ -1,14 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield } from "lucide-react";
-import { Zap } from "lucide-react";
-import { Target } from "lucide-react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Shield, Target, Zap } from "lucide-react";
 import Link from "next/link";
+import type { JSX } from "react";
 import { ComplianceBadges } from "@/components/ui/compliance-badges";
 
-const PILLARS = [
+const pillars = [
     {
         icon: <Shield className="w-6 h-6 text-obsidian-cobalt" />,
         title: "Clinical Privacy",
@@ -29,7 +27,7 @@ const PILLARS = [
     },
 ];
 
-export function BenefitSection() {
+export function BenefitSection(): JSX.Element {
     return (
         <section className="w-full py-24 sm:py-32 px-4 flex flex-col items-center bg-transparent">
             <div className="max-w-5xl w-full">
@@ -53,9 +51,9 @@ export function BenefitSection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {PILLARS.map((pillar, idx) => (
-                        <motion.div
-                            key={idx}
+                    {pillars.map((pillar) => {
+                        return <motion.div
+                            key={pillar.title}
                             whileHover={{ y: -8 }}
                             className="p-6 sm:p-8 rounded-2xl border border-border-subtle/40 bg-surface/30 backdrop-blur-sm hover:bg-elevated/40 hover:border-border-subtle/60 transition-all duration-200 group min-h-[240px] flex flex-col"
                         >
@@ -75,7 +73,8 @@ export function BenefitSection() {
                                 Explore tool <ArrowRight className="w-3 h-3" />
                             </Link>
                         </motion.div>
-                    ))}
+                    }
+                    )}
                 </div>
             </div>
         </section>
