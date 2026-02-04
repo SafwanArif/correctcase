@@ -190,8 +190,8 @@ export function HeroEditor(props: UseHeroEditorProps): JSX.Element {
                 className={cn(
                     "w-full bg-transparent border-none outline-none resize-none text-body font-sans select-text relative z-10 transition-all duration-500 scrollbar-hide auto-grow",
                     isCompact
-                        ? "px-4 py-3 pt-8 text-base leading-normal h-16 whitespace-nowrap overflow-hidden"
-                        : "px-6 py-4 text-lg leading-relaxed placeholder:text-muted h-auto min-h-[3rem] overflow-hidden"
+                        ? "px-0 py-3 pt-6 text-base leading-normal h-14 whitespace-nowrap overflow-hidden text-center"
+                        : "px-0 py-2 text-xl leading-relaxed placeholder:text-muted h-auto min-h-[4rem] overflow-hidden"
                 )}
                 onChange={handleTextChange}
                 onKeyDown={handleKeyDown}

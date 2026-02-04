@@ -64,8 +64,8 @@ export function EditorFrame({
             layout
             initial={false}
             className={cn(
-                "w-full max-w-4xl mx-auto flex flex-col border border-border-subtle/30 rounded-3xl bg-surface/40 backdrop-blur-3xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)] relative transition-all duration-700 group",
-                isCompact ? "scale-95 opacity-90 shadow-none border-transparent py-2" : "py-4",
+                "w-full max-w-4xl mx-auto flex flex-col border border-border-subtle/30 rounded-[2rem] bg-surface/40 backdrop-blur-3xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)] relative transition-all duration-700 group overflow-hidden",
+                isCompact ? "scale-95 opacity-90 shadow-none border-transparent py-0" : "py-0",
                 isFocused ? "border-primary/40 shadow-primary/10" : "hover:border-primary/20",
                 className
             )}
@@ -73,18 +73,18 @@ export function EditorFrame({
             onMouseLeave={onMouseLeave}
         >
             {/* Ambient Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-victory-emerald/5 pointer-events-none rounded-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-victory-emerald/5 pointer-events-none rounded-[2rem]" />
 
-            {/* Header Slot */}
+            {/* Header Slot (Inside) */}
             {(headerLeft !== undefined || headerCenter !== undefined || headerRight !== undefined) && (
-                <div className="px-6 py-3 flex items-center justify-between border-b border-border-subtle/30 relative z-20">
+                <div className="px-8 pt-4 pb-2 flex items-center justify-between relative z-20">
                     <div className="flex items-center gap-2">{headerLeft}</div>
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">{headerCenter}</div>
                     <div className="flex items-center gap-2">{headerRight}</div>
                 </div>
             )}
 
-            <div className="relative z-10 flex flex-col flex-grow">
+            <div className="relative z-10 flex flex-col flex-grow px-2">
                 {children}
 
                 {/* Empty State Overlay */}
@@ -98,9 +98,9 @@ export function EditorFrame({
                 )}
             </div>
 
-            {/* Footer Slot */}
+            {/* Footer Slot (Inside) */}
             {(footerLeft !== undefined || footerCenter !== undefined || footerRight !== undefined) && (
-                <div className="px-6 py-3 mt-auto flex items-center justify-between border-t border-border-subtle/30 relative z-20">
+                <div className="px-8 pb-4 pt-2 mt-auto flex items-center justify-between relative z-20">
                     <div className="flex items-center gap-2">{footerLeft}</div>
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">{footerCenter}</div>
                     <div className="flex items-center gap-2">{footerRight}</div>
