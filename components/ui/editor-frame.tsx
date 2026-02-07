@@ -64,7 +64,7 @@ export function EditorFrame({
             layout
             initial={false}
             className={cn(
-                "w-full max-w-4xl mx-auto flex flex-col border border-border-subtle/30 rounded-[2.5rem] bg-surface/40 backdrop-blur-3xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)] relative transition-all duration-700 group overflow-hidden",
+                "w-full max-w-4xl mx-auto flex flex-col border border-border-subtle/30 rounded-[2.5rem] bg-surface/40 backdrop-blur-3xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)] relative transition-all duration-700 group overflow-hidden isolation-auto",
                 isCompact ? "scale-95 opacity-90 shadow-none py-0" : "py-0",
                 isFocused ? "border-primary/40 shadow-primary/10" : "hover:border-primary/20",
                 className
@@ -72,8 +72,8 @@ export function EditorFrame({
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            {/* Ambient Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-victory-emerald/5 pointer-events-none rounded-[2.5rem]" />
+            {/* Ambient Background Glow - Strictly Rounded */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-victory-emerald/5 pointer-events-none rounded-[2.5rem] overflow-hidden" />
 
             {/* Header Slot (Inside) */}
             {(headerLeft !== undefined || headerCenter !== undefined || headerRight !== undefined) && (

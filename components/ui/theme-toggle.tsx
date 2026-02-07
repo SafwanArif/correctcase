@@ -24,7 +24,7 @@ export function ThemeToggle(): React.JSX.Element {
     return (
         <button
             type="button"
-            className="relative w-[52px] h-[28px] rounded-full transition-colors duration-500 ease-out-expo focus:outline-none focus:visible:ring-2 focus-visible:ring-primary shadow-inner overflow-hidden flex items-center bg-surface border border-border-subtle"
+            className="relative w-[52px] h-[28px] rounded-full transition-colors duration-500 ease-out-expo focus:outline-none focus:visible:ring-2 focus-visible:ring-primary shadow-inner overflow-hidden flex items-center bg-surface border-2 border-primary/20 cursor-pointer hover:border-primary/50"
             aria-label="Toggle Theme"
             onClick={() => { setTheme(isDark ? "light" : "dark"); }}
         >
@@ -34,9 +34,9 @@ export function ThemeToggle(): React.JSX.Element {
             {/* The Sliding Pill */}
             <div
                 className={cn(
-                    "w-[24px] h-[24px] rounded-full shadow-sm flex items-center justify-center relative z-10",
-                    "bg-elevated border border-border-subtle toggle-spring transform",
-                    isDark ? "translate-x-[26px]" : "translate-x-0"
+                    "w-[20px] h-[20px] rounded-full shadow-sm flex items-center justify-center relative z-10",
+                    "bg-elevated border border-primary/20 toggle-spring transform pointer-events-none",
+                    isDark ? "translate-x-[26px]" : "translate-x-[2px]"
                 )}
             >
                 {isDark ? (

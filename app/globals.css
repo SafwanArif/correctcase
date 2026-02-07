@@ -148,6 +148,10 @@
     box-shadow: 0 20px 50px -12px oklch(0% 0 0deg / 0.15);
 }
 
+@utility toggle-spring {
+    transition: transform 0.5s var(--ease-spring);
+}
+
 /* Custom Scroll Handling */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -160,6 +164,7 @@
 
 /* 2026 INCLUSIVE STANDARDS */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     ::before,
     ::after {
